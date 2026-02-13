@@ -9,7 +9,8 @@ readme = 'README.md'
 requires-python = '>=3.13,<4.0'
 dependencies = [
     'taskipy (>=1.14.1,<2.0.0)',
-    "python-dotenv (>=1.2.1,<2.0.0)"
+    "python-dotenv (>=1.2.1,<2.0.0)",
+    "etl-cli @ file:///home/m7522667%40ca.intra/code/splor-mg/etl-cli"
 ]
 
 
@@ -20,6 +21,8 @@ upstream = 'https://github.com/ziguraty/repo-template-python.git'
 package-mode = false
 
 
+[tool.poetry.dependencies]
+etl-cli = {develop = true}
 [build-system]
 requires = ['poetry-core>=2.0.0,<3.0.0']
 build-backend = 'poetry.core.masonry.api'
