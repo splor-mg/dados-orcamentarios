@@ -1,0 +1,40 @@
+fields:
+  - name: Ano de Exercício
+    type: integer
+    target: ano
+  - name: Mês - Numérico
+    type: integer
+    target: mes_cod
+  - name: Ano Origem Folha Pagamento
+    type: integer
+    target: ano_rp_folha
+  - name: Unidade Orçamentária - Código
+    type: integer
+    target: uo_cod
+  - name: Grupo Despesa - Código
+    type: integer
+    target: grupo_cod
+  - name: Modalidade Aplicação - Código
+    type: integer
+    target: modalidade_cod
+  - name: Identificador Orçamento - Código
+    type: integer
+    target: iag_cod
+  - name: Fonte Recurso - Código
+    type: integer
+    target: fonte_cod
+  - name: Procedência - Código
+    type: integer
+    target: ipu_cod
+  - name: Valor Inscrito Folha
+    type: number
+    target: vlr_inscrito_folha
+  - name: Valor Anulado Folha
+    type: number
+    target: vlr_anulado_folha
+  - name: Valor Pago Folha
+    type: number
+    target: vlr_pago_folha
+  - name: Valor Despesa Liquidada a Pagar - Folha
+    type: number
+    target: vlr_despesa_liquidada_pagar_folha

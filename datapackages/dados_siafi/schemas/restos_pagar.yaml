@@ -1,0 +1,136 @@
+fields:
+  - name: Ano de Exercício
+    type: integer
+    target: ano
+  - name: Ano Origem Restos a Pagar
+    type: integer
+    target: ano_rp
+  - name: Mês - Numérico
+    type: integer
+    target: mes_cod
+  - name: Unidade Orçamentária - Código
+    type: integer
+    target: uo_cod
+  - name: Unidade Executora - Código
+    type: integer
+    target: ue_cod
+  - name: Unid Orçam Financiadora Gasto - Cod
+    type: integer
+    target: uo_fin_cod
+  - name: Unid Programação Gasto - Código
+    type: integer
+    target: upg_cod
+  - name: Função - Código
+    type: integer
+    target: funcao_cod
+  - name: Projeto_Atividade - Código
+    type: integer
+    target: acao_cod
+  - name: Grupo Despesa - Código
+    type: integer
+    target: grupo_cod
+  - name: Modalidade Aplicação - Código
+    type: integer
+    target: modalidade_cod
+  - name: Identificador Orçamento - Código
+    type: integer
+    target: iag_cod
+  - name: Fonte Recurso - Código
+    type: integer
+    target: fonte_cod
+  - name: Procedência - Código
+    type: integer
+    target: ipu_cod
+  - name: Elemento Despesa - Código
+    type: integer
+    target: elemento_cod
+  - name: Item Despesa - Código
+    type: integer
+    target: item_cod
+  - name: Elemento origem DEA
+    type: integer
+    target: elemento_dea_cod
+  - name: Item origem DEA
+    type: integer
+    target: item_dea_cod
+  - name: Elemento Item Despesa - Código
+    type: integer
+    target: elemento_item_cod
+  - name: Número Empenho
+    type: integer
+    target: num_empenho
+  - name: CNPJ_CPF Credor - Formatado
+    type: string
+    target: cnpj_cpf_formatado
+  - name: Razão Social Credor
+    type: string
+    target: razao_social_credor
+  - name: ContratoConvênio Entrada
+    type: integer
+    target: num_contrato_entrada
+  - name: ContratoConvênio Saída
+    type: integer
+    target: num_contrato_saida
+  - name: Número Obra
+    type: integer
+    target: num_obra
+  - name: Número Processo Compra SIAD
+    type: string
+    target: num_processo_compra
+  - name: Valor Inscrito Não Processado
+    type: number
+    target: vlr_inscrito_rpnp
+  - name: Valor Cancelado Não Processado
+    type: number
+    target: vlr_cancelado_rpnp
+  - name: Valor Restabelecido Não Processado
+    type: number
+    target: vlr_restabelecido_rpnp
+  - name: Valor Despesa Liquidada
+    type: number
+    target: vlr_despesa_liquidada_rpnp
+  - name: Valor Despesa Liquidada a Pagar
+    type: number
+    target: vlr_despesa_liquidada_pagar
+  - name: Saldo Restos a Pagar Processado
+    type: number
+    target: vlr_saldo_rpp
+  - name: Saldo Restos a Pagar Não Processado
+    type: number
+    target: vlr_saldo_rpnp
+  - name: Valor Inscrito Processado
+    type: number
+    target: vlr_inscrito_rpp
+  - name: Valor Cancelado Processado
+    type: number
+    target: vlr_cancelado_rpp
+  - name: Valor Desconto Processado
+    type: number
+    target: vlr_desconto_rpp
+  - name: Valor Restabelecido Processado
+    type: number
+    target: vlr_restabelecido_rpp
+  - name: Valor Pago Processado
+    type: number
+    target: vlr_pago_rpp
+  - name: Valor Anulação Pagamento Processado
+    type: number
+    target: vlr_anulacao_pagamento_rpp
+  - name: Valor Retenção Processado
+    type: number
+    target: vlr_retencao_rpp
+  - name: Valor Anulação Retenção Processado
+    type: number
+    target: vlr_anulacao_retencao_rpp
+  - name: Valor Anulação Pago Antecipado
+    type: number
+    target: vlr_anulacao_pago_antecipado
+  - name: Valor Pago Antecipado Exercício
+    type: number
+    target: vlr_pago_antecipado_exercicio
+  - name: Valor Pago Não Processado
+    type: number
+    target: vlr_pago_rpnp
+  - name: Valor Retenção Não Processado
+    type: number
+    target: vlr_retencao_rpnp

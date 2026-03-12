@@ -1,0 +1,114 @@
+name: dados_siafi
+title: Sistema Integrado de Administração Financeira – SIAFI 2026
+owner_org: secretaria-de-estado-de-planejamento-e-gestao-seplag
+resources:
+  - name: credito
+    type: table
+    path: 'data_raw/credito.csv'
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect: schemas/dialect.yaml
+    schema: schemas/credito.yaml
+    dpetl_extract:
+      mode: email
+      mailbox: '[Gmail]/Trash'
+
+  - name: execucao
+    type: table
+    path: ['data_raw/execucao_01.csv', 'data_raw/execucao_02.csv','data_raw/execucao_03.csv',
+    'data_raw/execucao_04.csv', 'data_raw/execucao_05.csv', 'data_raw/execucao_06.csv',
+    'data_raw/execucao_07.csv', 'data_raw/execucao_08.csv', 'data_raw/execucao_09.csv',
+    'data_raw/execucao_10.csv','data_raw/execucao_11.csv', 'data_raw/execucao_12.csv']
+    scheme: multipart
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect: schemas/dialect.yaml
+    schema: schemas/execucao.yaml
+    dpetl_extract:
+      mode: email
+      mailbox: '[Gmail]/Trash'
+
+
+  - name: cota
+    type: table
+    path: 'data_raw/cota.csv'
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect: schemas/dialect.yaml
+    schema: schemas/cota.yaml
+    dpetl_extract:
+      mode: email
+      mailbox: '[Gmail]/Trash'
+
+  - name: receita
+    type: table
+    path: 'data_raw/receita.csv'
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect: schemas/dialect.yaml
+    schema: schemas/receita.yaml
+    dpetl_extract:
+      mode: email
+      mailbox: '[Gmail]/Trash'
+
+  - name: alteracoes_orcamentarias
+    type: table
+    path: 'data_raw/alteracoes_orcamentarias.csv'
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect: schemas/dialect.yaml
+    schema: schemas/alteracoes_orcamentarias.yaml
+    dpetl_extract:
+      mode: email
+      mailbox: '[Gmail]/Trash'
+
+  - name: restos_pagar
+    type: table
+    path: ['data_raw/restos_pagar_01_01.csv', 'data_raw/restos_pagar_01_02.csv', 'data_raw/restos_pagar_01_03.csv', 'data_raw/restos_pagar_02.csv','data_raw/restos_pagar_03.csv',
+    'data_raw/restos_pagar_04.csv', 'data_raw/restos_pagar_05.csv', 'data_raw/restos_pagar_06.csv',
+    'data_raw/restos_pagar_07.csv', 'data_raw/restos_pagar_08.csv', 'data_raw/restos_pagar_09.csv',
+    'data_raw/restos_pagar_10.csv','data_raw/restos_pagar_11.csv', 'data_raw/restos_pagar_12.csv']
+    scheme: multipart
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect: schemas/dialect.yaml
+    schema: schemas/restos_pagar.yaml
+    dpetl_extract:
+      mode: email
+      mailbox: '[Gmail]/Trash'
+
+  - name: restos_pagar_folha
+    type: table
+    path: ['data_raw/restos_pagar_folha_01.csv', 'data_raw/restos_pagar_folha_02.csv']
+    scheme: multipart
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect: schemas/dialect.yaml
+    schema: schemas/restos_pagar_folha.yaml
+    dpetl_extract:
+      mode: email
+      mailbox: '[Gmail]/Trash'
+
+  - name: execucao_alem_credito
+    type: table
+    path: 'data_raw/execucao_alem_credito.csv'
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect: schemas/dialect.yaml
+    schema: schemas/execucao_alem_credito.yaml
+    dpetl_extract:
+      mode: email
+      mailbox: '[Gmail]/Trash'

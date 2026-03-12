@@ -1,0 +1,37 @@
+fields:
+  - name: Ano de Exercício
+    type: integer
+    target: ano
+  - name: Mês - Numérico
+    type: integer
+    target: mes_cod
+  - name: Unidade Orçamentária - Código
+    type: integer
+    target: uo_cod
+  - name: Fonte Recurso - Código
+    type: integer
+    target: fonte_cod
+  - name: Classificação Receita - Código
+    type: integer
+    target: receita_cod
+  - name: Classificação Receita - Descrição
+    type: string
+    target: receita_desc
+  - name: Classificação Receita - Formatado
+    type: string
+    target: receita_cod_formatado
+  - name: Valor Previsto Inicial
+    type: number
+    target: vlr_previsto_inicial
+  - name: Valor Previsto Adicional
+    type: number
+    target: vlr_previsto_adicional
+  - name: Valor Previsto Atualizado
+    type: number
+    target: vlr_previsto_atualizado
+  - name: Valor Contabilizado
+    type: number
+    target: vlr_contabilizado
+  - name: Valor Efetivado Ajustado
+    type: number
+    target: vlr_efetivado_ajustado

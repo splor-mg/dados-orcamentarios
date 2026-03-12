@@ -1,0 +1,69 @@
+fields:
+  - name: Ano de Exercício
+    type: integer
+    target: ano
+  - name: Mês - Numérico
+    type: integer
+    target: mes_cod
+  - name: Publicação Decreto Alteração Orçam
+    type: datetime
+    format: '%Y/%m/%d %H:%M:%S'
+    target: data_publicacao
+  - name: Data Registro Doc AlterOrçam
+    type: datetime
+    format: '%Y/%m/%d %H:%M:%S'
+    target: data_registro
+  - name: Decreto Alteração Orçamentária
+    type: integer
+    target: decreto_num
+  - name: Lei Aprovação Orçamento
+    type: integer
+    target: lei_aprovacao
+  - name: Poder Unid Orçamentária - Código
+    type: integer
+    target: poder_cod
+  - name: Unidade Orçamentária - Código
+    type: integer
+    target: uo_cod
+  - name: Função - Código
+    type: integer
+    target: funcao_cod
+  - name: Programa - Código
+    type: integer
+    target: programa_cod
+  - name: Projeto_Atividade - Código
+    type: integer
+    target: acao_cod
+  - name: Grupo Despesa - Código
+    type: integer
+    target: grupo_cod
+  - name: Modalidade Aplicação - Código
+    type: integer
+    target: modalidade_cod
+  - name: Identificador Orçamento - Código
+    type: integer
+    target: iag_cod
+  - name: Fonte Recurso - Código
+    type: integer
+    target: fonte_cod
+  - name: Procedência - Código
+    type: integer
+    target: ipu_cod
+  - name: Crédito Adicional - Código
+    type: integer
+    target: origem_credito_cod
+  - name: Crédito Adicional - Descrição
+    type: string
+    target: origem_credito_desc
+  - name: Valor Suplementação
+    type: number
+    target: vlr_suplementacao
+  - name: Valor Anulação Crédito
+    type: number
+    target: vlr_anulacao
+  - name: Valor Crédito Inicial
+    type: number
+    target: vlr_credito_inicial
+  - name: Valor Crédito Autorizado
+    type: number
+    target: vlr_credito_autorizado

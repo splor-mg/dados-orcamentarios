@@ -1,0 +1,41 @@
+fields:
+  - name: Ano de Exercício
+    type: integer
+  - name: Mês - Numérico
+    type: integer
+  - name: Mês/Ano - Numérico
+    type: string
+  - name: Unidade Orçamentária - Código
+    type: integer
+  - name: Unidade Orçamentária - Sigla
+    type: string
+  - name: Valor Despesa Empenhada
+    type: number
+  - name: Grupo Despesa - Código
+    type: integer
+  - name: Elemento Despesa - Código
+    type: integer
+  - name: Elemento Despesa - Descrição
+    type: string
+  - name: Elemento Item Despesa - Código
+    type: integer
+  - name: Elemento Item Despesa - Descrição
+    type: string
+  - name: Modalidade Aplicação - Código
+    type: integer
+  - name: Modalidade Aplicação - Descrição
+    type: string
+  - name: Projeto_Atividade - Código
+    type: integer
+  - name: Projeto_Atividade - Descrição
+    type: string
+  - name: Função - Código
+    type: integer
+  - name: Fonte Recurso - Código
+    type: integer
+  - name: Procedência - Código
+    type: integer
+  - name: Valor Despesa Realizada
+    type: number
+  - name: Identificador Orçamento - Código
+    type: integer

@@ -1,0 +1,58 @@
+fields:
+  - name: Ano de Exercício
+    type: integer
+    target: ano
+  - name: Poder Unid Orçamentária - Código
+    type: integer
+    target: poder_cod
+  - name: Unidade Orçamentária - Código
+    type: integer
+    target: uo_cod
+  - name: Unidade Executora - Código
+    type: integer
+    target: ue_cod
+  - name: Projeto_Atividade - Código
+    type: integer
+    target: acao_cod
+  - name: Grupo Despesa - Código
+    type: integer
+    target: grupo_cod
+  - name: Modalidade Aplicação - Código
+    type: integer
+    target: modalidade_cod
+  - name: Identificador Orçamento - Código
+    type: integer
+    target: iag_cod
+  - name: Fonte Recurso - Código
+    type: integer
+    target: fonte_cod
+  - name: Procedência - Código
+    type: integer
+    target: ipu_cod
+  - name: Elemento_Item Despesa - Código
+    type: integer
+    target: elemento_item_cod
+  - name: Data Registro Doc CotaAprov
+    type: string
+    target: data_registro_cota
+  - name: Operador - Registro
+    type: string
+    target: operador_registro
+  - name: Operador - Cancelamento
+    type: string
+    target: operador_cancelamento
+  - name: Documento Aprovação Cota
+    type: number
+    target: documento_aprovacao_cota
+  - name: Valor Cota Aprovada
+    type: number
+    target: vlr_cota_aprovada
+  - name: Valor Cota Cancelada
+    type: number
+    target: vlr_cota_cancelada
+  - name: Valor Anulação Cota Aprovada
+    type: number
+    target: vlr_cota_anulada
+  - name: Valor Cota Aprovada Líquida
+    type: number
+    target: vlr_cota_aprovada_liquida
