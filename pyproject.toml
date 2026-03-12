@@ -1,5 +1,5 @@
 [project]
-name = 'repo-template-etl'
+name = 'dados-orcamentarios'
 version = '0.1.0'
 description = ''
 authors = [
@@ -15,7 +15,7 @@ dependencies = [
 
 
 [tool.repo-template]
-upstream = 'https://github.com/ziguraty/repo-template-python.git'
+upstream = 'https://github.com/ziguraty/repo-template-etl.git'
 
 [tool.poetry]
 package-mode = false
