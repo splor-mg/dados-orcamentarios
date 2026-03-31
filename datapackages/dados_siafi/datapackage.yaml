@@ -31,7 +31,6 @@ resources:
       mode: email
       mailbox: '[Gmail]/Trash'
 
-
   - name: cota
     type: table
     path: 'data_raw/cota.csv'
