@@ -60,4 +60,5 @@ pre_test = { cmd = 'task lint', help = 'Runs linters before running the tests.' 
 test = { cmd = 'pytest -s -x -vv', help = 'Runs unit tests.' }
 post_test = { cmd = 'coverage html', help = 'Generates a coverage report after the tests.' }
 extract = { cmd = 'dpetl -d datapackages.toml extract --today-email --add-package-name', help = 'Runs the ETL extract command.' }
-etl = { cmd = 'task extract', help = 'Runs all ETL process.' }
+extract_validate = { cmd = 'frictionless validate datapackages/dados_siafi/datapackage.yaml', help = 'Validates the extracted resources.' }
+etl = { cmd = 'task extract && task extract_validate', help = 'Runs all ETL process.' }
