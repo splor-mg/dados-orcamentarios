@@ -42,6 +42,10 @@ jobs:
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: poetry install --no-interaction
       - name: Run etl process
+        env:
+          EMAIL_USER: ${{ github.EMAIL_USER }}
+          EMAIL_PWD: ${{ github.EMAIL_PWD }}
+          EMAIL_IMAP: ${{ github.EMAIL_IMAP }}
         run: |
           source .venv/bin/activate
           task etl
