@@ -41,12 +41,9 @@ fields:
     - name: Valor Além Crédito
       type: number
       target: vlr_alem_credito
-      decimalChar: ','
     - name: Valor Regularizado
       type: number
       target: vlr_regularizado
-      decimalChar: ','
     - name: Valor Anulado
       type: number
       target: vlr_anulado
-      decimalChar: ','
