@@ -1,6 +1,5 @@
 fields:
   - name: Ano de Exercício
-    type: integer
     target: ano
   - name: Unidade Orçamentária - Código
     type: integer

@@ -1,0 +1,19 @@
+fields:
+  - name: ano
+    title: Ano de exercício do orçamento
+    description: |
+      Ano de exercício do orçamento que vai do dia 1º de janeiro ao dia 31 de dezembro.
+      Ou seja, o ano em que o orçamento é executado.
+    type: string
+    constraints:
+      required: true
+      minLength: 4
+      maxLength: 4
+      pattern: '^20\d{2}$'
+  - name: uo_cod
+    type: string
+    title: Unidade Orçamentária - Código
+    description: |
+      Código da unidade orçamentária
+    constraints:
+      required: true
