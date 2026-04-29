@@ -1,18 +1,22 @@
 from frictionless import Package, Schema
+from pathlib import Path
 
-general_schemas = Schema('datapackages/schemas.yaml')
-names = [field.name for field in general_schemas.fields]
+common_schema = Schema('datapackages/common.yaml')
+names = [field.name for field in common_schema.fields]
 
-package = Package("datapackages/dados_siafi/raw_datapackage.yaml")
+datapackages = Path('datapackages').glob('*/datapackage.yaml')
 
-for resource in package.resources:
-    schema = resource.schema.fields
-    for index, field in enumerate(schema):
-        if field.custom['target'] in names:
-            new_field = [new_field for new_field in general_schemas.fields if new_field.name == field.custom['target']][0]
-            schema[index] = new_field
+for datapackage in datapackages:
+    package = Package(datapackage)
+    for resource in package.resources:
+        schema = resource.schema.fields
+        for index, field in enumerate(schema):
+            if field.custom['target'] in names:
+                common_field = [
+                    common_field for common_field in common_schema.fields
+                    if common_field.name == field.custom['target']][0]
+                schema[index] = common_field
 
-package
-package.to_json('datapackages/dados_siafi/datapackage.json')
+        resource.custom.pop('dpetl_extract', None)
 
-
+    package.to_json(datapackage.parent / 'datapackage.json')
