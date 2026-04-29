@@ -1,18 +1,13 @@
 fields:
   - name: Ano de Exercício
-    type: integer
     target: ano
   - name: Mês - Numérico
-    type: integer
     target: mes_cod
   - name: Unidade Orçamentária - Código
-    type: integer
     target: uo_cod
   - name: Fonte Recurso - Código
-    type: integer
     target: fonte_cod
   - name: Classificação Receita - Código
-    type: integer
     target: receita_cod
   - name: Classificação Receita - Formatado
     type: string

@@ -1,30 +1,22 @@
 fields:
   - name: Ano de Exercício
-    type: integer
     target: ano
   - name: Mês - Numérico
-    type: integer
     target: mes_cod
   - name: Ano Origem Folha Pagamento
-    type: integer
+    type: string
     target: ano_rp_folha
   - name: Unidade Orçamentária - Código
-    type: integer
     target: uo_cod
   - name: Grupo Despesa - Código
-    type: integer
     target: grupo_cod
   - name: Modalidade Aplicação - Código
-    type: integer
     target: modalidade_cod
   - name: Identificador Orçamento - Código
-    type: integer
     target: iag_cod
   - name: Fonte Recurso - Código
-    type: integer
     target: fonte_cod
   - name: Procedência - Código
-    type: integer
     target: ipu_cod
   - name: Valor Inscrito Folha
     type: number
