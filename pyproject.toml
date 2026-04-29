@@ -61,4 +61,5 @@ test = { cmd = 'pytest -s -x -vv', help = 'Runs unit tests.' }
 post_test = { cmd = 'coverage html', help = 'Generates a coverage report after the tests.' }
 extract = { cmd = 'dpetl -d datapackages.toml extract --today-email --add-package-name', help = 'Runs the ETL extract command.' }
 extract_validate = { cmd = 'frictionless validate datapackages/dados_siafi/datapackage.yaml', help = 'Validates the extracted resources.' }
-etl = { cmd = 'task extract && task extract_validate', help = 'Runs all ETL process.' }
+json = { cmd = 'poetry run python src/main.py', help = 'Creates datapackage.json.' }
+etl = { cmd = 'task extract && task extract_validate && task json', help = 'Runs all ETL process.' }
