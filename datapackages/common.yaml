@@ -1,0 +1,167 @@
+fields:
+  - name: ano
+    type: string
+    title: Ano de Exercício
+    description: |
+      Ano de exercício do orçamento fiscal.
+    constraints:
+      required: true
+      pattern: '^20\d{2}$'
+
+  - name: mes_cod
+    type: string
+    title: Mês
+    description: |
+      Mês de registro do documento SIAFI
+    constraints:
+      pattern: '^([1-9]|1[0-4])$'
+
+  - name: poder_cod
+    type: string
+    title: Poder Unidade Orçamentária - Código
+    description: |
+      Código indicativo do Poder no qual a unidade orçamentária está incluída.
+    constraints:
+      pattern: '^[1-6]$'
+
+  - name: uo_cod
+    type: string
+    title: Unidade Orçamentária - Código
+    description: |
+      Código representativo da unidade orçamentária.
+    constraints:
+      required: true
+      pattern: '^[1-9]\d{3}$'
+
+  - name: receita_cod
+    type: string
+    title: Classificação Receita - Código
+    description: |
+      Código da classificação da receita.
+    constraints:
+      required: true
+      pattern: '^[1-9]\d{12}$'
+
+  - name: ue_cod
+    type: string
+    title: Unidade Executora - Código
+    description: |
+      Código composto dos 4 dígitos do órgão executor e dos 3 dígitos da unidade executora.
+    constraints:
+      pattern: '^[1-9]\d{6}$'
+
+  - name: upg_cod
+    type: string
+    title: Unidade Programação Gasto - Código
+    description: |
+      Código de unidade de programação de gasto relacionado com o código de controle interno da unidade administrativa,
+      de acordo com tabela elaborada pela Unidade Orçamentária.
+    constraints:
+      pattern: '^(0|[1-9]\d{0,3})$'
+
+  - name: uo_fin_cod
+    type: string
+    title: Unidade Orçamentária Financiadora Gasto - Código
+    description: |
+      Código de unidade orçamentária financiadora das despesas referentes à procedência de recursos.
+    constraints:
+      pattern: '^(0|[1-9]\d{3})$'
+
+  - name: funcao_cod
+    type: string
+    title: Função - Código
+    description: |
+      Código identificador do nível máximo de agregação das ações do Governo.
+    constraints:
+      pattern: '^[1-9]\d{0,1}$'
+
+  - name: subfuncao_cod
+    type: string
+    title: Subfunção - Código
+    description: |
+      Código de identificador do detalhamento das áreas de atuação do Governo.
+    constraints:
+      pattern: '^[1-9]\d{1,2}$'
+
+  - name: programa_cod
+    type: string
+    title: Programa - Código
+    description: |
+      Código identificador do objeto concreto, bem ou serviço que se quer atingir.
+    constraints:
+      pattern: '^[1-9]\d{0,3}$'
+
+  - name: acao_cod
+    type: string
+    title: Projeto_Atividade - Código
+    description: |
+      Código identificador do conjunto de operações, limitadas no tempo (projeto) ou realizadas de modo contínuo e permanente (atividade)
+      dos quais resulta um produto final (projeto) ou necessárias à manutenção da ação governamental (atividade).
+    constraints:
+      pattern: '^[1-9]\d{3}$'
+
+  - name: grupo_cod
+    type: string
+    title: Grupo Despesa - Código
+    description: |
+      Código do grupo de natureza econômica da despesa.
+    constraints:
+      pattern: '^([1-6]|9)$'
+
+  - name: modalidade_cod
+    type: string
+    title: Modalidade Aplicação - Código
+    description: |
+      Classificação da natureza da despesa que traduz a forma como os recursos serão aplicados pelos órgãos/entidades.
+      Pode ser diretamente pelos mesmos ou sob a forma de transferências a outras entidades públicas ou privadas que se encarregarão da execução das ações.
+    constraints:
+      pattern: '^\d{2}$'
+
+  - name: iag_cod
+    type: string
+    title: Identificador Orçamento - Código
+    description: |
+      Código do identificador do orçamento conforme o SIAFI-MG.
+    constraints:
+      pattern: '^[0-6]$'
+
+  - name: fonte_cod
+    type: string
+    title: Fonte Recurso - Código
+    description: |
+      Código referente à fonte dos recursos financeiros, de acordo com o SIAFI-MG.
+    constraints:
+      required: true
+      pattern: '^[1-9]\d{0,1}$'
+
+  - name: ipu_cod
+    type: string
+    title: Procedência - Código
+    description: |
+      Código identificador da procedência dos recursos financeiros conforme o SIAFI-MG.
+    constraints:
+      pattern: '^\d{1}$'
+
+  - name: elemento_item_cod
+    type: string
+    title: Elemento Item Despesa Origem - Código
+    description: |
+      Código identificador do elemento item de gasto da despesa.
+    constraints:
+      pattern: '^([1-9]\d{0,3})$'
+
+  - name: elemento_dea_cod
+    type: string
+    title: Elemento Origem DEA
+    description: |
+      Identifica o elemento de despesa origem de Despesa de Exercício Anterior.
+    constraints:
+      pattern: '^(0|[1-9]\d{0,1})$'
+
+  - name: item_dea_cod
+    type: string
+    title: Item Origem DEA
+    description: |
+      Identifica o item de despesa origem de Despesa de Exercício Anterior.
+    constraints:
+      pattern: '^(0|[1-9]\d{0,1})$'
