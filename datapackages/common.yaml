@@ -6,7 +6,7 @@ fields:
       Ano de exercício do orçamento fiscal.
     constraints:
       required: true
-      pattern: '^20\d{2}$'
+      pattern: '^[1-9]\d{3}$'
 
   - name: mes_cod
     type: string
@@ -98,7 +98,7 @@ fields:
       Código identificador do conjunto de operações, limitadas no tempo (projeto) ou realizadas de modo contínuo e permanente (atividade)
       dos quais resulta um produto final (projeto) ou necessárias à manutenção da ação governamental (atividade).
     constraints:
-      pattern: '^[1-9]\d{3}$'
+      pattern: '^(0|[1-9]\d{3})$'
 
   - name: grupo_cod
     type: string
@@ -115,7 +115,7 @@ fields:
       Classificação da natureza da despesa que traduz a forma como os recursos serão aplicados pelos órgãos/entidades.
       Pode ser diretamente pelos mesmos ou sob a forma de transferências a outras entidades públicas ou privadas que se encarregarão da execução das ações.
     constraints:
-      pattern: '^\d{2}$'
+      pattern: '^(0|\d{2})$'
 
   - name: iag_cod
     type: string
@@ -148,7 +148,7 @@ fields:
     description: |
       Código identificador do elemento item de gasto da despesa.
     constraints:
-      pattern: '^([1-9]\d{0,3})$'
+      pattern: '^(0|[1-9]\d{0,3})$'
 
   - name: elemento_dea_cod
     type: string
@@ -165,3 +165,53 @@ fields:
       Identifica o item de despesa origem de Despesa de Exercício Anterior.
     constraints:
       pattern: '^(0|[1-9]\d{0,1})$'
+
+  - name: num_processo_compra
+    type: string
+    title: Número Processo Compra SIAD
+    description: |
+      Número de identificação formatado do processo de compra SIAD.
+    constraints:
+      pattern: '^\d{7}\s\d{6}/\d{4}$'
+    missingValues: [' /']
+
+  - name: cnpj_cpf_formatado
+    type: string
+    title: CNPJ/CPF Credor - Formatado
+    description: |
+      Código formatado do CNPJ ou CPF do credor.
+    constraints:
+      pattern: '^(\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}|\d{3}\.\d{3}\.\d{3}/\d{2})$'
+    missingValues: ['99999999999999']
+
+  - name: num_contrato_saida
+    type: string
+    title: Contrato/Convênio Saída
+    description: |
+      Número atribuído pelo SIAFI-MG ao contrato/convênio de saída cadastrado no subsistema Rotina Administrativa.
+    constraints:
+      pattern: '^(0|[1-9]\d{0,6})$'
+
+  - name: num_contrato_entrada
+    type: string
+    title: Contrato/Convênio Entrada
+    description: |
+      Número atribuído pelo SIAFI-MG ao contrato/convênio de entrada cadastrado no subsistema Rotina Administrativa.
+    constraints:
+      pattern: '^(0|[1-9]\d{0,6})$'
+
+  - name: num_obra
+    type: string
+    title: Número Obra
+    description: |
+      Número da obra associada ao contrato/convênio de obra.
+    constraints:
+      pattern: '^(0|[1-9]\d{0,4})$'
+
+  - name: num_empenho
+    type: string
+    title: Número Empenho
+    description: |
+      Número do documento de empenho.
+    constraints:
+      pattern: '^(0|[1-9]\d{0,5})$'
