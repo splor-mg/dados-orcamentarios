@@ -1,0 +1,55 @@
+fields:
+  - name: Ano de Exercício
+    target: ano
+
+  - name: Unidade Orçamentária - Código
+    target: uo_cod
+
+  - name: Função - Código
+    target: funcao_cod
+
+  - name: Função - Descrição
+    type: string
+    title: Função - Descrição
+    description: |
+      Descrição do nível máximo de agregação das ações do Governo.
+    constraints:
+      maxLength: 500
+    target: funcao_desc
+
+  - name: Subfunção - Código
+    target: subfuncao_cod
+
+  - name: Subfunção - Descrição
+    type: string
+    title: Subfunção - Descrição
+    description: |
+      Descrição do detalhamento das áreas de atuação do Governo.
+    constraints:
+      maxLength: 500
+    target: subfuncao_desc
+
+  - name: Programa - Código
+    target: programa_cod
+
+  - name: Programa - Descrição
+    type: string
+    title: Programa - Descrição
+    description: |
+      Descrição do objetivo concreto, bem ou serviço que se quer atingir.
+    constraints:
+      maxLength: 500
+    target: programa_desc
+
+  - name: Projeto_Atividade - Código
+    target: acao_cod
+
+  - name: Projeto_Atividade - Descrição
+    type: string
+    title: Projeto_Atividade - Descrição
+    description: |
+      Descrição do conjunto de operações, limitadas no tempo (projeto) ou realizadas de modo contínuo e permanente (atividade)
+      dos quais resulta um produto final (projeto) ou necessárias à manutenção da ação governamental.
+    constraints:
+      maxLength: 500
+    target: acao_desc
