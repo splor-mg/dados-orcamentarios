@@ -4,7 +4,7 @@ owner_org: secretaria-de-estado-de-planejamento-e-gestao-seplag
 resources:
   - name: acao
     type: table
-    path: ['data-raw/acao_rp.csv', 'data-raw/acao_previous.csv', 'data-raw/acao_current.csv']
+    path: ['data_raw/acao_rp.csv', 'data_raw/acao_previous.csv', 'data_raw/acao_current.csv']
     scheme: multipart
     format: csv
     mediatype: text/csv
@@ -16,7 +16,7 @@ resources:
 
   - name: elemento_item
     type: table
-    path: ['data-raw/elemento_item_rp.csv', 'data-raw/elemento_item_previous.csv', 'data-raw/elemento_item_current.csv']
+    path: ['data_raw/elemento_item_rp.csv', 'data_raw/elemento_item_previous.csv', 'data_raw/elemento_item_current.csv']
     scheme: multipart
     format: csv
     mediatype: text/csv
@@ -28,7 +28,7 @@ resources:
 
   - name: fonte_recurso
     type: table
-    path: ['data-raw/fonte_recurso_rp.csv', 'data-raw/fonte_recurso_previous.csv', 'data-raw/fonte_recurso_current.csv']
+    path: ['data_raw/fonte_recurso_rp.csv', 'data_raw/fonte_recurso_previous.csv', 'data_raw/fonte_recurso_current.csv']
     scheme: multipart
     format: csv
     mediatype: text/csv
@@ -40,7 +40,7 @@ resources:
 
   - name: funcional_programatica
     type: table
-    path: ['data-raw/funcional_programatica_rp.csv', 'data-raw/funcional_programatica_previous.csv', 'data-raw/funcional_programatica_current.csv']
+    path: ['data_raw/funcional_programatica_rp.csv', 'data_raw/funcional_programatica_previous.csv', 'data_raw/funcional_programatica_current.csv']
     scheme: multipart
     format: csv
     mediatype: text/csv
@@ -52,7 +52,7 @@ resources:
 
   - name: natureza_despesa
     type: table
-    path: ['data-raw/natureza_despesa_previous.csv', 'data-raw/natureza_despesa_current.csv']
+    path: ['data_raw/natureza_despesa_previous.csv', 'data_raw/natureza_despesa_current.csv']
     scheme: multipart
     format: csv
     mediatype: text/csv
@@ -64,7 +64,7 @@ resources:
 
   - name: natureza_receita
     type: table
-    path: ['data-raw/natureza_receita_previous.csv', 'data-raw/natureza_receita_current.csv']
+    path: ['data_raw/natureza_receita_previous.csv', 'data_raw/natureza_receita_current.csv']
     scheme: multipart
     format: csv
     mediatype: text/csv
@@ -76,7 +76,7 @@ resources:
 
   - name: uo
     type: table
-    path: ['data-raw/uo_rp.csv', 'data-raw/uo_previous.csv', 'data-raw/uo_current.csv']
+    path: ['data_raw/uo_rp.csv', 'data_raw/uo_previous.csv', 'data_raw/uo_current.csv']
     scheme: multipart
     format: csv
     mediatype: text/csv
