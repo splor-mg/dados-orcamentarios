@@ -8,15 +8,19 @@ datapackages = Path('datapackages').glob('*/datapackage.yaml')
 
 for datapackage in datapackages:
     package = Package(datapackage)
+
     for resource in package.resources:
         schema = resource.schema.fields
+
         for index, field in enumerate(schema):
-            if field.custom['target'] in names:
-                common_field = [
-                    common_field for common_field in common_schema.fields
-                    if common_field.name == field.custom['target']][0]
-                schema[index] = common_field
+            target = field.custom['target']
+
+            if target in names:
+                common_field = [f for f in common_schema.fields if f.name == target][0]
+
+                schema[index] = common_field.to_copy(name=field.name)
+                schema[index].custom['target'] = target
 
         resource.custom.pop('dpetl_extract', None)
 
-    package.to_json(datapackage.parent / 'datapackage.json')
+    package.to_yaml(datapackage.parent / 'datapackage.yaml')
