@@ -4,6 +4,3 @@ title = 'dados_orcamentarios'
 
 [datapackages.dados_siafi]
 path = 'datapackages/dados_siafi/datapackage.yaml'
-
-[datapackages.dados_aux_classificadores]
-path = 'datapackages/dados_aux_classificadores/datapackage.yaml'
