@@ -61,5 +61,5 @@ test = { cmd = 'pytest -s -x -vv', help = 'Runs unit tests.' }
 post_test = { cmd = 'coverage html', help = 'Generates a coverage report after the tests.' }
 extract = { cmd = 'dpetl -d datapackages.toml extract --today-email --add-package-name', help = 'Runs the ETL extract command.' }
 yaml = { cmd = 'poetry run python src/main.py', help = 'Applies common fields to datapackage.yaml.' }
-extract_validate = { cmd = 'frictionless validate datapackages/dados_siafi/datapackage.yaml', help = 'Validates the extracted resources.' }
+extract_validate = { cmd = 'frictionless validate datapackages/dados_siafi/datapackage.yaml && frictionless validate datapackages/dados_aux_classificadores/datapackage.yaml --skip-errors blank-row', help = 'Validates the extracted resources.' }
 etl = { cmd = 'task extract && task yaml && task extract_validate', help = 'Runs all ETL process.' }

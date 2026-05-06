@@ -1,0 +1,16 @@
+fields:
+  - name: Ano de Exercício
+    target: ano
+
+  - name: Projeto_Atividade - Código
+    target: acao_cod
+
+  - name: Projeto_Atividade - Descrição
+    type: string
+    title: Projeto_Atividade - Descrição
+    description: |
+      Descrição do conjunto de operações, limitadas no tempo (projeto) ou realizadas de modo contínuo e permanente (atividade)
+      dos quais resulta um produto final (projeto) ou necessárias à manutenção da ação governamental.
+    constraints:
+      maxLength: 500
+    target: acao_desc
