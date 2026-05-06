@@ -1,40 +1,67 @@
 fields:
   - name: Ano de Exercício
-    type: integer
     target: ano
+
   - name: Mês - Numérico
-    type: integer
     target: mes_cod
+
   - name: Ano Origem Folha Pagamento
-    type: integer
+    type: string
+    title: Ano Origem Folha Pagamento
+    description: |
+      Ano de origem do documento de folha de pagamento inscrita em Restos a Pagar.
+    constraints:
+      pattern: '^[1-9]\d{3}$'
     target: ano_rp_folha
+
   - name: Unidade Orçamentária - Código
-    type: integer
     target: uo_cod
+
   - name: Grupo Despesa - Código
-    type: integer
     target: grupo_cod
+
   - name: Modalidade Aplicação - Código
-    type: integer
     target: modalidade_cod
+
   - name: Identificador Orçamento - Código
-    type: integer
     target: iag_cod
+
   - name: Fonte Recurso - Código
-    type: integer
     target: fonte_cod
+
   - name: Procedência - Código
-    type: integer
     target: ipu_cod
+
   - name: Valor Inscrito Folha
     type: number
+    title: Valor Inscrito Folha
+    description: |
+      Valor, em reais, da folha de pagamento de exercícios anteriores inscrita em Restos a Pagar.
+    constraints:
+      minimum: 0
     target: vlr_inscrito_folha
+
   - name: Valor Anulado Folha
     type: number
+    title: Valor Anulado Folha
+    description: |
+      Valor anulado, em reais, do saldo da folha de pagamento de exercícios anteriores inscrita em Restos a Pagar - FP.
+    constraints:
+      minimum: 0
     target: vlr_anulado_folha
+
   - name: Valor Pago Folha
     type: number
+    title: Valor Pago Folha
+    description: |
+      Valor pago, em reais, referente a valor inscrito processado de folha de pagamento, total ou parcial.
+    constraints:
+      minimum: 0
     target: vlr_pago_folha
+
   - name: Valor Despesa Liquidada a Pagar - Folha
     type: number
+    title: Valor Despesa Liquidada a Pagar - Folha
+    description: |
+      Valor, em reais, do saldo a pagar processado de folha de pagamento.
     target: vlr_despesa_liquidada_pagar_folha
