@@ -40,7 +40,7 @@ fields:
       Código da classificação da receita.
     constraints:
       required: true
-      pattern: '^[1-9]\d{12}$'
+      pattern: '^[1-9]\d{9,12}$'
 
   - name: ue_cod
     type: string
@@ -81,7 +81,7 @@ fields:
     description: |
       Código de identificador do detalhamento das áreas de atuação do Governo.
     constraints:
-      pattern: '^[1-9]\d{1,2}$'
+      pattern: '^(0|[1-9]\d{1,2})$'
 
   - name: programa_cod
     type: string
@@ -132,7 +132,7 @@ fields:
       Código referente à fonte dos recursos financeiros, de acordo com o SIAFI-MG.
     constraints:
       required: true
-      pattern: '^[1-9]\d{0,1}$'
+      pattern: '^(0|[1-9]\d{0,1})$'
 
   - name: ipu_cod
     type: string
