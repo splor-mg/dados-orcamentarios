@@ -1,34 +1,62 @@
 fields:
   - name: Ano de Exercício
-    type: integer
     target: ano
+
   - name: Mês - Numérico
-    type: integer
     target: mes_cod
+
   - name: Unidade Orçamentária - Código
-    type: integer
     target: uo_cod
+
   - name: Fonte Recurso - Código
-    type: integer
     target: fonte_cod
+
   - name: Classificação Receita - Código
-    type: integer
     target: receita_cod
+
   - name: Classificação Receita - Formatado
     type: string
+    title: Classificação Receita - Formatado
+    description: |
+      Código da Classificação Receita Formatado.
+    constraints:
+      pattern: '^\d{4}\.\d{2}\.\d{1}\.\d{1}\.\d{2}\.\d{3}$'
     target: receita_cod_formatado
+
   - name: Valor Previsto Inicial
     type: number
+    title: Valor Previsto Inicial
+    description: |
+      Valor, em reais, da previsão inicial da receita.
     target: vlr_previsto_inicial
+
   - name: Valor Previsto Adicional
     type: number
+    title: Valor Previsto Adicional
+    description: |
+      Valor, em reais, da previsão adicional da receita.
+    constraints:
+      minimum: 0
     target: vlr_previsto_adicional
+
   - name: Valor Previsto Atualizado
     type: number
+    title: Valor Previsto Atualizado
+    description: |
+      Valor, em reais, da previsão atualizada da receita.
     target: vlr_previsto_atualizado
+
   - name: Valor Contabilizado
     type: number
+    title: Valor Contabilizado
+    description: |
+      Valor, em reais, da receita orçamentária contabilizada.
+      Aparece negativo quando houve cancelamento da receita.
     target: vlr_contabilizado
+
   - name: Valor Efetivado Ajustado
     type: number
+    title: Valor Efetivado Ajustado
+    description: |
+      Valor, em reais, da receita orçamentária efetivada ajustada.
     target: vlr_efetivado_ajustado

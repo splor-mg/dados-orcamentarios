@@ -1,0 +1,27 @@
+fields:
+  - name: Ano de Exercício
+    target: ano
+
+  - name: Grupo Despesa - Código
+    target: grupo_cod
+
+  - name: Grupo Despesa - Descrição
+    type: string
+    title: Grupo Despesa - Descrição
+    description: |
+      Descrição do grupo de natureza econômica da despesa.
+    constraints:
+      maxLength: 500
+    target: grupo_desc
+
+  - name: Categoria Econômica Despesa -Código
+    target: categoria_cod
+
+  - name: Categoria Econômica Despesa - Desc
+    type: string
+    title: Categoria Econômica Despesa - Desc
+    description: |
+      Descrição da categoria econômica da despesa.
+    constraints:
+      maxLength: 500
+    target: categoria_desc

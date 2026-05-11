@@ -1,69 +1,126 @@
 fields:
   - name: Ano de Exercício
-    type: integer
     target: ano
+
   - name: Mês - Numérico
-    type: integer
     target: mes_cod
+
   - name: Publicação Decreto Alteração Orçam
     type: datetime
+    title: Publicação Decreto Alteração Orçamentária
+    description: |
+      Data completa de publicação do decreto de autorização da alteração orçamentária.
+    constraints:
+      minimum: '2002/01/01 00:00:00'
     format: '%Y/%m/%d %H:%M:%S'
     target: data_publicacao
+
   - name: Data Registro Doc AlterOrçam
     type: datetime
+    title: Data Registro Documento Alteração Orçamentária
+    description: |
+      Data completa de registro do documento de alteração orçamentária.
+    constraints:
+      minimum: '2002/01/01 00:00:00'
     format: '%Y/%m/%d %H:%M:%S'
     target: data_registro
+
   - name: Decreto Alteração Orçamentária
-    type: integer
+    type: string
+    title: Decreto Alteração Orçamentária
+    description: |
+      Número do decreto de autorização da alteração orçamentária, gerado pelo SIAFI-MG.
+    constraints:
+      pattern: '^(0|[1-9]\d{0,2})$'
     target: decreto_num
+
   - name: Lei Aprovação Orçamento
-    type: integer
+    type: string
+    title: Lei Aprovação Orçamento
+    description: |
+      Número da lei de aprovação do Orçamento do Estado.
+    constraints:
+      pattern: '^(0|[1-9]\d{0,4})$'
     target: lei_aprovacao
+
   - name: Poder Unid Orçamentária - Código
-    type: integer
     target: poder_cod
+
   - name: Unidade Orçamentária - Código
-    type: integer
     target: uo_cod
+
   - name: Função - Código
-    type: integer
     target: funcao_cod
+
   - name: Programa - Código
-    type: integer
     target: programa_cod
+
   - name: Projeto_Atividade - Código
-    type: integer
     target: acao_cod
+
   - name: Grupo Despesa - Código
-    type: integer
     target: grupo_cod
+
   - name: Modalidade Aplicação - Código
-    type: integer
     target: modalidade_cod
+
   - name: Identificador Orçamento - Código
-    type: integer
     target: iag_cod
+
   - name: Fonte Recurso - Código
-    type: integer
     target: fonte_cod
+
   - name: Procedência - Código
-    type: integer
     target: ipu_cod
+
   - name: Crédito Adicional - Código
-    type: integer
+    type: string
+    title: Crédito Adicional - Código
+    description: |
+      Código indicativo da origem do crédito adicional da alteração orçamentária.
+    constraints:
+      pattern: '^(0|[1-9]\d{0,3})$'
     target: origem_credito_cod
+
   - name: Crédito Adicional - Descrição
     type: string
+    title: Crédito Adicional - Descrição
+    description: |
+      Descrição da origem do crédito adicional da alteração orçamentária.
+    constraints:
+      maxLength: 500
     target: origem_credito_desc
+
   - name: Valor Suplementação
     type: number
+    title: Valor Suplementação
+    description: |
+      Valor, em reais, destinado a reforço de dotação orçamentária.
+    constraints:
+      minimum: 0
     target: vlr_suplementacao
+
   - name: Valor Anulação Crédito
     type: number
+    title: Valor Anulação Crédito
+    description: |
+      Valor, em reais, da anulação de crédito na dotação orçamentária.
+    constraints:
+      minimum: 0
     target: vlr_anulacao
+
   - name: Valor Crédito Inicial
     type: number
+    title: Valor Crédito Inicial
+    description: |
+      Valor, em reais, do crédito aprovado pela Lei Orçamentária.
+    constraints:
+      minimum: 0
     target: vlr_credito_inicial
+
   - name: Valor Crédito Autorizado
     type: number
+    title: Valor Crédito Autorizado
+    description: |
+      Valor total, em reais, do crédito disponível para a execução da despesa.
     target: vlr_credito_autorizado

@@ -1,43 +1,58 @@
 fields:
   - name: Ano de Exercício
-    type: integer
     target: ano
+
   - name: Unidade Orçamentária - Código
-    type: integer
     target: uo_cod
+
   - name: Função - Código
-    type: integer
     target: funcao_cod
+
   - name: Subfunção - Código
-    type: integer
     target: subfuncao_cod
+
   - name: Programa - Código
-    type: integer
     target: programa_cod
+
   - name: Projeto_Atividade - Código
-    type: integer
     target: acao_cod
+
   - name: Grupo Despesa - Código
-    type: integer
     target: grupo_cod
+
   - name: Modalidade Aplicação - Código
-    type: integer
     target: modalidade_cod
+
   - name: Identificador Orçamento - Código
-    type: integer
     target: iag_cod
+
   - name: Fonte Recurso - Código
-    type: integer
     target: fonte_cod
+
   - name: Procedência - Código
-    type: integer
     target: ipu_cod
+
   - name: Valor Crédito Inicial
     type: number
+    title: Valor Crédito Inicial
+    description: |
+      Valor, em reais, do crédito orçamentário aprovado pela Lei Orçamentária.
+    constraints:
+      minimum: 0
     target: vlr_credito_inicial
+
   - name: Valor Crédito Autorizado
     type: number
+    title: Valor Crédito Autorizado
+    description: |
+      Valor, em reais, correspondente ao somatório dos créditos disponíveis para a execução da despesa.
     target: vlr_credito_autorizado
+
   - name: Valor Cota Descentralizada
     type: number
+    title: Valor Cota Descentralizada
+    description: |
+      Valor, em reais, das cotas descentralizadas às unidades executotas.
+    constraints:
+      minimum: 0
     target: vlr_cota_descentralizada

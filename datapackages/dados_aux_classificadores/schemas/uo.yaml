@@ -1,0 +1,66 @@
+fields:
+  - name: Ano de Exercício
+    target: ano
+
+  - name: Órgão Vinculação Orçam - Código
+    type: string
+    title: Órgão Vinculação Orçamentária - Código
+    description: |
+      Código do órgão governamental ao qual a Unidade Orçamentária está vinculada na estrutura organizacional do Estado.
+    constraints:
+      pattern: '^[1-9]\d{3}$'
+    target: orgao_vinculacao_cod
+
+  - name: Órgão Vinculação Orçam - Nome
+    type: string
+    title: Órgão Vinculação Orçamentária - Nome
+    description: |
+      Nome do órgão governamental ao qual a Unidade Orçamentária está vinculada na estrutura organizacional do Estado.
+    constraints:
+      maxLength: 500
+    target: orgao_vinculacao_nome
+
+  - name: Poder Unid Orçamentária - Código
+    type: string
+    title: Poder Unidade Orçamentária - Código
+    description: |
+      Código indicativo do Poder no qual a unidade orçamentária está incluída.
+    constraints:
+      pattern: '^[1-5]$'
+    target: poder_cod
+
+  - name: Poder Unid Orçamentária - Descrição
+    type: string
+    title: Poder Unidade Orçamentária - Descrição
+    description: |
+      Descrição do Poder no qual a unidade orçamentária está incluída.
+    constraints:
+      maxLength: 500
+    target: poder_desc
+
+  - name: Unidade Orçamentária - Código
+    type: string
+    title: Unidade Orçamentária - Código
+    description: |
+      Código representativo da Unidade Orçamentária.
+    constraints:
+      pattern: '^[1-9]\d{3}$'
+    target: uo_cod
+
+  - name: Unidade Orçamentária - Nome
+    type: string
+    title: Unidade Orçamentária - Nome
+    description: |
+      Nome completo da Unidade Orçamentária.
+    constraints:
+      maxLength: 500
+    target: uo_nome
+
+  - name: Unidade Orçamentária - Sigla
+    type: string
+    title: Unidade Orçamentária - Sigla
+    description: |
+      Nome abreviado ou sigla da unidade orçamentária.
+    constraints:
+      maxLength: 500
+    target: uo_sigla

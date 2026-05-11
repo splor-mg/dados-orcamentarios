@@ -1,91 +1,120 @@
 fields:
   - name: Ano de Exercício
-    type: integer
     target: ano
+
   - name: Mês - Numérico
-    type: integer
     target: mes_cod
+
   - name: Unidade Orçamentária - Código
-    type: integer
     target: uo_cod
+
   - name: Unidade Executora - Código
-    type: integer
     target: ue_cod
+
   - name: Unid Programação Gasto - Código
-    type: integer
     target: upg_cod
+
   - name: Unid Orçam Financiadora Gasto - Cod
-    type: integer
     target: uo_fin_cod
+
   - name: Função - Código
-    type: integer
     target: funcao_cod
+
   - name: Subfunção - Código
-    type: integer
     target: subfuncao_cod
+
   - name: Programa - Código
-    type: integer
     target: programa_cod
+
   - name: Projeto_Atividade - Código
-    type: integer
     target: acao_cod
+
   - name: Grupo Despesa - Código
-    type: integer
     target: grupo_cod
+
   - name: Modalidade Aplicação - Código
-    type: integer
     target: modalidade_cod
+
   - name: Identificador Orçamento - Código
-    type: integer
     target: iag_cod
+
   - name: Fonte Recurso - Código
-    type: integer
     target: fonte_cod
+
   - name: Procedência - Código
-    type: integer
     target: ipu_cod
+
   - name: Elemento Item Despesa - Código
-    type: integer
     target: elemento_item_cod
+
   - name: Elemento origem DEA
-    type: integer
     target: elemento_dea_cod
+
   - name: Item origem DEA
-    type: integer
     target: item_dea_cod
+
   - name: Número Processo Compra SIAD
-    type: string
     target: num_processo_compra
+
   - name: Licitação - Descrição da Modalidade
     type: string
+    title: Licitação - Descrição da Modalidade
+    description: |
+      Descrição da forma de licitação efetivada de acordo com o SIAFI-MG.
+    constraints:
+      maxLength: 500
     target: licitacao_modalidade
+
   - name: CNPJ_CPF Credor - Formatado
-    type: string
     target: cnpj_cpf_formatado
+
   - name: ContratoConvênio Saída
-    type: integer
     target: num_contrato_saida
+
   - name: ContratoConvênio Entrada
-    type: integer
     target: num_contrato_entrada
+
   - name: Número Obra
-    type: integer
     target: num_obra
+
   - name: Número Empenho
-    type: integer
     target: num_empenho
+
   - name: Valor Despesa Empenhada
     type: number
+    title: Valor Despesa Empenhada
+    description: |
+      Valor líquido, em reais, da despesa empenhada.
     target: vlr_empenhado
+
   - name: Valor Despesa Liquidada
     type: number
+    title: Valor Despesa Liquidada
+    description: |
+      Valor total da despesa liquidada, em reais.
     target: vlr_liquidado
+
   - name: Valor Liquidado Retido
     type: number
+    title: Valor Liquidado Retido
+    description: |
+      Valor, em reais, referente às retenções - parte da liquidação a favor de terceiros,
+      indicado apenas para análise de um documento de liquidação específico.
     target: vlr_liquidado_retido
+
   - name: Valor Pago Orçamentário
     type: number
+    title: Valor Pago Orçamentário
+    description: |
+      Valor pago, por empenho.
+    constraints:
+      minimum: 0
     target: vlr_pago_orcamentario
+
   - name: Valor Pago Financeiro
     type: number
+    title: Valor Pago Financeiro
+    description: |
+      Valor referente aos pagamentos efetuados através de movimentações bancárias, escriturais e apropriação contábil da despesa.
+      Esse cálculo não inclui valor de anulação de despesa paga.
     target: vlr_pago_financeiro

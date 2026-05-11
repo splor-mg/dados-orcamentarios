@@ -1,0 +1,15 @@
+fields:
+  - name: Ano de Exercício
+    target: ano
+
+  - name: Fonte Recurso - Código
+    target: fonte_cod
+
+  - name: Fonte Recurso - Descrição
+    type: string
+    title: Fonte Recurso - Descrição
+    description: |
+      Descrição da fonte dos recursos financeiros.
+    constraints:
+      maxLength: 500
+    target: fonte_desc
