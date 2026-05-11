@@ -15,7 +15,7 @@ dependencies = [
 
 
 [tool.repo-template]
-upstream = 'https://github.com/ziguraty/repo-template-etl.git'
+upstream = 'https://github.com/splor-mg/repo-template-etl.git'
 
 [tool.poetry]
 package-mode = false
