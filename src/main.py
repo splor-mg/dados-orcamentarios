@@ -1,38 +1,24 @@
-import argparse
-
-from datapackage_raw import apply_common_fields
-from datapackage import apply_data_transformations
-from validate import validate_datapackage
+from frictionless import Package, Schema
+from pathlib import Path
 
 
-def extract_validate_command():
-    apply_common_fields()
-    validate_datapackage()
+datapackages = Path('datapackages').glob('*/datapackage.yaml')
+common_schema = Schema('datapackages/common.yaml')
+names = [field.name for field in common_schema.fields]
 
+for datapackage in datapackages:
+    package = Package(datapackage)
 
-def transform_validate_command():
-    apply_data_transformations()
-    validate_datapackage()
+    for resource in package.resources:
+        schema = resource.schema.fields
 
+        for index, field in enumerate(schema):
+            target = field.custom['target']
 
-def main():
-    parser = argparse.ArgumentParser(description='Pipeline de dados')
-    parser.add_argument('command', choices=['extract_validate', 'transform_validate'],
-                        help='`extract_validate` to validate data_raw, `transform_validate` to validate data')
+            if target in names:
+                common_field = [f for f in common_schema.fields if f.name == target][0]
 
-    args = parser.parse_args()
+                schema[index] = common_field.to_copy(name=field.name)
+                schema[index].custom['target'] = target
 
-    try:
-        if args.command == 'extract_validate':
-            extract_validate_command()
-
-        elif args.command == 'transform_validate':
-            transform_validate_command()
-
-    except RuntimeError as e:
-        print(f'Erro: {e}')
-        raise SystemExit(1)
-
-
-if __name__ == '__main__':
-    main()
+    package.to_yaml(datapackage.parent / 'datapackage.yaml')
