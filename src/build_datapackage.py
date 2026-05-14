@@ -2,7 +2,7 @@ from frictionless import Package, Schema
 from pathlib import Path
 
 
-datapackages = Path('datapackages').glob('*/datapackage.yaml')
+datapackages = Path('datapackages').glob('*/raw_datapackage.yaml')
 common_schema = Schema('datapackages/common.yaml')
 names = [field.name for field in common_schema.fields]
 
