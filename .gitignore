@@ -1,3 +1,9 @@
+datapackages/*/data_raw/*
+!datapackages/*/data_raw/.gitkeep
+
+datapackages/*/data/*
+!datapackages/*/data/.gitkeep
+
 # Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,visualstudio,sublimetext,pycharm
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,visualstudiocode,visualstudio,sublimetext,pycharm
 
