@@ -344,7 +344,8 @@ fields:
     type: string
     title: Fonte Recurso - Código
     description: |
-      Código referente à fonte dos recursos financeiros, de acordo com o SIAFI-MG.
+      Código referente à fonte dos recursos financeiros.
+      Identifica a origem e natureza dos recursos orçamentários através de código e é utilizada para indicar que espécies de recursos irão financiar as despesas.
     constraints:
       required: true
       pattern: '^(0|[1-9]\d{0,1})$'
@@ -392,6 +393,9 @@ fields:
     title: Função - Código
     description: |
       Código identificador do nível máximo de agregação das ações do Governo.
+      Tem como objetivo consolidar em que áreas de atuação do setor público são gastos os recursos orçamentários, tendo como critério a natureza do objeto da ação.
+      Portanto, visa a agregar ações que tenham objetos correlatos.
+      Um programa pode ter ações atreladas a distintas funções, assim como uma unidade orçamentária, mas cada ação só pode ter uma única função.
     constraints:
       pattern: '^\d{1,2}$'
 
@@ -416,6 +420,8 @@ fields:
     title: Grupo Despesa - Código
     description: |
       Código do grupo de natureza econômica da despesa.
+      Consiste na agregação de elementos de despesa que apresentam as mesmas características quanto ao objeto do gasto.
+      A Portaria Interministerial STN/SOF n.o 163/01 definiu como grupos de despesa: (1) pessoal e encargos sociais, (2) juros e encargos da dívida, (3) outras despesas correntes, (4) investimentos, (5) inversões financeiras e (6) amortização da dívida.
     constraints:
       pattern: '^([1-6]|9)$'
 
@@ -542,7 +548,9 @@ fields:
     type: string
     title: Procedência - Código
     description: |
-      Código identificador da procedência dos recursos financeiros conforme o SIAFI-MG.
+      Código identificador da procedência dos recursos.
+      Identifica a origem e a utilização dos recursos.
+      O identificador de procedência e uso (IPU) informa, dentre outros, se os recursos serão para livre utilização, se foram transferidos de outra unidade orçamentária, se objetivam oferecer contrapartida a convênios, acordos e ajustes, se voltam para o financiamento de inativos do FFP ou ainda se referem-se aos investimentos do Propag.
     constraints:
       pattern: '^\d{1}$'
 
@@ -923,6 +931,13 @@ fields:
     title: Poder Unidade Orçamentária - Código
     description: |
       Código indicativo do Poder no qual a unidade orçamentária está incluída.
+      Refere-se a designação das orgãos e entidades segregados de acordo com suas funções e atribuições no setor público, a saber:
+      (a) Poder Executivo.
+      (b) Poder Judiciário.
+      (c) Poder Legislativo.
+      (d) Ministério Pùblico.
+      (e) Tribunal de Contas
+      (f) Defensoria Pública.
     constraints:
       pattern: '^[1-6]$'
 
@@ -1025,6 +1040,7 @@ fields:
     title: Programa - Código
     description: |
       Código identificador do objeto concreto, bem ou serviço que se quer atingir.
+      O programa representa uma política pública que visa o enfrentamento de um problema ou oportunidade, sendo mensurado por indicadores.
     constraints:
       pattern: '^\d{1,3}$'
 
@@ -1218,6 +1234,10 @@ fields:
     title: Subfunção - Código
     description: |
       Código de identificador do detalhamento das áreas de atuação do Governo.
+      Representa uma partição da função, visando agregar determinado subconjunto de despesas do setor público.
+      Identifica a natureza básica das ações que se aglutinam em torno das funções.
+      As subfunções poderão ser combinadas com funções diferentes daquelas a que estão relacionadas no rol fixado pela Portaria Ministerial n. o 42/99.
+      Tal como ocorre com a função, o critério que preside a definição da subfunção é a natureza do objeto da ação.
     constraints:
       pattern: '^\d{1,3}$'
 
@@ -1356,7 +1376,7 @@ fields:
     type: string
     title: Unidade Orçamentária Financiadora Gasto - Código
     description: |
-      Código de unidade orçamentária financiadora das despesas referentes à procedência de recursos.
+      Código de unidade orçamentária que financia despesas de outro orgão por meio do repasse da receita arrecadada.
     constraints:
       pattern: '^(0|[1-9]\d{3})$'
 
@@ -1430,6 +1450,7 @@ fields:
     description: |
       Código de unidade de programação de gasto relacionado com o código de controle interno da unidade administrativa,
       de acordo com tabela elaborada pela Unidade Orçamentária.
+      Não há uma padronização da utilização da UPG por todos os orgãos, alguns utilizam para identificação do centro de custo, outros utilizam para identificar objetos de gasto e outros para identificação das unidades que realizam a despesa.
     constraints:
       pattern: '^(0|[1-9]\d{0,3})$'
 
