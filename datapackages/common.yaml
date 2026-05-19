@@ -14,15 +14,15 @@ fields:
     description: |
       Mês de registro do documento SIAFI
     constraints:
-      pattern: '^([1-9]|1[0-4])$'
+      pattern: "^([1-9]|1[0-4])$"
 
   - name: poder_cod
     type: string
     title: Poder Unidade Orçamentária - Código
     description: |
-      Código indicativo do Poder no qual a unidade orçamentária está incluída.
+      Código indicativo do Poder no qual a unidade orçamentária está incluída. Refere-se a designação das orgãos e entidades segregados de acordo com suas funções e atribuições no setor público, a saber: (a) Poder Executivo. (b) Poder Judiciário. (c) Poder Legislativo. (d) Ministério Pùblico. (e) Tribunal de Contas e (f) Defensoria Pública.
     constraints:
-      pattern: '^[1-6]$'
+      pattern: "^[1-6]$"
 
   - name: uo_cod
     type: string
@@ -55,7 +55,7 @@ fields:
     title: Unidade Programação Gasto - Código
     description: |
       Código de unidade de programação de gasto relacionado com o código de controle interno da unidade administrativa,
-      de acordo com tabela elaborada pela Unidade Orçamentária.
+      de acordo com tabela elaborada pela Unidade Orçamentária. Não há uma padronização da utilização da UPG por todos os orgãos, alguns utilizam para identificação do centro de custo, outros utilizam para identificar objetos de gasto e outros para identificação das unidades que realizam a despesa.
     constraints:
       pattern: '^(0|[1-9]\d{0,3})$'
 
@@ -63,7 +63,7 @@ fields:
     type: string
     title: Unidade Orçamentária Financiadora Gasto - Código
     description: |
-      Código de unidade orçamentária financiadora das despesas referentes à procedência de recursos.
+      Código de unidade orçamentária que financia despesas de outro orgão por meio do repasse da receita arrecadada.
     constraints:
       pattern: '^(0|[1-9]\d{3})$'
 
@@ -71,7 +71,7 @@ fields:
     type: string
     title: Função - Código
     description: |
-      Código identificador do nível máximo de agregação das ações do Governo.
+      Código identificador do nível máximo de agregação das ações do Governo. Tem como objetivo consolidar em que áreas de atuação do setor público são gastos os recursos orçamentários, tendo como critério a natureza do objeto da ação. Portanto, visa a agregar ações que tenham objetos correlatos. Um programa pode ter ações atreladas a distintas funções, assim como uma unidade orçamentária, mas cada ação só pode ter uma única função.
     constraints:
       pattern: '^[1-9]\d{0,1}$'
 
@@ -79,7 +79,7 @@ fields:
     type: string
     title: Subfunção - Código
     description: |
-      Código de identificador do detalhamento das áreas de atuação do Governo.
+      Código de identificador do detalhamento das áreas de atuação do Governo. Representa uma partição da função, visando agregar determinado subconjunto de despesas do setor público. Identifica a natureza básica das ações que se aglutinam em torno das funções. As subfunções poderão ser combinadas com funções diferentes daquelas a que estão relacionadas no rol fixado pela Portaria Ministerial n. o 42/99. Tal como ocorre com a função, o critério que preside a definição da subfunção é a natureza do objeto da ação.
     constraints:
       pattern: '^(0|[1-9]\d{1,2})$'
 
@@ -87,7 +87,7 @@ fields:
     type: string
     title: Programa - Código
     description: |
-      Código identificador do objeto concreto, bem ou serviço que se quer atingir.
+      Código identificador do objeto concreto, bem ou serviço que se quer atingir. O programa representa uma política pública que visa o enfrentamento de um problema ou oportunidade, sendo mensurado por indicadores.
     constraints:
       pattern: '^[1-9]\d{0,3}$'
 
@@ -104,9 +104,9 @@ fields:
     type: string
     title: Grupo Despesa - Código
     description: |
-      Código do grupo de natureza econômica da despesa.
+      Código do grupo de natureza econômica da despesa. Consiste na agregação de elementos de despesa que apresentam as mesmas características quanto ao objeto do gasto. A Portaria Interministerial STN/SOF n.o 163/01 definiu como grupos de despesa: (1) pessoal e encargos sociais, (2) juros e encargos da dívida, (3) outras despesas correntes, (4) investimentos, (5) inversões financeiras e (6) amortização da dívida.
     constraints:
-      pattern: '^([1-6]|9)$'
+      pattern: "^([1-6]|9)$"
 
   - name: modalidade_cod
     type: string
@@ -123,13 +123,13 @@ fields:
     description: |
       Código do identificador do orçamento conforme o SIAFI-MG.
     constraints:
-      pattern: '^[0-6]$'
+      pattern: "^[0-6]$"
 
   - name: fonte_cod
     type: string
     title: Fonte Recurso - Código
     description: |
-      Código referente à fonte dos recursos financeiros, de acordo com o SIAFI-MG.
+      Código referente à fonte dos recursos financeiros. Identifica a origem e natureza dos recursos orçamentários através de código e é utilizada para indicar que espécies de recursos irão financiar as despesas.
     constraints:
       required: true
       pattern: '^(0|[1-9]\d{0,1})$'
@@ -138,7 +138,7 @@ fields:
     type: string
     title: Procedência - Código
     description: |
-      Código identificador da procedência dos recursos financeiros conforme o SIAFI-MG.
+      Código identificador da procedência dos recursos. Identifica a origem e a utilização dos recursos. O identificador de procedência e uso (IPU) informa, dentre outros, se os recursos serão para livre utilização, se foram transferidos de outra unidade orçamentária, se objetivam oferecer contrapartida a convênios, acordos e ajustes, se voltam para o financiamento de inativos do FFP ou ainda se referem-se aos investimentos do Propag.
     constraints:
       pattern: '^\d{1}$'
 
@@ -173,7 +173,7 @@ fields:
       Número de identificação formatado do processo de compra SIAD.
     constraints:
       pattern: '^\d{7}\s\d{6}/\d{4}$'
-    missingValues: [' /']
+    missingValues: [" /"]
 
   - name: cnpj_cpf_formatado
     type: string
@@ -182,7 +182,7 @@ fields:
       Código formatado do CNPJ ou CPF do credor.
     constraints:
       pattern: '^(\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}|\d{3}\.\d{3}\.\d{3}/\d{2})$'
-    missingValues: ['99999999999999']
+    missingValues: ["99999999999999"]
 
   - name: num_contrato_saida
     type: string
