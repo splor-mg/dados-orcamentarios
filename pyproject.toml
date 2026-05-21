@@ -62,5 +62,5 @@ post_test = { cmd = 'coverage html', help = 'Generates a coverage report after t
 yaml = { cmd = 'poetry run python src/build_datapackage.py', help = 'Applies common fields to datapackage.' }
 extract = { cmd = 'dpetl -d datapackages.toml extract --today-email --add-package-name', help = 'Runs the ETL extract command.' }
 transform = { cmd = 'dpetl -d datapackages.toml transform', help = 'Runs the ETL transform command.' }
-load = { cmd = 'dpetl -d datapackages.toml load --private', help = 'Runs the ETL load command.' }
+load = { cmd = 'dpetl -d datapackages.toml load', help = 'Runs the ETL load command.' }
 etl = { cmd = 'task yaml && task extract && task transform && task load', help = 'Runs all ETL process.' }
