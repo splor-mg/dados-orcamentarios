@@ -1,6 +1,11 @@
 name: dados_aux_classificadores
 title: Tabelas Auxiliares de Classificadores
 owner_org: secretaria-de-estado-de-planejamento-e-gestao-seplag
+dpetl_transform:
+  datapackage_format: yaml
+dpetl_load:
+  owner: mariaefod
+  repo: dados_aux_classificadores_2026
 resources:
   - name: acao
     type: table
@@ -14,6 +19,8 @@ resources:
     dpetl_extract:
       mode: email
       mailbox: '[Gmail]/Trash'
+    dpetl_transform:
+      format: csv
 
   - name: elemento_item
     type: table
@@ -27,6 +34,8 @@ resources:
     dpetl_extract:
       mode: email
       mailbox: '[Gmail]/Trash'
+    dpetl_transform:
+      format: csv
 
   - name: fonte_recurso
     type: table
@@ -40,6 +49,8 @@ resources:
     dpetl_extract:
       mode: email
       mailbox: '[Gmail]/Trash'
+    dpetl_transform:
+      format: csv
 
   - name: funcional_programatica
     type: table
@@ -53,6 +64,8 @@ resources:
     dpetl_extract:
       mode: email
       mailbox: '[Gmail]/Trash'
+    dpetl_transform:
+      format: csv
 
   - name: natureza_despesa
     type: table
@@ -66,6 +79,8 @@ resources:
     dpetl_extract:
       mode: email
       mailbox: '[Gmail]/Trash'
+    dpetl_transform:
+      format: csv
 
   - name: natureza_receita
     type: table
@@ -79,6 +94,8 @@ resources:
     dpetl_extract:
       mode: email
       mailbox: '[Gmail]/Trash'
+    dpetl_transform:
+      format: csv
 
   - name: uo
     type: table
@@ -92,3 +109,5 @@ resources:
     dpetl_extract:
       mode: email
       mailbox: '[Gmail]/Trash'
+    dpetl_transform:
+      format: csv
