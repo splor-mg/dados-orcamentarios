@@ -1,0 +1,16 @@
+fields:
+  - name: Ano de Exercício
+    target: ano
+
+  - name: Modalidade Aplicação - Código
+    target: modalidade_cod
+
+  - name: Modalidade Aplicação - Descrição
+    type: string
+    title: Modalidade Aplicação - Descrição
+    description: |
+      Classificação da natureza da despesa que traduz a forma como os recursos serão aplicados pelos órgãos/entidades.
+      Pode ser diretamente pelos mesmos ou sob a forma de transferências a outras entidades públicas ou privadas que se encarregarão da execução das ações.
+    constraints:
+      maxLength: 500
+    target: modalidade_desc

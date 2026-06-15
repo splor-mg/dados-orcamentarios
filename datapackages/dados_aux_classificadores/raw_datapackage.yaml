@@ -9,7 +9,7 @@ dpetl_load:
 resources:
   - name: acao
     type: table
-    path: ['data_raw/acao_rp.zip', 'data_raw/acao_previous.zip', 'data_raw/acao_current.zip']
+    path: ['data_raw/acao_previous.csv', 'data_raw/acao_current.csv']
     scheme: multipart
     format: csv
     mediatype: text/csv
@@ -22,9 +22,24 @@ resources:
     dpetl_transform:
       format: csv
 
+  - name: elemento
+    type: table
+    path: ['data_raw/elemento_previous.csv', 'data_raw/elemento_current.csv']
+    scheme: multipart
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect: schemas/dialect.yaml
+    schema: schemas/elemento.yaml
+    dpetl_extract:
+      mode: email
+      mailbox: '[Gmail]/Trash'
+    dpetl_transform:
+      format: csv
+
   - name: elemento_item
     type: table
-    path: ['data_raw/elemento_item_rp.zip', 'data_raw/elemento_item_previous.zip', 'data_raw/elemento_item_current.zip']
+    path: ['data_raw/elemento_item_previous.csv', 'data_raw/elemento_item_current.csv']
     scheme: multipart
     format: csv
     mediatype: text/csv
@@ -37,60 +52,120 @@ resources:
     dpetl_transform:
       format: csv
 
-  - name: fonte_recurso
+  - name: fonte
     type: table
-    path: ['data_raw/fonte_recurso_rp.zip', 'data_raw/fonte_recurso_previous.zip', 'data_raw/fonte_recurso_current.zip']
+    path: ['data_raw/fonte_previous.csv', 'data_raw/fonte_current.csv']
     scheme: multipart
     format: csv
     mediatype: text/csv
     encoding: utf-8
     dialect: schemas/dialect.yaml
-    schema: schemas/fonte_recurso.yaml
+    schema: schemas/fonte.yaml
     dpetl_extract:
       mode: email
       mailbox: '[Gmail]/Trash'
     dpetl_transform:
       format: csv
 
-  - name: funcional_programatica
+  - name: funcao
     type: table
-    path: ['data_raw/funcional_programatica_rp.zip', 'data_raw/funcional_programatica_previous.zip', 'data_raw/funcional_programatica_current.zip']
+    path: ['data_raw/funcao_previous.csv', 'data_raw/funcao_current.csv']
     scheme: multipart
     format: csv
     mediatype: text/csv
     encoding: utf-8
     dialect: schemas/dialect.yaml
-    schema: schemas/funcional_programatica.yaml
+    schema: schemas/funcao.yaml
     dpetl_extract:
       mode: email
       mailbox: '[Gmail]/Trash'
     dpetl_transform:
       format: csv
 
-  - name: natureza_despesa
+  - name: grupo_categoria
     type: table
-    path: ['data_raw/natureza_despesa_previous.zip', 'data_raw/natureza_despesa_current.zip']
+    path: ['data_raw/grupo_categoria_previous.csv', 'data_raw/grupo_categoria_current.csv']
     scheme: multipart
     format: csv
     mediatype: text/csv
     encoding: utf-8
     dialect: schemas/dialect.yaml
-    schema: schemas/natureza_despesa.yaml
+    schema: schemas/grupo_categoria.yaml
     dpetl_extract:
       mode: email
       mailbox: '[Gmail]/Trash'
     dpetl_transform:
       format: csv
 
-  - name: natureza_receita
+  - name: ipu
     type: table
-    path: ['data_raw/natureza_receita_previous.zip', 'data_raw/natureza_receita_current.zip']
+    path: ['data_raw/ipu_previous.csv', 'data_raw/ipu_current.csv']
     scheme: multipart
     format: csv
     mediatype: text/csv
     encoding: utf-8
     dialect: schemas/dialect.yaml
-    schema: schemas/natureza_receita.yaml
+    schema: schemas/ipu.yaml
+    dpetl_extract:
+      mode: email
+      mailbox: '[Gmail]/Trash'
+    dpetl_transform:
+      format: csv
+
+  - name: modalidade
+    type: table
+    path: ['data_raw/modalidade_previous.csv', 'data_raw/modalidade_current.csv']
+    scheme: multipart
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect: schemas/dialect.yaml
+    schema: schemas/modalidade.yaml
+    dpetl_extract:
+      mode: email
+      mailbox: '[Gmail]/Trash'
+    dpetl_transform:
+      format: csv
+
+  - name: programa
+    type: table
+    path: ['data_raw/programa_previous.csv', 'data_raw/programa_current.csv']
+    scheme: multipart
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect: schemas/dialect.yaml
+    schema: schemas/programa.yaml
+    dpetl_extract:
+      mode: email
+      mailbox: '[Gmail]/Trash'
+    dpetl_transform:
+      format: csv
+
+  - name: receita
+    type: table
+    path: ['data_raw/receita_previous.csv', 'data_raw/receita_current.csv']
+    scheme: multipart
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect: schemas/dialect.yaml
+    schema: schemas/receita.yaml
+    dpetl_extract:
+      mode: email
+      mailbox: '[Gmail]/Trash'
+    dpetl_transform:
+      format: csv
+
+  - name: subfuncao
+    type: table
+    path: ['data_raw/subfuncao_previous.csv', 'data_raw/subfuncao_current.csv']
+    scheme: multipart
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect: schemas/dialect.yaml
+    schema: schemas/subfuncao.yaml
     dpetl_extract:
       mode: email
       mailbox: '[Gmail]/Trash'
@@ -99,7 +174,7 @@ resources:
 
   - name: uo
     type: table
-    path: ['data_raw/uo_rp.zip', 'data_raw/uo_previous.zip', 'data_raw/uo_current.zip']
+    path: ['data_raw/uo_previous.csv', 'data_raw/uo_current.csv']
     scheme: multipart
     format: csv
     mediatype: text/csv
