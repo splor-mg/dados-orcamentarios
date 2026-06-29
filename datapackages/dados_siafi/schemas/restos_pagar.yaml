@@ -48,12 +48,6 @@ fields:
     target: ipu_cod
 
   - name: Elemento Despesa - Código
-    type: string
-    title: Elemento Despesa - Código
-    description: |
-      Código identificador do elemento de gasto da despesa.
-    constraints:
-      pattern: '^[1-9]\d{0,1}$'
     target: elemento_cod
 
   - name: Item Despesa - Código

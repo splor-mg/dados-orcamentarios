@@ -1,10 +1,10 @@
 from frictionless import Package, Schema
 from pathlib import Path
 
+
+datapackages = Path('datapackages').glob('*/raw_datapackage.yaml')
 common_schema = Schema('datapackages/common.yaml')
 names = [field.name for field in common_schema.fields]
-
-datapackages = Path('datapackages').glob('*/datapackage.yaml')
 
 for datapackage in datapackages:
     package = Package(datapackage)
@@ -20,7 +20,5 @@ for datapackage in datapackages:
 
                 schema[index] = common_field.to_copy(name=field.name)
                 schema[index].custom['target'] = target
-
-        resource.custom.pop('dpetl_extract', None)
 
     package.to_yaml(datapackage.parent / 'datapackage.yaml')

@@ -1,3 +1,12 @@
+datapackages/*/data_raw/*
+!datapackages/*/data_raw/.gitkeep
+
+datapackages/*/data/*
+!datapackages/*/data/.gitkeep
+
+datapackages/*/datapackage.yaml
+datapackages/*/datapackage.json
+
 # Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,visualstudio,sublimetext,pycharm
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,visualstudiocode,visualstudio,sublimetext,pycharm
 
@@ -732,4 +741,3 @@ FodyWeavers.xsd
 # Additional files built by Visual Studio
 
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,visualstudio,sublimetext,pycharm
-
