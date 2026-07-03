@@ -46,6 +46,7 @@ jobs:
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_PWD: ${{ secrets.EMAIL_PWD }}
           EMAIL_IMAP: ${{ secrets.EMAIL_IMAP }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           source .venv/bin/activate
           task etl
