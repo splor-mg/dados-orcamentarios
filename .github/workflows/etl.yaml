@@ -49,7 +49,9 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           source .venv/bin/activate
-          task etl
+          task yaml
+          task extract
+          frictionless validate datapackages/dados_siafi/datapackage.yaml
       - name: Workflow failure notification
         uses: peter-evans/create-issue-from-file@v6
         if: failure()
