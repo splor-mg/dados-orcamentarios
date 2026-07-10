@@ -6,10 +6,4 @@ fields:
     target: receita_cod
 
   - name: Classificação Receita - Descrição
-    type: string
-    title: Classificação Receita - Descrição
-    description: |
-      Descrição da Classificação da Receita.
-    constraints:
-      maxLength: 500
     target: receita_desc

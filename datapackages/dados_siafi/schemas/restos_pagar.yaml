@@ -51,12 +51,6 @@ fields:
     target: elemento_cod
 
   - name: Item Despesa - Código
-    type: string
-    title: Item Despesa - Código
-    description: |
-      Código identificador do item de despesa.
-    constraints:
-      pattern: '^(0|[1-9]\d{0,1})$'
     target: item_cod
 
   - name: Elemento origem DEA

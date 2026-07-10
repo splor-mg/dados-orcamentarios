@@ -6,19 +6,7 @@ fields:
     target: uo_cod
 
   - name: Unidade Orçamentária - Sigla
-    type: string
-    title: Unidade Orçamentária - Sigla
-    description: |
-      Nome abreviado ou sigla da unidade orçamentária.
-    constraints:
-      maxLength: 500
     target: uo_sigla
 
   - name: Unidade Orçamentária - Nome
-    type: string
-    title: Unidade Orçamentária - Nome
-    description: |
-      Nome completo da Unidade Orçamentária.
-    constraints:
-      maxLength: 500
     target: uo_nome
