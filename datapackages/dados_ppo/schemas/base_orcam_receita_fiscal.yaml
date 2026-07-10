@@ -1,0 +1,90 @@
+fields:
+  - name: UO_COD
+    target: uo_cod
+
+  - name: NOME_UO
+    target: uo_nome
+
+  - name: SIGLA_UO
+    target: uo_sigla
+
+  - name: COD_FONTE
+    target: fonte_cod
+
+  - name: FONTE
+    target: fonte_desc
+
+  - name: INTERPRETACAO
+    target: interpretacao
+
+  - name: CATEGORIA
+    target: categoria__cod
+
+  - name: ORIGEM
+    target: origem_cod
+
+  - name: ESPECIE
+    target: especie_cod
+
+  - name: RUBRICA
+    target: rubrica_cod
+
+  - name: ALINEA
+    target: alinea_cod
+
+  - name: SUBALINEA
+    target: subalinea_cod
+
+  - name: TIPO_RECEITA
+    target: receita_tipo
+
+  - name: ITEM
+    target: item_cod
+
+  - name: SUBITEM
+    target: subitem_cod
+
+  - name: COD_RECEITA
+    target: receita_cod
+
+  - name: RECEITA
+    target: receita_desc
+
+  - name: INTERP_RECEITA
+    target: receita_interpretacao
+
+  - name: VALOR UO (R$)
+    type: number
+    title: Valor UO (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_loa_rec_uo
+
+  - name: VALOR SCPPO (R$)
+    type: number
+    title: Valor SCPPO (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_loa_rec_scppo
+
+  - name: VALOR FINAL (R$)
+    type: number
+    title: Valor Final (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_loa_rec
+
+  - name: ANO
+    target: ano
+
+  - name: BASE LEGAL
+    target: base_legal
+
+  - name: METODOLOGIA DE CÁLCULO E PREMISSAS UTILIZADAS
+    target: metodologia

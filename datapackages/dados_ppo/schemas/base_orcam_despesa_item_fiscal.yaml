@@ -1,0 +1,69 @@
+fields:
+  - name: Código do Órgão
+    target: orgao_cod
+
+  - name: Órgão
+    target: orgao_nome_sigla
+
+  - name: Código da UO
+    target: uo_cod
+
+  - name: Unidade Orçamentária
+    target: uo_nome_sigla
+
+  - name: Função
+    target: funcao_cod
+
+  - name: Subfunção
+    target: subfuncao_cod
+
+  - name: Programa
+    target: programa_cod
+
+  - name: Identificador
+    target: identificador_cod
+
+  - name: Projeto_Atividade
+    target: projeto_atividade_cod
+
+  - name: Ação
+    target: acao_cod
+
+  - name: Subprojeto
+    target: subprojeto_cod
+
+  - name: Categoria
+    target: categoria_cod
+
+  - name: Grupo_Despesa
+    target: grupo_cod
+
+  - name: Modalidade
+    target: modalidade_cod
+
+  - name: Elemento_Despesa
+    target: elemento_cod
+
+  - name: Item_Despesa
+    target: item_cod
+
+  - name: Fonte
+    target: fonte_cod
+
+  - name: IPU
+    target: ipu_cod
+
+  - name: IAG
+    target: iag_cod
+
+  - name: Descrição
+    target: acao_desc
+
+  - name: Valor (R$)
+    type: number
+    title: Valor (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_loa_desp

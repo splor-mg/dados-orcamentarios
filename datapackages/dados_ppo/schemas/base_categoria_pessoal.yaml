@@ -1,0 +1,16 @@
+fields:
+  - name: Ano de Exercício
+    target: ano
+    ppo: ano_ref
+
+  - name: UO
+    target: uo_cod_sigla
+
+  - name: Classificação
+    target: pessoal_classificacao
+
+  - name: Categoria
+    target: pessoal_categoria
+
+  - name: Quantidade
+    target: pessoal_quantidade

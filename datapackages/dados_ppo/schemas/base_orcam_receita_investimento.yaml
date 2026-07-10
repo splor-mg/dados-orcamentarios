@@ -1,0 +1,60 @@
+fields:
+  - name: COD_UO
+    target: uo_cod
+
+  - name: NOME_UO
+    target: uo_nome
+
+  - name: SIGLA_UO
+    target: uo_sigla
+
+  - name: CATEGORIA
+    target: categoria__cod
+
+  - name: SUBCATEGORIA
+    target: subcategoria_cod
+
+  - name: ALINEA
+    target: alinea_cod
+
+  - name: SUBALINEA
+    target: subalinea_cod
+
+  - name: COD_RECEITA
+    target: receita_cod
+
+  - name: NIVEL_ORIGEM
+    target: origem_nivel
+
+  - name: RECEITA
+    target: receita_desc
+
+  - name: VALOR UO (R$)
+    type: number
+    title: Valor UO (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_loa_rec_uo_invest
+
+  - name: VALOR SCPPO (R$)
+    type: number
+    title: Valor SCPPO (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_loa_rec_scppo_invest
+
+  - name: VALOR FINAL (R$)
+    type: number
+    title: Valor Final (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_loa_rec_invest
+
+  - name: ANO
+    target: ano

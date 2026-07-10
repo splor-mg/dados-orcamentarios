@@ -1,0 +1,75 @@
+fields:
+  - name: ANO
+    target: ano
+
+  - name: COD_ORGAO
+    target: orgao_cod
+
+  - name: ORGAO
+    target: orgao_nome_sigla
+
+  - name: PODER
+    target: poder_cod
+
+  - name: COD_UO
+    target: uo_cod
+
+  - name: UO
+    target: uo_nome_sigla
+
+  - name: SEQ_PROGTRAB
+    target: seq_progtrab
+
+  - name: FUNCAO
+    target: funcao_cod
+
+  - name: SUB_FUNCAO
+    target: subfuncao_cod
+
+  - name: PROGRAMA
+    target: programa_cod
+
+  - name: IDENT_PROJATIV
+    target: identificador_cod
+
+  - name: PROJ_ATIV
+    target: projeto_atividade_cod
+
+  - name: AÇÃO
+    target: acao_cod
+
+  - name: VALOR (R$)
+    type: number
+    title: Valor (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_loa_desp_invest
+
+  - name: IAG
+    target: iag_cod
+
+  - name: DESC_PROJETO_ATIV
+    target: acao_desc
+
+  - name: CATEGORIA
+    target: categoria__cod_nome
+
+  - name: COD_NATUREZA
+    target: natureza_cod
+
+  - name: NATUREZA
+    target: natureza_desc
+
+  - name: COD_FONTE
+    target: fonte_invest_cod
+
+  - name: FONTE
+    target: fonte_invest_desc
+
+  - name: NOME_ACAO
+    target: acao_desc
+
+  - name: NOME_PROGRAMA
+    target: programa_desc

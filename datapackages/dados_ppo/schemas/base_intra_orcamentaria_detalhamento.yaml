@@ -1,0 +1,24 @@
+fields:
+  - name: Cód. UO Beneficiada
+    target: uo_cod
+
+  - name: UO Beneficiada
+    target: uo_sigla
+
+  - name: Valor Recebido (R$)
+    type: number
+    title: Valor Recebido (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_recebido
+
+  - name: Valor Detalhado (R$)
+    type: number
+    title: Valor Detalhado (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_detalhado

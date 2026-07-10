@@ -1,0 +1,99 @@
+fields:
+  - name: Cód. UO
+    target: uo_cod
+
+  - name: UO
+    target: uo_sigla
+
+  - name: Grupo de Despesa
+    target: grupo_cod
+
+  - name: Fonte
+    target: fonte_cod
+
+  - name: IPU
+    target: ipu_cod
+
+  - name: IAG
+    target: iag_cod
+
+  - name: Valor Limite 2026
+    type: number
+    title: Valor Limite Ano de Referência (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_limite_ano0
+
+  - name: Valor Utilizado 2026
+    type: number
+    title: Valor Utilizado Ano de Referência (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_utilizado_ano0
+
+  - name: Valor Transferido
+    type: number
+    title: Valor Transferido
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_transferido
+
+  - name: Valor Limite 2027
+    type: number
+    title: Valor Limite Ano de Referência + 1 (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_limite_ano1
+
+  - name: Valor Utilizado 2027
+    type: number
+    title: Valor Utilizado Ano de Referência + 1 (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_utilizado_ano1
+
+  - name: Valor Limite 2028
+    type: number
+    title: Valor Limite Ano de Referência + 2 (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_limite_ano2
+
+  - name: Valor Utilizado 2028
+    type: number
+    title: Valor Utilizado Ano de Referência + 2 (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_utilizado_ano2
+
+  - name: Valor Limite 2029
+    type: number
+    title: Valor Limite Ano de Referência + 3 (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_limite_ano3
+
+  - name: Valor Utilizado 2029
+    type: number
+    title: Valor Utilizado Ano de Referência + 3 (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_utilizado_ano3

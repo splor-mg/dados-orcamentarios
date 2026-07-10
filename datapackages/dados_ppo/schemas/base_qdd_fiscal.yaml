@@ -1,0 +1,99 @@
+fields:
+  - name: ANO
+    target: ano
+
+  - name: COD_ORGAO
+    target: orgao_cod
+
+  - name: ORGAO
+    target: orgao_nome_sigla
+
+  - name: PODER
+    target: poder_cod
+
+  - name: SITUACAO
+    target: situacao
+
+  - name: COD_UO
+    target: uo_cod
+
+  - name: UO
+    target: uo_nome_sigla
+
+  - name: CATEGORIA
+    target: categoria_cod
+
+  - name: GRUPO_DESPESA
+    target: grupo_cod
+
+  - name: MODALIDADE
+    target: modalidade_cod
+
+  - name: ELEMENTO_DESPESA
+    target: elemento_cod
+
+  - name: FONTE
+    target: fonte_cod
+
+  - name: IPU
+    target: ipu_cod
+
+  - name: SEQ_PROGTRAB
+    target: seq_progtrab
+
+  - name: FUNCAO
+    target: funcao_cod
+
+  - name: SUB_FUNCAO
+    target: subfuncao_cod
+
+  - name: PROGRAMA
+    target: programa_cod
+
+  - name: IDENT_PROJATIV
+    target: identificador_cod
+
+  - name: PROJ_ATIV
+    target: projeto_atividade_cod
+
+  - name: AÇÃO
+    target: acao_cod
+
+  - name: SUB_PROJETO
+    target: subprojeto_cod
+
+  - name: VALOR UO (R$)
+    type: number
+    title: Valor UO (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_loa_desp_uo
+
+  - name: VALOR SCPPO (R$)
+    type: number
+    title: Valor SCPPO (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_loa_desp_scppo
+
+  - name: VALOR FINAL (R$)
+    type: number
+    title: Valor Final (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_loa_desp
+
+  - name: IAG
+    target: iag_cod
+
+  - name: NOME_ACAO
+    target: acao_desc
+
+  - name: NOME_PROGRAMA
+    target: programa_desc

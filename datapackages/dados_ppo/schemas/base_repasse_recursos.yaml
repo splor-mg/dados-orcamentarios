@@ -1,0 +1,33 @@
+fields:
+  - name: Cód. UO Financiadora
+    target: uo_financiadora_cod
+
+  - name: UO Financiadora
+    target: uo_financiadora_nome
+
+  - name: Cód. UO Beneficiada
+    target: uo_beneficiada_cod
+
+  - name: UO Beneficiada
+    target: uo_beneficiada_nome
+
+  - name: Grupo de Despesa
+    target: grupo_cod
+
+  - name: Fonte
+    target: fonte_cod
+
+  - name: IPU
+    target: ipu_cod
+
+  - name: IAG
+    target: iag_cod
+
+  - name: Valor Transferido (R$)
+    type: number
+    title: Valor Transferido (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_repasse

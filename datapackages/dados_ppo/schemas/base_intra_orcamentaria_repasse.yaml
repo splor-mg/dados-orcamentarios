@@ -1,0 +1,33 @@
+fields:
+  - name: Cód. UO Repassadora
+    target: uo_repassadora_cod
+
+  - name: UO Repassadora
+    target: uo_repassadora_sigla
+
+  - name: Cód. Programa de Trabalho
+    target: programa_trabalho_fmt
+
+  - name: Ação
+    target: acao_desc
+
+  - name: Cód. Natureza de Despesa
+    target: natureza_desp_fmt
+
+  - name: Elemento Item
+    target: item_desc
+
+  - name: Valor Repassado (R$)
+    type: number
+    title: Valor Repassado (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_repassado
+
+  - name: Cód. UO Beneficiada
+    target: uo_beneficiada_cod
+
+  - name: UO Beneficiada
+    target: uo_beneficiada_sigla

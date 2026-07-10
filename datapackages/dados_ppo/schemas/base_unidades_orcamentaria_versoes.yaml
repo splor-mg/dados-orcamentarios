@@ -1,0 +1,12 @@
+fields:
+  - name: UO_COD
+    target: uo_cod
+
+  - name: UO_DESC
+    target: uo_nome
+
+  - name: UO_SIGLA
+    target: uo_sigla
+
+  - name: MOMENTO_COD
+    target: momento_cod

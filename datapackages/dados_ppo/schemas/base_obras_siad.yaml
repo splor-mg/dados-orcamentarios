@@ -1,0 +1,36 @@
+fields:
+  - name: ORGAO_COD
+    target: orgao_cod_nome
+
+  - name: UNIDADE_ADIMINISTRATIVA_COD
+    target: ua_cod_nome
+
+  - name: Número da Obra SIAD
+    target: obra_num_siad
+
+  - name: Número de Referência da UO
+    target: uo_num_ref
+
+  - name: Situação
+    target: situacao
+
+  - name: Descrição
+    target: obra_desc
+
+  - name: Data de Início
+    target: obra_data_inicio
+
+  - name: Data de Término
+    target: obra_data_termino
+
+  - name: Ano de Exercício
+    target: ano
+
+  - name: Valor Global (R$)
+    type: number
+    title: Valor Global (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_global

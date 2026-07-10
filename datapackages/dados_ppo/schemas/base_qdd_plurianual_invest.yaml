@@ -1,0 +1,87 @@
+fields:
+  - name: ANO
+    target: ano
+
+  - name: COD_ORGAO
+    target: orgao_cod
+
+  - name: DESC_ORGAO
+    target: orgao_nome_sigla
+
+  - name: COD_UO
+    target: uo_cod
+
+  - name: DESC_UO
+    target: uo_nome_sigla
+
+  - name: FUNCAO
+    target: funcao_cod
+
+  - name: SUBFUNCAO
+    target: subfuncao_cod
+
+  - name: COD_PROGRAMA
+    target: programa_cod
+
+  - name: IDENT_PROJATIV
+    target: identificador_cod
+
+  - name: PROJ_ATIV
+    target: projeto_atividade_cod
+
+  - name: AÇÃO
+    target: acao_cod
+
+  - name: SUBPROJETO
+    target: subprojeto_cod
+
+  - name: CATEGORIA
+    target: categoria__cod
+
+  - name: FONTE
+    target: fonte_invest_cod
+
+  - name: IAG
+    target: iag_cod
+
+  - name: PROGRAMA
+    target: programa_desc
+
+  - name: ACAO
+    target: acao_desc
+
+  - name: VALOR (R$) 2026
+    type: number
+    title: Valor Ano de Referência (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_loa_desp_invest_ano0
+
+  - name: VALOR (R$) 2027
+    type: number
+    title: Valor Ano de Referência + 1 (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_loa_desp_invest_ano1
+
+  - name: VALOR (R$) 2028
+    type: number
+    title: Valor Ano de Referência + 2 (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_loa_desp_invest_ano2
+
+  - name: VALOR (R$) 2029
+    type: number
+    title: Valor Ano de Referência + 3 (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_loa_desp_invest_ano3

@@ -1,0 +1,120 @@
+fields:
+  - name: UO
+    target: uo_cod
+
+  - name: FUNCAO
+    target: funcao_cod
+
+  - name: SUBFUNCAO
+    target: subfuncao_cod
+
+  - name: PROGRAMA
+    target: programa_cod
+
+  - name: ACAO
+    target: acao_cod
+
+  - name: SUBPROJETO
+    target: subprojeto_cod
+
+  - name: IAG
+    target: iag_cod
+
+  - name: NUMERO DA OBRA SISOR
+    target: obra_num_sisor
+
+  - name: NUMERO DA OBRA SIAD
+    target: obra_num_siad
+
+  - name: DESCRICAO DA OBRA
+    target: obra_desc
+
+  - name: STATUS DA OBRA
+    target: obra_status
+
+  - name: UNIDADE DE MEDIDA DA OBRA
+    target: obra_unidade_medida
+
+  - name: QUANTIDADE
+    target: obra_quantidade
+
+  - name: ALTERAR UNIDADE DE MEDIDA DA OBRA
+    target: obra_alterar_unidade_medida
+
+  - name: REGIÃO GEOGRÁFICA INTERMEDIÁRIA
+    target: obra_regiao_geografica_intermediaria
+
+  - name: MUNICÍPIO
+    target: obra_municipio
+
+  - name: VALOR TESOURO 2026 (R$)
+    type: number
+    title: Valor Tesouro Ano de Referência (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_tesouro_ano0
+
+  - name: VALOR OUTROS 2026 (R$)
+    type: number
+    title: Valor Outros Ano de Referência (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_outros_ano0
+
+  - name: VALOR TESOURO 2027 (R$)
+    type: number
+    title: Valor Tesouro Ano de Referência + 1 (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_tesouro_ano1
+
+  - name: VALOR OUTROS 2027 (R$)
+    type: number
+    title: Valor Outros Ano de Referência + 1 (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_outros_ano1
+
+  - name: VALOR TESOURO 2028 (R$)
+    type: number
+    title: Valor Tesouro Ano de Referência + 2 (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_tesouro_ano2
+
+  - name: VALOR OUTROS 2028 (R$)
+    type: number
+    title: Valor Outros Ano de Referência + 2 (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_outros_ano2
+
+  - name: VALOR TESOURO 2029 (R$)
+    type: number
+    title: Valor Tesouro Ano de Referência + 3 (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_tesouro_ano3
+
+  - name: VALOR OUTROS 2029 (R$)
+    type: number
+    title: Valor Outros Ano de Referência + 3 (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_outros_ano3
