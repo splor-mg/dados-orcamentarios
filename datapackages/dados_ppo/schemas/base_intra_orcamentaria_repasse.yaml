@@ -1,21 +1,33 @@
 fields:
   - name: Cód. UO Repassadora
     target: uo_repassadora_cod
+    ppo: null
+    mapping_type: pending
 
   - name: UO Repassadora
     target: uo_repassadora_sigla
+    ppo: null
+    mapping_type: pending
 
   - name: Cód. Programa de Trabalho
     target: programa_trabalho_fmt
+    ppo: Programa de Trabalho
+    mapping_type: direct
 
   - name: Ação
     target: acao_desc
+    ppo: Nome da Ação
+    mapping_type: direct
 
   - name: Cód. Natureza de Despesa
     target: natureza_desp_fmt
+    ppo: Natureza da Despesa
+    mapping_type: direct
 
   - name: Elemento Item
     target: item_desc
+    ppo: Nome do Elemento Item
+    mapping_type: direct
 
   - name: Valor Repassado (R$)
     type: number
@@ -25,9 +37,25 @@ fields:
     constraints:
       minimum: 0
     target: vlr_repassado
+    ppo: Valor Distribuído
+    mapping_type: direct
 
   - name: Cód. UO Beneficiada
     target: uo_beneficiada_cod
+    ppo: Unidade Orçamentária Beneficiada
+    mapping_type: direct
 
   - name: UO Beneficiada
     target: uo_beneficiada_sigla
+    ppo: null
+    mapping_type: pending
+
+
+ppo_unmapped_fields:
+  - ppo: Código do Item
+    mapping_type: new
+    note: Campo novo no PPO, sem correspondência na base antiga
+
+  - ppo: Data de Inclusão
+    mapping_type: new
+    note: Campo novo no PPO, sem correspondência na base antiga

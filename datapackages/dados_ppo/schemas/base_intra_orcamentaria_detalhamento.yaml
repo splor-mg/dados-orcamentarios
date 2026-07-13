@@ -1,9 +1,11 @@
 fields:
   - name: Cód. UO Beneficiada
     target: uo_cod
+    ppo: Unidade Orçamentária Beneficiada
 
   - name: UO Beneficiada
     target: uo_sigla
+    ppo: null
 
   - name: Valor Recebido (R$)
     type: number
@@ -13,6 +15,7 @@ fields:
     constraints:
       minimum: 0
     target: vlr_recebido
+    ppo: Valor Distribuído
 
   - name: Valor Detalhado (R$)
     type: number
@@ -22,3 +25,4 @@ fields:
     constraints:
       minimum: 0
     target: vlr_detalhado
+    ppo: null

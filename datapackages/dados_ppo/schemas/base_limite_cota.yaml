@@ -1,21 +1,33 @@
 fields:
   - name: Cód. UO
     target: uo_cod
+    ppo: UO
+    mapping_type: direct
 
   - name: UO
     target: uo_sigla
+    ppo: SIGLA
+    mapping_type: direct
 
   - name: Grupo de Despesa
     target: grupo_cod
+    ppo: GRUPO
+    mapping_type: direct
 
   - name: Fonte
     target: fonte_cod
+    ppo: FONTE
+    mapping_type: direct
 
   - name: IPU
     target: ipu_cod
+    ppo: IPU
+    mapping_type: direct
 
   - name: IAG
     target: iag_cod
+    ppo: IAG
+    mapping_type: direct
 
   - name: Valor Limite 2026
     type: number
@@ -25,6 +37,8 @@ fields:
     constraints:
       minimum: 0
     target: vlr_limite_ano0
+    ppo: VALOR LIMITE
+    mapping_type: direct
 
   - name: Valor Utilizado 2026
     type: number
@@ -34,6 +48,8 @@ fields:
     constraints:
       minimum: 0
     target: vlr_utilizado_ano0
+    ppo: null
+    mapping_type: pending
 
   - name: Valor Transferido
     type: number
@@ -43,6 +59,8 @@ fields:
     constraints:
       minimum: 0
     target: vlr_transferido
+    ppo: null
+    mapping_type: pending
 
   - name: Valor Limite 2027
     type: number
@@ -52,6 +70,8 @@ fields:
     constraints:
       minimum: 0
     target: vlr_limite_ano1
+    mapping_type: removed
+    note: O novo sistema não preenche mais essa coluna
 
   - name: Valor Utilizado 2027
     type: number
@@ -61,6 +81,8 @@ fields:
     constraints:
       minimum: 0
     target: vlr_utilizado_ano1
+    mapping_type: removed
+    note: O novo sistema não preenche mais essa coluna
 
   - name: Valor Limite 2028
     type: number
@@ -70,6 +92,8 @@ fields:
     constraints:
       minimum: 0
     target: vlr_limite_ano2
+    mapping_type: removed
+    note: O novo sistema não preenche mais essa coluna
 
   - name: Valor Utilizado 2028
     type: number
@@ -79,6 +103,8 @@ fields:
     constraints:
       minimum: 0
     target: vlr_utilizado_ano2
+    mapping_type: removed
+    note: O novo sistema não preenche mais essa coluna
 
   - name: Valor Limite 2029
     type: number
@@ -88,6 +114,8 @@ fields:
     constraints:
       minimum: 0
     target: vlr_limite_ano3
+    mapping_type: removed
+    note: O novo sistema não preenche mais essa coluna
 
   - name: Valor Utilizado 2029
     type: number
@@ -97,3 +125,5 @@ fields:
     constraints:
       minimum: 0
     target: vlr_utilizado_ano3
+    mapping_type: removed
+    note: O novo sistema não preenche mais essa coluna

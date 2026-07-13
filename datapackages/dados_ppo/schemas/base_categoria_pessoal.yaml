@@ -1,16 +1,30 @@
 fields:
   - name: Ano de Exercício
     target: ano
-    ppo: ano_ref
+    ppo: Ano de referência da informação
+    mapping_type: direct
 
   - name: UO
     target: uo_cod_sigla
+    ppo: Código da Unidade Orçamentária
+    mapping_type: direct
 
   - name: Classificação
     target: pessoal_classificacao
+    ppo: Classificação vinculada à categoria de pessoal
+    mapping_type: direct
 
   - name: Categoria
     target: pessoal_categoria
+    ppo: Categoria de pessoa
+    mapping_type: direct
 
   - name: Quantidade
     target: pessoal_quantidade
+    ppo: Quantidade informada para a categoria
+    mapping_type: direct
+
+ppo_unmapped_fields:
+  - ppo: Sigla da Unidade Orçamentária
+    mapping_type: new
+    note: Campo extra

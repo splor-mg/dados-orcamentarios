@@ -1,27 +1,51 @@
 fields:
   - name: Cód. UO Financiadora
     target: uo_financiadora_cod
+    ppo: U.O. Cedente
+    mapping_type: part_of_field
+    note: Código antes do separador " - "
 
   - name: UO Financiadora
     target: uo_financiadora_nome
+    ppo: U.O. Cedente
+    mapping_type: part_of_field
+    note: Descrição após o separador " - "
 
   - name: Cód. UO Beneficiada
     target: uo_beneficiada_cod
+    ppo: U.O. Beneficiada
+    mapping_type: part_of_field
+    note: Código antes do separador " - "
 
   - name: UO Beneficiada
     target: uo_beneficiada_nome
+    ppo: U.O. Beneficiada
+    mapping_type: part_of_field
+    note: Descrição após o separador " - "
 
   - name: Grupo de Despesa
     target: grupo_cod
+    ppo: Grupo Despesa
+    mapping_type: code_to_label
+    note: O PPO apresenta a descrição textual em vez do código numérico
 
   - name: Fonte
     target: fonte_cod
+    ppo: Fonte
+    mapping_type: code_to_label
+    note: O PPO apresenta a descrição textual em vez do código numérico
 
   - name: IPU
     target: ipu_cod
+    ppo: IPU
+    mapping_type: code_to_label
+    note: O PPO apresenta a descrição textual em vez do código numérico
 
   - name: IAG
     target: iag_cod
+    ppo: IAG
+    mapping_type: code_to_label
+    note: O PPO apresenta a descrição textual em vez do código numérico
 
   - name: Valor Transferido (R$)
     type: number
@@ -31,3 +55,16 @@ fields:
     constraints:
       minimum: 0
     target: vlr_repasse
+    ppo: Valor Repassado
+    mapping_type: direct
+
+
+ppo_unmapped_fields:
+  - ppo: Ano
+    mapping_type: new
+    note: Campo novo no PPO, sem correspondência na base antiga
+
+  - ppo: Grupo Fonte
+    mapping_type: new
+    note: Campo novo no PPO, sem correspondência na base antiga
+

@@ -1,54 +1,88 @@
 fields:
   - name: ANO
     target: ano
+    mapping_type: removed
+    note: Reprogramação plurianual não será mais feita
 
   - name: COD_ORGAO
     target: orgao_cod
+    mapping_type: removed
+    note: Reprogramação plurianual não será mais feita
 
   - name: DESC_ORGAO
     target: orgao_nome_sigla
+    mapping_type: removed
+    note: Reprogramação plurianual não será mais feita
 
   - name: COD_UO
     target: uo_cod
+    mapping_type: removed
+    note: Reprogramação plurianual não será mais feita
 
   - name: DESC_UO
     target: uo_nome_sigla
+    mapping_type: removed
+    note: Reprogramação plurianual não será mais feita
 
   - name: FUNCAO
     target: funcao_cod
+    mapping_type: removed
+    note: Reprogramação plurianual não será mais feita
 
   - name: SUBFUNCAO
     target: subfuncao_cod
+    mapping_type: removed
+    note: Reprogramação plurianual não será mais feita
 
   - name: COD_PROGRAMA
     target: programa_cod
+    mapping_type: removed
+    note: Reprogramação plurianual não será mais feita
 
   - name: IDENT_PROJATIV
     target: identificador_cod
+    mapping_type: removed
+    note: Reprogramação plurianual não será mais feita
 
   - name: PROJ_ATIV
     target: projeto_atividade_cod
+    mapping_type: removed
+    note: Reprogramação plurianual não será mais feita
 
   - name: AÇÃO
     target: acao_cod
+    mapping_type: removed
+    note: Reprogramação plurianual não será mais feita
 
   - name: SUBPROJETO
     target: subprojeto_cod
+    mapping_type: removed
+    note: Reprogramação plurianual não será mais feita
 
   - name: CATEGORIA
     target: categoria__cod
+    mapping_type: removed
+    note: Reprogramação plurianual não será mais feita
 
   - name: FONTE
     target: fonte_invest_cod
+    mapping_type: removed
+    note: Reprogramação plurianual não será mais feita
 
   - name: IAG
     target: iag_cod
+    mapping_type: removed
+    note: Reprogramação plurianual não será mais feita
 
   - name: PROGRAMA
     target: programa_desc
+    mapping_type: removed
+    note: Reprogramação plurianual não será mais feita
 
   - name: ACAO
     target: acao_desc
+    mapping_type: removed
+    note: Reprogramação plurianual não será mais feita
 
   - name: VALOR (R$) 2026
     type: number
@@ -58,6 +92,8 @@ fields:
     constraints:
       minimum: 0
     target: vlr_loa_desp_invest_ano0
+    mapping_type: removed
+    note: Reprogramação plurianual não será mais feita
 
   - name: VALOR (R$) 2027
     type: number
@@ -67,6 +103,8 @@ fields:
     constraints:
       minimum: 0
     target: vlr_loa_desp_invest_ano1
+    mapping_type: removed
+    note: Reprogramação plurianual não será mais feita
 
   - name: VALOR (R$) 2028
     type: number
@@ -76,6 +114,8 @@ fields:
     constraints:
       minimum: 0
     target: vlr_loa_desp_invest_ano2
+    mapping_type: removed
+    note: Reprogramação plurianual não será mais feita
 
   - name: VALOR (R$) 2029
     type: number
@@ -85,3 +125,5 @@ fields:
     constraints:
       minimum: 0
     target: vlr_loa_desp_invest_ano3
+    mapping_type: removed
+    note: Reprogramação plurianual não será mais feita
