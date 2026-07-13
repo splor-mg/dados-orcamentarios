@@ -2,22 +2,215 @@
 
 ## Índice
 
-1. [Orçamento da Despesa Fiscal / Itens de Despesa](#base-orcam-despesa-item-fiscal) - 21 campos
-2. [Detalhamento Plurianual Fiscal](#base-qdd-plurianual) - 23 campos
-3. [Detalhamento Plurianual Investimento](#base-qdd-plurianual-invest) - 21 campos
-4. [Orçamento da Despesa de Investimento](#base-orcam-despesa-investimento) - 21 campos
-5. [Detalhamento de Obras](#base-detalhamento-obras) - 24 campos
-6. [QDD Fiscal](#base-qdd-fiscal) - 27 campos
-7. [QDD Investimento](#base-qdd-investimento) - 23 campos
-8. [Orçamento da Receita Fiscal](#base-orcam-receita-fiscal) - 24 campos
-9. [Orçamento da Receita Investimento](#base-orcam-receita-investimento) - 14 campos
-10. [Registro de Obras no SIAD](#base-obras-siad) - 10 campos
-11. [Categoria de Pessoal](#base-categoria-pessoal) - 5 campos
-12. [Repasse de Recursos](#base-repasse-recursos) - 9 campos
-13. [Limite de Cota](#base-limite-cota) - 15 campos
-14. [Base Intraorçamentária de Detalhamento](#base-intra-orcamentaria-detalhamento) - 4 campos
-15. [Base Intraorçamentária de Repasse](#base-intra-orcamentaria-repasse) - 9 campos
-16. [Relação das Unidades Orçamentárias e suas Versões](#base-unidades-orcamentaria-versoes) - 4 campos
+1. [Relatórios e Bases do Planejamento - Ações](#acoes-planejamento) - 49 campos
+2. [Relatórios e Bases do Planejamento - Indicadores](#indicadores-planejamento) - 26 campos
+3. [Relatórios e Bases do Planejamento - Localizadores (Todos)](#localizadores-todos-planejamento) - 33 campos
+4. [Relatórios e Bases do Planejamento - Programas](#programas-planejamento) - 29 campos
+5. [Orçamento da Despesa Fiscal / Itens de Despesa](#base-orcam-despesa-item-fiscal) - 21 campos
+6. [Detalhamento Plurianual Fiscal](#base-qdd-plurianual) - 23 campos
+7. [Detalhamento Plurianual Investimento](#base-qdd-plurianual-invest) - 21 campos
+8. [Orçamento da Despesa de Investimento](#base-orcam-despesa-investimento) - 21 campos
+9. [Detalhamento de Obras](#base-detalhamento-obras) - 24 campos
+10. [QDD Fiscal](#base-qdd-fiscal) - 27 campos
+11. [QDD Investimento](#base-qdd-investimento) - 23 campos
+12. [Orçamento da Receita Fiscal](#base-orcam-receita-fiscal) - 24 campos
+13. [Orçamento da Receita Investimento](#base-orcam-receita-investimento) - 14 campos
+14. [Registro de Obras no SIAD](#base-obras-siad) - 10 campos
+15. [Categoria de Pessoal](#base-categoria-pessoal) - 5 campos
+16. [Repasse de Recursos](#base-repasse-recursos) - 9 campos
+17. [Limite de Cota](#base-limite-cota) - 15 campos
+18. [Base Intraorçamentária de Detalhamento](#base-intra-orcamentaria-detalhamento) - 4 campos
+19. [Base Intraorçamentária de Repasse](#base-intra-orcamentaria-repasse) - 9 campos
+20. [Relação das Unidades Orçamentárias e suas Versões](#base-unidades-orcamentaria-versoes) - 4 campos
+
+---
+
+## Relatórios e Bases do Planejamento - Ações
+
+**Nome da base SISOR:** `acoes_planejamento`
+
+**Nome da base PPO:** `Relatórios e bases do planejamento > Base Ações`
+
+| Título | SISOR | AID | PPO |
+|---|---|---|---|
+| Programa - Código | Código do Programa | programa_cod | Código do Programa |
+| Programa - Descrição | Nome do Programa | programa_desc | Nome do Programa |
+| Área Temática - Código | Código da Área Temática | area_tematica_cod | Código da Área Temática |
+| Área Temática - Descrição | Área Temática | area_tematica_desc | Área Temática |
+| Exclusão Lógica do Programa | Exclusão Lógica do Programa | programa_exclusao | Exclusão Lógica do Programa |
+| Programa Novo | Programa Novo | programa_novo | Programa Novo |
+| Justificativa de Inclusão ou Exclusão do Programa | Justificativa de Inclusão ou Exclusão do Programa | programa_justificativa | Justificativa de Inclusão do Programa + Exclusão do Programa |
+| Unidade Orçamentária Responsável pelo Programa - Código | Código da Unidade Orçamentária Responsável pelo Programa | uo_programa_cod | Código da Unidade Orçamentária Responsável pelo Programa |
+| Unidade Orçamentária Responsável pelo Programa - Nome | Unidade Orçamentária Responsável pelo Programa | uo_programa_nome | Unidade Orçamentária Responsável pelo Programa |
+| Unidade Orçamentária Responsável pela Ação - Código | Código da Unidade Orçamentária Responsável pela Ação | uo_acao_cod | Código da Unidade Orçamentária Responsável pela Ação |
+| Unidade Orçamentária Responsável pela Ação - Nome | Unidade Orçamentária Responsável pela Ação | uo_acao_nome | Unidade Orçamentária Responsável pela Ação |
+| Função - Código | Código da Função | funcao_cod | Código da Função |
+| Função - Descrição | Função | funcao_desc | Função |
+| Subfunção - Código | Código da Subfunção | subfuncao_cod | Código da Subfunção |
+| Subfunção - Descrição | Subfunção | subfuncao_desc | Subfunção |
+| Identificador - Código | Código do Tipo de Ação | identificador_cod | Código do Tipo de Ação |
+| Identificador - Descrição | Tipo de Ação | identificador_desc | Tipo de Ação |
+| Ação - Código | Código da Ação | acao_cod | Código da Ação |
+| Ação - Descrição | Título da Ação | acao_desc | Título da Ação |
+| Identificador Orçamento - Código | Código do Identificador de Ação Governamental (IAG) | iag_cod | Código do Identificador de Ação Governamental (IAG) |
+| Identificador Orçamento - Descrição | Identificador de Ação Governamental (IAG) | iag_desc | Identificador de Ação Governamental (IAG) |
+| Projeto Estratégico - Código | Código do Projeto Estratégico | projeto_estrategico_cod | Código do Projeto Estratégico |
+| Projeto Estratégico - Descrição | Projeto Estratégico | projeto_estrategico_desc | Projeto Estratégico |
+| Exclusão Lógica da Ação | Exclusão Lógica da Ação | acao_exclusao | Exclusão Lógica da Ação |
+| Nova Ação | Nova Ação | acao_novo | Nova Ação |
+| Justificativa de Inclusão ou Exclusão da Ação | Justificativa de Inclusão ou Exclusão da Ação | acao_justificativa | Justificativa de Inclusão da Ação + Justificativa  Exclusão da Ação |
+| Transferida para o SISOR | Transferida para o SISOR | sisor_transferido | (ausente) - Não é necessário |
+| Unidade Administrativa Responsável pela Ação | Unidade Administrativa Responsável pela Ação | ua_acao_nome | Unidade Administrativa Responsável pela Ação |
+| Base Legal | Base legal | base_legal | Base Legal |
+| Finalidade da Ação | Finalidade da Ação | acao_finalidade | Finalidade da Ação |
+| Descrição da Ação | Descrição da Ação | acao_descricao | Descrição da Ação |
+| Público-Alvo - Código | Código do Público-alvo | publico_alvo_cod | Código do Público-Alvo |
+| Público-Alvo - Descrição | Público-Alvo | publico_alvo_desc | Público-Alvo |
+| Produto - Código | Código do Produto | produto_cod | Código do Produto |
+| Produto - Descrição | Produto | produto_desc | Produto |
+| Especificação do Produto | Especificação do Produto | produto_especificacao | Especificação do Produto |
+| Unidade de Medida do Produto - Código | Código da Unidade de Medida do Produto | produto_unidade_medida_cod | Código da Unidade de Medida do Produto |
+| Unidade de Medida do Produto - Descrição | Unidade de Medida do Produto | produto_unidade_medida_desc | Unidade de Medida do Produto |
+| Previsão Orçamentária Ano de Referência | Previsão Orçamentária 2026 | vlr_meta_orcamentaria_ano0 | Previsão Orçamentária 2026 |
+| Previsão Orçamentária Ano de Referência + 1 | Previsão Orçamentária 2027 | vlr_meta_orcamentaria_ano1 | Previsão Orçamentária 2027 |
+| Previsão Orçamentária Ano de Referência + 2 | Previsão Orçamentária 2028 | vlr_meta_orcamentaria_ano2 | Previsão Orçamentária 2028 |
+| Previsão Orçamentária Ano de Referência + 3 | Previsão Orçamentária 2029 | vlr_meta_orcamentaria_ano3 | Previsão Orçamentária 2029 |
+| Previsão Física Ano de Referência | Previsão Física 2026 | vlr_meta_fisica_ano0 | Previsão Física 2026 |
+| Previsão Física Ano de Referência + 1 | Previsão Física 2027 | vlr_meta_fisica_ano1 | Previsão Física 2027 |
+| Previsão Física Ano de Referência + 2 | Previsão Física 2028 | vlr_meta_fisica_ano2 | Previsão Física 2028 |
+| Previsão Física Ano de Referência + 3 | Previsão Física 2029 | vlr_meta_fisica_ano3 | Previsão Física 2029 |
+| Ação Transposta | Ação Transposta | acao_transposta | (ausente) - Não é necessário |
+| Setor de Governo | Setor de Governo | governo_setor | (ausente) - Não é necessário |
+| Política para mulheres | Política para mulheres | politica_mulheres | (ausente) - Não é necessário |
+
+*Total de campos: 49*
+
+---
+
+## Relatórios e Bases do Planejamento - Indicadores
+
+**Nome da base SISOR:** `indicadores_planejamento`
+
+**Nome da base PPO:** `Relatórios e bases do planejamento > Base Indicador`
+
+| Título | SISOR | AID | PPO |
+|---|---|---|---|
+| Programa - Código | Código do Programa | programa_cod | Código do Programa |
+| Programa - Descrição | Nome do Programa | programa_desc | Nome do Programa |
+| Exclusão Lógica do Programa | Exclusão Lógica do Programa | programa_exclusao | Exclusão Lógica do Programa |
+| Indicador | Indicador | indicador | Indicador |
+| Exclusão Lógica do Indicador | Exclusão Lógica do Indicador | indicador_exclusao | Exclusão Lógica do Indicador |
+| Unidade de Medida | Unidade de Medida | unidade_medida | Unidade de Medida |
+| Índice de Referência | Índice de Referência | indice_referencia | Índice de Referência |
+| Em apuração? (Índice de Referência) | Em apuração? (Índice de Referência) | indice_referencia_apuracao | Em Apuração (Índice de Referência) |
+| Data de Apuração | Data de Apuração | data_apuracao | Data de Apuração do Índice de Referência |
+| Previsão Ano de Referência | Previsão para 2026 | previsao_ano0 | Previsão para 2026 |
+| Em apuração? (Ano de Referência) | Em apuração? (2026) | apuracao_ano0 | Em Apuração (2026) |
+| Previsão Ano de Referência + 1 | Previsão para 2027 | previsao_ano1 | Previsão para 2027 |
+| Em apuração? (Ano de Referência + 1) | Em apuração? (2027) | apuracao_ano1 | Em Apuração (2027) |
+| Previsão para Ano de Referência + 2 | Previsão para 2028 | previsao_ano2 | Previsão para 2028 |
+| Em apuração? (Ano de Referência + 2) | Em apuração? (2028) | apuracao_ano2 | Em Apuração (2028) |
+| Previsão para Ano de Referência + 3 | Previsão para 2029 | previsao_ano3 | Previsão para 2029 |
+| Em apuração? (Ano de Referência + 3) | Em apuração? (2029) | apuracao_ano3 | Em Apuração (2029) |
+| Fonte Recurso - Descrição | Fonte | fonte_desc | Fonte |
+| Periodicidade | Periodicidade | periodicidade | Periodicidade |
+| Base Geográfica | Base Geográfica | base_geografica | Base Geográfica |
+| Fórmula de Cálculo | Fórmula de Cálculo | formula_calculo | Fórmula de Cálculo |
+| Justificativa do Status em apuração da(s) Previsão(es) do(s) Índice(s) | Justificativa do Status em apuração da(s) Previsão(es) do(s) Índice(s) | previsao_apuracao_justificativa | Justificativa do Status (2026) |
+| Justificativa do Status em apuração do Índice de Referência | Justificativa do Status em apuração do Índice de Referência | indice_referencia_apuracao_justificativa | Justificativa do Status (Índice de Referência) |
+| Data Alteração | Data Alteração | data_alteracao | (ausente) |
+| Indicador Novo? | Indicador Novo? | indicador_novo | Indicador Novo |
+| Polaridade | Polaridade | polaridade | Polaridade |
+
+*Total de campos: 26*
+
+---
+
+## Relatórios e Bases do Planejamento - Localizadores (Todos)
+
+**Nome da base SISOR:** `localizadores_todos_planejamento`
+
+**Nome da base PPO:** `Relatórios e bases do planejamento > Base Localizadores`
+
+| Título | SISOR | AID | PPO |
+|---|---|---|---|
+| Programa - Código | Código do Programa | programa_cod | Código do Programa |
+| Programa - Descrição | Nome do Programa | programa_desc | Nome do Programa |
+| Área Temática - Código | Código da Área Temática | area_tematica_cod | Código da Área Temática |
+| Área Temática - Descrição | Área Temática | area_tematica_desc | Área Temática |
+| Exclusão Lógica do Programa | Exclusão Lógica do Programa | programa_exclusao | Exclusão Lógica do Programa |
+| Ação - Código | Código da Ação | acao_cod | Código da Ação |
+| Ação - Descrição | Título da Ação | acao_desc | Título da Ação |
+| Identificador Orçamento - Código | Código do Identificador de Ação Governamental (IAG) | iag_cod | Código do Identificador de Ação Governamental (IAG) |
+| Identificador Orçamento - Descrição | Identificador de Ação Governamental (IAG) | iag_desc | Identificador de Ação Governamental (IAG) |
+| Projeto Estratégico - Código | Código do Projeto Estratégico | projeto_estrategico_cod | Código do Projeto Estratégico |
+| Projeto Estratégico - Descrição | Projeto Estratégico | projeto_estrategico_desc | Projeto Estratégico |
+| Função - Código | Código da Função | funcao_cod | Código da Função |
+| Função - Descrição | Função | funcao_desc | Função |
+| Subfunção - Código | Código da Subfunção | subfuncao_cod | Código da Subfunção |
+| Subfunção - Descrição | SubFunção | subfuncao_desc | Subfunção |
+| Unidade Orçamentária Responsável pela Ação - Código | Código da Unidade Orçamentária Responsável pela Ação | uo_acao_cod | Código da Unidade Orçamentária Responsável pela Ação |
+| Unidade Orçamentária Responsável pela Ação - Nome | Unidade Orçamentária Responsável pela Ação | uo_acao_nome | Unidade Orçamentária Responsável pela Ação |
+| Exclusão Lógica da Ação | Exclusão Lógica da Ação | acao_exclusao | Exclusão Lógica da Ação |
+| Localizador - Código | Código do Localizador | localizador_cod | (ausente) |
+| Exclusão Lógica do Localizador | Exclusão Lógica do Localizador | localizador_exclusao | (ausente) |
+| Região Geográfica Intermediária - Código | Código da Região Geográfica Intermediária | regiao_geografica_cod | Código da Região Geográfica Intermediária |
+| Região Geográfica Intermediária - Descrição | Região Geográfica Intermediária | regiao_geografica_desc | Região Geográfica Intermediária |
+| Município IBGE - Código | Código do Município IBGE | municipio_ibge_cod | Código do Município IBGE |
+| Município Sigplan - Código | Código do Município Sigplan | municipio_sigplan_cod | Código do Município Sigplan |
+| Município | Município | municipio | Município |
+| Previsão Orçamentária Ano de Referência | Previsão Orçamentária 2026 | vlr_meta_orcamentaria_ano0 | Previsão Orçamentária 2026 |
+| Previsão Física Ano de Referência | Previsão Física 2026 | vlr_meta_fisica_ano0 | Previsão Física 2026 |
+| Previsão Orçamentária Ano de Referência + 1 | Previsão Orçamentária 2027 | vlr_meta_orcamentaria_ano1 | Previsão Orçamentária 2027 |
+| Previsão Física Ano de Referência + 1 | Previsão Física 2027 | vlr_meta_fisica_ano1 | Previsão Física 2027 |
+| Previsão Orçamentária Ano de Referência + 2 | Previsão Orçamentária 2028 | vlr_meta_orcamentaria_ano2 | Previsão Orçamentária 2028 |
+| Previsão Física Ano de Referência + 2 | Previsão Física 2028 | vlr_meta_fisica_ano2 | Previsão Física 2028 |
+| Previsão Orçamentária Ano de Referência + 3 | Previsão Orçamentária 2029 | vlr_meta_orcamentaria_ano3 | Previsão Orçamentária 2029 |
+| Previsão Física Ano de Referência + 3 | Previsão Física 2029 | vlr_meta_fisica_ano3 | Previsão Física 2029 |
+
+*Total de campos: 33*
+
+---
+
+## Relatórios e Bases do Planejamento - Programas
+
+**Nome da base SISOR:** `programas_planejamento`
+
+**Nome da base PPO:** `Relatórios e bases do planejamento > Base Programa`
+
+| Título | SISOR | AID | PPO |
+|---|---|---|---|
+| Programa - Código | Código do Programa | programa_cod | Código do Programa |
+| Programa - Descrição | Nome do Programa | programa_desc | Nome do Programa |
+| Exclusão Lógica do Programa | Exclusão Lógica do Programa | programa_exclusao | Exclusão Lógica do Programa |
+| Programa Novo | Programa Novo | programa_novo | Programa Novo |
+| Área Temática - Código | Código da Área Temática | area_tematica_cod | Código da Área Temática |
+| Área Temática - Descrição | Área Temática | area_tematica_desc | Área Temática |
+| Objetivo Estratégico - Código | Código do Objetivo Estratégico | objetivo_estrategico_cod | Código do Objetivo Estratégico |
+| Objetivo Estratégico - Descrição | Objetivo Estratégico | objetivo_estrategico_desc | Objetivo Estratégico |
+| Diretriz Estratégica - Código | Código da Diretriz Estratégica | diretriz_estrategica_cod | Código da Diretriz Estratégica |
+| Diretriz Estratégica - Descrição | Diretriz Estratégica | diretriz_estrategica_desc | Diretriz Estratégica |
+| Justificativa de Inclusão ou Exclusão do Programa | Justificativa de Inclusão ou Exclusão do Programa | programa_justificativa | Justificativa do Programa |
+| Órgão Responsável pelo Programa - Código | Código do Órgão Responsável pelo Programa | orgao_programa_cod | Código do Órgão Responsável pelo Programa |
+| Órgão Responsável pelo Programa - Nome | Órgão Responsável pelo Programa | orgao_programa_nome | Órgão Responsável pelo Programa |
+| Unidade Orçamentária Responsável pelo Programa - Código | Código da Unidade Orçamentária Responsável pelo Programa | uo_programa_cod | Código da Unidade Orçamentária Responsável pelo Programa |
+| Unidade Orçamentária Responsável pelo Programa - Nome | Unidade Orçamentária Responsável pelo Programa | uo_programa_nome | Unidade Orçamentária Responsável pelo Programa |
+| Objetivo do Programa | Objetivo | programa_objetivo | Objetivo do Programa |
+| Justificativa | Justificativa | justificativa | Justificativa do Programa |
+| Tipo de Programa | Tipo de Programa | tipo_de_programa | Tipo de Programa |
+| Horizonte Temporal | Horizonte Temporal | horizonte_temporal | Horizonte Temporal |
+| Estratégia de Implementação | Estratégia de Implementação | estrategia_de_implementacao | Estratégia de Implementação |
+| Unidade Administrativa Responsável pelo Programa | Unidade Administrativa Responsável pelo Programa | ua_programa_nome | Unidade Administrativa Responsável pelo Programa |
+| Previsão Orçamentária Ano de Referência | Previsão Orçamentária 2026 | vlr_meta_orcamentaria_ano0 | Previsão Orçamentária 2026 |
+| Previsão Orçamentária Ano de Referência + 1 | Previsão Orçamentária 2027 | vlr_meta_orcamentaria_ano1 | Previsão Orçamentária 2027 |
+| Previsão Orçamentária Ano de Referência + 2 | Previsão Orçamentária 2028 | vlr_meta_orcamentaria_ano2 | Previsão Orçamentária 2028 |
+| Previsão Orçamentária Ano de Referência + 3 | Previsão Orçamentária 2029 | vlr_meta_orcamentaria_ano3 | Previsão Orçamentária 2029 |
+| Programa Transposto | Programa Transposto | is_programa_transposto | (ausente) |
+| Causas | Causas | causas | Causas |
+| Título do Objetivo de Desenvolvimento Sustentável | Título do Objetivo de Desenvolvimento Sustentável | ods_titulo | Código do Objetivo de Desenvolvimento Sustentável + Objetivo de Desenvolvimento Sustentável |
+| Subtítulo do Objetivo de Desenvolvimento Sustentável | Subtítulo do Objetivo de Desenvolvimento Sustentável | ods_subtitulo | (ausente) |
+
+*Total de campos: 29*
 
 ---
 

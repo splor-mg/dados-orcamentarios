@@ -1,0 +1,180 @@
+fields:
+  - name: Código do Programa
+    target: programa_cod
+    ppo: Código do Programa
+
+  - name: Nome do Programa
+    target: programa_desc
+    ppo: Nome do Programa
+
+  - name: Código da Área Temática
+    target: area_tematica_cod
+    ppo: Código da Área Temática
+
+  - name: Área Temática
+    target: area_tematica_desc
+    ppo: Área Temática
+
+  - name: Exclusão Lógica do Programa
+    target: programa_exclusao
+    ppo: Exclusão Lógica do Programa
+
+  - name: Código da Ação
+    target: acao_cod
+    ppo: Código da Ação
+
+  - name: Título da Ação
+    target: acao_desc
+    ppo: Título da Ação
+
+  - name: Código do Identificador de Ação Governamental (IAG)
+    target: iag_cod
+    ppo: Código do Identificador de Ação Governamental (IAG)
+
+  - name: Identificador de Ação Governamental (IAG)
+    target: iag_desc
+    ppo: Identificador de Ação Governamental (IAG)
+
+  - name: Código do Projeto Estratégico
+    target: projeto_estrategico_cod
+    ppo: Código do Projeto Estratégico
+
+  - name: Projeto Estratégico
+    target: projeto_estrategico_desc
+    ppo: Projeto Estratégico
+
+  - name: Código da Função
+    target: funcao_cod
+    ppo: Código da Função
+
+  - name: Função
+    target: funcao_desc
+    ppo: Função
+
+  - name: Código da Subfunção
+    target: subfuncao_cod
+    ppo: Código da Subfunção
+
+  - name: SubFunção
+    target: subfuncao_desc
+    ppo: Subfunção
+
+  - name: Código da Unidade Orçamentária Responsável pela Ação
+    target: uo_acao_cod
+    ppo: Código da Unidade Orçamentária Responsável pela Ação
+
+  - name: Unidade Orçamentária Responsável pela Ação
+    target: uo_acao_nome
+    ppo: Unidade Orçamentária Responsável pela Ação
+
+  - name: Exclusão Lógica da Ação
+    target: acao_exclusao
+    ppo: Exclusão Lógica da Ação
+
+  - name: Código do Localizador
+    target: localizador_cod
+    ppo: (ausente)
+
+  - name: Exclusão Lógica do Localizador
+    target: localizador_exclusao
+    ppo: (ausente)
+
+  - name: Código da Região Geográfica Intermediária
+    target: regiao_geografica_cod
+    ppo: Código da Região Geográfica Intermediária
+
+  - name: Região Geográfica Intermediária
+    target: regiao_geografica_desc
+    ppo: Região Geográfica Intermediária
+
+  - name: Código do Município IBGE
+    target: municipio_ibge_cod
+    ppo: Código do Município IBGE
+
+  - name: Código do Município Sigplan
+    target: municipio_sigplan_cod
+    ppo: Código do Município Sigplan
+
+  - name: Município
+    target: municipio
+    ppo: Município
+
+  - name: Previsão Orçamentária 2026
+    type: number
+    title: Previsão Orçamentária Ano de Referência
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_meta_orcamentaria_ano0
+    ppo: Previsão Orçamentária 2026
+
+  - name: Previsão Física 2026
+    type: number
+    title: Previsão Física Ano de Referência
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_meta_fisica_ano0
+    ppo: Previsão Física 2026
+
+  - name: Previsão Orçamentária 2027
+    type: number
+    title: Previsão Orçamentária Ano de Referência + 1
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_meta_orcamentaria_ano1
+    ppo: Previsão Orçamentária 2027
+
+  - name: Previsão Física 2027
+    type: number
+    title: Previsão Física Ano de Referência + 1
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_meta_fisica_ano1
+    ppo: Previsão Física 2027
+
+  - name: Previsão Orçamentária 2028
+    type: number
+    title: Previsão Orçamentária Ano de Referência + 2
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_meta_orcamentaria_ano2
+    ppo: Previsão Orçamentária 2028
+
+  - name: Previsão Física 2028
+    type: number
+    title: Previsão Física Ano de Referência + 2
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_meta_fisica_ano2
+    ppo: Previsão Física 2028
+
+  - name: Previsão Orçamentária 2029
+    type: number
+    title: Previsão Orçamentária Ano de Referência + 3
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_meta_orcamentaria_ano3
+    ppo: Previsão Orçamentária 2029
+
+  - name: Previsão Física 2029
+    type: number
+    title: Previsão Física Ano de Referência + 3
+    description: |
+      .
+    constraints:
+      minimum: 0
+    target: vlr_meta_fisica_ano3
+    ppo: Previsão Física 2029

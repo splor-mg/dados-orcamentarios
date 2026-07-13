@@ -4,17 +4,56 @@ owner_org: secretaria-de-estado-de-planejamento-e-gestao-seplag
 
 resources:
   - name: acoes_planejamento
-    ppo: Relatórios e bases do planejamento > Base Ação
+    ppo: Relatórios e bases do planejamento > Base Ações
     type: table
     title: Relatórios e Bases do Planejamento - Ações
     description: |
-      Base com todas as ações cadastradas no PPO.
+      Base com todos os programas cadastrados no PPO.
     path: data_raw/acoes_planejamento.txt
     scheme: file
     format: csv
     mediatype: text/csv
     encoding: windows-1252
     schema: schemas/acoes_planejamento.yaml
+
+  - name: indicadores_planejamento
+    ppo: Relatórios e bases do planejamento > Base Indicador
+    type: table
+    title: Relatórios e Bases do Planejamento - Indicadores
+    description: |
+      .
+    path: data_raw/indicadores_planejamento.txt
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: windows-1252
+    schema: schemas/indicadores_planejamento.yaml
+
+  - name: localizadores_todos_planejamento
+    ppo: Relatórios e bases do planejamento > Base Localizadores
+    type: table
+    title: Relatórios e Bases do Planejamento - Localizadores (Todos)
+    description: |
+      .
+    path: data_raw/localizadores_todos_planejamento.txt
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: windows-1252
+    schema: schemas/localizadores_todos_planejamento.yaml
+
+  - name: programas_planejamento
+    ppo: Relatórios e bases do planejamento > Base Programa
+    type: table
+    title: Relatórios e Bases do Planejamento - Programas
+    description: |
+      .
+    path: data_raw/programas_planejamento.txt
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: windows-1252
+    schema: schemas/programas_planejamento.yaml
 
   - name: base_orcam_despesa_item_fiscal
     ppo: exemplo
