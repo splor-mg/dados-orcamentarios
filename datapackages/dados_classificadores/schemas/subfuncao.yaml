@@ -6,10 +6,4 @@ fields:
     target: subfuncao_cod
 
   - name: Subfunção - Descrição
-    type: string
-    title: Subfunção - Descrição
-    description: |
-      Descrição do detalhamento das áreas de atuação do Governo.
-    constraints:
-      maxLength: 500
     target: subfuncao_desc

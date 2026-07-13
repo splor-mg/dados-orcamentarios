@@ -6,10 +6,4 @@ fields:
     target: funcao_cod
 
   - name: Função - Descrição
-    type: string
-    title: Função - Descrição
-    description: |
-      Descrição do nível máximo de agregação das ações do Governo.
-    constraints:
-      maxLength: 500
     target: funcao_desc
