@@ -3,13 +3,26 @@ title: Portal de Planejamento e Orçamento - PPO-MG
 owner_org: secretaria-de-estado-de-planejamento-e-gestao-seplag
 
 resources:
+  - name: acoes_planejamento
+    ppo: Relatórios e bases do planejamento > Base Ação
+    type: table
+    title: Relatórios e Bases do Planejamento - Ações
+    description: |
+      Base com todas as ações cadastradas no PPO.
+    path: data_raw/acoes_planejamento.txt
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: windows-1252
+    schema: schemas/acoes_planejamento.yaml
+
   - name: base_orcam_despesa_item_fiscal
     ppo: exemplo
-    type: file
+    type: table
     title: Orçamento da Despesa Fiscal / Itens de Despesa
     description: |
       .
-    path: 'data_raw/BASE_ORCAM_DESPESA_ITEM_FISCAL.xls'
+    path: data_raw/BASE_ORCAM_DESPESA_ITEM_FISCAL.xls
     scheme: file
     format: html
     mediatype: text/html
@@ -17,11 +30,11 @@ resources:
     schema: schemas/base_orcam_despesa_item_fiscal.yaml
 
   - name: base_qdd_plurianual
-    type: file
+    type: table
     title: Detalhamento Plurianual Fiscal
     description: |
       .
-    path: 'data_raw/BASE_QDD_PLURIANUAL.xls'
+    path: data_raw/BASE_QDD_PLURIANUAL.xls
     scheme: file
     format: html
     mediatype: text/html
@@ -29,11 +42,11 @@ resources:
     schema: schemas/base_qdd_plurianual.yaml
 
   - name: base_qdd_plurianual_invest
-    type: file
+    type: table
     title: Detalhamento Plurianual Investimento
     description: |
       .
-    path: 'data_raw/BASE_QDD_PLURIANUAL_INVEST.xls'
+    path: data_raw/BASE_QDD_PLURIANUAL_INVEST.xls
     scheme: file
     format: html
     mediatype: text/html
@@ -41,11 +54,11 @@ resources:
     schema: schemas/base_qdd_plurianual_invest.yaml
 
   - name: base_orcam_despesa_investimento
-    type: file
+    type: table
     title: Orçamento da Despesa de Investimento
     description: |
       .
-    path: 'data_raw/BASE_ORCAM_DESPESA_INVESTIMENTO.xls'
+    path: data_raw/BASE_ORCAM_DESPESA_INVESTIMENTO.xls
     scheme: file
     format: html
     mediatype: text/html
@@ -53,11 +66,11 @@ resources:
     schema: schemas/base_orcam_despesa_investimento.yaml
 
   - name: base_detalhamento_obras
-    type: file
+    type: table
     title: Detalhamento de Obras
     description: |
       .
-    path: 'data_raw/BASE_DETALHAMENTO_OBRAS.xls'
+    path: data_raw/BASE_DETALHAMENTO_OBRAS.xls
     scheme: file
     format: html
     mediatype: text/html
@@ -65,11 +78,11 @@ resources:
     schema: schemas/base_detalhamento_obras.yaml
 
   - name: base_qdd_fiscal
-    type: file
+    type: table
     title: QDD Fiscal
     description: |
       .
-    path: 'data_raw/BASE_QDD_FISCAL.xls'
+    path: data_raw/BASE_QDD_FISCAL.xls
     scheme: file
     format: html
     mediatype: text/html
@@ -77,11 +90,11 @@ resources:
     schema: schemas/base_qdd_fiscal.yaml
 
   - name: base_qdd_investimento
-    type: file
+    type: table
     title: QDD Investimento
     description: |
       .
-    path: 'data_raw/BASE_QDD_INVESTIMENTO.xls'
+    path: data_raw/BASE_QDD_INVESTIMENTO.xls
     scheme: file
     format: html
     mediatype: text/html
@@ -89,11 +102,11 @@ resources:
     schema: schemas/base_qdd_investimento.yaml
 
   - name: base_orcam_receita_fiscal
-    type: file
+    type: table
     title: Orçamento da Receita Fiscal
     description: |
       .
-    path: 'data_raw/BASE_ORCAM_RECEITA_FISCAL.xls'
+    path: data_raw/BASE_ORCAM_RECEITA_FISCAL.xls
     scheme: file
     format: html
     mediatype: text/html
@@ -101,11 +114,11 @@ resources:
     schema: schemas/base_orcam_receita_fiscal.yaml
 
   - name: base_orcam_receita_investimento
-    type: file
+    type: table
     title: Orçamento da Receita Investimento
     description: |
       .
-    path: 'data_raw/BASE_ORCAM_RECEITA_INVESTIMENTO.xls'
+    path: data_raw/BASE_ORCAM_RECEITA_INVESTIMENTO.xls
     scheme: file
     format: html
     mediatype: text/html
@@ -113,11 +126,11 @@ resources:
     schema: schemas/base_orcam_receita_investimento.yaml
 
   - name: base_obras_siad
-    type: file
+    type: table
     title: Registro de Obras no SIAD
     description: |
       .
-    path: 'data_raw/BASE_OBRAS_SIAD.xls'
+    path: data_raw/BASE_OBRAS_SIAD.xls
     scheme: file
     format: html
     mediatype: text/html
@@ -125,11 +138,11 @@ resources:
     schema: schemas/base_obras_siad.yaml
 
   - name: base_categoria_pessoal
-    type: file
+    type: table
     title: Categoria de Pessoal
     description: |
       .
-    path: 'data_raw/BASE_CATEGORIA_PESSOAL.xls'
+    path: data_raw/BASE_CATEGORIA_PESSOAL.xls
     scheme: file
     format: html
     mediatype: text/html
@@ -137,11 +150,11 @@ resources:
     schema: schemas/base_categoria_pessoal.yaml
 
   - name: base_repasse_recursos
-    type: file
+    type: table
     title: Repasse de Recursos
     description: |
       .
-    path: 'data_raw/BASE_REPASSE_RECURSOS.xls'
+    path: data_raw/BASE_REPASSE_RECURSOS.xls
     scheme: file
     format: html
     mediatype: text/html
@@ -149,11 +162,11 @@ resources:
     schema: schemas/base_repasse_recursos.yaml
 
   - name: base_limite_cota
-    type: file
+    type: table
     title: Limite de Cota
     description: |
       .
-    path: 'data_raw/BASE_LIMITE_COTA.xls'
+    path: data_raw/BASE_LIMITE_COTA.xls
     scheme: file
     format: html
     mediatype: text/html
@@ -161,11 +174,11 @@ resources:
     schema: schemas/base_limite_cota.yaml
 
   - name: base_intra_orcamentaria_detalhamento
-    type: file
+    type: table
     title: Base Intraorçamentária de Detalhamento
     description: |
       .
-    path: 'data_raw/BASE_INTRA_ORCAMENTARIA_DETALHAMENTO.xls'
+    path: data_raw/BASE_INTRA_ORCAMENTARIA_DETALHAMENTO.xls
     scheme: file
     format: html
     mediatype: text/html
@@ -173,11 +186,11 @@ resources:
     schema: schemas/base_intra_orcamentaria_detalhamento.yaml
 
   - name: base_intra_orcamentaria_repasse
-    type: file
+    type: table
     title: Base Intraorçamentária de Repasse
     description: |
       .
-    path: 'data_raw/BASE_INTRA_ORCAMENTARIA_REPASSE.xls'
+    path: data_raw/BASE_INTRA_ORCAMENTARIA_REPASSE.xls
     scheme: file
     format: html
     mediatype: text/html
@@ -185,11 +198,11 @@ resources:
     schema: schemas/base_intra_orcamentaria_repasse.yaml
 
   - name: base_unidades_orcamentaria_versoes
-    type: file
+    type: table
     title: Relação das Unidades Orçamentárias e suas Versões
     description: |
       .
-    path: 'data_raw/BASE_UNIDADES_ORCAMENTARIA_VERSOES.xls'
+    path: data_raw/BASE_UNIDADES_ORCAMENTARIA_VERSOES.xls
     scheme: file
     format: html
     mediatype: text/html

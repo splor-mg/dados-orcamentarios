@@ -1,0 +1,155 @@
+fields:
+  - name: Código do Programa
+    target: programa_cod
+    ppo: Código do Programa
+
+  - name: Nome do Programa
+    target: programa_desc
+    ppo: Nome do Programa
+
+  - name: Código da Área Temática
+    target: area_tematica_cod
+    ppo: Código da Área Temática
+
+  - name: Área Temática
+    target: area_tematica_desc
+    ppo: Área Temática
+
+  - name: Exclusão Lógica do Programa
+    target: is_deleted_programa
+    ppo: Exclusão Lógica do Programa
+
+  - name: Programa Novo
+    target: is_new_programa
+    ppo: Programa Novo
+
+  - name: Justificativa de Inclusão ou Exclusão do Programa
+    target: justificativa_is_new_programa
+    ppo: Justificativa de Inclusão
+
+  - name: Código da Unidade Orçamentária Responsável pelo Programa
+    target: uo_programa_cod
+    ppo: Código da Unidade Orçamentária Responsável pelo Programa
+
+  - name: Unidade Orçamentária Responsável pelo Programa
+    target: uo_programa_nome
+
+  - name: Código da Unidade Orçamentária Responsável pela Ação
+    target: uo_acao_cod
+
+  - name: Unidade Orçamentária Responsável pela Ação
+    target: uo_acao_nome
+
+  - name: Código da Função
+    target: funcao_cod
+
+  - name: Função
+    target: funcao_desc
+
+  - name: Código da Subfunção
+    target: subfuncao_cod
+
+  - name: Subfunção
+    target: subfuncao_desc
+
+  - name: Código do Tipo de Ação
+    target: identificador_tipo_acao_cod
+
+  - name: Tipo de Ação
+    target: identificador_tipo_acao_desc
+
+  - name: Código da Ação
+    target: acao_cod
+
+  - name: Título da Ação
+    target: acao_desc
+
+  - name: Código do Identificador de Ação Governamental (IAG)
+    target: iag_cod
+
+  - name: Identificador de Ação Governamental (IAG)
+    target: iag_desc
+
+  - name: Código do Projeto Estratégico
+    target: projeto_estrategico_cod
+
+  - name: Projeto Estratégico
+    target: projeto_estrategico
+
+  - name: Exclusão Lógica da Ação
+    target: is_deleted_acao
+
+  - name: Nova Ação
+    target: is_new_acao
+
+  - name: Justificativa de Inclusão ou Exclusão da Ação
+    target: justificativa_is_new_acao
+
+  - name: Transferida para o SISOR
+    target: is_transferida_sisor
+
+  - name: Unidade Administrativa Responsável pela Ação
+    target: ua_acao_nome
+
+  - name: Base legal
+    target: base_legal
+
+  - name: Finalidade da Ação
+    target: acao_finalidade
+
+  - name: Descrição da Ação
+    target: acao_descricao
+
+  - name: Código do Público-alvo
+    target: publico_alvo_cod
+
+  - name: Público-Alvo
+    target: publico_alvo_desc
+
+  - name: Código do Produto
+    target: produto_cod
+
+  - name: Produto
+    target: produto_desc
+
+  - name: Especificação do Produto
+    target: produto_especificacao
+
+  - name: Código da Unidade de Medida do Produto
+    target: produto_unidade_medida_cod
+
+  - name: Unidade de Medida do Produto
+    target: produto_unidade_medida_desc
+
+  - name: Previsão Orçamentária 2026
+    target: vr_meta_orcamentaria_ano0
+
+  - name: Previsão Orçamentária 2027
+    target: vr_meta_orcamentaria_ano1
+
+  - name: Previsão Orçamentária 2028
+    target: vr_meta_orcamentaria_ano2
+
+  - name: Previsão Orçamentária 2029
+    target: vr_meta_orcamentaria_ano3
+
+  - name: Previsão Física 2026
+    target: vr_meta_fisica_ano0
+
+  - name: Previsão Física 2027
+    target: vr_meta_fisica_ano1
+
+  - name: Previsão Física 2028
+    target: vr_meta_fisica_ano2
+
+  - name: Previsão Física 2029
+    target: vr_meta_fisica_ano3
+
+  - name: Ação Transposta
+    target: is_acao_transposta
+
+  - name: Setor de Governo
+    target: setor_governo
+
+  - name: Política para mulheres
+    target: politica_mulheres
