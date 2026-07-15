@@ -1,11 +1,10 @@
 name: dados_siafi
 title: Sistema Integrado de Administração Financeira – SIAFI 2026
 owner_org: secretaria-de-estado-de-planejamento-e-gestao-seplag
-dpetl_transform:
-  datapackage_format: yaml
 dpetl_load:
-  owner: mariaefod
-  repo: dados_siafi_2026
+  owner: splor-mg
+  repo: dados-siafi-2026
+  level: orgs
 resources:
   - name: credito
     type: table
