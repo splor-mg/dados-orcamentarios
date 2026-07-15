@@ -1,11 +1,10 @@
 name: dados_aux_classificadores
 title: Tabelas Auxiliares de Classificadores
 owner_org: secretaria-de-estado-de-planejamento-e-gestao-seplag
-dpetl_transform:
-  datapackage_format: yaml
 dpetl_load:
-  owner: mariaefod
-  repo: dados_aux_classificadores_2026
+  owner: splor-mg
+  repo: dados-classificadores
+  level: orgs
 resources:
   - name: acao
     type: table
