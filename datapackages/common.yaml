@@ -40,7 +40,7 @@ fields:
       Código da classificação da receita.
     constraints:
       required: true
-      pattern: '^[1-9]\d{9,12}$'
+      pattern: '^(0|[1-9]\d{9,12})$'
 
   - name: ue_cod
     type: string
@@ -148,7 +148,7 @@ fields:
     description: |
       Código identificador do elemento de gasto da despesa.
     constraints:
-      pattern: '^[1-9]\d{0,1}$'
+      pattern: '^(0|[1-9]\d{0,1})$'
 
   - name: elemento_item_cod
     type: string
