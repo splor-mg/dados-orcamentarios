@@ -1,51 +1,35 @@
 fields:
   - name: Cód. UO Financiadora
     target: uo_financiadora_cod
-    ppo: U.O. Cedente
-    mapping_type: part_of_field
-    note: Código antes do separador " - "
+    ppo: U.O. Cedente - (cod + name)
 
   - name: UO Financiadora
     target: uo_financiadora_nome
-    ppo: U.O. Cedente
-    mapping_type: part_of_field
-    note: Descrição após o separador " - "
+    ppo: U.O. Cedente - (cod + name)
 
   - name: Cód. UO Beneficiada
     target: uo_beneficiada_cod
-    ppo: U.O. Beneficiada
-    mapping_type: part_of_field
-    note: Código antes do separador " - "
+    ppo: U.O. Beneficiada - (cod + name)
 
   - name: UO Beneficiada
     target: uo_beneficiada_nome
-    ppo: U.O. Beneficiada
-    mapping_type: part_of_field
-    note: Descrição após o separador " - "
+    ppo: U.O. Beneficiada - (cod + name)
 
   - name: Grupo de Despesa
     target: grupo_cod
-    ppo: Grupo Despesa
-    mapping_type: code_to_label
-    note: O PPO apresenta a descrição textual em vez do código numérico
+    ppo: (ausente) - Grupo Despesa (grupo_desc)
 
   - name: Fonte
     target: fonte_cod
-    ppo: Fonte
-    mapping_type: code_to_label
-    note: O PPO apresenta a descrição textual em vez do código numérico
+    ppo: (ausente) - Fonte (fonte_desc)
 
   - name: IPU
     target: ipu_cod
-    ppo: IPU
-    mapping_type: code_to_label
-    note: O PPO apresenta a descrição textual em vez do código numérico
+    ppo: (ausente) - IPU (ipu_desc)
 
   - name: IAG
     target: iag_cod
-    ppo: IAG
-    mapping_type: code_to_label
-    note: O PPO apresenta a descrição textual em vez do código numérico
+    ppo: (ausente) - IAG (iag_desc)
 
   - name: Valor Transferido (R$)
     type: number
@@ -56,15 +40,9 @@ fields:
       minimum: 0
     target: vlr_repasse
     ppo: Valor Repassado
-    mapping_type: direct
 
+  - name: Ano
+    ppo: Ano
 
-ppo_unmapped_fields:
-  - ppo: Ano
-    mapping_type: new
-    note: Campo novo no PPO, sem correspondência na base antiga
-
-  - ppo: Grupo Fonte
-    mapping_type: new
-    note: Campo novo no PPO, sem correspondência na base antiga
-
+  - name: Grupo Fonte
+    note: Grupo Fonte

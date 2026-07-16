@@ -56,7 +56,7 @@ resources:
     schema: schemas/programas_planejamento.yaml
 
   - name: base_orcam_despesa_item_fiscal
-    ppo: exemplo
+    ppo: Orçamento > Importação em Bloco > Filtros Despesa
     type: table
     title: Orçamento da Despesa Fiscal / Itens de Despesa
     description: |
@@ -69,6 +69,7 @@ resources:
     schema: schemas/base_orcam_despesa_item_fiscal.yaml
 
   - name: base_qdd_plurianual
+    ppo: Reprogramação plurianual não será mais feita
     type: table
     title: Detalhamento Plurianual Fiscal
     description: |
@@ -81,6 +82,7 @@ resources:
     schema: schemas/base_qdd_plurianual.yaml
 
   - name: base_qdd_plurianual_invest
+    ppo: Reprogramação plurianual não será mais feita
     type: table
     title: Detalhamento Plurianual Investimento
     description: |
@@ -93,6 +95,7 @@ resources:
     schema: schemas/base_qdd_plurianual_invest.yaml
 
   - name: base_orcam_despesa_investimento
+    ppo: Orçamento > Importação em Bloco > Filtros Investimento
     type: table
     title: Orçamento da Despesa de Investimento
     description: |
@@ -105,6 +108,7 @@ resources:
     schema: schemas/base_orcam_despesa_investimento.yaml
 
   - name: base_detalhamento_obras
+    ppo: Orçamento > Importação em Bloco > Filtros Obras
     type: table
     title: Detalhamento de Obras
     description: |
@@ -141,6 +145,7 @@ resources:
     schema: schemas/base_qdd_investimento.yaml
 
   - name: base_orcam_receita_fiscal
+    ppo: Orçamento > Orçamento da Receita
     type: table
     title: Orçamento da Receita Fiscal
     description: |
@@ -177,6 +182,7 @@ resources:
     schema: schemas/base_obras_siad.yaml
 
   - name: base_categoria_pessoal
+    ppo: Orçamento > Categoria de Pesssoal
     type: table
     title: Categoria de Pessoal
     description: |
@@ -189,6 +195,7 @@ resources:
     schema: schemas/base_categoria_pessoal.yaml
 
   - name: base_repasse_recursos
+    ppo: Orçamento > Repasse de Recursos
     type: table
     title: Repasse de Recursos
     description: |

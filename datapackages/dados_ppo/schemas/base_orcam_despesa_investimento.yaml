@@ -1,88 +1,71 @@
 fields:
   - name: Código do Órgão
     target: orgao_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: Órgão
     target: orgao_nome_sigla
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: Código da UO
     target: uo_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: Unidade Orçamentária
     target: uo_nome_sigla
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: Função
     target: funcao_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: Subfunção
     target: subfuncao_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: Programa
     target: programa_cod
     ppo: Programa
-    mapping_type: direct
 
   - name: Identificador
     target: identificador_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: Projeto_Atividade
     target: projeto_atividade_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: Ação
     target: acao_cod
     ppo: Ação
-    mapping_type: direct
 
   - name: Subprojeto
     target: subprojeto_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: Fonte
     target: fonte_cod
     ppo: Fonte
-    mapping_type: direct
 
   - name: IAG
     target: iag_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: Descrição
     target: acao_desc
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: Categoria
-    target: categoria__cod_nome
+    target: categoria_invest_cod_nome
     ppo: Categoria
-    mapping_type: direct
 
   - name: Código da Natureza
-    target: natureza_cod
+    target: natureza_invest_cod
     ppo: Natureza
-    mapping_type: direct
 
   - name: Natureza
-    target: natureza_desc
-    ppo: null
-    mapping_type: pending
+    target: natureza_invest_desc
+    ppo: (ausente)
 
   - name: VALOR (R$) 2026
     type: number
@@ -93,7 +76,6 @@ fields:
       minimum: 0
     target: vlr_loa_desp_invest_ano0
     ppo: Valor Proposto
-    mapping_type: direct
 
   - name: VALOR (R$) 2027
     type: number
@@ -103,8 +85,7 @@ fields:
     constraints:
       minimum: 0
     target: vlr_loa_desp_invest_ano1
-    mapping_type: removed
-    note: Reprogramação plurianual não será mais feita
+    ppo: Valor Proposto - Reprogramação plurianual não será mais feita
 
   - name: VALOR (R$) 2028
     type: number
@@ -114,8 +95,7 @@ fields:
     constraints:
       minimum: 0
     target: vlr_loa_desp_invest_ano2
-    mapping_type: removed
-    note: Reprogramação plurianual não será mais feita
+    ppo: Valor Proposto - Reprogramação plurianual não será mais feita
 
   - name: VALOR (R$) 2029
     type: number
@@ -125,5 +105,4 @@ fields:
     constraints:
       minimum: 0
     target: vlr_loa_desp_invest_ano3
-    mapping_type: removed
-    note: Reprogramação plurianual não será mais feita
+    ppo: Valor Proposto - Reprogramação plurianual não será mais feita

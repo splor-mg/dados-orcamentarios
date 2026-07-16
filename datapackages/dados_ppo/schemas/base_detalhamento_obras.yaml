@@ -1,83 +1,67 @@
 fields:
   - name: UO
     target: uo_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: FUNCAO
     target: funcao_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: SUBFUNCAO
     target: subfuncao_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: PROGRAMA
     target: programa_cod
     ppo: código programa
-    mapping_type: direct
 
   - name: ACAO
     target: acao_cod
     ppo: código ação
-    mapping_type: direct
 
   - name: SUBPROJETO
     target: subprojeto_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: IAG
     target: iag_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: NUMERO DA OBRA SISOR
     target: obra_num_sisor
-    mapping_type: removed
-    note: Não existe mais na base de ações porque deixou de ser necessário
+    ppo: (ausente) - Não é necessário
 
   - name: NUMERO DA OBRA SIAD
     target: obra_num_siad
     ppo: Número da Obra do SIAD
-    mapping_type: direct
 
   - name: DESCRICAO DA OBRA
     target: obra_desc
     ppo: Descrição da Obra
-    mapping_type: direct
 
   - name: STATUS DA OBRA
     target: obra_status
     ppo: Situação
-    mapping_type: direct
 
   - name: UNIDADE DE MEDIDA DA OBRA
     target: obra_unidade_medida
     ppo: Unidade de Medida da Obra
-    mapping_type: direct
 
   - name: QUANTIDADE
     target: obra_quantidade
     ppo: Quantidade
-    mapping_type: direct
 
   - name: ALTERAR UNIDADE DE MEDIDA DA OBRA
     target: obra_alterar_unidade_medida
     ppo: Alterar Unidade de Medida da Obra?
-    mapping_type: direct
 
   - name: REGIÃO GEOGRÁFICA INTERMEDIÁRIA
     target: obra_regiao_geografica_intermediaria
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: MUNICÍPIO
     target: obra_municipio
     ppo: Código Município
-    mapping_type: direct
 
   - name: VALOR TESOURO 2026 (R$)
     type: number
@@ -88,7 +72,6 @@ fields:
       minimum: 0
     target: vlr_tesouro_ano0
     ppo: Valor Tesouro
-    mapping_type: direct
 
   - name: VALOR OUTROS 2026 (R$)
     type: number
@@ -99,7 +82,6 @@ fields:
       minimum: 0
     target: vlr_outros_ano0
     ppo: Valor Outros
-    mapping_type: direct
 
   - name: VALOR TESOURO 2027 (R$)
     type: number
@@ -109,8 +91,7 @@ fields:
     constraints:
       minimum: 0
     target: vlr_tesouro_ano1
-    mapping_type: removed
-    note: O novo sistema não preenche mais essa coluna
+    ppo: Valor Tesouro
 
   - name: VALOR OUTROS 2027 (R$)
     type: number
@@ -120,8 +101,7 @@ fields:
     constraints:
       minimum: 0
     target: vlr_outros_ano1
-    mapping_type: removed
-    note: O novo sistema não preenche mais essa coluna
+    ppo: Valor Outros
 
   - name: VALOR TESOURO 2028 (R$)
     type: number
@@ -131,8 +111,7 @@ fields:
     constraints:
       minimum: 0
     target: vlr_tesouro_ano2
-    mapping_type: removed
-    note: O novo sistema não preenche mais essa coluna
+    ppo: Valor Tesouro
 
   - name: VALOR OUTROS 2028 (R$)
     type: number
@@ -142,8 +121,7 @@ fields:
     constraints:
       minimum: 0
     target: vlr_outros_ano2
-    mapping_type: removed
-    note: O novo sistema não preenche mais essa coluna
+    ppo: Valor Outros
 
   - name: VALOR TESOURO 2029 (R$)
     type: number
@@ -153,8 +131,7 @@ fields:
     constraints:
       minimum: 0
     target: vlr_tesouro_ano3
-    mapping_type: removed
-    note: O novo sistema não preenche mais essa coluna
+    ppo: Valor Tesouro
 
   - name: VALOR OUTROS 2029 (R$)
     type: number
@@ -164,10 +141,7 @@ fields:
     constraints:
       minimum: 0
     target: vlr_outros_ano3
-    mapping_type: removed
-    note: O novo sistema não preenche mais essa coluna
+    ppo: Valor Outros
 
-ppo_unmapped_fields:
-  - ppo: Obra no SIAD?
-    mapping_type: new
-    note: Não sei para o que serve 
+  - name: Obra no SIAD?
+    ppo: Obra no SIAD?

@@ -1,103 +1,83 @@
 fields:
   - name: Código do Órgão
     target: orgao_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: Órgão
     target: orgao_nome_sigla
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: Código da UO
     target: uo_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: Unidade Orçamentária
     target: uo_nome_sigla
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: Função
     target: funcao_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: Subfunção
     target: subfuncao_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: Programa
     target: programa_cod
     ppo: Programa
-    mapping_type: direct
 
   - name: Identificador
     target: identificador_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: Projeto_Atividade
     target: projeto_atividade_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: Ação
     target: acao_cod
     ppo: Ação
-    mapping_type: direct
 
   - name: Subprojeto
     target: subprojeto_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: Categoria
     target: categoria_cod
     ppo: Categoria
-    mapping_type: direct
 
   - name: Grupo_Despesa
     target: grupo_cod
     ppo: GD
-    mapping_type: direct
 
   - name: Modalidade
     target: modalidade_cod
     ppo: Mod.
-    mapping_type: direct
 
   - name: Elemento_Despesa
     target: elemento_cod
     ppo: Elem.
-    mapping_type: direct
 
   - name: Item_Despesa
     target: item_cod
     ppo: Item.
-    mapping_type: direct
 
   - name: Fonte
     target: fonte_cod
     ppo: FTE
-    mapping_type: direct
 
   - name: IPU
     target: ipu_cod
     ppo: IPU
-    mapping_type: direct
 
   - name: IAG
     target: iag_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: Descrição
     target: acao_desc
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: Valor (R$)
     type: number
@@ -108,4 +88,3 @@ fields:
       minimum: 0
     target: vlr_loa_desp
     ppo: Valor Proposto ano
-    mapping_type: direct

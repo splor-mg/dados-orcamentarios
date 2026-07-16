@@ -86,17 +86,17 @@ fields:
     mapping_type: pending
 
   - name: CATEGORIA
-    target: categoria__cod_nome
+    target: categoria_invest_cod_nome
     ppo: Categoria
     mapping_type: direct
 
   - name: COD_NATUREZA
-    target: natureza_cod
+    target: natureza_invest_cod
     ppo: Natureza
     mapping_type: direct
 
   - name: NATUREZA
-    target: natureza_desc
+    target: natureza_invest_desc
     ppo: null
     mapping_type: pending
 

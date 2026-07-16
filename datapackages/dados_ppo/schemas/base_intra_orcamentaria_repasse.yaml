@@ -20,7 +20,7 @@ fields:
     mapping_type: direct
 
   - name: Cód. Natureza de Despesa
-    target: natureza_desp_fmt
+    target: natureza_cod_fmt
     ppo: Natureza da Despesa
     mapping_type: direct
 
