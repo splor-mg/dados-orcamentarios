@@ -124,7 +124,7 @@ fields:
     ppo: Previsão Orçamentária 2029
 
   - name: Programa Transposto
-    target: is_programa_transposto
+    target: programa_transposto
     ppo: (ausente)
 
   - name: Causas

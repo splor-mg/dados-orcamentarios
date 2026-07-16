@@ -59,7 +59,7 @@
 | Exclusão Lógica da Ação | Exclusão Lógica da Ação | acao_exclusao | Exclusão Lógica da Ação |
 | Nova Ação | Nova Ação | acao_novo | Nova Ação |
 | Justificativa de Inclusão ou Exclusão da Ação | Justificativa de Inclusão ou Exclusão da Ação | acao_justificativa | Justificativa de Inclusão da Ação + Justificativa  Exclusão da Ação |
-| Transferida para o SISOR | Transferida para o SISOR | sisor_transferido | (ausente) - Não é necessário |
+| Transferida para o SISOR | Transferida para o SISOR | sisor_transferido | (ausente) |
 | Unidade Administrativa Responsável pela Ação | Unidade Administrativa Responsável pela Ação | ua_acao_nome | Unidade Administrativa Responsável pela Ação |
 | Base Legal | Base legal | base_legal | Base Legal |
 | Finalidade da Ação | Finalidade da Ação | acao_finalidade | Finalidade da Ação |
@@ -79,9 +79,9 @@
 | Previsão Física Ano de Referência + 1 | Previsão Física 2027 | vlr_meta_fisica_ano1 | Previsão Física 2027 |
 | Previsão Física Ano de Referência + 2 | Previsão Física 2028 | vlr_meta_fisica_ano2 | Previsão Física 2028 |
 | Previsão Física Ano de Referência + 3 | Previsão Física 2029 | vlr_meta_fisica_ano3 | Previsão Física 2029 |
-| Ação Transposta | Ação Transposta | acao_transposta | (ausente) - Não é necessário |
-| Setor de Governo | Setor de Governo | governo_setor | (ausente) - Não é necessário |
-| Política para mulheres | Política para mulheres | politica_mulheres | (ausente) - Não é necessário |
+| Ação Transposta | Ação Transposta | acao_transposto | (ausente) |
+| Setor de Governo | Setor de Governo | governo_setor | (ausente) |
+| Política para mulheres | Política para mulheres | politica_mulheres | (ausente) |
 
 *Total de campos: 49*
 
@@ -205,7 +205,7 @@
 | Previsão Orçamentária Ano de Referência + 1 | Previsão Orçamentária 2027 | vlr_meta_orcamentaria_ano1 | Previsão Orçamentária 2027 |
 | Previsão Orçamentária Ano de Referência + 2 | Previsão Orçamentária 2028 | vlr_meta_orcamentaria_ano2 | Previsão Orçamentária 2028 |
 | Previsão Orçamentária Ano de Referência + 3 | Previsão Orçamentária 2029 | vlr_meta_orcamentaria_ano3 | Previsão Orçamentária 2029 |
-| Programa Transposto | Programa Transposto | is_programa_transposto | (ausente) |
+| Programa Transposto | Programa Transposto | programa_transposto | (ausente) |
 | Causas | Causas | causas | Causas |
 | Título do Objetivo de Desenvolvimento Sustentável | Título do Objetivo de Desenvolvimento Sustentável | ods_titulo | Código do Objetivo de Desenvolvimento Sustentável + Objetivo de Desenvolvimento Sustentável |
 | Subtítulo do Objetivo de Desenvolvimento Sustentável | Subtítulo do Objetivo de Desenvolvimento Sustentável | ods_subtitulo | (ausente) |

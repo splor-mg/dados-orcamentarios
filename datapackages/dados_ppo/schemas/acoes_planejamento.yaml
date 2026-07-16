@@ -105,7 +105,7 @@ fields:
 
   - name: Transferida para o SISOR
     target: sisor_transferido
-    ppo: (ausente) - Não é necessário
+    ppo: (ausente)
 
   - name: Unidade Administrativa Responsável pela Ação
     target: ua_acao_nome
@@ -232,13 +232,13 @@ fields:
     ppo: Previsão Física 2029
 
   - name: Ação Transposta
-    target: acao_transposta
-    ppo: (ausente) - Não é necessário
+    target: acao_transposto
+    ppo: (ausente)
 
   - name: Setor de Governo
     target: governo_setor
-    ppo: (ausente) - Não é necessário
+    ppo: (ausente)
 
   - name: Política para mulheres
     target: politica_mulheres
-    ppo: (ausente) - Não é necessário
+    ppo: (ausente)
