@@ -45,4 +45,4 @@ fields:
     ppo: Ano
 
   - name: Grupo Fonte
-    note: Grupo Fonte
+    ppo: Grupo Fonte

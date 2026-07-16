@@ -114,4 +114,4 @@ fields:
     ppo: Metodologia de cálculo e premissas utilizadas
 
   - name: Valor LDO
-    ppo: Valor LDO
+    ppo: Valor LDO - Não sei se esse Valor LDO é "vlr_loa_desp_uo", "vlr_loa_desp_scppo" ou "vlr_loa_desp"

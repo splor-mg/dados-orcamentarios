@@ -11,7 +11,7 @@
 7. [Detalhamento Plurianual Investimento](#base-qdd-plurianual-invest) - 21 campos
 8. [Orçamento da Despesa de Investimento](#base-orcam-despesa-investimento) - 21 campos
 9. [Detalhamento de Obras](#base-detalhamento-obras) - 25 campos
-10. [QDD Fiscal](#base-qdd-fiscal) - 27 campos
+10. [QDD Fiscal](#base-qdd-fiscal) - 28 campos
 11. [QDD Investimento](#base-qdd-investimento) - 23 campos
 12. [Orçamento da Receita Fiscal](#base-orcam-receita-fiscal) - 25 campos
 13. [Orçamento da Receita Investimento](#base-orcam-receita-investimento) - 14 campos
@@ -20,7 +20,7 @@
 16. [Repasse de Recursos](#base-repasse-recursos) - 11 campos
 17. [Limite de Cota](#base-limite-cota) - 15 campos
 18. [Base Intraorçamentária de Detalhamento](#base-intra-orcamentaria-detalhamento) - 4 campos
-19. [Base Intraorçamentária de Repasse](#base-intra-orcamentaria-repasse) - 9 campos
+19. [Base Intraorçamentária de Repasse](#base-intra-orcamentaria-repasse) - 11 campos
 20. [Relação das Unidades Orçamentárias e suas Versões](#base-unidades-orcamentaria-versoes) - 4 campos
 
 ---
@@ -398,35 +398,36 @@
 
 | Título | SISOR | AID | PPO |
 |---|---|---|---|
-| Ano de Exercício | ANO | ano |  |
-| Órgão - Código | COD_ORGAO | orgao_cod |  |
-| Órgão - Nome e Sigla | ORGAO | orgao_nome_sigla |  |
-| Poder Unidade Orçamentária - Código | PODER | poder_cod |  |
-| Situação | SITUACAO | situacao |  |
-| Unidade Orçamentária - Código | COD_UO | uo_cod |  |
-| Unidade Orçamentária - Nome e Sigla | UO | uo_nome_sigla |  |
+| Ano de Exercício | ANO | ano | (ausente) |
+| Órgão - Código | COD_ORGAO | orgao_cod | (ausente) |
+| Órgão - Nome e Sigla | ORGAO | orgao_nome_sigla | (ausente) |
+| Poder Unidade Orçamentária - Código | PODER | poder_cod | (ausente) |
+| Situação | SITUACAO | situacao | (ausente) |
+| Unidade Orçamentária - Código | COD_UO | uo_cod | (ausente) |
+| Unidade Orçamentária - Nome e Sigla | UO | uo_nome_sigla | (ausente) |
 | Categoria Econômica Despesa - Código | CATEGORIA | categoria_cod | Categoria |
 | Grupo Despesa - Código | GRUPO_DESPESA | grupo_cod | GD |
 | Modalidade Aplicação - Código | MODALIDADE | modalidade_cod | Mod. |
 | Elemento Despesa - Código | ELEMENTO_DESPESA | elemento_cod | Elem. |
 | Fonte Recurso - Código | FONTE | fonte_cod | FTE |
 | Procedência - Código | IPU | ipu_cod | IPU |
-| SEQ_PROGTRAB (?) | SEQ_PROGTRAB | seq_progtrab |  |
-| Função - Código | FUNCAO | funcao_cod |  |
-| Subfunção - Código | SUB_FUNCAO | subfuncao_cod |  |
+| SEQ_PROGTRAB (?) | SEQ_PROGTRAB | seq_progtrab | (ausente) |
+| Função - Código | FUNCAO | funcao_cod | (ausente) |
+| Subfunção - Código | SUB_FUNCAO | subfuncao_cod | (ausente) |
 | Programa - Código | PROGRAMA | programa_cod | Programa |
-| Identificador - Código | IDENT_PROJATIV | identificador_cod |  |
-| Projeto Atividade - Código | PROJ_ATIV | projeto_atividade_cod |  |
+| Identificador - Código | IDENT_PROJATIV | identificador_cod | (ausente) |
+| Projeto Atividade - Código | PROJ_ATIV | projeto_atividade_cod | (ausente) |
 | Ação - Código | AÇÃO | acao_cod | Ação |
-| Subprojeto - Código | SUB_PROJETO | subprojeto_cod |  |
-| Valor UO (R$) | VALOR UO (R$) | vlr_loa_desp_uo |  |
-| Valor SCPPO (R$) | VALOR SCPPO (R$) | vlr_loa_desp_scppo |  |
-| Valor Final (R$) | VALOR FINAL (R$) | vlr_loa_desp |  |
-| Identificador Orçamento - Código | IAG | iag_cod |  |
-| Ação - Descrição | NOME_ACAO | acao_desc |  |
-| Programa - Descrição | NOME_PROGRAMA | programa_desc |  |
+| Subprojeto - Código | SUB_PROJETO | subprojeto_cod | (ausente) |
+| Valor UO (R$) | VALOR UO (R$) | vlr_loa_desp_uo | (ausente) |
+| Valor SCPPO (R$) | VALOR SCPPO (R$) | vlr_loa_desp_scppo | (ausente) |
+| Valor Final (R$) | VALOR FINAL (R$) | vlr_loa_desp | (ausente) |
+| Identificador Orçamento - Código | IAG | iag_cod | (ausente) |
+| Ação - Descrição | NOME_ACAO | acao_desc | (ausente) |
+| Programa - Descrição | NOME_PROGRAMA | programa_desc | (ausente) |
+|  | Valor Proposto ano |  | Valor Proposto ano |
 
-*Total de campos: 27*
+*Total de campos: 28*
 
 ---
 
@@ -438,29 +439,29 @@
 
 | Título | SISOR | AID | PPO |
 |---|---|---|---|
-| Ano de Exercício | ANO | ano |  |
-| Órgão - Código | COD_ORGAO | orgao_cod |  |
-| Órgão - Nome e Sigla | ORGAO | orgao_nome_sigla |  |
-| Poder Unidade Orçamentária - Código | PODER | poder_cod |  |
-| Unidade Orçamentária - Código | COD_UO | uo_cod |  |
-| Unidade Orçamentária - Nome e Sigla | UO | uo_nome_sigla |  |
-| SEQ_PROGTRAB (?) | SEQ_PROGTRAB | seq_progtrab |  |
-| Função - Código | FUNCAO | funcao_cod |  |
-| Subfunção - Código | SUB_FUNCAO | subfuncao_cod |  |
+| Ano de Exercício | ANO | ano | (ausente) |
+| Órgão - Código | COD_ORGAO | orgao_cod | (ausente) |
+| Órgão - Nome e Sigla | ORGAO | orgao_nome_sigla | (ausente) |
+| Poder Unidade Orçamentária - Código | PODER | poder_cod | (ausente) |
+| Unidade Orçamentária - Código | COD_UO | uo_cod | (ausente) |
+| Unidade Orçamentária - Nome e Sigla | UO | uo_nome_sigla | (ausente) |
+| SEQ_PROGTRAB (?) | SEQ_PROGTRAB | seq_progtrab | (ausente) |
+| Função - Código | FUNCAO | funcao_cod | (ausente) |
+| Subfunção - Código | SUB_FUNCAO | subfuncao_cod | (ausente) |
 | Programa - Código | PROGRAMA | programa_cod | Programa |
-| Identificador - Código | IDENT_PROJATIV | identificador_cod |  |
-| Projeto Atividade - Código | PROJ_ATIV | projeto_atividade_cod |  |
+| Identificador - Código | IDENT_PROJATIV | identificador_cod | (ausente) |
+| Projeto Atividade - Código | PROJ_ATIV | projeto_atividade_cod | (ausente) |
 | Ação - Código | AÇÃO | acao_cod | Ação |
 | Valor (R$) | VALOR (R$) | vlr_loa_desp_invest | Valor Proposto |
-| Identificador Orçamento - Código | IAG | iag_cod |  |
-| Ação - Descrição | DESC_PROJETO_ATIV | acao_desc |  |
+| Identificador Orçamento - Código | IAG | iag_cod | (ausente) |
+| Ação - Descrição | DESC_PROJETO_ATIV | acao_desc | (ausente) |
 | Categoria de Investimento - Código e Nome | CATEGORIA | categoria_invest_cod_nome | Categoria |
 | Natureza de Investimento - Código | COD_NATUREZA | natureza_invest_cod | Natureza |
-| Natureza de Investimento - Descrição | NATUREZA | natureza_invest_desc |  |
+| Natureza de Investimento - Descrição | NATUREZA | natureza_invest_desc | (ausente) |
 | Fonte Investimento - Código | COD_FONTE | fonte_invest_cod | Fonte |
-| Fonte Investimento - Descrição | FONTE | fonte_invest_desc |  |
-| Ação - Descrição | NOME_ACAO | acao_desc |  |
-| Programa - Descrição | NOME_PROGRAMA | programa_desc |  |
+| Fonte Investimento - Descrição | FONTE | fonte_invest_desc | (ausente) |
+| Ação - Descrição | NOME_ACAO | acao_desc | (ausente) |
+| Programa - Descrição | NOME_PROGRAMA | programa_desc | (ausente) |
 
 *Total de campos: 23*
 
@@ -498,7 +499,7 @@
 | Ano de Exercício | ANO | ano | Ano |
 | Base Legal | BASE LEGAL | base_legal | (ausente) |
 | Metodologia de Cálculo e Premissas Utilizadas | METODOLOGIA DE CÁLCULO E PREMISSAS UTILIZADAS | metodologia | Metodologia de cálculo e premissas utilizadas |
-|  | Valor LDO |  | Valor LDO |
+|  | Valor LDO |  | Valor LDO - Não sei se esse Valor LDO é "vlr_loa_desp_uo", "vlr_loa_desp_scppo" ou "vlr_loa_desp" |
 
 *Total de campos: 25*
 
@@ -590,7 +591,7 @@
 | Identificador Orçamento - Código | IAG | iag_cod | (ausente) - IAG (iag_desc) |
 | Valor Transferido (R$) | Valor Transferido (R$) | vlr_repasse | Valor Repassado |
 |  | Ano |  | Ano |
-|  | Grupo Fonte |  |  |
+|  | Grupo Fonte |  | Grupo Fonte |
 
 *Total de campos: 11*
 
@@ -611,14 +612,14 @@
 | Procedência - Código | IPU | ipu_cod | IPU |
 | Identificador Orçamento - Código | IAG | iag_cod | IAG |
 | Valor Limite Ano de Referência (R$) | Valor Limite 2026 | vlr_limite_ano0 | VALOR LIMITE |
-| Valor Utilizado Ano de Referência (R$) | Valor Utilizado 2026 | vlr_utilizado_ano0 |  |
-| Valor Transferido | Valor Transferido | vlr_transferido |  |
-| Valor Limite Ano de Referência + 1 (R$) | Valor Limite 2027 | vlr_limite_ano1 |  |
-| Valor Utilizado Ano de Referência + 1 (R$) | Valor Utilizado 2027 | vlr_utilizado_ano1 |  |
-| Valor Limite Ano de Referência + 2 (R$) | Valor Limite 2028 | vlr_limite_ano2 |  |
-| Valor Utilizado Ano de Referência + 2 (R$) | Valor Utilizado 2028 | vlr_utilizado_ano2 |  |
-| Valor Limite Ano de Referência + 3 (R$) | Valor Limite 2029 | vlr_limite_ano3 |  |
-| Valor Utilizado Ano de Referência + 3 (R$) | Valor Utilizado 2029 | vlr_utilizado_ano3 |  |
+| Valor Utilizado Ano de Referência (R$) | Valor Utilizado 2026 | vlr_utilizado_ano0 | (ausente) |
+| Valor Transferido | Valor Transferido | vlr_transferido | (ausente) |
+| Valor Limite Ano de Referência + 1 (R$) | Valor Limite 2027 | vlr_limite_ano1 | (ausente) - Não é mais preenchido |
+| Valor Utilizado Ano de Referência + 1 (R$) | Valor Utilizado 2027 | vlr_utilizado_ano1 | (ausente) - Não é mais preenchido |
+| Valor Limite Ano de Referência + 2 (R$) | Valor Limite 2028 | vlr_limite_ano2 | (ausente) - Não é mais preenchido |
+| Valor Utilizado Ano de Referência + 2 (R$) | Valor Utilizado 2028 | vlr_utilizado_ano2 | (ausente) - Não é mais preenchido |
+| Valor Limite Ano de Referência + 3 (R$) | Valor Limite 2029 | vlr_limite_ano3 | (ausente) - Não é mais preenchido |
+| Valor Utilizado Ano de Referência + 3 (R$) | Valor Utilizado 2029 | vlr_utilizado_ano3 | (ausente) - Não é mais preenchido |
 
 *Total de campos: 15*
 
@@ -649,17 +650,19 @@
 
 | Título | SISOR | AID | PPO |
 |---|---|---|---|
-| Unidade Orçamentária Repassadora - Código | Cód. UO Repassadora | uo_repassadora_cod |  |
-| Unidade Orçamentária Repassadora - Sigla | UO Repassadora | uo_repassadora_sigla |  |
+| Unidade Orçamentária Repassadora - Código | Cód. UO Repassadora | uo_repassadora_cod | (ausente) |
+| Unidade Orçamentária Repassadora - Sigla | UO Repassadora | uo_repassadora_sigla | (ausente) |
 | Programa de Trabalho - Código Formatado | Cód. Programa de Trabalho | programa_trabalho_fmt | Programa de Trabalho |
 | Ação - Descrição | Ação | acao_desc | Nome da Ação |
 | Natureza de Despesa - Código Formatado | Cód. Natureza de Despesa | natureza_cod_fmt | Natureza da Despesa |
 | Item - Descrição | Elemento Item | item_desc | Nome do Elemento Item |
 | Valor Repassado (R$) | Valor Repassado (R$) | vlr_repassado | Valor Distribuído |
 | Unidade Orçamentária Beneficiada - Código | Cód. UO Beneficiada | uo_beneficiada_cod | Unidade Orçamentária Beneficiada |
-| Unidade Orçamentária Beneficiada - Sigla | UO Beneficiada | uo_beneficiada_sigla |  |
+| Unidade Orçamentária Beneficiada - Sigla | UO Beneficiada | uo_beneficiada_sigla | (ausente) |
+|  | Código do Item |  | Código do Item |
+|  | Data de Inclusão |  | Data de Inclusão |
 
-*Total de campos: 9*
+*Total de campos: 11*
 
 ---
 

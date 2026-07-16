@@ -1,108 +1,87 @@
 fields:
   - name: ANO
     target: ano
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: COD_ORGAO
     target: orgao_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: ORGAO
     target: orgao_nome_sigla
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: PODER
     target: poder_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: SITUACAO
     target: situacao
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: COD_UO
     target: uo_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: UO
     target: uo_nome_sigla
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: CATEGORIA
     target: categoria_cod
     ppo: Categoria
-    mapping_type: direct
 
   - name: GRUPO_DESPESA
     target: grupo_cod
     ppo: GD
-    mapping_type: direct
 
   - name: MODALIDADE
     target: modalidade_cod
     ppo: Mod.
-    mapping_type: direct
 
   - name: ELEMENTO_DESPESA
     target: elemento_cod
     ppo: Elem.
-    mapping_type: direct
 
   - name: FONTE
     target: fonte_cod
     ppo: FTE
-    mapping_type: direct
 
   - name: IPU
     target: ipu_cod
     ppo: IPU
-    mapping_type: direct
 
   - name: SEQ_PROGTRAB
     target: seq_progtrab
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: FUNCAO
     target: funcao_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: SUB_FUNCAO
     target: subfuncao_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: PROGRAMA
     target: programa_cod
     ppo: Programa
-    mapping_type: direct
 
   - name: IDENT_PROJATIV
     target: identificador_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: PROJ_ATIV
     target: projeto_atividade_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: AÇÃO
     target: acao_cod
     ppo: Ação
-    mapping_type: direct
 
   - name: SUB_PROJETO
     target: subprojeto_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: VALOR UO (R$)
     type: number
@@ -112,8 +91,7 @@ fields:
     constraints:
       minimum: 0
     target: vlr_loa_desp_uo
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: VALOR SCPPO (R$)
     type: number
@@ -123,8 +101,7 @@ fields:
     constraints:
       minimum: 0
     target: vlr_loa_desp_scppo
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: VALOR FINAL (R$)
     type: number
@@ -134,25 +111,19 @@ fields:
     constraints:
       minimum: 0
     target: vlr_loa_desp
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: IAG
     target: iag_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: NOME_ACAO
     target: acao_desc
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: NOME_PROGRAMA
     target: programa_desc
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
-ppo_unmapped_fields:
-  - ppo: Valor Proposto ano
-    mapping_type: new
-    note: Não sei se esse Valor LDO é "vlr_loa_desp_uo", "vlr_loa_desp_scppo" ou "vlr_loa_desp"
+  - name: Valor Proposto ano
+    ppo: Valor Proposto ano

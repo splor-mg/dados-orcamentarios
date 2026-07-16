@@ -1,68 +1,55 @@
 fields:
   - name: ANO
     target: ano
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: COD_ORGAO
     target: orgao_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: ORGAO
     target: orgao_nome_sigla
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: PODER
     target: poder_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: COD_UO
     target: uo_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: UO
     target: uo_nome_sigla
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: SEQ_PROGTRAB
     target: seq_progtrab
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: FUNCAO
     target: funcao_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: SUB_FUNCAO
     target: subfuncao_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: PROGRAMA
     target: programa_cod
     ppo: Programa
-    mapping_type: direct
 
   - name: IDENT_PROJATIV
     target: identificador_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: PROJ_ATIV
     target: projeto_atividade_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: AÇÃO
     target: acao_cod
     ppo: Ação
-    mapping_type: direct
 
   - name: VALOR (R$)
     type: number
@@ -73,49 +60,39 @@ fields:
       minimum: 0
     target: vlr_loa_desp_invest
     ppo: Valor Proposto
-    mapping_type: direct
 
   - name: IAG
     target: iag_cod
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: DESC_PROJETO_ATIV
     target: acao_desc
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: CATEGORIA
     target: categoria_invest_cod_nome
     ppo: Categoria
-    mapping_type: direct
 
   - name: COD_NATUREZA
     target: natureza_invest_cod
     ppo: Natureza
-    mapping_type: direct
 
   - name: NATUREZA
     target: natureza_invest_desc
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: COD_FONTE
     target: fonte_invest_cod
     ppo: Fonte
-    mapping_type: direct
 
   - name: FONTE
     target: fonte_invest_desc
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: NOME_ACAO
     target: acao_desc
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
 
   - name: NOME_PROGRAMA
     target: programa_desc
-    ppo: null
-    mapping_type: pending
+    ppo: (ausente)
