@@ -68,19 +68,6 @@ resources:
     encoding: utf-8
     schema: schemas/base_orcam_despesa_item_fiscal.yaml
 
-  - name: base_qdd_plurianual
-    ppo: Reprogramação plurianual não será mais feita
-    type: table
-    title: Detalhamento Plurianual Fiscal
-    description: |
-      .
-    path: data_raw/BASE_QDD_PLURIANUAL.xls
-    scheme: file
-    format: html
-    mediatype: text/html
-    encoding: utf-8
-    schema: schemas/base_qdd_plurianual.yaml
-
   - name: base_qdd_plurianual_invest
     ppo: Reprogramação plurianual não será mais feita
     type: table
@@ -169,18 +156,6 @@ resources:
     encoding: utf-8
     schema: schemas/base_orcam_receita_investimento.yaml
 
-  - name: base_obras_siad
-    type: table
-    title: Registro de Obras no SIAD
-    description: |
-      .
-    path: data_raw/BASE_OBRAS_SIAD.xls
-    scheme: file
-    format: html
-    mediatype: text/html
-    encoding: utf-8
-    schema: schemas/base_obras_siad.yaml
-
   - name: base_categoria_pessoal
     ppo: Orçamento > Categoria de Pesssoal
     type: table
@@ -218,18 +193,6 @@ resources:
     mediatype: text/html
     encoding: utf-8
     schema: schemas/base_limite_cota.yaml
-
-  - name: base_unidades_orcamentaria_versoes
-    type: table
-    title: Relação das Unidades Orçamentárias e suas Versões
-    description: |
-      .
-    path: data_raw/BASE_UNIDADES_ORCAMENTARIA_VERSOES.xls
-    scheme: file
-    format: html
-    mediatype: text/html
-    encoding: utf-8
-    schema: schemas/base_unidades_orcamentaria_versoes.yaml
 
   - name: base_intra_orcamentaria_detalhamento
     type: table

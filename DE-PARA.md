@@ -7,21 +7,18 @@
 3. [Relatórios e Bases do Planejamento - Localizadores (Todos)](#localizadores-todos-planejamento) - 33 campos
 4. [Relatórios e Bases do Planejamento - Programas](#programas-planejamento) - 29 campos
 5. [Orçamento da Despesa Fiscal / Itens de Despesa](#base-orcam-despesa-item-fiscal) - 21 campos
-6. [Detalhamento Plurianual Fiscal](#base-qdd-plurianual) - 23 campos
-7. [Detalhamento Plurianual Investimento](#base-qdd-plurianual-invest) - 21 campos
-8. [Orçamento da Despesa de Investimento](#base-orcam-despesa-investimento) - 21 campos
-9. [Detalhamento de Obras](#base-detalhamento-obras) - 25 campos
-10. [QDD Fiscal](#base-qdd-fiscal) - 28 campos
-11. [QDD Investimento](#base-qdd-investimento) - 23 campos
-12. [Orçamento da Receita Fiscal](#base-orcam-receita-fiscal) - 25 campos
-13. [Orçamento da Receita Investimento](#base-orcam-receita-investimento) - 14 campos
-14. [Registro de Obras no SIAD](#base-obras-siad) - 10 campos
-15. [Categoria de Pessoal](#base-categoria-pessoal) - 5 campos
-16. [Repasse de Recursos](#base-repasse-recursos) - 11 campos
-17. [Limite de Cota](#base-limite-cota) - 15 campos
-18. [Base Intraorçamentária de Detalhamento](#base-intra-orcamentaria-detalhamento) - 4 campos
-19. [Base Intraorçamentária de Repasse](#base-intra-orcamentaria-repasse) - 11 campos
-20. [Relação das Unidades Orçamentárias e suas Versões](#base-unidades-orcamentaria-versoes) - 4 campos
+6. [Detalhamento Plurianual Investimento](#base-qdd-plurianual-invest) - 21 campos
+7. [Orçamento da Despesa de Investimento](#base-orcam-despesa-investimento) - 21 campos
+8. [Detalhamento de Obras](#base-detalhamento-obras) - 25 campos
+9. [QDD Fiscal](#base-qdd-fiscal) - 28 campos
+10. [QDD Investimento](#base-qdd-investimento) - 23 campos
+11. [Orçamento da Receita Fiscal](#base-orcam-receita-fiscal) - 25 campos
+12. [Orçamento da Receita Investimento](#base-orcam-receita-investimento) - 14 campos
+13. [Categoria de Pessoal](#base-categoria-pessoal) - 5 campos
+14. [Repasse de Recursos](#base-repasse-recursos) - 11 campos
+15. [Limite de Cota](#base-limite-cota) - 15 campos
+16. [Base Intraorçamentária de Detalhamento](#base-intra-orcamentaria-detalhamento) - 4 campos
+17. [Base Intraorçamentária de Repasse](#base-intra-orcamentaria-repasse) - 11 campos
 
 ---
 
@@ -245,42 +242,6 @@
 | Valor (R$) | Valor (R$) | vlr_loa_desp | Valor Proposto ano |
 
 *Total de campos: 21*
-
----
-
-## Detalhamento Plurianual Fiscal
-
-**Nome da base SISOR:** `base_qdd_plurianual`
-
-**Nome da base PPO:** `Reprogramação plurianual não será mais feita`
-
-| Título | SISOR | AID | PPO |
-|---|---|---|---|
-| Ano de Exercício | ANO | ano |  |
-| Órgão - Código | COD_ORGAO | orgao_cod |  |
-| Órgão - Nome e Sigla | DESC_ORGAO | orgao_nome_sigla |  |
-| Unidade Orçamentária - Código | COD_UO | uo_cod |  |
-| Unidade Orçamentária - Nome e Sigla | DESC_UO | uo_nome_sigla |  |
-| Função - Código | FUNCAO | funcao_cod |  |
-| Subfunção - Código | SUBFUNCAO | subfuncao_cod |  |
-| Programa - Código | COD_PROGRAMA | programa_cod |  |
-| Identificador - Código | IDENT_PROJATIV | identificador_cod |  |
-| Projeto Atividade - Código | PROJ_ATIV | projeto_atividade_cod |  |
-| Ação - Código | AÇÃO | acao_cod |  |
-| Subprojeto - Código | SUBPROJETO | subprojeto_cod |  |
-| Categoria Econômica Despesa - Código | CATEGORIA | categoria_cod |  |
-| Grupo Despesa - Código | GRUPO_DESPESA | grupo_cod |  |
-| Fonte Recurso - Código | FONTE | fonte_cod |  |
-| Procedência - Código | IPU | ipu_cod |  |
-| Identificador Orçamento - Código | IAG | iag_cod |  |
-| Programa - Descrição | PROGRAMA | programa_desc |  |
-| Ação - Descrição | ACAO | acao_desc |  |
-| Valor Ano de Referência (R$) | VALOR (R$) 2026 | vlr_loa_desp_ano0 |  |
-| Valor Ano de Referência + 1 (R$) | VALOR (R$) 2027 | vlr_loa_desp_ano1 |  |
-| Valor Ano de Referência + 2 (R$) | VALOR (R$) 2028 | vlr_loa_desp_ano2 |  |
-| Valor Ano de Referência + 3 (R$) | VALOR (R$) 2029 | vlr_loa_desp_ano3 |  |
-
-*Total de campos: 23*
 
 ---
 
@@ -532,29 +493,6 @@
 
 ---
 
-## Registro de Obras no SIAD
-
-**Nome da base SISOR:** `base_obras_siad`
-
-**Nome da base PPO:** *Não definido*
-
-| Título | SISOR | AID | PPO |
-|---|---|---|---|
-| Órgão - Código e Nome | ORGAO_COD | orgao_cod_nome |  |
-| Unidade Administrativa - Código e Nome | UNIDADE_ADIMINISTRATIVA_COD | ua_cod_nome |  |
-| Obra - Número SIAD | Número da Obra SIAD | obra_num_siad |  |
-| Unidade Orçamentária - Número de Referência | Número de Referência da UO | uo_num_ref |  |
-| Situação | Situação | situacao |  |
-| Obra - Descrição | Descrição | obra_desc |  |
-| Obra - Data de Início | Data de Início | obra_data_inicio |  |
-| Obra - Data de Término | Data de Término | obra_data_termino |  |
-| Ano de Exercício | Ano de Exercício | ano |  |
-| Valor Global (R$) | Valor Global (R$) | vlr_global |  |
-
-*Total de campos: 10*
-
----
-
 ## Categoria de Pessoal
 
 **Nome da base SISOR:** `base_categoria_pessoal`
@@ -634,9 +572,9 @@
 | Título | SISOR | AID | PPO |
 |---|---|---|---|
 | Unidade Orçamentária - Código | Cód. UO Beneficiada | uo_cod | Unidade Orçamentária Beneficiada |
-| Unidade Orçamentária - Sigla | UO Beneficiada | uo_sigla |  |
+| Unidade Orçamentária - Sigla | UO Beneficiada | uo_sigla | (ausente) |
 | Valor Recebido (R$) | Valor Recebido (R$) | vlr_recebido | Valor Distribuído |
-| Valor Detalhado (R$) | Valor Detalhado (R$) | vlr_detalhado |  |
+| Valor Detalhado (R$) | Valor Detalhado (R$) | vlr_detalhado | (ausente) |
 
 *Total de campos: 4*
 
@@ -663,23 +601,6 @@
 |  | Data de Inclusão |  | Data de Inclusão |
 
 *Total de campos: 11*
-
----
-
-## Relação das Unidades Orçamentárias e suas Versões
-
-**Nome da base SISOR:** `base_unidades_orcamentaria_versoes`
-
-**Nome da base PPO:** *Não definido*
-
-| Título | SISOR | AID | PPO |
-|---|---|---|---|
-| Unidade Orçamentária - Código | UO_COD | uo_cod |  |
-| Unidade Orçamentária - Nome | UO_DESC | uo_nome |  |
-| Unidade Orçamentária - Sigla | UO_SIGLA | uo_sigla |  |
-| Momento - Código | MOMENTO_COD | momento_cod |  |
-
-*Total de campos: 4*
 
 ---
 
