@@ -68,19 +68,6 @@ resources:
     encoding: utf-8
     schema: schemas/base_orcam_despesa_item_fiscal.yaml
 
-  - name: base_qdd_plurianual_invest
-    ppo: Reprogramação plurianual não será mais feita
-    type: table
-    title: Detalhamento Plurianual Investimento
-    description: |
-      .
-    path: data_raw/BASE_QDD_PLURIANUAL_INVEST.xls
-    scheme: file
-    format: html
-    mediatype: text/html
-    encoding: utf-8
-    schema: schemas/base_qdd_plurianual_invest.yaml
-
   - name: base_orcam_despesa_investimento
     ppo: Orçamento > Importação em Bloco > Filtros Investimento
     type: table

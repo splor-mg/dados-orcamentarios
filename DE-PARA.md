@@ -7,18 +7,17 @@
 3. [Relatórios e Bases do Planejamento - Localizadores (Todos)](#localizadores-todos-planejamento) - 33 campos
 4. [Relatórios e Bases do Planejamento - Programas](#programas-planejamento) - 29 campos
 5. [Orçamento da Despesa Fiscal / Itens de Despesa](#base-orcam-despesa-item-fiscal) - 21 campos
-6. [Detalhamento Plurianual Investimento](#base-qdd-plurianual-invest) - 21 campos
-7. [Orçamento da Despesa de Investimento](#base-orcam-despesa-investimento) - 21 campos
-8. [Detalhamento de Obras](#base-detalhamento-obras) - 25 campos
-9. [QDD Fiscal](#base-qdd-fiscal) - 28 campos
-10. [QDD Investimento](#base-qdd-investimento) - 23 campos
-11. [Orçamento da Receita Fiscal](#base-orcam-receita-fiscal) - 25 campos
-12. [Orçamento da Receita Investimento](#base-orcam-receita-investimento) - 14 campos
-13. [Categoria de Pessoal](#base-categoria-pessoal) - 5 campos
-14. [Repasse de Recursos](#base-repasse-recursos) - 11 campos
-15. [Limite de Cota](#base-limite-cota) - 15 campos
-16. [Base Intraorçamentária de Detalhamento](#base-intra-orcamentaria-detalhamento) - 4 campos
-17. [Base Intraorçamentária de Repasse](#base-intra-orcamentaria-repasse) - 11 campos
+6. [Orçamento da Despesa de Investimento](#base-orcam-despesa-investimento) - 21 campos
+7. [Detalhamento de Obras](#base-detalhamento-obras) - 25 campos
+8. [QDD Fiscal](#base-qdd-fiscal) - 28 campos
+9. [QDD Investimento](#base-qdd-investimento) - 23 campos
+10. [Orçamento da Receita Fiscal](#base-orcam-receita-fiscal) - 25 campos
+11. [Orçamento da Receita Investimento](#base-orcam-receita-investimento) - 14 campos
+12. [Categoria de Pessoal](#base-categoria-pessoal) - 5 campos
+13. [Repasse de Recursos](#base-repasse-recursos) - 11 campos
+14. [Limite de Cota](#base-limite-cota) - 15 campos
+15. [Base Intraorçamentária de Detalhamento](#base-intra-orcamentaria-detalhamento) - 4 campos
+16. [Base Intraorçamentária de Repasse](#base-intra-orcamentaria-repasse) - 11 campos
 
 ---
 
@@ -240,40 +239,6 @@
 | Identificador Orçamento - Código | IAG | iag_cod | (ausente) |
 | Ação - Descrição | Descrição | acao_desc | (ausente) |
 | Valor (R$) | Valor (R$) | vlr_loa_desp | Valor Proposto ano |
-
-*Total de campos: 21*
-
----
-
-## Detalhamento Plurianual Investimento
-
-**Nome da base SISOR:** `base_qdd_plurianual_invest`
-
-**Nome da base PPO:** `Reprogramação plurianual não será mais feita`
-
-| Título | SISOR | AID | PPO |
-|---|---|---|---|
-| Ano de Exercício | ANO | ano |  |
-| Órgão - Código | COD_ORGAO | orgao_cod |  |
-| Órgão - Nome e Sigla | DESC_ORGAO | orgao_nome_sigla |  |
-| Unidade Orçamentária - Código | COD_UO | uo_cod |  |
-| Unidade Orçamentária - Nome e Sigla | DESC_UO | uo_nome_sigla |  |
-| Função - Código | FUNCAO | funcao_cod |  |
-| Subfunção - Código | SUBFUNCAO | subfuncao_cod |  |
-| Programa - Código | COD_PROGRAMA | programa_cod |  |
-| Identificador - Código | IDENT_PROJATIV | identificador_cod |  |
-| Projeto Atividade - Código | PROJ_ATIV | projeto_atividade_cod |  |
-| Ação - Código | AÇÃO | acao_cod |  |
-| Subprojeto - Código | SUBPROJETO | subprojeto_cod |  |
-| Categoria de Investimento - Código | CATEGORIA | categoria_invest_cod |  |
-| Fonte Investimento - Código | FONTE | fonte_invest_cod |  |
-| Identificador Orçamento - Código | IAG | iag_cod |  |
-| Programa - Descrição | PROGRAMA | programa_desc |  |
-| Ação - Descrição | ACAO | acao_desc |  |
-| Valor Ano de Referência (R$) | VALOR (R$) 2026 | vlr_loa_desp_invest_ano0 |  |
-| Valor Ano de Referência + 1 (R$) | VALOR (R$) 2027 | vlr_loa_desp_invest_ano1 |  |
-| Valor Ano de Referência + 2 (R$) | VALOR (R$) 2028 | vlr_loa_desp_invest_ano2 |  |
-| Valor Ano de Referência + 3 (R$) | VALOR (R$) 2029 | vlr_loa_desp_invest_ano3 |  |
 
 *Total de campos: 21*
 
