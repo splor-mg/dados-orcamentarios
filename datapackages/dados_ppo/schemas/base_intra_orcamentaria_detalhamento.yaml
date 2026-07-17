@@ -5,7 +5,7 @@ fields:
 
   - name: UO Beneficiada
     target: uo_sigla
-    ppo: null
+    ppo: (ausente)
 
   - name: Valor Recebido (R$)
     type: number
@@ -25,4 +25,4 @@ fields:
     constraints:
       minimum: 0
     target: vlr_detalhado
-    ppo: null
+    ppo: (ausente)

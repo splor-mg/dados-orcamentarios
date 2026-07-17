@@ -219,6 +219,18 @@ resources:
     encoding: utf-8
     schema: schemas/base_limite_cota.yaml
 
+  - name: base_unidades_orcamentaria_versoes
+    type: table
+    title: Relação das Unidades Orçamentárias e suas Versões
+    description: |
+      .
+    path: data_raw/BASE_UNIDADES_ORCAMENTARIA_VERSOES.xls
+    scheme: file
+    format: html
+    mediatype: text/html
+    encoding: utf-8
+    schema: schemas/base_unidades_orcamentaria_versoes.yaml
+
   - name: base_intra_orcamentaria_detalhamento
     type: table
     title: Base Intraorçamentária de Detalhamento
@@ -242,15 +254,3 @@ resources:
     mediatype: text/html
     encoding: utf-8
     schema: schemas/base_intra_orcamentaria_repasse.yaml
-
-  - name: base_unidades_orcamentaria_versoes
-    type: table
-    title: Relação das Unidades Orçamentárias e suas Versões
-    description: |
-      .
-    path: data_raw/BASE_UNIDADES_ORCAMENTARIA_VERSOES.xls
-    scheme: file
-    format: html
-    mediatype: text/html
-    encoding: utf-8
-    schema: schemas/base_unidades_orcamentaria_versoes.yaml
