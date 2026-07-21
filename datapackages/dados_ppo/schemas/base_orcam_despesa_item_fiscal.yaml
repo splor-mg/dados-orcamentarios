@@ -9,7 +9,7 @@ fields:
 
   - name: Código da UO
     target: uo_cod
-    ppo: (ausente)
+    ppo: Unidade Orçamentária
 
   - name: Unidade Orçamentária
     target: uo_nome_sigla
@@ -17,11 +17,11 @@ fields:
 
   - name: Função
     target: funcao_cod
-    ppo: (ausente)
+    ppo: Função
 
   - name: Subfunção
     target: subfuncao_cod
-    ppo: (ausente)
+    ppo: Subfunção
 
   - name: Programa
     target: programa_cod
@@ -29,11 +29,11 @@ fields:
 
   - name: Identificador
     target: identificador_cod
-    ppo: (ausente)
+    ppo: (ausente) - primeiro dígito de "Ação"
 
   - name: Projeto_Atividade
     target: projeto_atividade_cod
-    ppo: (ausente)
+    ppo: (ausente) - 3 últimos digitos de "Ação"
 
   - name: Ação
     target: acao_cod
@@ -41,7 +41,7 @@ fields:
 
   - name: Subprojeto
     target: subprojeto_cod
-    ppo: (ausente)
+    ppo: Subprojeto / Subatividade
 
   - name: Categoria
     target: categoria_cod
@@ -49,31 +49,31 @@ fields:
 
   - name: Grupo_Despesa
     target: grupo_cod
-    ppo: GD
+    ppo: Grupo de Despesa (GND)
 
   - name: Modalidade
     target: modalidade_cod
-    ppo: Mod.
+    ppo: Modalidade de Aplicação
 
   - name: Elemento_Despesa
     target: elemento_cod
-    ppo: Elem.
+    ppo: Elemento de Despesa
 
   - name: Item_Despesa
     target: item_cod
-    ppo: Item.
+    ppo: Item de Despesa (Subelemento)
 
   - name: Fonte
     target: fonte_cod
-    ppo: FTE
+    ppo: Fonte de Recursos / Destinação
 
   - name: IPU
     target: ipu_cod
-    ppo: IPU
+    ppo: Identificador de Procedência e Uso
 
   - name: IAG
     target: iag_cod
-    ppo: (ausente)
+    ppo: IAG
 
   - name: Descrição
     target: acao_desc

@@ -17,19 +17,19 @@ fields:
 
   - name: Grupo de Despesa
     target: grupo_cod
-    ppo: (ausente) - Grupo Despesa (grupo_desc)
+    ppo: (ausente) - Grupo Despesa (grupo_desc) - O módulo de produção exibe o código e a descrição, mas o CSV exporta apenas a descrição, sem o código.
 
   - name: Fonte
     target: fonte_cod
-    ppo: (ausente) - Fonte (fonte_desc)
+    ppo: (ausente) - Fonte (fonte_desc) - O módulo de produção exibe o código e a descrição, mas o CSV exporta apenas a descrição, sem o código.
 
   - name: IPU
     target: ipu_cod
-    ppo: (ausente) - IPU (ipu_desc)
+    ppo: (ausente) - IPU (ipu_desc) - O módulo de produção exibe o código e a descrição, mas o CSV exporta apenas a descrição, sem o código.
 
   - name: IAG
     target: iag_cod
-    ppo: (ausente) - IAG (iag_desc)
+    ppo: (ausente) - IAG (iag_desc) - O módulo de produção exibe o código e a descrição, mas o CSV exporta apenas a descrição, sem o código.
 
   - name: Valor Transferido (R$)
     type: number

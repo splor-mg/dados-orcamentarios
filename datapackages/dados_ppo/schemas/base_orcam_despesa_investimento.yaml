@@ -9,7 +9,7 @@ fields:
 
   - name: Código da UO
     target: uo_cod
-    ppo: (ausente)
+    ppo: Unidade Orçamentária
 
   - name: Unidade Orçamentária
     target: uo_nome_sigla
@@ -17,11 +17,11 @@ fields:
 
   - name: Função
     target: funcao_cod
-    ppo: (ausente)
+    ppo: Função
 
   - name: Subfunção
     target: subfuncao_cod
-    ppo: (ausente)
+    ppo: Subfunção
 
   - name: Programa
     target: programa_cod
@@ -29,11 +29,11 @@ fields:
 
   - name: Identificador
     target: identificador_cod
-    ppo: (ausente)
+    ppo: (ausente) - primeiro dígito de "Ação"
 
   - name: Projeto_Atividade
     target: projeto_atividade_cod
-    ppo: (ausente)
+    ppo: (ausente) - 3 últimos digitos de "Ação"
 
   - name: Ação
     target: acao_cod
@@ -41,15 +41,15 @@ fields:
 
   - name: Subprojeto
     target: subprojeto_cod
-    ppo: (ausente)
+    ppo: Subprojeto / Subatividade
 
   - name: Fonte
     target: fonte_cod
-    ppo: Fonte
+    ppo: FTE (agora tem 5 dígitos, antes tinha 2 dígitos)
 
   - name: IAG
     target: iag_cod
-    ppo: (ausente)
+    ppo: IAG
 
   - name: Descrição
     target: acao_desc
@@ -57,7 +57,7 @@ fields:
 
   - name: Categoria
     target: categoria_invest_cod_nome
-    ppo: Categoria
+    ppo: Categoria (antes tinha o nome da categoria junto com o código, mas agora só tem o código)
 
   - name: Código da Natureza
     target: natureza_invest_cod

@@ -21,7 +21,7 @@ fields:
 
   - name: COD_UO
     target: uo_cod
-    ppo: (ausente)
+    ppo: Unidade Orçamentária
 
   - name: UO
     target: uo_nome_sigla
@@ -33,23 +33,23 @@ fields:
 
   - name: GRUPO_DESPESA
     target: grupo_cod
-    ppo: GD
+    ppo: Grupo de Despesa (GND)
 
   - name: MODALIDADE
     target: modalidade_cod
-    ppo: Mod.
+    ppo: Modalidade de Aplicação
 
   - name: ELEMENTO_DESPESA
     target: elemento_cod
-    ppo: Elem.
+    ppo: Elemento de Despesa
 
   - name: FONTE
     target: fonte_cod
-    ppo: FTE
+    ppo: Fonte de Recursos / Destinação
 
   - name: IPU
     target: ipu_cod
-    ppo: IPU
+    ppo: Identificador de Procedência e Uso
 
   - name: SEQ_PROGTRAB
     target: seq_progtrab
@@ -57,11 +57,11 @@ fields:
 
   - name: FUNCAO
     target: funcao_cod
-    ppo: (ausente)
+    ppo: Função
 
   - name: SUB_FUNCAO
     target: subfuncao_cod
-    ppo: (ausente)
+    ppo: Subfunção
 
   - name: PROGRAMA
     target: programa_cod
@@ -81,7 +81,7 @@ fields:
 
   - name: SUB_PROJETO
     target: subprojeto_cod
-    ppo: (ausente)
+    ppo: Subprojeto / Subatividade
 
   - name: VALOR UO (R$)
     type: number
@@ -115,7 +115,7 @@ fields:
 
   - name: IAG
     target: iag_cod
-    ppo: (ausente)
+    ppo: IAG
 
   - name: NOME_ACAO
     target: acao_desc

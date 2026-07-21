@@ -60,7 +60,7 @@ resources:
     type: table
     title: Orçamento da Despesa Fiscal / Itens de Despesa
     description: |
-      .
+      Base contendo os itens de despesa do orçamento fiscal cadastrados no PPO.
     path: data_raw/BASE_ORCAM_DESPESA_ITEM_FISCAL.xls
     scheme: file
     format: html
@@ -73,7 +73,7 @@ resources:
     type: table
     title: Orçamento da Despesa de Investimento
     description: |
-      .
+      Base contendo as despesas do orçamento de investimento cadastradas no PPO, tem algumas colunas diferentes da base de despesa fiscal, como as colunas "Categoria" e "Natureza".
     path: data_raw/BASE_ORCAM_DESPESA_INVESTIMENTO.xls
     scheme: file
     format: html
@@ -95,6 +95,7 @@ resources:
     schema: schemas/base_detalhamento_obras.yaml
 
   - name: base_qdd_fiscal
+    ppo: Redundante ao "base_orcam_despesa_item_fiscal" (Orçamento > Importação em Bloco > Filtros Despesa)
     type: table
     title: QDD Fiscal
     description: |
@@ -107,6 +108,7 @@ resources:
     schema: schemas/base_qdd_fiscal.yaml
 
   - name: base_qdd_investimento
+    ppo: Redundante ao "base_orcam_despesa_investimento" (Orçamento > Importação em Bloco > Filtros Investimento)
     type: table
     title: QDD Investimento
     description: |
@@ -132,6 +134,7 @@ resources:
     schema: schemas/base_orcam_receita_fiscal.yaml
 
   - name: base_orcam_receita_investimento
+    ppo: Orçamento > Receita de Investimento (base extraída a partir do perfil de "Gestor Setorial" no módulo de homologação)
     type: table
     title: Orçamento da Receita Investimento
     description: |
@@ -170,6 +173,7 @@ resources:
     schema: schemas/base_repasse_recursos.yaml
 
   - name: base_limite_cota
+    ppo: Orçamento > Limite Orçamentário (base extraída a partir do perfil de "Gestor Setorial" no módulo de homologação)
     type: table
     title: Limite de Cota
     description: |
@@ -182,6 +186,7 @@ resources:
     schema: schemas/base_limite_cota.yaml
 
   - name: base_intra_orcamentaria_detalhamento
+    ppo: Atualmente obtida apenas via (Planejamento > Programação Qualitativa > Ação > Pesquisar Ação > Detalhamento Intraorçamentário), sem a possibilidade de exportação em CSV de múltiplas ações.
     type: table
     title: Base Intraorçamentária de Detalhamento
     description: |
@@ -194,6 +199,7 @@ resources:
     schema: schemas/base_intra_orcamentaria_detalhamento.yaml
 
   - name: base_intra_orcamentaria_repasse
+    ppo: Avaliar nome da base para evitar confusão! Atualmente obtida apenas via (Planejamento > Programação Qualitativa > Ação > Pesquisar Ação > Detalhamento Intraorçamentário), sem a possibilidade de exportação em CSV de múltiplas ações.
     type: table
     title: Base Intraorçamentária de Repasse
     description: |

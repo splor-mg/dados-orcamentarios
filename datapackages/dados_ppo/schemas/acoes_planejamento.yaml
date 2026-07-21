@@ -233,12 +233,12 @@ fields:
 
   - name: Ação Transposta
     target: acao_transposto
-    ppo: (ausente)
+    ppo: (ausente) não é mais necessária
 
   - name: Setor de Governo
     target: governo_setor
-    ppo: (ausente)
+    ppo: Setor de Governo
 
   - name: Política para mulheres
     target: politica_mulheres
-    ppo: (ausente)
+    ppo: Relação com Política de Atendimento à Mulher
