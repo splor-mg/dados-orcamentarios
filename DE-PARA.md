@@ -75,9 +75,9 @@
 | Previsão Física Ano de Referência + 1 | Previsão Física 2027 | vlr_meta_fisica_ano1 | Previsão Física 2027 |
 | Previsão Física Ano de Referência + 2 | Previsão Física 2028 | vlr_meta_fisica_ano2 | Previsão Física 2028 |
 | Previsão Física Ano de Referência + 3 | Previsão Física 2029 | vlr_meta_fisica_ano3 | Previsão Física 2029 |
-| Ação Transposta | Ação Transposta | acao_transposto | (ausente) |
-| Setor de Governo | Setor de Governo | governo_setor | (ausente) |
-| Política para mulheres | Política para mulheres | politica_mulheres | (ausente) |
+| Ação Transposta | Ação Transposta | acao_transposto | (ausente) não é mais necessária |
+| Setor de Governo | Setor de Governo | governo_setor | Setor de Governo |
+| Política para mulheres | Política para mulheres | politica_mulheres | Relação com Política de Atendimento à Mulher |
 
 *Total de campos: 49*
 
@@ -220,23 +220,23 @@
 |---|---|---|---|
 | Órgão - Código | Código do Órgão | orgao_cod | (ausente) |
 | Órgão - Nome e Sigla | Órgão | orgao_nome_sigla | (ausente) |
-| Unidade Orçamentária - Código | Código da UO | uo_cod | (ausente) |
+| Unidade Orçamentária - Código | Código da UO | uo_cod | Unidade Orçamentária |
 | Unidade Orçamentária - Nome e Sigla | Unidade Orçamentária | uo_nome_sigla | (ausente) |
-| Função - Código | Função | funcao_cod | (ausente) |
-| Subfunção - Código | Subfunção | subfuncao_cod | (ausente) |
+| Função - Código | Função | funcao_cod | Função |
+| Subfunção - Código | Subfunção | subfuncao_cod | Subfunção |
 | Programa - Código | Programa | programa_cod | Programa |
-| Identificador - Código | Identificador | identificador_cod | (ausente) |
-| Projeto Atividade - Código | Projeto_Atividade | projeto_atividade_cod | (ausente) |
+| Identificador - Código | Identificador | identificador_cod | (ausente) - primeiro dígito de "Ação" |
+| Projeto Atividade - Código | Projeto_Atividade | projeto_atividade_cod | (ausente) - 3 últimos digitos de "Ação" |
 | Ação - Código | Ação | acao_cod | Ação |
-| Subprojeto - Código | Subprojeto | subprojeto_cod | (ausente) |
+| Subprojeto - Código | Subprojeto | subprojeto_cod | Subprojeto / Subatividade |
 | Categoria Econômica Despesa - Código | Categoria | categoria_cod | Categoria |
-| Grupo Despesa - Código | Grupo_Despesa | grupo_cod | GD |
-| Modalidade Aplicação - Código | Modalidade | modalidade_cod | Mod. |
-| Elemento Despesa - Código | Elemento_Despesa | elemento_cod | Elem. |
-| Item Despesa - Código | Item_Despesa | item_cod | Item. |
-| Fonte Recurso - Código | Fonte | fonte_cod | FTE |
-| Procedência - Código | IPU | ipu_cod | IPU |
-| Identificador Orçamento - Código | IAG | iag_cod | (ausente) |
+| Grupo Despesa - Código | Grupo_Despesa | grupo_cod | Grupo de Despesa (GND) |
+| Modalidade Aplicação - Código | Modalidade | modalidade_cod | Modalidade de Aplicação |
+| Elemento Despesa - Código | Elemento_Despesa | elemento_cod | Elemento de Despesa |
+| Item Despesa - Código | Item_Despesa | item_cod | Item de Despesa (Subelemento) |
+| Fonte Recurso - Código | Fonte | fonte_cod | Fonte de Recursos / Destinação |
+| Procedência - Código | IPU | ipu_cod | Identificador de Procedência e Uso |
+| Identificador Orçamento - Código | IAG | iag_cod | IAG |
 | Ação - Descrição | Descrição | acao_desc | (ausente) |
 | Valor (R$) | Valor (R$) | vlr_loa_desp | Valor Proposto ano |
 
@@ -254,19 +254,19 @@
 |---|---|---|---|
 | Órgão - Código | Código do Órgão | orgao_cod | (ausente) |
 | Órgão - Nome e Sigla | Órgão | orgao_nome_sigla | (ausente) |
-| Unidade Orçamentária - Código | Código da UO | uo_cod | (ausente) |
+| Unidade Orçamentária - Código | Código da UO | uo_cod | Unidade Orçamentária |
 | Unidade Orçamentária - Nome e Sigla | Unidade Orçamentária | uo_nome_sigla | (ausente) |
-| Função - Código | Função | funcao_cod | (ausente) |
-| Subfunção - Código | Subfunção | subfuncao_cod | (ausente) |
+| Função - Código | Função | funcao_cod | Função |
+| Subfunção - Código | Subfunção | subfuncao_cod | Subfunção |
 | Programa - Código | Programa | programa_cod | Programa |
-| Identificador - Código | Identificador | identificador_cod | (ausente) |
-| Projeto Atividade - Código | Projeto_Atividade | projeto_atividade_cod | (ausente) |
+| Identificador - Código | Identificador | identificador_cod | (ausente) - primeiro dígito de "Ação" |
+| Projeto Atividade - Código | Projeto_Atividade | projeto_atividade_cod | (ausente) - 3 últimos digitos de "Ação" |
 | Ação - Código | Ação | acao_cod | Ação |
-| Subprojeto - Código | Subprojeto | subprojeto_cod | (ausente) |
-| Fonte Recurso - Código | Fonte | fonte_cod | Fonte |
-| Identificador Orçamento - Código | IAG | iag_cod | (ausente) |
+| Subprojeto - Código | Subprojeto | subprojeto_cod | Subprojeto / Subatividade |
+| Fonte Recurso - Código | Fonte | fonte_cod | FTE (agora tem 5 dígitos, antes tinha 2 dígitos) |
+| Identificador Orçamento - Código | IAG | iag_cod | IAG |
 | Ação - Descrição | Descrição | acao_desc | (ausente) |
-| Categoria de Investimento - Código e Nome | Categoria | categoria_invest_cod_nome | Categoria |
+| Categoria de Investimento - Código e Nome | Categoria | categoria_invest_cod_nome | Categoria (antes tinha o nome da categoria junto com o código, mas agora só tem o código) |
 | Natureza de Investimento - Código | Código da Natureza | natureza_invest_cod | Natureza |
 | Natureza de Investimento - Descrição | Natureza | natureza_invest_desc | (ausente) |
 | Valor Ano de Referência (R$) | VALOR (R$) 2026 | vlr_loa_desp_invest_ano0 | Valor Proposto |
@@ -320,7 +320,7 @@
 
 **Nome da base SISOR:** `base_qdd_fiscal`
 
-**Nome da base PPO:** *Não definido*
+**Nome da base PPO:** `Redundante ao "base_orcam_despesa_item_fiscal" (Orçamento > Importação em Bloco > Filtros Despesa)`
 
 | Título | SISOR | AID | PPO |
 |---|---|---|---|
@@ -329,26 +329,26 @@
 | Órgão - Nome e Sigla | ORGAO | orgao_nome_sigla | (ausente) |
 | Poder Unidade Orçamentária - Código | PODER | poder_cod | (ausente) |
 | Situação | SITUACAO | situacao | (ausente) |
-| Unidade Orçamentária - Código | COD_UO | uo_cod | (ausente) |
+| Unidade Orçamentária - Código | COD_UO | uo_cod | Unidade Orçamentária |
 | Unidade Orçamentária - Nome e Sigla | UO | uo_nome_sigla | (ausente) |
 | Categoria Econômica Despesa - Código | CATEGORIA | categoria_cod | Categoria |
-| Grupo Despesa - Código | GRUPO_DESPESA | grupo_cod | GD |
-| Modalidade Aplicação - Código | MODALIDADE | modalidade_cod | Mod. |
-| Elemento Despesa - Código | ELEMENTO_DESPESA | elemento_cod | Elem. |
-| Fonte Recurso - Código | FONTE | fonte_cod | FTE |
-| Procedência - Código | IPU | ipu_cod | IPU |
+| Grupo Despesa - Código | GRUPO_DESPESA | grupo_cod | Grupo de Despesa (GND) |
+| Modalidade Aplicação - Código | MODALIDADE | modalidade_cod | Modalidade de Aplicação |
+| Elemento Despesa - Código | ELEMENTO_DESPESA | elemento_cod | Elemento de Despesa |
+| Fonte Recurso - Código | FONTE | fonte_cod | Fonte de Recursos / Destinação |
+| Procedência - Código | IPU | ipu_cod | Identificador de Procedência e Uso |
 | SEQ_PROGTRAB (?) | SEQ_PROGTRAB | seq_progtrab | (ausente) |
-| Função - Código | FUNCAO | funcao_cod | (ausente) |
-| Subfunção - Código | SUB_FUNCAO | subfuncao_cod | (ausente) |
+| Função - Código | FUNCAO | funcao_cod | Função |
+| Subfunção - Código | SUB_FUNCAO | subfuncao_cod | Subfunção |
 | Programa - Código | PROGRAMA | programa_cod | Programa |
 | Identificador - Código | IDENT_PROJATIV | identificador_cod | (ausente) |
 | Projeto Atividade - Código | PROJ_ATIV | projeto_atividade_cod | (ausente) |
 | Ação - Código | AÇÃO | acao_cod | Ação |
-| Subprojeto - Código | SUB_PROJETO | subprojeto_cod | (ausente) |
+| Subprojeto - Código | SUB_PROJETO | subprojeto_cod | Subprojeto / Subatividade |
 | Valor UO (R$) | VALOR UO (R$) | vlr_loa_desp_uo | (ausente) |
 | Valor SCPPO (R$) | VALOR SCPPO (R$) | vlr_loa_desp_scppo | (ausente) |
 | Valor Final (R$) | VALOR FINAL (R$) | vlr_loa_desp | (ausente) |
-| Identificador Orçamento - Código | IAG | iag_cod | (ausente) |
+| Identificador Orçamento - Código | IAG | iag_cod | IAG |
 | Ação - Descrição | NOME_ACAO | acao_desc | (ausente) |
 | Programa - Descrição | NOME_PROGRAMA | programa_desc | (ausente) |
 |  | Valor Proposto ano |  | Valor Proposto ano |
@@ -361,7 +361,7 @@
 
 **Nome da base SISOR:** `base_qdd_investimento`
 
-**Nome da base PPO:** *Não definido*
+**Nome da base PPO:** `Redundante ao "base_orcam_despesa_investimento" (Orçamento > Importação em Bloco > Filtros Investimento)`
 
 | Título | SISOR | AID | PPO |
 |---|---|---|---|
@@ -369,22 +369,22 @@
 | Órgão - Código | COD_ORGAO | orgao_cod | (ausente) |
 | Órgão - Nome e Sigla | ORGAO | orgao_nome_sigla | (ausente) |
 | Poder Unidade Orçamentária - Código | PODER | poder_cod | (ausente) |
-| Unidade Orçamentária - Código | COD_UO | uo_cod | (ausente) |
+| Unidade Orçamentária - Código | COD_UO | uo_cod | Unidade Orçamentária |
 | Unidade Orçamentária - Nome e Sigla | UO | uo_nome_sigla | (ausente) |
 | SEQ_PROGTRAB (?) | SEQ_PROGTRAB | seq_progtrab | (ausente) |
-| Função - Código | FUNCAO | funcao_cod | (ausente) |
-| Subfunção - Código | SUB_FUNCAO | subfuncao_cod | (ausente) |
+| Função - Código | FUNCAO | funcao_cod | Função |
+| Subfunção - Código | SUB_FUNCAO | subfuncao_cod | Subfunção |
 | Programa - Código | PROGRAMA | programa_cod | Programa |
-| Identificador - Código | IDENT_PROJATIV | identificador_cod | (ausente) |
-| Projeto Atividade - Código | PROJ_ATIV | projeto_atividade_cod | (ausente) |
+| Identificador - Código | IDENT_PROJATIV | identificador_cod | (ausente) - primeiro dígito de "Ação" |
+| Projeto Atividade - Código | PROJ_ATIV | projeto_atividade_cod | (ausente) - 3 últimos digitos de "Ação" |
 | Ação - Código | AÇÃO | acao_cod | Ação |
 | Valor (R$) | VALOR (R$) | vlr_loa_desp_invest | Valor Proposto |
-| Identificador Orçamento - Código | IAG | iag_cod | (ausente) |
+| Identificador Orçamento - Código | IAG | iag_cod | IAG |
 | Ação - Descrição | DESC_PROJETO_ATIV | acao_desc | (ausente) |
-| Categoria de Investimento - Código e Nome | CATEGORIA | categoria_invest_cod_nome | Categoria |
+| Categoria de Investimento - Código e Nome | CATEGORIA | categoria_invest_cod_nome | Categoria (antes tinha o nome da categoria junto com o código, mas agora só tem o código) |
 | Natureza de Investimento - Código | COD_NATUREZA | natureza_invest_cod | Natureza |
 | Natureza de Investimento - Descrição | NATUREZA | natureza_invest_desc | (ausente) |
-| Fonte Investimento - Código | COD_FONTE | fonte_invest_cod | Fonte |
+| Fonte Investimento - Código | COD_FONTE | fonte_invest_cod | FTE (agora tem 5 dígitos, antes tinha 2 dígitos) |
 | Fonte Investimento - Descrição | FONTE | fonte_invest_desc | (ausente) |
 | Ação - Descrição | NOME_ACAO | acao_desc | (ausente) |
 | Programa - Descrição | NOME_PROGRAMA | programa_desc | (ausente) |
@@ -435,7 +435,7 @@
 
 **Nome da base SISOR:** `base_orcam_receita_investimento`
 
-**Nome da base PPO:** *Não definido*
+**Nome da base PPO:** `Orçamento > Receita de Investimento (base extraída a partir do perfil de "Gestor Setorial" no módulo de homologação)`
 
 | Título | SISOR | AID | PPO |
 |---|---|---|---|
@@ -488,10 +488,10 @@
 | Unidade Orçamentária Financiadora - Nome | UO Financiadora | uo_financiadora_nome | U.O. Cedente - (cod + name) |
 | Unidade Orçamentária Beneficiada - Código | Cód. UO Beneficiada | uo_beneficiada_cod | U.O. Beneficiada - (cod + name) |
 | Unidade Orçamentária Beneficiada - Nome | UO Beneficiada | uo_beneficiada_nome | U.O. Beneficiada - (cod + name) |
-| Grupo Despesa - Código | Grupo de Despesa | grupo_cod | (ausente) - Grupo Despesa (grupo_desc) |
-| Fonte Recurso - Código | Fonte | fonte_cod | (ausente) - Fonte (fonte_desc) |
-| Procedência - Código | IPU | ipu_cod | (ausente) - IPU (ipu_desc) |
-| Identificador Orçamento - Código | IAG | iag_cod | (ausente) - IAG (iag_desc) |
+| Grupo Despesa - Código | Grupo de Despesa | grupo_cod | (ausente) - Grupo Despesa (grupo_desc) - O módulo de produção exibe o código e a descrição, mas o CSV exporta apenas a descrição, sem o código. |
+| Fonte Recurso - Código | Fonte | fonte_cod | (ausente) - Fonte (fonte_desc) - O módulo de produção exibe o código e a descrição, mas o CSV exporta apenas a descrição, sem o código. |
+| Procedência - Código | IPU | ipu_cod | (ausente) - IPU (ipu_desc) - O módulo de produção exibe o código e a descrição, mas o CSV exporta apenas a descrição, sem o código. |
+| Identificador Orçamento - Código | IAG | iag_cod | (ausente) - IAG (iag_desc) - O módulo de produção exibe o código e a descrição, mas o CSV exporta apenas a descrição, sem o código. |
 | Valor Transferido (R$) | Valor Transferido (R$) | vlr_repasse | Valor Repassado |
 |  | Ano |  | Ano |
 |  | Grupo Fonte |  | Grupo Fonte |
@@ -504,7 +504,7 @@
 
 **Nome da base SISOR:** `base_limite_cota`
 
-**Nome da base PPO:** *Não definido*
+**Nome da base PPO:** `Orçamento > Limite Orçamentário (base extraída a partir do perfil de "Gestor Setorial" no módulo de homologação)`
 
 | Título | SISOR | AID | PPO |
 |---|---|---|---|
@@ -532,7 +532,7 @@
 
 **Nome da base SISOR:** `base_intra_orcamentaria_detalhamento`
 
-**Nome da base PPO:** *Não definido*
+**Nome da base PPO:** `Atualmente obtida apenas via (Planejamento > Programação Qualitativa > Ação > Pesquisar Ação > Detalhamento Intraorçamentário), sem a possibilidade de exportação em CSV de múltiplas ações.`
 
 | Título | SISOR | AID | PPO |
 |---|---|---|---|
@@ -549,7 +549,7 @@
 
 **Nome da base SISOR:** `base_intra_orcamentaria_repasse`
 
-**Nome da base PPO:** *Não definido*
+**Nome da base PPO:** `Avaliar nome da base para evitar confusão! Atualmente obtida apenas via (Planejamento > Programação Qualitativa > Ação > Pesquisar Ação > Detalhamento Intraorçamentário), sem a possibilidade de exportação em CSV de múltiplas ações.`
 
 | Título | SISOR | AID | PPO |
 |---|---|---|---|
