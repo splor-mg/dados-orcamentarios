@@ -1,4 +1,4 @@
-name: dados_aux_classificadores
+name: dados_classificadores
 title: Tabelas Auxiliares de Classificadores
 owner_org: secretaria-de-estado-de-planejamento-e-gestao-seplag
 dpetl_load:
