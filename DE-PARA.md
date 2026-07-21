@@ -439,20 +439,20 @@
 
 | Título | SISOR | AID | PPO |
 |---|---|---|---|
-| Unidade Orçamentária - Código | COD_UO | uo_cod |  |
+| Unidade Orçamentária - Código | COD_UO | uo_cod | UO |
 | Unidade Orçamentária - Nome | NOME_UO | uo_nome |  |
-| Unidade Orçamentária - Sigla | SIGLA_UO | uo_sigla |  |
-|  | CATEGORIA | categoria__cod |  |
-| Subcategoria - Código | SUBCATEGORIA | subcategoria_cod |  |
-| Alínea - Código | ALINEA | alinea_cod |  |
-| Subalínea - Código | SUBALINEA | subalinea_cod |  |
-| Classificação Receita - Código | COD_RECEITA | receita_cod |  |
-| Origem - Nível | NIVEL_ORIGEM | origem_nivel |  |
-| Classificação Receita - Descrição | RECEITA | receita_desc |  |
-| Valor UO (R$) | VALOR UO (R$) | vlr_loa_rec_uo_invest |  |
-| Valor SCPPO (R$) | VALOR SCPPO (R$) | vlr_loa_rec_scppo_invest |  |
-| Valor Final (R$) | VALOR FINAL (R$) | vlr_loa_rec_invest |  |
-| Ano de Exercício | ANO | ano |  |
+| Unidade Orçamentária - Sigla | SIGLA_UO | uo_sigla | SIGLA |
+|  | CATEGORIA | categoria__cod | (ausente) - 1° dígito de "FONTE" |
+| Subcategoria - Código | SUBCATEGORIA | subcategoria_cod | (ausente) - 2° dígito de "FONTE" |
+| Alínea - Código | ALINEA | alinea_cod | (ausente) - 3° dígito de "FONTE" |
+| Subalínea - Código | SUBALINEA | subalinea_cod | (ausente) - 4° e talvez 5° dígito de "FONTE" |
+| Classificação Receita - Código | COD_RECEITA | receita_cod | FONTE (nome induz a confusão, mas é o mesmo que COD_RECEITA) |
+| Origem - Nível | NIVEL_ORIGEM | origem_nivel | (ausente) |
+| Classificação Receita - Descrição | RECEITA | receita_desc | (ausente) |
+| Valor UO (R$) | VALOR UO (R$) | vlr_loa_rec_uo_invest | (ausente) |
+| Valor SCPPO (R$) | VALOR SCPPO (R$) | vlr_loa_rec_scppo_invest | (ausente) |
+| Valor Final (R$) | VALOR FINAL (R$) | vlr_loa_rec_invest | VALOR LIMITE (não tenho certeza se é o mesmo que VALOR FINAL) |
+| Ano de Exercício | ANO | ano | Ano |
 
 *Total de campos: 14*
 
