@@ -19,7 +19,7 @@ resources:
       mode: cli
       arguments:
         - bo export AID-SPLOR/dados_classificadores/current/acao -q --dp DP8 -o datapackages/dados_classificadores/data_raw/acao_current.csv
-        #- bo export AID-SPLOR/dados_classificadores/previous/acao -q --dp DP3 -o datapackages/dados_classificadores/data_raw/acao_previous.csv
+        - bo export AID-SPLOR/dados_classificadores/previous/acao -q --dp DP3 -o datapackages/dados_classificadores/data_raw/acao_previous.csv
     dpetl_transform:
       format: csv
 
