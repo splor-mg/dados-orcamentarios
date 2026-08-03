@@ -5,6 +5,7 @@ dpetl_load:
   owner: splor-mg
   repo: dados-classificadores
   level: orgs
+  visibility: public
 resources:
   - name: acao
     type: table
