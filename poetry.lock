@@ -414,14 +414,14 @@ files = [
 
 [[package]]
 name = "dpetl"
-version = "0.9.0"
+version = "0.10.0"
 description = ""
 optional = false
 python-versions = "<4.0,>=3.10"
 groups = ["main"]
 files = [
-    {file = "dpetl-0.9.0-py3-none-any.whl", hash = "sha256:ebe491cae99b7cff3f6078e0b9edee9f73e2b338b3105403c981486ceab65077"},
-    {file = "dpetl-0.9.0.tar.gz", hash = "sha256:45b4278a29047a466138aa28150ef606471ad3106f53f46944b26b6b60c3a3f4"},
+    {file = "dpetl-0.10.0-py3-none-any.whl", hash = "sha256:2407f7e72f0467e0e9a545e7e9048ce40604481d3608c8b6036f99781dbdd754"},
+    {file = "dpetl-0.10.0.tar.gz", hash = "sha256:217841a21a7008d7316fdbd2deb031ec33d9734a57dbe758674843c145a42b98"},
 ]
 
 [package.dependencies]
@@ -2168,4 +2168,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13,<4.0"
-content-hash = "304100cf152eb3cc15c98e776271d837ad183117b5c2db20772333500613a400"
+content-hash = "29e8a9257d8ab56639474fb31f20138b95ac8e6516a3dab2f0967e21bd5b7d66"

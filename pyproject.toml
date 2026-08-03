@@ -10,7 +10,7 @@ requires-python = '>=3.13,<4.0'
 dependencies = [
     'taskipy (>=1.14.1,<2.0.0)',
     "python-dotenv (>=1.2.1,<2.0.0)",
-    "dpetl (>=0.8.1,<=0.9.0)",
+    "dpetl (>=0.8.2)",
     "bocli @ git+https://github.com/splor-mg/bocli.git",
 ]
 
@@ -58,7 +58,7 @@ pre_test = { cmd = 'task lint', help = 'Runs linters before running the tests.' 
 test = { cmd = 'pytest -s -x -vv', help = 'Runs unit tests.' }
 post_test = { cmd = 'coverage html', help = 'Generates a coverage report after the tests.' }
 yaml = { cmd = 'poetry run python src/build_datapackage.py', help = 'Applies common fields to datapackage.' }
-extract = { cmd = 'dpetl extract --today-email --add-package-name', help = 'Runs the ETL extract command.' }
-transform = { cmd = 'dpetl transform', help = 'Runs the ETL transform command.' }
-load = { cmd = 'dpetl load', help = 'Runs the ETL load command.' }
+extract = { cmd = 'poetry run dpetl extract', help = 'Runs the ETL extract command.' }
+transform = { cmd = 'poetry run dpetl transform', help = 'Runs the ETL transform command.' }
+load = { cmd = 'poetry run dpetl load', help = 'Runs the ETL load command.' }
 etl = { cmd = 'task yaml && task extract && task transform && task load', help = 'Runs all ETL process.' }
