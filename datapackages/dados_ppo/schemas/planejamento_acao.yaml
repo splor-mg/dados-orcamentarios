@@ -1,0 +1,153 @@
+fields:
+  - name: PPAG
+    target: ppag
+
+  - name: Exercício
+    target: ano
+
+  - name: Setor de Governo
+    target: governo_setor
+
+  - name: Código do Programa
+    target: programa_cod
+
+  - name: Nome do Programa
+    target: programa_desc
+
+  - name: Exclusão Lógica do Programa
+    target: programa_exclusao
+
+  - name: Programa Novo
+    target: programa_novo
+
+  - name: Justificativa de Inclusão do Programa
+    target: programa_justificativa_inclusao
+
+  - name: Exclusão do Programa
+    target: programa_justificativa_exclusao
+
+  - name: Código da Área Temática
+    target: area_tematica_cod
+
+  - name: Área Temática
+    target: area_tematica_desc
+
+  - name: Código da Unidade Orçamentária Responsável pelo Programa
+    target: uo_programa_cod
+
+  - name: Unidade Orçamentária Responsável pelo Programa
+    target: uo_programa_nome
+
+  - name: Código da Unidade Orçamentária Responsável pela Ação
+    target: uo_acao_cod
+
+  - name: Unidade Orçamentária Responsável pela Ação
+    target: uo_acao_nome
+
+  - name: Unidade Administrativa Responsável pela Ação
+    target: ua_acao_nome
+
+  - name: Código da Função
+    target: funcao_cod
+
+  - name: Função
+    target: funcao_desc
+
+  - name: Código da Subfunção
+    target: subfuncao_cod
+
+  - name: Subfunção
+    target: subfuncao_desc
+
+  - name: Código do Tipo de Ação
+    target: identificador_cod
+
+  - name: Tipo de Ação
+    target: identificador_desc
+
+  - name: Código do Identificador de Ação Governamental (IAG)
+    target: iag_cod
+
+  - name: Identificador de Ação Governamental (IAG)
+    target: iag_desc
+
+  - name: Código do Projeto Estratégico
+    target: projeto_estrategico_cod
+
+  - name: Projeto Estratégico
+    target: projeto_estrategico_desc
+
+  - name: Exclusão Lógica da Ação
+    target: acao_exclusao
+
+  - name: Nova Ação
+    target: acao_novo
+
+  - name: Justificativa de Inclusão da Ação
+    target: acao_justificativa_inclusao
+
+  - name: Justificativa  Exclusão da Ação
+    target: acao_justificativa_exclusao
+
+  - name: Base Legal
+    target: base_legal
+
+  - name: Finalidade da Ação
+    target: acao_finalidade
+
+  - name: Código da Ação
+    target: acao_cod
+
+  - name: Título da Ação
+    target: acao_desc
+
+  - name: Descrição da Ação
+    target: acao_descricao
+
+  - name: Código do Público-Alvo
+    target: publico_alvo_cod
+
+  - name: Público-Alvo
+    target: publico_alvo_desc
+
+  - name: Relação com Política de Atendimento à Mulher
+    target: politica_mulheres
+
+  - name: Código do Produto
+    target: produto_cod
+
+  - name: Produto
+    target: produto_desc
+
+  - name: Especificação do Produto
+    target: produto_especificacao
+
+  - name: Código da Unidade de Medida do Produto
+    target: unidade_medida_cod
+
+  - name: Unidade de Medida do Produto
+    target: unidade_medida_desc
+
+  - name: Previsão Física {{year0}}
+    target: vlr_meta_fisica_ano0
+
+  - name: Previsão Física {{year1}}
+    target: vlr_meta_fisica_ano1
+
+  - name: Previsão Física {{year2}}
+    target: vlr_meta_fisica_ano2
+
+  - name: Previsão Física {{year3}}
+    target: vlr_meta_fisica_ano3
+
+  - name: Previsão Orçamentária {{year0}}
+    target: vlr_meta_orcamentaria_ano0
+
+  - name: Previsão Orçamentária {{year1}}
+    target: vlr_meta_orcamentaria_ano1
+
+  - name: Previsão Orçamentária {{year2}}
+    target: vlr_meta_orcamentaria_ano2
+
+  - name: Previsão Orçamentária {{year3}}
+    target: vlr_meta_orcamentaria_ano3

@@ -1,0 +1,93 @@
+fields:
+  - name: PPAG
+    target: ppag
+
+  - name: Exercício
+    target: ano
+
+  - name: Código do Programa
+    target: programa_cod
+
+  - name: Nome do Programa
+    target: programa_desc
+
+  - name: Exclusão Lógica do Programa
+    target: programa_exclusao
+
+  - name: Programa Novo
+    target: programa_novo
+
+  - name: Justificativa de Inclusão
+    target: programa_justificativa_inclusao
+
+  - name: Exclusão do Programa
+    target: programa_justificativa_exclusao
+
+  - name: Código do Órgão Responsável pelo Programa
+    target: orgao_programa_cod
+
+  - name: Órgão Responsável pelo Programa
+    target: orgao_programa_nome
+
+  - name: Código da Unidade Orçamentária Responsável pelo Programa
+    target: uo_programa_cod
+
+  - name: Unidade Orçamentária Responsável pelo Programa
+    target: uo_programa_nome
+
+  - name: Unidade Administrativa Responsável pelo Programa
+    target: ua_programa_nome
+
+  - name: Código do Objetivo de Desenvolvimento Sustentável
+    target: ods_cod
+
+  - name: Objetivo de Desenvolvimento Sustentável
+    target: ods_titulo
+
+  - name: Código da Área Temática
+    target: area_tematica_cod
+
+  - name: Área Temática
+    target: area_tematica_desc
+
+  - name: Código do Objetivo Estratégico
+    target: objetivo_estrategico_cod
+
+  - name: Objetivo Estratégico
+    target: objetivo_estrategico_desc
+
+  - name: Código da Diretriz Estratégica
+    target: diretriz_estrategica_cod
+
+  - name: Diretriz Estratégica
+    target: diretriz_estrategica_desc
+
+  - name: Objetivo do Programa
+    target: programa_objetivo
+
+  - name: Justificativa do Programa
+    target: programa_justificativa
+
+  - name: Causas
+    target: causas
+
+  - name: Tipo de Programa
+    target: tipo_de_programa
+
+  - name: Horizonte Temporal
+    target: horizonte_temporal
+
+  - name: Estratégia de Implementação
+    target: estrategia_implementacao
+
+  - name: Previsão Orçamentária {{year0}}
+    target: vlr_meta_orcamentaria_ano0
+
+  - name: Previsão Orçamentária {{year1}}
+    target: vlr_meta_orcamentaria_ano1
+
+  - name: Previsão Orçamentária {{year2}}
+    target: vlr_meta_orcamentaria_ano2
+
+  - name: Previsão Orçamentária {{year3}}
+    target: vlr_meta_orcamentaria_ano3

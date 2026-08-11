@@ -1,0 +1,18 @@
+fields:
+  - name: Ano de referência da informação
+    target: ano
+
+  - name: Código da Unidade Orçamentária
+    target: uo_cod
+
+  - name: Sigla da Unidade Orçamentária
+    target: uo_sigla
+
+  - name: Classificação vinculada à categoria de pessoal
+    target: pessoal_classificacao
+
+  - name: Categoria de pessoa
+    target: pessoal_categoria
+
+  - name: Quantidade informada para a categoria
+    target: pessoal_quantidade

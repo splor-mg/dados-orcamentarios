@@ -1,0 +1,57 @@
+fields:
+  - name: Programa
+    target: programa_cod
+
+  - name: Ação
+    target: acao_cod
+
+  - name: Código da Obra no SIAD
+    target: obra_siad_cod
+
+  - name: Descrição da Obra
+    target: obra_desc
+
+  - name: Unidade de Medida da Obra
+    target: unidade_medida_cod
+
+  - name: Quantidade
+    target: obra_quantidade
+
+  - name: Obra no SIAD
+    target: obra_siad
+
+  - name: Código Município
+    target: municipio_sigplan_cod
+
+  - name: Nome do Município
+    target: municipio_desc
+
+  - name: Código da Região Geográfica Intermediária
+    target: regiao_geografica_intermediaria_cod
+
+  - name: Região Geográfica Intermediária
+    target: regiao_geografica_intermediaria_desc
+
+  - name: Unidade Orçamentária
+    target: uo_cod
+
+  - name: Sigla da UO
+    target: uo_sigla
+
+  - name: Função
+    target: funcao_cod
+
+  - name: Subfunção
+    target: subfuncao_cod
+
+  - name: Subprojeto
+    target: subprojeto_cod
+
+  - name: IAG
+    target: iag_cod
+
+  - name: Valor Tesouro
+    target: vlr_tesouro
+
+  - name: Valor Outros
+    target: vlr_outros

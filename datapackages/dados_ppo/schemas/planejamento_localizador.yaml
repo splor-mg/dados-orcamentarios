@@ -1,0 +1,123 @@
+fields:
+  - name: PPAG
+    target: ppag
+
+  - name: Exercício
+    target: ano
+
+  - name: Código do Programa
+    target: programa_cod
+
+  - name: Nome do Programa
+    target: programa_desc
+
+  - name: Código da Unidade Orçamentária Responsável pela Ação
+    target: uo_acao_cod
+
+  - name: Unidade Orçamentária Responsável pela Ação
+    target: uo_acao_nome
+
+  - name: Unidade Administrativa Responsável pela Ação
+    target: ua_acao_nome
+
+  - name: Exclusão Lógica do Programa
+    target: programa_exclusao
+
+  - name: Programa novo
+    target: programa_novo
+
+  - name: Justificativa do programa
+    target: programa_justificativa_inclusao
+
+  - name: Justificativa de exclusão do programa
+    target: programa_justificativa_exclusao
+
+  - name: Código da Unidade Orçamentária Responsável pelo Programa
+    target: uo_programa_cod
+
+  - name: Unidade Orçamentária Responsável pelo Programa
+    target: uo_programa_nome
+
+  - name: Código da Área Temática
+    target: area_tematica_cod
+
+  - name: Área Temática
+    target: area_tematica_desc
+
+  - name: Código do Identificador de Ação Governamental (IAG)
+    target: iag_cod
+
+  - name: Identificador de Ação Governamental (IAG)
+    target: iag_desc
+
+  - name: Código do Projeto Estratégico
+    target: projeto_estrategico_cod
+
+  - name: Projeto Estratégico
+    target: projeto_estrategico_desc
+
+  - name: Código da Função
+    target: funcao_cod
+
+  - name: Função
+    target: funcao_desc
+
+  - name: Código da Subfunção
+    target: subfuncao_cod
+
+  - name: Subfunção
+    target: subfuncao_desc
+
+  - name: Codigo do tipo da ação
+    target: identificador_cod
+
+  - name: Descrição do tipo da ação
+    target: identificador_desc
+
+  - name: Código da Ação
+    target: acao_cod
+
+  - name: Título da Ação
+    target: acao_desc
+
+  - name: Exclusão Lógica da Ação
+    target: acao_exclusao
+
+  - name: Código da Região Geográfica Intermediária
+    target: regiao_geografica_intermediaria_cod
+
+  - name: Região Geográfica Intermediária
+    target: regiao_geografica_intermediaria_desc
+
+  - name: Código do Município IBGE
+    target: municipio_ibge_cod
+
+  - name: Código do Município Sigplan
+    target: municipio_sigplan_cod
+
+  - name: Município
+    target: municipio_desc
+
+  - name: Previsão Física {{year0}}
+    target: vlr_meta_fisica_ano0
+
+  - name: Previsão Física {{year1}}
+    target: vlr_meta_fisica_ano1
+
+  - name: Previsão Física {{year2}}
+    target: vlr_meta_fisica_ano2
+
+  - name: Previsão Física {{year3}}
+    target: vlr_meta_fisica_ano3
+
+  - name: Previsão Orçamentária {{year0}}
+    target: vlr_meta_orcamentaria_ano0
+
+  - name: Previsão Orçamentária {{year1}}
+    target: vlr_meta_orcamentaria_ano1
+
+  - name: Previsão Orçamentária {{year2}}
+    target: vlr_meta_orcamentaria_ano2
+
+  - name: Previsão Orçamentária {{year3}}
+    target: vlr_meta_orcamentaria_ano3

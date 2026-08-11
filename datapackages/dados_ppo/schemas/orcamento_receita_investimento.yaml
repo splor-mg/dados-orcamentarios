@@ -1,0 +1,15 @@
+fields:
+  - name: Ano
+    target: ano
+
+  - name: UO
+    target: uo_cod
+
+  - name: SIGLA
+    target: uo_sigla
+
+  - name: FONTE
+    target: receita_cod
+
+  - name: VALOR LIMITE
+    target: vlr_loa_rec_invest

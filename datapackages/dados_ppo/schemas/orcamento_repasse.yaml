@@ -1,0 +1,27 @@
+fields:
+  - name: Ano
+    target: ano
+
+  - name: U.O. Cedente
+    target: uo_financiadora
+
+  - name: U.O. Beneficiada
+    target: uo_beneficiada
+
+  - name: Grupo Despesa
+    target: grupo_desc
+
+  - name: IAG
+    target: iag_desc
+
+  - name: Grupo Fonte
+    target: fonte_grupo_desc
+
+  - name: Fonte
+    target: fonte_desc
+
+  - name: IPU
+    target: ipu_desc
+
+  - name: Valor Repassado
+    target: vlr_repasse

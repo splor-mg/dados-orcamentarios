@@ -1,0 +1,75 @@
+fields:
+  - name: Ano
+    target: ano
+
+  - name: Poder
+    target: poder_cod
+
+  - name: Órgão
+    target: orgao_cod
+
+  - name: Nome do Órgão
+    target: orgao_nome
+
+  - name: Unidade Orçamentária
+    target: uo_cod
+
+  - name: Nome da UO
+    target: uo_nome
+
+  - name: Sigla da UO
+    target: uo_sigla
+
+  - name: Função
+    target: funcao_cod
+
+  - name: Subfunção
+    target: subfuncao_cod
+
+  - name: Programa
+    target: programa_cod
+
+  - name: Nome do Programa
+    target: programa_desc
+
+  - name: Ação
+    target: acao_cod
+
+  - name: Identificador Projeto Atividade
+    target: identificador_cod
+
+  - name: Projeto Atividade
+    target: projeto_atividade_cod
+
+  - name: Nome da Ação
+    target: acao_desc
+
+  - name: Subprojeto / Subatividade
+    target: subprojeto_cod
+
+  - name: Categoria
+    target: categoria_cod
+
+  - name: Grupo de Despesa (GND)
+    target: grupo_cod
+
+  - name: Modalidade de Aplicação
+    target: modalidade_cod
+
+  - name: Elemento de Despesa
+    target: elemento_cod
+
+  - name: Item de Despesa
+    target: item_cod
+
+  - name: IAG
+    target: iag_cod
+
+  - name: Fonte de Recursos
+    target: fonte_cod
+
+  - name: Identificador de Procedência e Uso
+    target: ipu_cod
+
+  - name: Valor Proposto Ano
+    target: vlr_loa_desp

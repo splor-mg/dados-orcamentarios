@@ -1,0 +1,33 @@
+fields:
+  - name: Programa
+    target: programa_cod
+
+  - name: Ação
+    target: acao_cod
+
+  - name: Ano
+    target: ano
+
+  - name: Unidade Orçamentária
+    target: uo_cod
+
+  - name: Sigla da UO
+    target: uo_sigla
+
+  - name: Nome da UO
+    target: uo_nome
+
+  - name: Categoria
+    target: categoria_invest_cod
+
+  - name: Natureza de Investimento
+    target: natureza_invest_cod
+
+  - name: Fonte Investimento
+    target: fonte_invest_cod
+
+  - name: Descrição da Fonte Investimento
+    target: fonte_invest_desc
+
+  - name: Valor Limite
+    target: vlr_loa_desp

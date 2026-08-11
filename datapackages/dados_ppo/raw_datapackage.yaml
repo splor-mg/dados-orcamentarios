@@ -1,212 +1,176 @@
 name: dados_ppo
 title: Portal de Planejamento e Orçamento - PPO-MG
 owner_org: secretaria-de-estado-de-planejamento-e-gestao-seplag
+dpetl_load:
+  owner: splor-mg
+  repo: dados-ppo-{{year0}}
 
 resources:
-  - name: acoes_planejamento
-    ppo: Relatórios e bases do planejamento > Base Ações
+  - name: intra_orcamentaria
     type: table
-    title: Relatórios e Bases do Planejamento - Ações
-    description: |
-      Base com todos os programas cadastrados no PPO.
-    path: data_raw/acoes_planejamento.txt
+    path: data_raw/DespesaIntra_TodasUnidades_{{date}}.csv
     scheme: file
     format: csv
     mediatype: text/csv
-    encoding: windows-1252
-    schema: schemas/acoes_planejamento.yaml
+    encoding: utf-8
+    dialect:
+      delimiter: ';'
+    schema: schemas/intra_orcamentaria.yaml
+    dpetl_transform:
+      format: csv
 
-  - name: indicadores_planejamento
-    ppo: Relatórios e bases do planejamento > Base Indicador
+  - name: orcamento_despesa
     type: table
-    title: Relatórios e Bases do Planejamento - Indicadores
-    description: |
-      .
-    path: data_raw/indicadores_planejamento.txt
+    path: data_raw/Despesa_Orcamentaria_Fiscal_{{year0}}.csv
     scheme: file
     format: csv
     mediatype: text/csv
-    encoding: windows-1252
-    schema: schemas/indicadores_planejamento.yaml
+    encoding: utf-8
+    dialect:
+      delimiter: ';'
+    schema: schemas/orcamento_despesa.yaml
+    dpetl_transform:
+      format: csv
 
-  - name: localizadores_todos_planejamento
-    ppo: Relatórios e bases do planejamento > Base Localizadores
+  - name: orcamento_despesa_investimento
     type: table
-    title: Relatórios e Bases do Planejamento - Localizadores (Todos)
-    description: |
-      .
-    path: data_raw/localizadores_todos_planejamento.txt
+    path: data_raw/Receita_Investimento_{{year0}}.csv
     scheme: file
     format: csv
     mediatype: text/csv
-    encoding: windows-1252
-    schema: schemas/localizadores_todos_planejamento.yaml
+    encoding: utf-8
+    dialect:
+      delimiter: ';'
+    schema: schemas/orcamento_despesa_investimento.yaml
+    dpetl_transform:
+      format: csv
 
-  - name: programas_planejamento
-    ppo: Relatórios e bases do planejamento > Base Programa
+  - name: orcamento_limite
     type: table
-    title: Relatórios e Bases do Planejamento - Programas
-    description: |
-      .
-    path: data_raw/programas_planejamento.txt
+    path: data_raw/Limite Orçamentário.csv
     scheme: file
     format: csv
     mediatype: text/csv
-    encoding: windows-1252
-    schema: schemas/programas_planejamento.yaml
-
-  - name: base_orcam_despesa_item_fiscal
-    ppo: Orçamento > Importação em Bloco > Filtros Despesa
-    type: table
-    title: Orçamento da Despesa Fiscal / Itens de Despesa
-    description: |
-      Base contendo os itens de despesa do orçamento fiscal cadastrados no PPO.
-    path: data_raw/BASE_ORCAM_DESPESA_ITEM_FISCAL.xls
-    scheme: file
-    format: html
-    mediatype: text/html
     encoding: utf-8
-    schema: schemas/base_orcam_despesa_item_fiscal.yaml
+    dialect:
+      delimiter: ';'
+    schema: schemas/orcamento_limite.yaml
+    dpetl_transform:
+      format: csv
 
-  - name: base_orcam_despesa_investimento
-    ppo: Orçamento > Importação em Bloco > Filtros Investimento
+  - name: orcamento_obras
     type: table
-    title: Orçamento da Despesa de Investimento
-    description: |
-      Base contendo as despesas do orçamento de investimento cadastradas no PPO, tem algumas colunas diferentes da base de despesa fiscal, como as colunas "Categoria" e "Natureza".
-    path: data_raw/BASE_ORCAM_DESPESA_INVESTIMENTO.xls
+    path: data_raw/Obras_{{year0}}.csv
     scheme: file
-    format: html
-    mediatype: text/html
+    format: csv
+    mediatype: text/csv
     encoding: utf-8
-    schema: schemas/base_orcam_despesa_investimento.yaml
+    dialect:
+      delimiter: ';'
+    schema: schemas/orcamento_obras.yaml
+    dpetl_transform:
+      format: csv
 
-  - name: base_detalhamento_obras
-    ppo: Orçamento > Importação em Bloco > Filtros Obras
+  - name: orcamento_pessoal
     type: table
-    title: Detalhamento de Obras
-    description: |
-      .
-    path: data_raw/BASE_DETALHAMENTO_OBRAS.xls
+    path: data_raw/Exportar Todos.csv
     scheme: file
-    format: html
-    mediatype: text/html
+    format: csv
+    mediatype: text/csv
     encoding: utf-8
-    schema: schemas/base_detalhamento_obras.yaml
+    dialect:
+      delimiter: ';'
+    schema: schemas/orcamento_pessoal.yaml
+    dpetl_transform:
+      format: csv
 
-  - name: base_qdd_fiscal
-    ppo: Redundante ao "base_orcam_despesa_item_fiscal" (Orçamento > Importação em Bloco > Filtros Despesa)
+  - name: orcamento_receita
     type: table
-    title: QDD Fiscal
-    description: |
-      .
-    path: data_raw/BASE_QDD_FISCAL.xls
+    path: data_raw/Orcamento_Receita.csv
     scheme: file
-    format: html
-    mediatype: text/html
+    format: csv
+    mediatype: text/csv
     encoding: utf-8
-    schema: schemas/base_qdd_fiscal.yaml
+    dialect:
+      delimiter: ';'
+    schema: schemas/orcamento_receita.yaml
+    dpetl_transform:
+      format: csv
 
-  - name: base_qdd_investimento
-    ppo: Redundante ao "base_orcam_despesa_investimento" (Orçamento > Importação em Bloco > Filtros Investimento)
+  - name: orcamento_receita_investimento
     type: table
-    title: QDD Investimento
-    description: |
-      .
-    path: data_raw/BASE_QDD_INVESTIMENTO.xls
+    path: data_raw/Orçamento de Investimento.csv
     scheme: file
-    format: html
-    mediatype: text/html
+    format: csv
+    mediatype: text/csv
     encoding: utf-8
-    schema: schemas/base_qdd_investimento.yaml
+    dialect:
+      delimiter: ';'
+    schema: schemas/orcamento_receita_investimento.yaml
+    dpetl_transform:
+      format: csv
 
-  - name: base_orcam_receita_fiscal
-    ppo: Orçamento > Orçamento da Receita
+  - name: orcamento_repasse
     type: table
-    title: Orçamento da Receita Fiscal
-    description: |
-      .
-    path: data_raw/BASE_ORCAM_RECEITA_FISCAL.xls
+    path: data_raw/repasse-recurso.csv
     scheme: file
-    format: html
-    mediatype: text/html
+    format: csv
+    mediatype: text/csv
     encoding: utf-8
-    schema: schemas/base_orcam_receita_fiscal.yaml
+    dialect:
+      delimiter: ';'
+    schema: schemas/orcamento_repasse.yaml
+    dpetl_transform:
+      format: csv
 
-  - name: base_orcam_receita_investimento
-    ppo: Orçamento > Receita de Investimento (base extraída a partir do perfil de "Gestor Setorial" no módulo de homologação)
+  - name: planejamento_acao
     type: table
-    title: Orçamento da Receita Investimento
-    description: |
-      .
-    path: data_raw/BASE_ORCAM_RECEITA_INVESTIMENTO.xls
+    path: data_raw/AcaoExportacaoCsv.csv
     scheme: file
-    format: html
-    mediatype: text/html
+    format: csv
+    mediatype: text/csv
     encoding: utf-8
-    schema: schemas/base_orcam_receita_investimento.yaml
+    dialect:
+      delimiter: ';'
+    schema: schemas/planejamento_acao.yaml
+    dpetl_transform:
+      format: csv
 
-  - name: base_categoria_pessoal
-    ppo: Orçamento > Categoria de Pesssoal
+  - name: planejamento_indicador
     type: table
-    title: Categoria de Pessoal
-    description: |
-      .
-    path: data_raw/BASE_CATEGORIA_PESSOAL.xls
+    path: data_raw/IndicadorExportacaoCsv.csv
     scheme: file
-    format: html
-    mediatype: text/html
+    format: csv
+    mediatype: text/csv
     encoding: utf-8
-    schema: schemas/base_categoria_pessoal.yaml
+    dialect:
+      delimiter: ';'
+    schema: schemas/planejamento_indicador.yaml
+    dpetl_transform:
+      format: csv
 
-  - name: base_repasse_recursos
-    ppo: Orçamento > Repasse de Recursos
+  - name: planejamento_localizador
     type: table
-    title: Repasse de Recursos
-    description: |
-      .
-    path: data_raw/BASE_REPASSE_RECURSOS.xls
+    path: data_raw/LocalizadorExportacaoCsv.csv
     scheme: file
-    format: html
-    mediatype: text/html
+    format: csv
+    mediatype: text/csv
     encoding: utf-8
-    schema: schemas/base_repasse_recursos.yaml
+    dialect:
+      delimiter: ';'
+    schema: schemas/planejamento_localizador.yaml
+    dpetl_transform:
+      format: csv
 
-  - name: base_limite_cota
-    ppo: Orçamento > Limite Orçamentário (base extraída a partir do perfil de "Gestor Setorial" no módulo de homologação)
+  - name: planejamento_programa
     type: table
-    title: Limite de Cota
-    description: |
-      .
-    path: data_raw/BASE_LIMITE_COTA.xls
+    path: data_raw/ProgramaExportacaoCsv.csv
     scheme: file
-    format: html
-    mediatype: text/html
+    format: csv
+    mediatype: text/csv
     encoding: utf-8
-    schema: schemas/base_limite_cota.yaml
-
-  - name: base_intra_orcamentaria_detalhamento
-    ppo: Atualmente obtida apenas via (Planejamento > Programação Qualitativa > Ação > Pesquisar Ação > Detalhamento Intraorçamentário), sem a possibilidade de exportação em CSV de múltiplas ações.
-    type: table
-    title: Base Intraorçamentária de Detalhamento
-    description: |
-      .
-    path: data_raw/BASE_INTRA_ORCAMENTARIA_DETALHAMENTO.xls
-    scheme: file
-    format: html
-    mediatype: text/html
-    encoding: utf-8
-    schema: schemas/base_intra_orcamentaria_detalhamento.yaml
-
-  - name: base_intra_orcamentaria_repasse
-    ppo: Avaliar nome da base para evitar confusão! Atualmente obtida apenas via (Planejamento > Programação Qualitativa > Ação > Pesquisar Ação > Detalhamento Intraorçamentário), sem a possibilidade de exportação em CSV de múltiplas ações.
-    type: table
-    title: Base Intraorçamentária de Repasse
-    description: |
-      .
-    path: data_raw/BASE_INTRA_ORCAMENTARIA_REPASSE.xls
-    scheme: file
-    format: html
-    mediatype: text/html
-    encoding: utf-8
-    schema: schemas/base_intra_orcamentaria_repasse.yaml
+    dialect:
+      delimiter: ';'
+    schema: schemas/planejamento_programa.yaml
+    dpetl_transform:
+      format: csv

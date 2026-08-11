@@ -1,0 +1,27 @@
+fields:
+  - name: Ano
+    target: ano
+
+  - name: Código da Unidade
+    target: uo_cod
+
+  - name: Unidade Orçamentária
+    target: uo_nome
+
+  - name: Classificação da Receita
+    target: receita_cod_fmt
+
+  - name: Descrição da Receita
+    target: receita_desc
+
+  - name: Fonte
+    target: fonte_cod
+
+  - name: Valor LDO
+    target: vlr_ldo_rec
+
+  - name: Metodologia de cálculo e premissas utilizadas
+    target: metodologia
+
+  - name: Valor LOA
+    target: vlr_loa_rec
