@@ -3,12 +3,6 @@ fields:
     target: ano
 
   - name: Ano Origem Restos a Pagar
-    type: string
-    title: Ano Origem Restos a Pagar
-    description: |
-      Ano de origem do documento de Restos a Pagar.
-    constraints:
-      pattern: '^[1-9]\d{3}$'
     target: ano_rp
 
   - name: Mês - Numérico
@@ -69,12 +63,6 @@ fields:
     target: cnpj_cpf_formatado
 
   - name: Razão Social Credor
-    type: string
-    title: Razão Social Credor
-    description: |
-      Razão social do credor.
-    constraints:
-      maxLength: 500
     target: razao_social_credor
 
   - name: ContratoConvênio Entrada
@@ -90,159 +78,58 @@ fields:
     target: num_processo_compra
 
   - name: Valor Inscrito Não Processado
-    type: number
-    title: Valor Inscrito Não Processado
-    description: |
-      Valor, em reais, de saldo de empenhos.
-    constraints:
-      minimum: 0
     target: vlr_inscrito_rpnp
 
   - name: Valor Cancelado Não Processado
-    type: number
-    title: Valor Cancelado Não Processado
-    description: |
-      Valor cancelado, em reais, de empenho inscrito em Restos a Pagar não processado.
-    constraints:
-      minimum: 0
     target: vlr_cancelado_rpnp
 
   - name: Valor Restabelecido Não Processado
-    type: number
-    title: Valor Restabelecido Não Processado
-    description: |
-      Valor restabelecido, em reais, de empenho inscrito em Restos a Pagar não processado, cancelado anteriormente.
-    constraints:
-      minimum: 0
     target: vlr_restabelecido_rpnp
 
   - name: Valor Despesa Liquidada
-    type: number
-    title: Valor Despesa Liquidada
-    description: |
-      Valor total, em reais, da despesa liquidada de resto a pagar não processado, registrada no exercício.
     target: vlr_despesa_liquidada_rpnp
 
   - name: Valor Despesa Liquidada a Pagar
-    type: number
-    title: Valor Despesa Liquidada a Pagar
-    description: |
-      Valor total, em reais, do saldo a pagar.
     target: vlr_despesa_liquidada_pagar
 
   - name: Saldo Restos a Pagar Processado
-    type: number
-    title: Saldo Restos a Pagar Processado
-    description: |
-      Valor, em reais, de saldo a pagar de despesa liquidada inscrita em Restos a Pagar processado.
     target: vlr_saldo_rpp
 
   - name: Saldo Restos a Pagar Não Processado
-    type: number
-    title: Saldo Restos a Pagar Não Processado
-    description: |
-      Valor, em reais, de saldo a liquidar de empenhos inscritos em Restos a Pagar não processado.
     target: vlr_saldo_rpnp
 
   - name: Valor Inscrito Processado
-    type: number
-    title: Valor Inscrito Processado
-    description: |
-      Valor, em reais, de despesa liquidada de exercícios anteriores.
-    constraints:
-      minimum: 0
     target: vlr_inscrito_rpp
 
   - name: Valor Cancelado Processado
-    type: number
-    title: Valor Cancelado Processado
-    description: |
-      Valor cancelado, em reais, de despesa liquidada inscrita em Restos a Pagar.
-    constraints:
-      minimum: 0
     target: vlr_cancelado_rpp
 
   - name: Valor Desconto Processado
-    type: number
-    title: Valor Desconto Processado
-    description: |
-      Valor, em reais, de abatimento sobre o valor de pagamento de inscrição em Restos a Pagar processado.
-      Atenção: não considera os descontos efetuados em pagamentos de retenção/consignação.
-    constraints:
-      minimum: 0
     target: vlr_desconto_rpp
 
   - name: Valor Restabelecido Processado
-    type: number
-    title: Valor Restabelecido Processado
-    description: |
-      Valor restabelecido, em reais, de despesa liquidada inscrita, cancelada anteriormente.
-    constraints:
-      minimum: 0
     target: vlr_restabelecido_rpp
 
   - name: Valor Pago Processado
-    type: number
-    title: Valor Pago Processado
-    description: |
-      Valor pago, em reais, referente a valor inscrito processado, total ou parcial.
-      Atenção: não considera os valores pagos de retenção/consignação.
     target: vlr_pago_rpp
 
   - name: Valor Anulação Pagamento Processado
-    type: number
-    title: Valor Anulação Pagamento Processado
-    description: |
-      Valor, em reais, da anulação da despesa através da devolução, do Pagamento de restos a pagar processado.
-    constraints:
-      minimum: 0
     target: vlr_anulacao_pagamento_rpp
 
   - name: Valor Retenção Processado
-    type: number
-    title: Valor Retenção Processado
-    description: |
-      Valor restabelecido, em reais, de despesa liquidada inscrita, cancelada anteriormente.
     target: vlr_retencao_rpp
 
   - name: Valor Anulação Retenção Processado
-    type: number
-    title: Valor Anulação Retenção Processado
-    description: |
-      Valor, em reais, de anulação do valor de retenção processado.
-    constraints:
-      minimum: 0
     target: vlr_anulacao_retencao_rpp
 
   - name: Valor Anulação Pago Antecipado
-    type: number
-    title: Valor Anulação Pago Antecipado
-    description: |
-      Valor total, em reais, de anulação de pago antecipado de restos a pagar.
-    constraints:
-      minimum: 0
     target: vlr_anulacao_pago_antecipado
 
   - name: Valor Pago Antecipado Exercício
-    type: number
-    title: Valor Pago Antecipado Exercício
-    description: |
-      Valor Contratual Pago antecipado.
-    constraints:
-      minimum: 0
     target: vlr_pago_antecipado_exercicio
 
   - name: Valor Pago Não Processado
-    type: number
-    title: Valor Pago Não Processado
-    description: |
-      Valor pago, em reais, referente a valor inscrito não processado, total ou parcial.
-      Atenção: não considera os valores pagos de retenção/consignação.
     target: vlr_pago_rpnp
 
   - name: Valor Retenção Não Processado
-    type: number
-    title: Valor Retenção Não Processado
-    description: |
-      Valor, em reais, de Restos a Pagar não processado de Ordem de Pagamento.
     target: vlr_retencao_rpnp

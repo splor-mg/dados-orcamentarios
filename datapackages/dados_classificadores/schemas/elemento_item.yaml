@@ -6,10 +6,4 @@ fields:
     target: elemento_item_cod
 
   - name: Elemento Item Despesa - Descrição
-    type: string
-    title: Elemento Item Despesa - Descrição
-    description: |
-      Descrição do elemento item de despesa.
-    constraints:
-      maxLength: 500
     target: elemento_item_desc

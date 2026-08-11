@@ -6,10 +6,4 @@ fields:
     target: programa_cod
 
   - name: Programa - Descrição
-    type: string
-    title: Programa - Descrição
-    description: |
-      Descrição do objetivo contreto, bem ou serviço que se quer atingir.
-    constraints:
-      maxLength: 500
     target: programa_desc
