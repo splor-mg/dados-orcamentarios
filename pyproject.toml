@@ -1,29 +1,22 @@
-[project]
-name = 'dados-orcamentarios'
-version = '0.1.0'
-description = ''
-authors = [
-    {name = 'Gabriel Dornas',email = 'gabrielbdornas@gmail.com'}
-]
-readme = 'README.md'
-requires-python = '>=3.13,<4.0'
-dependencies = [
-    'taskipy (>=1.14.1,<2.0.0)',
-    "python-dotenv (>=1.2.1,<2.0.0)",
-    "dpetl (>=0.10.0)",
-    "bocli @ git+https://github.com/splor-mg/bocli.git",
-]
-
-
-[tool.repo-template]
-upstream = 'https://github.com/splor-mg/repo-template-etl.git'
-
-[tool.poetry]
-package-mode = false
-
 [build-system]
 requires = ['poetry-core>=2.0.0,<3.0.0']
 build-backend = 'poetry.core.masonry.api'
+
+[project]
+name = 'dados-orcamentarios'
+version = '0.1.0'
+dependencies = [
+    'taskipy (>=1.14.1,<2.0.0)',
+    'python-dotenv (>=1.2.1,<2.0.0)',
+    'dpetl[github-app] (>=0.10.0)',
+    'bocli @ git+https://github.com/splor-mg/bocli.git',
+]
+requires-python = '>=3.13,<4.0'
+authors = [
+    {name = 'Gabriel Dornas',email = 'gabrielbdornas@gmail.com'}
+]
+description = ''
+readme = 'README.md'
 
 [dependency-groups]
 dev = [
@@ -32,6 +25,12 @@ dev = [
     'pytest-cov (>=7.0.0,<8.0.0)',
     'ruff (>=0.14.10,<0.15.0)'
 ]
+
+[tool.repo-template]
+upstream = 'https://github.com/splor-mg/repo-template-etl.git'
+
+[tool.poetry]
+package-mode = false
 
 [tool.ruff]
 line-length = 79
@@ -47,7 +46,6 @@ quote-style = 'single'
 [tool.pytest.ini_options]
 pythonpath = '.'
 addopts = '-p no:warnings'
-
 
 [tool.taskipy.tasks]
 list = { cmd = 'task --list', help = 'Lists all tasks.' }
