@@ -6,6 +6,7 @@ dpetl_load:
   repo: dados-classificadores
   level: orgs
   visibility: public
+
 resources:
   - name: acao
     type: table
@@ -14,7 +15,6 @@ resources:
     format: csv
     mediatype: text/csv
     encoding: utf-8
-    dialect: schemas/dialect.yaml
     schema: schemas/acao.yaml
     dpetl_extract:
       mode: cli
@@ -31,7 +31,6 @@ resources:
     format: csv
     mediatype: text/csv
     encoding: utf-8
-    dialect: schemas/dialect.yaml
     schema: schemas/elemento.yaml
     dpetl_extract:
       mode: cli
@@ -48,7 +47,6 @@ resources:
     format: csv
     mediatype: text/csv
     encoding: utf-8
-    dialect: schemas/dialect.yaml
     schema: schemas/elemento_item.yaml
     dpetl_extract:
       mode: cli
@@ -65,7 +63,6 @@ resources:
     format: csv
     mediatype: text/csv
     encoding: utf-8
-    dialect: schemas/dialect.yaml
     schema: schemas/fonte.yaml
     dpetl_extract:
       mode: cli
@@ -82,7 +79,6 @@ resources:
     format: csv
     mediatype: text/csv
     encoding: utf-8
-    dialect: schemas/dialect.yaml
     schema: schemas/funcao.yaml
     dpetl_extract:
       mode: cli
@@ -99,7 +95,6 @@ resources:
     format: csv
     mediatype: text/csv
     encoding: utf-8
-    dialect: schemas/dialect.yaml
     schema: schemas/grupo_categoria.yaml
     dpetl_extract:
       mode: cli
@@ -116,7 +111,6 @@ resources:
     format: csv
     mediatype: text/csv
     encoding: utf-8
-    dialect: schemas/dialect.yaml
     schema: schemas/ipu.yaml
     dpetl_extract:
       mode: cli
@@ -133,7 +127,6 @@ resources:
     format: csv
     mediatype: text/csv
     encoding: utf-8
-    dialect: schemas/dialect.yaml
     schema: schemas/modalidade.yaml
     dpetl_extract:
       mode: cli
@@ -150,7 +143,6 @@ resources:
     format: csv
     mediatype: text/csv
     encoding: utf-8
-    dialect: schemas/dialect.yaml
     schema: schemas/programa.yaml
     dpetl_extract:
       mode: cli
@@ -167,7 +159,6 @@ resources:
     format: csv
     mediatype: text/csv
     encoding: utf-8
-    dialect: schemas/dialect.yaml
     schema: schemas/receita.yaml
     dpetl_extract:
       mode: cli
@@ -184,7 +175,6 @@ resources:
     format: csv
     mediatype: text/csv
     encoding: utf-8
-    dialect: schemas/dialect.yaml
     schema: schemas/subfuncao.yaml
     dpetl_extract:
       mode: cli
@@ -201,7 +191,6 @@ resources:
     format: csv
     mediatype: text/csv
     encoding: utf-8
-    dialect: schemas/dialect.yaml
     schema: schemas/uo.yaml
     dpetl_extract:
       mode: cli

@@ -1,19 +1,21 @@
-import yaml
-from datetime import datetime
+import re
 from frictionless import Package, Schema
+from datetime import date
 from pathlib import Path
 
+today = date.today()
 
-year = str(datetime.now().year)
+def replace_placeholders(text):
+    text = text.replace('{{date}}', today.strftime('%Y-%m-%d'))
+    text = re.sub(r'\{\{year(\d+)\}\}', lambda m: str(today.year + int(m.group(1))), text)
+    return text
 
 datapackages = Path('datapackages').glob('*/raw_datapackage.yaml')
-common_schema = Schema('datapackages/common.yaml')
-common_fields = {field.name: field for field in common_schema.fields}
+fields_schema = Schema('datapackages/fields.yaml')
+fields_dic = {field.name: field for field in fields_schema.fields}
 
 for datapackage in datapackages:
-    text = datapackage.read_text(encoding='utf-8').replace('{{year}}', year)
-    descriptor = yaml.safe_load(text)
-    package = Package(descriptor, basepath=str(datapackage.parent))
+    package = Package(datapackage)
 
     for resource in package.resources:
         schema = resource.schema.fields
@@ -21,9 +23,13 @@ for datapackage in datapackages:
         for index, field in enumerate(schema):
             target = field.custom.get('target')
 
-            if target and target in common_fields:
-                common_field = common_fields[target]
+            if target and target in fields_dic:
+                common_field = fields_dic[target]
                 schema[index] = common_field.to_copy(name=field.name)
                 schema[index].custom['target'] = target
 
-    package.to_yaml(datapackage.parent / 'datapackage.yaml')
+    output = datapackage.parent / 'datapackage.yaml'
+    package.to_yaml(output)
+
+    text = output.read_text(encoding='utf-8')
+    output.write_text(replace_placeholders(text), encoding='utf-8')

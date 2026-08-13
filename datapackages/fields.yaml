@@ -1,4 +1,68 @@
 fields:
+
+  - name: acao_cod
+    type: string
+    title: Ação - Código
+    description: |
+      Código identificador do conjunto de operações, limitadas no tempo (projeto) ou realizadas de modo contínuo e permanente (atividade)
+      dos quais resulta um produto final (projeto) ou necessárias à manutenção da ação governamental (atividade).
+    constraints:
+      pattern: '^[1-9]\d{3}$'
+    missingValues: ['0', '']
+
+  - name: acao_desc
+    type: string
+    title: Ação - Descrição
+    description: |
+      Descrição do conjunto de operações, limitadas no tempo (projeto) ou realizadas de modo contínuo e permanente (atividade)
+      dos quais resulta um produto final (projeto) ou necessárias à manutenção da ação governamental.
+    constraints:
+      maxLength: 500
+
+  - name: acao_descricao
+    type: string
+    title: Descrição da Ação
+    description: |
+      .
+
+  - name: acao_exclusao
+    type: boolean
+    title: Exclusão Lógica da Ação
+    description: |
+      .
+    trueValues:
+      - Sim
+    falseValues:
+      - Não
+
+  - name: acao_finalidade
+    type: string
+    title: Finalidade da Ação
+    description: |
+      .
+
+  - name: acao_justificativa_exclusao
+    type: string
+    title: Justificativa de Exclusão da Ação
+    description: |
+      .
+
+  - name: acao_justificativa_inclusao
+    type: string
+    title: Justificativa de Inclusão da Ação
+    description: |
+      .
+
+  - name: acao_novo
+    type: boolean
+    title: Nova Ação
+    description: |
+      .
+    trueValues:
+      - Sim
+    falseValues:
+      - Não
+
   - name: ano
     type: string
     title: Ano de Exercício
@@ -8,180 +72,123 @@ fields:
       required: true
       pattern: '^[1-9]\d{3}$'
 
-  - name: mes_cod
+  - name: ano_rp
     type: string
-    title: Mês
+    title: Ano Origem Restos a Pagar
     description: |
-      Mês de registro do documento SIAFI
+      Ano de origem do documento de Restos a Pagar.
     constraints:
-      pattern: '^([1-9]|1[0-4])$'
-
-  - name: poder_cod
-    type: string
-    title: Poder Unidade Orçamentária - Código
-    description: |
-      Código indicativo do Poder no qual a unidade orçamentária está incluída.
-    constraints:
-      pattern: '^[1-6]$'
-
-  - name: uo_cod
-    type: string
-    title: Unidade Orçamentária - Código
-    description: |
-      Código representativo da unidade orçamentária.
-    constraints:
-      required: true
       pattern: '^[1-9]\d{3}$'
 
-  - name: receita_cod
+  - name: ano_rp_folha
     type: string
-    title: Classificação Receita - Código
+    title: Ano Origem Folha Pagamento
     description: |
-      Código da classificação da receita.
+      Ano de origem do documento de folha de pagamento inscrita em Restos a Pagar.
     constraints:
-      required: true
-      pattern: '^(0|[1-9]\d{9,12})$'
+      pattern: '^[1-9]\d{3}$'
 
-  - name: ue_cod
-    type: string
-    title: Unidade Executora - Código
+  - name: apuracao_ano0
+    type: boolean
+    title: Em apuração? (Ano de Referência)
     description: |
-      Código composto dos 4 dígitos do órgão executor e dos 3 dígitos da unidade executora.
-    constraints:
-      pattern: '^[1-9]\d{6}$'
+      .
+    trueValues:
+      - Sim
+    falseValues:
+      - Não
 
-  - name: upg_cod
-    type: string
-    title: Unidade Programação Gasto - Código
+  - name: apuracao_ano1
+    type: boolean
+    title: Em apuração? (Ano de Referência + 1)
     description: |
-      Código de unidade de programação de gasto relacionado com o código de controle interno da unidade administrativa,
-      de acordo com tabela elaborada pela Unidade Orçamentária.
-    constraints:
-      pattern: '^(0|[1-9]\d{0,3})$'
+      .
+    trueValues:
+      - Sim
+    falseValues:
+      - Não
 
-  - name: uo_fin_cod
-    type: string
-    title: Unidade Orçamentária Financiadora Gasto - Código
+  - name: apuracao_ano2
+    type: boolean
+    title: Em apuração? (Ano de Referência + 2)
     description: |
-      Código de unidade orçamentária financiadora das despesas referentes à procedência de recursos.
-    constraints:
-      pattern: '^(0|[1-9]\d{3})$'
+      .
+    trueValues:
+      - Sim
+    falseValues:
+      - Não
 
-  - name: funcao_cod
-    type: string
-    title: Função - Código
+  - name: apuracao_ano3
+    type: boolean
+    title: Em apuração? (Ano de Referência + 3)
     description: |
-      Código identificador do nível máximo de agregação das ações do Governo.
+      .
+    trueValues:
+      - Sim
+    falseValues:
+      - Não
+
+  - name: area_tematica_cod
+    type: string
+    title: Área Temática - Código
+    description: |
+      .
     constraints:
       pattern: '^[1-9]\d{0,1}$'
 
-  - name: subfuncao_cod
+  - name: area_tematica_desc
     type: string
-    title: Subfunção - Código
+    title: Área Temática - Descrição
     description: |
-      Código de identificador do detalhamento das áreas de atuação do Governo.
+      .
     constraints:
-      pattern: '^(0|[1-9]\d{1,2})$'
+      maxLength: 500
 
-  - name: programa_cod
+  - name: base_geografica
     type: string
-    title: Programa - Código
+    title: Base Geográfica
     description: |
-      Código identificador do objeto concreto, bem ou serviço que se quer atingir.
+      .
     constraints:
-      pattern: '^[1-9]\d{0,3}$'
+      maxLength: 500
 
-  - name: acao_cod
+  - name: base_legal
     type: string
-    title: Projeto_Atividade - Código
+    title: Base Legal
     description: |
-      Código identificador do conjunto de operações, limitadas no tempo (projeto) ou realizadas de modo contínuo e permanente (atividade)
-      dos quais resulta um produto final (projeto) ou necessárias à manutenção da ação governamental (atividade).
-    constraints:
-      pattern: '^(0|[1-9]\d{3})$'
+      .
 
-  - name: grupo_cod
+  - name: categoria_cod
     type: string
-    title: Grupo Despesa - Código
+    title: Categoria Econômica Despesa - Código
     description: |
-      Código do grupo de natureza econômica da despesa.
+      Código da categoria econômica da despesa.
     constraints:
-      pattern: '^([1-6]|9)$'
+      pattern: '^(3|4|9)$'
 
-  - name: modalidade_cod
+  - name: categoria_desc
     type: string
-    title: Modalidade Aplicação - Código
+    title: Categoria Econômica Despesa - Desc
     description: |
-      Classificação da natureza da despesa que traduz a forma como os recursos serão aplicados pelos órgãos/entidades.
-      Pode ser diretamente pelos mesmos ou sob a forma de transferências a outras entidades públicas ou privadas que se encarregarão da execução das ações.
+      Descrição da categoria econômica da despesa.
     constraints:
-      pattern: '^(0|\d{2})$'
+      maxLength: 500
 
-  - name: iag_cod
+  - name: categoria_invest_cod
     type: string
-    title: Identificador Orçamento - Código
+    title: Categoria de Investimento - Código
     description: |
-      Código do identificador do orçamento conforme o SIAFI-MG.
+      .
     constraints:
-      pattern: '^[0-6]$'
+      pattern: '^\d{4}$'
 
-  - name: fonte_cod
+  - name: causas
     type: string
-    title: Fonte Recurso - Código
+    title: Causas
     description: |
-      Código referente à fonte dos recursos financeiros, de acordo com o SIAFI-MG.
+      .
     constraints:
-      required: true
-      pattern: '^(0|[1-9]\d{0,1})$'
-
-  - name: ipu_cod
-    type: string
-    title: Procedência - Código
-    description: |
-      Código identificador da procedência dos recursos financeiros conforme o SIAFI-MG.
-    constraints:
-      pattern: '^\d{1}$'
-
-  - name: elemento_cod
-    type: string
-    title: Elemento Despesa - Código
-    description: |
-      Código identificador do elemento de gasto da despesa.
-    constraints:
-      pattern: '^(0|[1-9]\d{0,1})$'
-
-  - name: elemento_item_cod
-    type: string
-    title: Elemento Item Despesa Origem - Código
-    description: |
-      Código identificador do elemento item de gasto da despesa.
-    constraints:
-      pattern: '^(0|[1-9]\d{0,3})$'
-
-  - name: elemento_dea_cod
-    type: string
-    title: Elemento Origem DEA
-    description: |
-      Identifica o elemento de despesa origem de Despesa de Exercício Anterior.
-    constraints:
-      pattern: '^(0|[1-9]\d{0,1})$'
-
-  - name: item_dea_cod
-    type: string
-    title: Item Origem DEA
-    description: |
-      Identifica o item de despesa origem de Despesa de Exercício Anterior.
-    constraints:
-      pattern: '^(0|[1-9]\d{0,1})$'
-
-  - name: num_processo_compra
-    type: string
-    title: Número Processo Compra SIAD
-    description: |
-      Número de identificação formatado do processo de compra SIAD.
-    constraints:
-      pattern: '^\d{7}\s\d{6}/\d{4}$'
-    missingValues: [' /']
+      maxLength: 500
 
   - name: cnpj_cpf_formatado
     type: string
@@ -192,13 +199,449 @@ fields:
       pattern: '^(\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}|\d{3}\.\d{3}\.\d{3}/\d{2})$'
     missingValues: ['99999999999999']
 
-  - name: num_contrato_saida
-    type: string
-    title: Contrato/Convênio Saída
+  - name: data_inclusao
+    type: date
+    title: Data da Inclusão
     description: |
-      Número atribuído pelo SIAFI-MG ao contrato/convênio de saída cadastrado no subsistema Rotina Administrativa.
+      .
+    format: '%d/%m/%Y'
+
+  - name: data_publicacao
+    type: datetime
+    title: Publicação Decreto Alteração Orçamentária
+    description: |
+      Data completa de publicação do decreto de autorização da alteração orçamentária.
     constraints:
-      pattern: '^(0|[1-9]\d{0,6})$'
+      minimum: '2002/01/01 00:00:00'
+    format: '%Y/%m/%d %H:%M:%S'
+
+  - name: data_registro
+    type: datetime
+    title: Data Registro Documento Alteração Orçamentária
+    description: |
+      Data completa de registro do documento de alteração orçamentária.
+    constraints:
+      minimum: '2002/01/01 00:00:00'
+    format: '%Y/%m/%d %H:%M:%S'
+
+  - name: data_registro_cota
+    type: datetime
+    title: Data Registro Documento Aprovação Cota
+    description: |
+      Data completa de registro do documento de aprovação de cota orçamentária.
+    constraints:
+      minimum: '2002/01/01 00:00:00'
+    format: '%Y/%m/%d %H:%M:%S'
+
+  - name: decreto_num
+    type: string
+    title: Decreto Alteração Orçamentária
+    description: |
+      Número do decreto de autorização da alteração orçamentária, gerado pelo SIAFI-MG.
+    constraints:
+      pattern: '^(0|[1-9]\d{0,2})$'
+
+  - name: diretriz_estrategica_cod
+    type: string
+    title: Diretriz Estratégica - Código
+    description: |
+      .
+    constraints:
+      pattern: '^\d+$'
+
+  - name: diretriz_estrategica_desc
+    type: string
+    title: Diretriz Estratégica - Descrição
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: documento_aprovacao_cota
+    type: string
+    title: Documento Aprovação Cota
+    description: |
+      Número do documento de aprovação da cota orçamentária.
+    constraints:
+      pattern: '^[1-9]\d{0,4}$'
+
+  - name: elemento_cod
+    type: string
+    title: Elemento Despesa - Código
+    description: |
+      Código identificador do elemento de gasto da despesa.
+    constraints:
+      pattern: '^\d{1,2}$'
+
+  - name: elemento_dea_cod
+    type: string
+    title: Elemento Origem DEA
+    description: |
+      Identifica o elemento de despesa origem de Despesa de Exercício Anterior.
+    constraints:
+      pattern: '^(0|[1-9]\d{0,1})$'
+
+  - name: elemento_desc
+    type: string
+    title: Elemento Despesa - Descrição
+    description: |
+      Descrição do elemento de despesa.
+    constraints:
+      maxLength: 500
+
+  - name: elemento_item_cod
+    type: string
+    title: Elemento Item Despesa Origem - Código
+    description: |
+      Código identificador do elemento item de gasto da despesa.
+    constraints:
+      pattern: '^[1-9]\d{0,3}$'
+    missingValues: ['0', '']
+
+  - name: elemento_item_desc
+    type: string
+    title: Elemento Item Despesa - Descrição
+    description: |
+      Descrição do elemento item de despesa.
+    constraints:
+      maxLength: 500
+
+  - name: estrategia_implementacao
+    type: string
+    title: Estratégia de Implementação
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: fonte_cod
+    type: string
+    title: Fonte Recurso - Código
+    description: |
+      Código referente à fonte dos recursos financeiros, de acordo com o SIAFI-MG.
+    constraints:
+      required: true
+      pattern: '^(0|[1-9]\d{0,1})$'
+
+  - name: fonte_desc
+    type: string
+    title: Fonte Recurso - Descrição
+    description: |
+      Descrição da fonte dos recursos financeiros.
+    constraints:
+      maxLength: 500
+
+  - name: fonte_grupo_desc
+    type: string
+    title: Grupo Fonte - Descrição
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: fonte_invest_cod
+    type: string
+    title: Fonte Investimento - Código
+    description: |
+      .
+    constraints:
+      pattern: '^[1-9]\d{4}$'
+
+  - name: fonte_invest_desc
+    type: string
+    title: Fonte Investimento - Descrição
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: formula_calculo
+    type: string
+    title: Fórmula de Cálculo
+    description: |
+      .
+
+  - name: funcao_cod
+    type: string
+    title: Função - Código
+    description: |
+      Código identificador do nível máximo de agregação das ações do Governo.
+    constraints:
+      pattern: '^\d{1,2}$'
+
+  - name: funcao_desc
+    type: string
+    title: Função - Descrição
+    description: |
+      Descrição do nível máximo de agregação das ações do Governo.
+    constraints:
+      maxLength: 500
+
+  - name: governo_setor
+    type: string
+    title: Setor de Governo
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: grupo_cod
+    type: string
+    title: Grupo Despesa - Código
+    description: |
+      Código do grupo de natureza econômica da despesa.
+    constraints:
+      pattern: '^([1-6]|9)$'
+
+  - name: grupo_desc
+    type: string
+    title: Grupo Despesa - Descrição
+    description: |
+      Descrição do grupo de natureza econômica da despesa.
+    constraints:
+      maxLength: 500
+
+  - name: horizonte_temporal
+    type: string
+    title: Horizonte Temporal
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: iag_cod
+    type: string
+    title: Identificador Orçamento - Código
+    description: |
+      Código do identificador do orçamento conforme o SIAFI-MG.
+    constraints:
+      pattern: '^[0-6]$'
+
+  - name: iag_desc
+    type: string
+    title: Identificador Orçamento - Descrição
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: identificador_cod
+    type: string
+    title: Identificador - Código
+    description: |
+      .
+    constraints:
+      pattern: '^[1-9]$'
+
+  - name: identificador_desc
+    type: string
+    title: Identificador - Descrição
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: indicador_cod
+    type: string
+    title: Indicador - Código
+    description: |
+      .
+    constraints:
+      pattern: '^[1-9]\d{3}$'
+
+  - name: indicador_desc
+    type: string
+    title: Indicador - Descrição
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: indicador_exclusao
+    type: string
+    title: Exclusão Lógica do Indicador
+    description: |
+      .
+    constraints:
+      maxLength: 10
+
+  - name: indicador_justificativa_exclusao
+    type: string
+    title: Justificativa de Exclusão do Indicador
+    description: |
+      .
+
+  - name: indicador_justificativa_inclusao
+    type: string
+    title: Justificativa de Inclusão do Indicador
+    description: |
+      .
+
+  - name: indicador_novo
+    type: string
+    title: Indicador Novo?
+    description: |
+      .
+    constraints:
+      maxLength: 10
+
+  - name: indice_referencia
+    type: number
+    title: Índice de Referência
+    description: |
+      .
+
+  - name: indice_referencia_apuracao
+    type: string
+    title: Em apuração? (Índice de Referência)
+    description: |
+      .
+    constraints:
+      maxLength: 10
+
+  - name: indice_referencia_apuracao_justificativa
+    type: string
+    title: Justificativa do Status em apuração do Índice de Referência
+    description: |
+      .
+
+  - name: indice_referencia_data_apuracao
+    type: date
+    title: Data de Apuração
+    description: |
+      .
+    format: '%d/%m/%Y'
+
+  - name: ipu_cod
+    type: string
+    title: Procedência - Código
+    description: |
+      Código identificador da procedência dos recursos financeiros conforme o SIAFI-MG.
+    constraints:
+      pattern: '^\d{1}$'
+
+  - name: ipu_desc
+    type: string
+    title: Procedência - Descrição
+    description: |
+      Descrição da procedência dos recursos financeiros.
+    constraints:
+      maxLength: 500
+
+  - name: item_cod
+    type: string
+    title: Item Despesa - Código
+    description: |
+      Código identificador do item de despesa.
+    constraints:
+      pattern: '^\d{1,2}$'
+
+  - name: item_dea_cod
+    type: string
+    title: Item Origem DEA
+    description: |
+      Identifica o item de despesa origem de Despesa de Exercício Anterior.
+    constraints:
+      pattern: '^(0|[1-9]\d{0,1})$'
+
+  - name: lei_aprovacao
+    type: string
+    title: Lei Aprovação Orçamento
+    description: |
+      Número da lei de aprovação do Orçamento do Estado.
+    constraints:
+      pattern: '^(0|[1-9]\d{0,4})$'
+
+  - name: licitacao_modalidade
+    type: string
+    title: Licitação - Descrição da Modalidade
+    description: |
+      Descrição da forma de licitação efetivada de acordo com o SIAFI-MG.
+    constraints:
+      maxLength: 500
+
+  - name: mes_cod
+    type: string
+    title: Mês
+    description: |
+      Mês de registro do documento SIAFI
+    constraints:
+      pattern: '^([1-9]|1[0-4])$'
+
+  - name: mes_registro
+    type: string
+    title: Mês Registro Documento Despesa Pendente
+    description: |
+      Mês numérico de registro do documento de despesa de pessoal pendente de crédito.
+    constraints:
+      pattern: '^([1-9]|1[0-2])$'
+
+  - name: mes_regularizacao
+    type: string
+    title: Mês Regularização
+    description: |
+      Mês numérico de cancelamento de regularização.
+    constraints:
+      pattern: '^([1-9]|1[0-2])$'
+
+  - name: metodologia
+    type: string
+    title: Metodologia de Cálculo e Premissas Utilizadas
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: modalidade_cod
+    type: string
+    title: Modalidade Aplicação - Código
+    description: |
+      Classificação da natureza da despesa que traduz a forma como os recursos serão aplicados pelos órgãos/entidades.
+      Pode ser diretamente pelos mesmos ou sob a forma de transferências a outras entidades públicas ou privadas que se encarregarão da execução das ações.
+    constraints:
+      pattern: '^\d{2}$'
+    missingValues: ['0', '']
+
+  - name: modalidade_desc
+    type: string
+    title: Modalidade Aplicação - Descrição
+    description: |
+      Classificação da natureza da despesa que traduz a forma como os recursos serão aplicados pelos órgãos/entidades.
+      Pode ser diretamente pelos mesmos ou sob a forma de transferências a outras entidades públicas ou privadas que se encarregarão da execução das ações.
+    constraints:
+      maxLength: 500
+
+  - name: municipio_desc
+    type: string
+    title: Município
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: municipio_ibge_cod
+    type: string
+    title: Município - Código IBGE
+    description: |
+      .
+    constraints:
+      pattern: '^\d{7}$'
+
+  - name: municipio_sigplan_cod
+    type: string
+    title: Município - Código Sigplan
+    description: |
+      .
+    constraints:
+      pattern: '^[1-9]\d{0,2}$'
+
+  - name: natureza_invest_cod
+    type: string
+    title: Natureza de Investimento - Código
+    description: |
+      .
+    constraints:
+      pattern: '^[1-9]\d{3}$'
 
   - name: num_contrato_entrada
     type: string
@@ -208,11 +651,11 @@ fields:
     constraints:
       pattern: '^(0|[1-9]\d{0,6})$'
 
-  - name: num_obra
+  - name: num_contrato_saida
     type: string
-    title: Número Obra
+    title: Contrato/Convênio Saída
     description: |
-      Número da obra associada ao contrato/convênio de obra.
+      Número atribuído pelo SIAFI-MG ao contrato/convênio de saída cadastrado no subsistema Rotina Administrativa.
     constraints:
       pattern: '^(0|[1-9]\d{0,6})$'
 
@@ -223,3 +666,1052 @@ fields:
       Número do documento de empenho.
     constraints:
       pattern: '^(0|[1-9]\d{0,5})$'
+
+  - name: num_obra
+    type: string
+    title: Número Obra
+    description: |
+      Número da obra associada ao contrato/convênio de obra.
+    constraints:
+      pattern: '^(0|[1-9]\d{0,6})$'
+
+  - name: num_processo_compra
+    type: string
+    title: Número Processo Compra SIAD
+    description: |
+      Número de identificação formatado do processo de compra SIAD.
+    constraints:
+      pattern: '^\d{7}\s\d{6}/\d{4}$'
+    missingValues: [' /']
+
+  - name: objetivo_estrategico_cod
+    type: string
+    title: Objetivo Estratégico - Código
+    description: |
+      .
+    constraints:
+      pattern: '^\d+$'
+
+  - name: objetivo_estrategico_desc
+    type: string
+    title: Objetivo Estratégico - Descrição
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: obra_desc
+    type: string
+    title: Obra - Descrição
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: obra_quantidade
+    type: integer
+    title: Obra - Quantidade
+    description: |
+      .
+    constraints:
+      minimum: 1
+
+  - name: obra_siad
+    type: boolean
+    title: Obra no SIAD?
+    description: |
+      .
+    trueValues:
+      - S
+    falseValues:
+      - N
+
+  - name: obra_siad_cod
+    type: string
+    title: Obra - Código SIAD
+    description: |
+      .
+    constraints:
+      pattern: '^[1-9]\d{4}$'
+    missingValues: ['0', '']
+
+  - name: ods_cod
+    type: string
+    title: Objetivo de Desenvolvimento Sustentável - Código
+    description: |
+      .
+    constraints:
+      pattern: '^[1-9]\d{0,1}$'
+
+  - name: ods_titulo
+    type: string
+    title: Objetivo de Desenvolvimento Sustentável - Título
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: operador_cancelamento
+    type: string
+    title: Operador - Cancelamento
+    description: |
+      Operador de cancelamento da aprovação de cota no SIAFI-MG.
+    constraints:
+      pattern: '^[A-Z0-9]{7,8}$'
+
+  - name: operador_registro
+    type: string
+    title: Operador - Registro
+    description: |
+      Operador de registro da aprovação de cota no SIAFI-MG.
+    constraints:
+      pattern: '^[A-Z0-9]{7,8}$'
+
+  - name: orgao_cod
+    type: string
+    title: Órgão - Código
+    description: |
+      .
+    constraints:
+      pattern: '^[1-9]\d{3}$'
+
+  - name: orgao_nome
+    type: string
+    title: Órgão - Nome
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: orgao_programa_cod
+    type: string
+    title: Órgão Responsável pelo Programa - Código
+    description: |
+      .
+    constraints:
+      pattern: '^[1-9]\d{3}$'
+
+  - name: orgao_programa_nome
+    type: string
+    title: Órgão Responsável pelo Programa - Nome
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: origem_credito_cod
+    type: string
+    title: Crédito Adicional - Código
+    description: |
+      Código indicativo da origem do crédito adicional da alteração orçamentária.
+    constraints:
+      pattern: '^(0|[1-9]\d{0,3})$'
+
+  - name: origem_credito_desc
+    type: string
+    title: Crédito Adicional - Descrição
+    description: |
+      Descrição da origem do crédito adicional da alteração orçamentária.
+    constraints:
+      maxLength: 500
+
+  - name: periodicidade
+    type: string
+    title: Periodicidade
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: pessoal_categoria
+    type: string
+    title: Pessoal - Categoria
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: pessoal_classificacao
+    type: string
+    title: Pessoal - Classificação
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: pessoal_quantidade
+    type: integer
+    title: Pessoal - Quantidade
+    description: |
+      .
+    constraints:
+      minimum: 1
+
+  - name: poder_cod
+    type: string
+    title: Poder Unidade Orçamentária - Código
+    description: |
+      Código indicativo do Poder no qual a unidade orçamentária está incluída.
+    constraints:
+      pattern: '^[1-6]$'
+
+  - name: polaridade
+    type: string
+    title: Polaridade
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: politica_mulheres
+    type: string
+    title: Política para mulheres
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: ppag
+    type: string
+    title: PPAG
+    description: |
+      .
+    constraints:
+      pattern: '^[1-9]\d{0,1}$'
+
+  - name: previsao_ano0
+    type: number
+    title: Previsão Ano de Referência
+    description: |
+      .
+
+  - name: previsao_ano1
+    type: number
+    title: Previsão Ano de Referência + 1
+    description: |
+      .
+
+  - name: previsao_ano2
+    type: number
+    title: Previsão para Ano de Referência + 2
+    description: |
+      .
+
+  - name: previsao_ano3
+    type: number
+    title: Previsão para Ano de Referência + 3
+    description: |
+      .
+
+  - name: previsao_apuracao_justificativa_ano0
+    type: string
+    title: Justificativa do Status em apuração da(s) Previsão(es) do(s) Índice(s) para Ano de Referência
+    description: |
+      .
+
+  - name: previsao_apuracao_justificativa_ano1
+    type: string
+    title: Justificativa do Status em apuração da(s) Previsão(es) do(s) Índice(s) para Ano de Referência + 1
+    description: |
+      .
+
+  - name: previsao_apuracao_justificativa_ano2
+    type: string
+    title: Justificativa do Status em apuração da(s) Previsão(es) do(s) Índice(s) para Ano de Referência + 2
+    description: |
+      .
+
+  - name: previsao_apuracao_justificativa_ano3
+    type: string
+    title: Justificativa do Status em apuração da(s) Previsão(es) do(s) Índice(s) para Ano de Referência + 3
+    description: |
+      .
+
+  - name: produto_cod
+    type: string
+    title: Produto - Código
+    description: |
+      .
+    constraints:
+      pattern: '^\d+$'
+
+  - name: produto_desc
+    type: string
+    title: Produto - Descrição
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: produto_especificacao
+    type: string
+    title: Produto - Especificação
+    description: |
+      .
+
+  - name: programa_cod
+    type: string
+    title: Programa - Código
+    description: |
+      Código identificador do objeto concreto, bem ou serviço que se quer atingir.
+    constraints:
+      pattern: '^\d{1,3}$'
+
+  - name: programa_desc
+    type: string
+    title: Programa - Descrição
+    description: |
+      Descrição do objetivo contreto, bem ou serviço que se quer atingir.
+    constraints:
+      maxLength: 500
+
+  - name: programa_exclusao
+    type: string
+    title: Exclusão Lógica do Programa
+    description: |
+      .
+    constraints:
+      maxLength: 10
+
+  - name: programa_justificativa
+    type: string
+    title: Justificativa do Programa
+    description: |
+      .
+
+  - name: programa_justificativa_exclusao
+    type: string
+    title: Justificativa de Exclusão do Programa
+    description: |
+      .
+
+  - name: programa_justificativa_inclusao
+    type: string
+    title: Justificativa de Inclusão do Programa
+    description: |
+      .
+
+  - name: programa_novo
+    type: string
+    title: Programa Novo
+    description: |
+      .
+    constraints:
+      maxLength: 10
+
+  - name: programa_objetivo
+    type: string
+    title: Objetivo do Programa
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: projeto_atividade_cod
+    type: string
+    title: Projeto Atividade - Código
+    description: |
+      .
+    constraints:
+      pattern: '^\d{3}$'
+
+  - name: projeto_estrategico_cod
+    type: string
+    title: Projeto Estratégico - Código
+    description: |
+      .
+    constraints:
+      pattern: '^\d+$'
+
+  - name: projeto_estrategico_desc
+    type: string
+    title: Projeto Estratégico - Descrição
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: publico_alvo_cod
+    type: string
+    title: Público-Alvo - Código
+    description: |
+      .
+    constraints:
+      pattern: '^\d+$'
+
+  - name: publico_alvo_desc
+    type: string
+    title: Público-Alvo - Descrição
+    description: |
+      .
+    constraints:
+      maxLength: 1000
+
+  - name: razao_social_credor
+    type: string
+    title: Razão Social Credor
+    description: |
+      Razão social do credor.
+    constraints:
+      maxLength: 500
+
+  - name: receita_cod
+    type: string
+    title: Classificação Receita - Código
+    description: |
+      Código da classificação da receita.
+    constraints:
+      required: true
+      pattern: '^(0|[1-9]\d{9,12})$'
+
+  - name: receita_cod_fmt
+    type: string
+    title: Classificação Receita - Código Formatado
+    description: |
+      Código formatado da classificação da receita.
+    constraints:
+      required: true
+      pattern: '^[1-9]\.[1-9]\.[1-9]\.[1-9]\.\d{2}\.\d\.[1-9]\.\d{2}\.\d{3}$'
+
+  - name: receita_cod_formatado
+    type: string
+    title: Classificação Receita - Formatado
+    description: |
+      Código da Classificação Receita Formatado.
+    constraints:
+      pattern: '^\d{4}\.\d{2}\.\d{1}\.\d{1}\.\d{2}\.\d{3}$'
+
+  - name: receita_desc
+    type: string
+    title: Classificação Receita - Descrição
+    description: |
+      Descrição da Classificação da Receita.
+    constraints:
+      maxLength: 500
+
+  - name: regiao_geografica_intermediaria_cod
+    type: string
+    title: Região Geográfica Intermediária - Código
+    description: |
+      .
+    constraints:
+      pattern: '^[1-9]\d{3}$'
+
+  - name: regiao_geografica_intermediaria_desc
+    type: string
+    title: Região Geográfica Intermediária - Descrição
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: subfuncao_cod
+    type: string
+    title: Subfunção - Código
+    description: |
+      Código de identificador do detalhamento das áreas de atuação do Governo.
+    constraints:
+      pattern: '^\d{1,3}$'
+
+  - name: subfuncao_desc
+    type: string
+    title: Subfunção - Descrição
+    description: |
+      Descrição do detalhamento das áreas de atuação do Governo.
+    constraints:
+      maxLength: 500
+
+  - name: subprojeto_cod
+    type: string
+    title: Subprojeto - Código
+    description: |
+      .
+    constraints:
+      pattern: '^\d{1,4}$'
+
+  - name: tipo_de_programa
+    type: string
+    title: Tipo de Programa
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: ua_acao_nome
+    type: string
+    title: Unidade Administrativa Responsável pela Ação
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: ua_programa_nome
+    type: string
+    title: Unidade Administrativa Responsável pelo Programa
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: ue_cod
+    type: string
+    title: Unidade Executora - Código
+    description: |
+      Código composto dos 4 dígitos do órgão executor e dos 3 dígitos da unidade executora.
+    constraints:
+      pattern: '^[1-9]\d{6}$'
+
+  - name: unidade_medida_cod
+    type: string
+    title: Unidade de Medida - Código
+    description: |
+      .
+    constraints:
+      pattern: '^[1-9]\d{0,2}$'
+
+  - name: unidade_medida_desc
+    type: string
+    title: Unidade de Medida - Descrição
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: uo_acao_cod
+    type: string
+    title: Unidade Orçamentária Responsável pela Ação - Código
+    description: |
+      .
+    constraints:
+      pattern: '^[1-9]\d{3}$'
+
+  - name: uo_acao_nome
+    type: string
+    title: Unidade Orçamentária Responsável pela Ação - Nome
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: uo_beneficiada
+    type: string
+    title: Unidade Orçamentária Beneficiada - Código e Nome
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: uo_beneficiada_cod
+    type: string
+    title: Unidade Orçamentária Beneficiada - Código e Nome
+    description: |
+      .
+    constraints:
+      pattern: '^[1-9]\d{3}$'
+
+  - name: uo_cod
+    type: string
+    title: Unidade Orçamentária - Código
+    description: |
+      Código representativo da unidade orçamentária.
+    constraints:
+      required: true
+      pattern: '^[1-9]\d{3}$'
+
+  - name: uo_fin_cod
+    type: string
+    title: Unidade Orçamentária Financiadora Gasto - Código
+    description: |
+      Código de unidade orçamentária financiadora das despesas referentes à procedência de recursos.
+    constraints:
+      pattern: '^(0|[1-9]\d{3})$'
+
+  - name: uo_financiadora
+    type: string
+    title: Unidade Orçamentária Financiadora - Código e Nome
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: uo_nome
+    type: string
+    title: Unidade Orçamentária - Nome
+    description: |
+      Nome completo da Unidade Orçamentária.
+    constraints:
+      maxLength: 500
+
+  - name: uo_programa_cod
+    type: string
+    title: Unidade Orçamentária Responsável pelo Programa - Código
+    description: |
+      .
+    constraints:
+      pattern: '^[1-9]\d{3}$'
+
+  - name: uo_programa_nome
+    type: string
+    title: Unidade Orçamentária Responsável pelo Programa - Nome
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: uo_sigla
+    type: string
+    title: Unidade Orçamentária - Sigla
+    description: |
+      Nome abreviado ou sigla da unidade orçamentária.
+    constraints:
+      maxLength: 500
+
+  - name: upg_cod
+    type: string
+    title: Unidade Programação Gasto - Código
+    description: |
+      Código de unidade de programação de gasto relacionado com o código de controle interno da unidade administrativa,
+      de acordo com tabela elaborada pela Unidade Orçamentária.
+    constraints:
+      pattern: '^(0|[1-9]\d{0,3})$'
+
+  - name: vlr_alem_credito
+    type: number
+    title: Valor Além Crédito
+    description: |
+      Valor, em reais, da despesa de pessoal pendente de regularização por falta de crédito orçamentário.
+    constraints:
+      minimum: 0
+
+  - name: vlr_anulacao
+    type: number
+    title: Valor Anulação Crédito
+    description: |
+      Valor, em reais, da anulação de crédito na dotação orçamentária.
+    constraints:
+      minimum: 0
+
+  - name: vlr_anulacao_pagamento_rpp
+    type: number
+    title: Valor Anulação Pagamento Processado
+    description: |
+      Valor, em reais, da anulação da despesa através da devolução, do Pagamento de restos a pagar processado.
+    constraints:
+      minimum: 0
+
+  - name: vlr_anulacao_pago_antecipado
+    type: number
+    title: Valor Anulação Pago Antecipado
+    description: |
+      Valor total, em reais, de anulação de pago antecipado de restos a pagar.
+    constraints:
+      minimum: 0
+
+  - name: vlr_anulacao_retencao_rpp
+    type: number
+    title: Valor Anulação Retenção Processado
+    description: |
+      Valor, em reais, de anulação do valor de retenção processado.
+    constraints:
+      minimum: 0
+
+  - name: vlr_anulado
+    type: number
+    title: Valor Anulado
+    description: |
+      Valor, em reais, da parte anulada da despesa de pessoal pendente de regularização por falta de crédito orçamentário.
+    constraints:
+      minimum: 0
+
+  - name: vlr_anulado_folha
+    type: number
+    title: Valor Anulado Folha
+    description: |
+      Valor anulado, em reais, do saldo da folha de pagamento de exercícios anteriores inscrita em Restos a Pagar - FP.
+    constraints:
+      minimum: 0
+
+  - name: vlr_cancelado_rpnp
+    type: number
+    title: Valor Cancelado Não Processado
+    description: |
+      Valor cancelado, em reais, de empenho inscrito em Restos a Pagar não processado.
+    constraints:
+      minimum: 0
+
+  - name: vlr_cancelado_rpp
+    type: number
+    title: Valor Cancelado Processado
+    description: |
+      Valor cancelado, em reais, de despesa liquidada inscrita em Restos a Pagar.
+    constraints:
+      minimum: 0
+
+  - name: vlr_contabilizado
+    type: number
+    title: Valor Contabilizado
+    description: |
+      Valor, em reais, da receita orçamentária contabilizada.
+      Aparece negativo quando houve cancelamento da receita.
+
+  - name: vlr_cota_anulada
+    type: number
+    title: Valor Anulação Cota Aprovada
+    description: |
+      Valor anulado da cota aprovada, em reais.
+    constraints:
+      minimum: 0
+
+  - name: vlr_cota_aprovada
+    type: number
+    title: Valor Cota Aprovada
+    description: |
+      Valor, em reais, da cota aprovada.
+    constraints:
+      minimum: 0
+
+  - name: vlr_cota_aprovada_liquida
+    type: number
+    title: Valor Cota Aprovada Líquida
+    description: |
+      Valor líquido, em reais, da cota aprovada.
+
+  - name: vlr_cota_cancelada
+    type: number
+    title: Valor Cota Cancelada
+    description: |
+      Valor, em reais, da cota aprovada cancelada.
+    constraints:
+      minimum: 0
+
+  - name: vlr_cota_descentralizada
+    type: number
+    title: Valor Cota Descentralizada
+    description: |
+      Valor, em reais, das cotas descentralizadas às unidades executotas.
+    constraints:
+      minimum: 0
+
+  - name: vlr_credito_autorizado
+    type: number
+    title: Valor Crédito Autorizado
+    description: |
+      Valor total, em reais, correspondente ao somatório dos créditos disponíveis para a execução da despesa.
+
+  - name: vlr_credito_inicial
+    type: number
+    title: Valor Crédito Inicial
+    description: |
+      Valor, em reais, do crédito orçamentário aprovado pela Lei Orçamentária.
+    constraints:
+      minimum: 0
+
+  - name: vlr_desconto_rpp
+    type: number
+    title: Valor Desconto Processado
+    description: |
+      Valor, em reais, de abatimento sobre o valor de pagamento de inscrição em Restos a Pagar processado.
+      Atenção: não considera os descontos efetuados em pagamentos de retenção/consignação.
+    constraints:
+      minimum: 0
+
+  - name: vlr_despesa_liquidada_pagar
+    type: number
+    title: Valor Despesa Liquidada a Pagar
+    description: |
+      Valor total, em reais, do saldo a pagar.
+
+  - name: vlr_despesa_liquidada_pagar_folha
+    type: number
+    title: Valor Despesa Liquidada a Pagar - Folha
+    description: |
+      Valor, em reais, do saldo a pagar processado de folha de pagamento.
+
+  - name: vlr_despesa_liquidada_rpnp
+    type: number
+    title: Valor Despesa Liquidada
+    description: |
+      Valor total, em reais, da despesa liquidada de resto a pagar não processado, registrada no exercício.
+
+  - name: vlr_efetivado_ajustado
+    type: number
+    title: Valor Efetivado Ajustado
+    description: |
+      Valor, em reais, da receita orçamentária efetivada ajustada.
+
+  - name: vlr_empenhado
+    type: number
+    title: Valor Despesa Empenhada
+    description: |
+      Valor líquido, em reais, da despesa empenhada.
+
+  - name: vlr_inscrito_folha
+    type: number
+    title: Valor Inscrito Folha
+    description: |
+      Valor, em reais, da folha de pagamento de exercícios anteriores inscrita em Restos a Pagar.
+    constraints:
+      minimum: 0
+
+  - name: vlr_inscrito_rpnp
+    type: number
+    title: Valor Inscrito Não Processado
+    description: |
+      Valor, em reais, de saldo de empenhos.
+    constraints:
+      minimum: 0
+
+  - name: vlr_inscrito_rpp
+    type: number
+    title: Valor Inscrito Processado
+    description: |
+      Valor, em reais, de despesa liquidada de exercícios anteriores.
+    constraints:
+      minimum: 0
+
+  - name: vlr_ldo_rec
+    type: number
+    title: Valor LDO Receita
+    description: |
+      .
+    constraints:
+      minimum: 0
+
+  - name: vlr_limite
+    type: number
+    title: Valor Limite Ano de Referência (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+
+  - name: vlr_liquidado
+    type: number
+    title: Valor Despesa Liquidada
+    description: |
+      Valor total da despesa liquidada, em reais.
+
+  - name: vlr_liquidado_retido
+    type: number
+    title: Valor Liquidado Retido
+    description: |
+      Valor, em reais, referente às retenções - parte da liquidação a favor de terceiros,
+      indicado apenas para análise de um documento de liquidação específico.
+
+  - name: vlr_loa_desp
+    type: number
+    title: Valor Proposto Ano
+    description: |
+      .
+    decimalChar: ','
+    constraints:
+      minimum: 0
+
+  - name: vlr_loa_rec
+    type: number
+    title: Valor LOA Receita
+    description: |
+      .
+    constraints:
+      minimum: 0
+
+  - name: vlr_meta_fisica_ano0
+    type: number
+    title: Previsão Física Ano de Referência
+    description: |
+      .
+
+  - name: vlr_meta_fisica_ano1
+    type: number
+    title: Previsão Física Ano de Referência + 1
+    description: |
+      .
+
+  - name: vlr_meta_fisica_ano2
+    type: number
+    title: Previsão Física Ano de Referência + 2
+    description: |
+      .
+
+  - name: vlr_meta_fisica_ano3
+    type: number
+    title: Previsão Física Ano de Referência + 3
+    description: |
+      .
+
+  - name: vlr_meta_orcamentaria_ano0
+    type: number
+    title: Previsão Orçamentária Ano de Referência
+    description: |
+      .
+
+  - name: vlr_meta_orcamentaria_ano1
+    type: number
+    title: Previsão Orçamentária Ano de Referência + 1
+    description: |
+      .
+
+  - name: vlr_meta_orcamentaria_ano2
+    type: number
+    title: Previsão Orçamentária Ano de Referência + 2
+    description: |
+      .
+
+  - name: vlr_meta_orcamentaria_ano3
+    type: number
+    title: Previsão Orçamentária Ano de Referência + 3
+    description: |
+      .
+
+  - name: vlr_outros
+    type: number
+    title: Valor Outros Ano de Referência (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+
+  - name: vlr_pago_antecipado_exercicio
+    type: number
+    title: Valor Pago Antecipado Exercício
+    description: |
+      Valor Contratual Pago antecipado.
+    constraints:
+      minimum: 0
+
+  - name: vlr_pago_financeiro
+    type: number
+    title: Valor Pago Financeiro
+    description: |
+      Valor referente aos pagamentos efetuados através de movimentações bancárias, escriturais e apropriação contábil da despesa.
+      Esse cálculo não inclui valor de anulação de despesa paga.
+
+  - name: vlr_pago_folha
+    type: number
+    title: Valor Pago Folha
+    description: |
+      Valor pago, em reais, referente a valor inscrito processado de folha de pagamento, total ou parcial.
+    constraints:
+      minimum: 0
+
+  - name: vlr_pago_orcamentario
+    type: number
+    title: Valor Pago Orçamentário
+    description: |
+      Valor pago, por empenho.
+    constraints:
+      minimum: 0
+
+  - name: vlr_pago_rpnp
+    type: number
+    title: Valor Pago Não Processado
+    description: |
+      Valor pago, em reais, referente a valor inscrito não processado, total ou parcial.
+      Atenção: não considera os valores pagos de retenção/consignação.
+
+  - name: vlr_pago_rpp
+    type: number
+    title: Valor Pago Processado
+    description: |
+      Valor pago, em reais, referente a valor inscrito processado, total ou parcial.
+      Atenção: não considera os valores pagos de retenção/consignação.
+
+  - name: vlr_previsto_adicional
+    type: number
+    title: Valor Previsto Adicional
+    description: |
+      Valor, em reais, da previsão adicional da receita.
+    constraints:
+      minimum: 0
+
+  - name: vlr_previsto_atualizado
+    type: number
+    title: Valor Previsto Atualizado
+    description: |
+      Valor, em reais, da previsão atualizada da receita.
+
+  - name: vlr_previsto_inicial
+    type: number
+    title: Valor Previsto Inicial
+    description: |
+      Valor, em reais, da previsão inicial da receita.
+
+  - name: vlr_recebido
+    type: number
+    title: Valor Recebido (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+
+  - name: vlr_regularizado
+    type: number
+    title: Valor Regularizado
+    description: |
+      Valor, em reais, da parte regularizada da despesa de pessoal pendente de regularização por falta de crédito orçamentário.
+    constraints:
+      minimum: 0
+
+  - name: vlr_repasse
+    type: number
+    title: Valor Repassado
+    description: |
+      .
+    constraints:
+      minimum: 0
+
+  - name: vlr_restabelecido_rpnp
+    type: number
+    title: Valor Restabelecido Não Processado
+    description: |
+      Valor restabelecido, em reais, de empenho inscrito em Restos a Pagar não processado, cancelado anteriormente.
+    constraints:
+      minimum: 0
+
+  - name: vlr_restabelecido_rpp
+    type: number
+    title: Valor Restabelecido Processado
+    description: |
+      Valor restabelecido, em reais, de despesa liquidada inscrita, cancelada anteriormente.
+    constraints:
+      minimum: 0
+
+  - name: vlr_retencao_rpnp
+    type: number
+    title: Valor Retenção Não Processado
+    description: |
+      Valor, em reais, de Restos a Pagar não processado de Ordem de Pagamento.
+
+  - name: vlr_retencao_rpp
+    type: number
+    title: Valor Retenção Processado
+    description: |
+      Valor restabelecido, em reais, de despesa liquidada inscrita, cancelada anteriormente.
+
+  - name: vlr_saldo_rpnp
+    type: number
+    title: Saldo Restos a Pagar Não Processado
+    description: |
+      Valor, em reais, de saldo a liquidar de empenhos inscritos em Restos a Pagar não processado.
+
+  - name: vlr_saldo_rpp
+    type: number
+    title: Saldo Restos a Pagar Processado
+    description: |
+      Valor, em reais, de saldo a pagar de despesa liquidada inscrita em Restos a Pagar processado.
+
+  - name: vlr_suplementacao
+    type: number
+    title: Valor Suplementação
+    description: |
+      Valor, em reais, destinado a reforço de dotação orçamentária.
+    constraints:
+      minimum: 0
+
+  - name: vlr_tesouro
+    type: number
+    title: Valor Tesouro Ano de Referência (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0

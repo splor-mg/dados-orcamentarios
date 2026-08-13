@@ -1,10 +1,11 @@
 name: dados_siafi
-title: Sistema Integrado de Administração Financeira – SIAFI {{year}}
+title: Sistema Integrado de Administração Financeira – SIAFI {{year0}}
 owner_org: secretaria-de-estado-de-planejamento-e-gestao-seplag
 dpetl_load:
   owner: splor-mg
-  repo: dados-siafi-{{year}}
+  repo: dados-siafi-{{year0}}
   level: orgs
+
 resources:
   - name: alteracoes_orcamentarias
     type: table
@@ -13,12 +14,11 @@ resources:
     format: csv
     mediatype: text/csv
     encoding: utf-8
-    dialect: schemas/dialect.yaml
     schema: schemas/alteracoes_orcamentarias.yaml
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export AID-SPLOR/dados_siafi/current/alteracoes_orcamentarias -q --dp DP1 -p "Ano de Exercício={{year}}" -o datapackages/dados_siafi/data_raw/alteracoes_orcamentarias.csv
+        - bo export AID-SPLOR/dados_siafi/current/alteracoes_orcamentarias -q --dp DP1 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/alteracoes_orcamentarias.csv
 
   - name: cota
     type: table
@@ -27,12 +27,11 @@ resources:
     format: csv
     mediatype: text/csv
     encoding: utf-8
-    dialect: schemas/dialect.yaml
     schema: schemas/cota.yaml
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export AID-SPLOR/dados_siafi/current/cota -q -p "Ano de Exercício={{year}}" -o datapackages/dados_siafi/data_raw/cota.csv
+        - bo export AID-SPLOR/dados_siafi/current/cota -q -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/cota.csv
 
   - name: credito
     type: table
@@ -41,12 +40,11 @@ resources:
     format: csv
     mediatype: text/csv
     encoding: utf-8
-    dialect: schemas/dialect.yaml
     schema: schemas/credito.yaml
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export AID-SPLOR/dados_siafi/current/credito -q --dp DP17 -p "Ano de Exercício={{year}}" -o datapackages/dados_siafi/data_raw/credito.csv
+        - bo export AID-SPLOR/dados_siafi/current/credito -q --dp DP17 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/credito.csv
 
   - name: execucao
     type: table
@@ -55,12 +53,11 @@ resources:
     format: csv
     mediatype: text/csv
     encoding: utf-8
-    dialect: schemas/dialect.yaml
     schema: schemas/execucao.yaml
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export AID-SPLOR/dados_siafi/current/execucao -q -p "Ano de Exercício={{year}}" -o datapackages/dados_siafi/data_raw/execucao.csv
+        - bo export AID-SPLOR/dados_siafi/current/execucao -q -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/execucao.csv
 
   - name: execucao_alem_credito
     type: table
@@ -69,12 +66,11 @@ resources:
     format: csv
     mediatype: text/csv
     encoding: utf-8
-    dialect: schemas/dialect.yaml
     schema: schemas/execucao_alem_credito.yaml
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export AID-SPLOR/dados_siafi/current/execucao_alem_credito -q -p "Ano de Exercício={{year}}" -o datapackages/dados_siafi/data_raw/execucao_alem_credito.csv
+        - bo export AID-SPLOR/dados_siafi/current/execucao_alem_credito -q -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/execucao_alem_credito.csv
 
   - name: receita
     type: table
@@ -83,12 +79,11 @@ resources:
     format: csv
     mediatype: text/csv
     encoding: utf-8
-    dialect: schemas/dialect.yaml
     schema: schemas/receita.yaml
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export AID-SPLOR/dados_siafi/current/receita -q --dp DP12 -p "Ano de Exercício={{year}}" -o datapackages/dados_siafi/data_raw/receita.csv
+        - bo export AID-SPLOR/dados_siafi/current/receita -q --dp DP12 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/receita.csv
 
   - name: restos_pagar
     type: table
@@ -97,12 +92,11 @@ resources:
     format: csv
     mediatype: text/csv
     encoding: utf-8
-    dialect: schemas/dialect.yaml
     schema: schemas/restos_pagar.yaml
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export AID-SPLOR/dados_siafi/current/restos_pagar -q -p "Ano de Exercício={{year}}" -o datapackages/dados_siafi/data_raw/restos_pagar.csv
+        - bo export AID-SPLOR/dados_siafi/current/restos_pagar -q -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/restos_pagar.csv
 
   - name: restos_pagar_folha
     type: table
@@ -111,9 +105,8 @@ resources:
     format: csv
     mediatype: text/csv
     encoding: utf-8
-    dialect: schemas/dialect.yaml
     schema: schemas/restos_pagar_folha.yaml
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export AID-SPLOR/dados_siafi/current/restos_pagar_folha -q -p "Ano de Exercício={{year}}" -o datapackages/dados_siafi/data_raw/restos_pagar_folha.csv
+        - bo export AID-SPLOR/dados_siafi/current/restos_pagar_folha -q -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/restos_pagar_folha.csv
