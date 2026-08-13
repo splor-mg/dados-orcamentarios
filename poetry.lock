@@ -70,7 +70,7 @@ typer = ">=0.15.0"
 
 [package.source]
 type = "git"
-url = "https://github.com/splor-mg/bocli.git"
+url = "https://github.com/splor-mg/bo-cli.git"
 reference = "HEAD"
 resolved_reference = "35f123b1feefffaedd43e2a5a246beb5dd06072e"
 
@@ -2361,4 +2361,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13,<4.0"
-content-hash = "309ca322553ad9809df907c9afd9f75d37c57e6661fed0a3c1b90e43c910aa9d"
+content-hash = "2e9e3fa31c2c1171f2d8c740dc07e83abd316ef9c80ab56c2b95b150303b7a5e"
