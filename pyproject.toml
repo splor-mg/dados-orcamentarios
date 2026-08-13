@@ -9,7 +9,7 @@ dependencies = [
     'taskipy (>=1.14.1,<2.0.0)',
     'python-dotenv (>=1.2.1,<2.0.0)',
     'dpetl[github-app] (>=0.11.0)',
-    'bocli @ git+https://github.com/splor-mg/bocli.git',
+    'bocli @ git+https://github.com/splor-mg/bo-cli.git',
 ]
 requires-python = '>=3.13,<4.0'
 authors = [
