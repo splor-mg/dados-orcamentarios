@@ -55,8 +55,6 @@ fields:
     title: Valor Pago Folha
     description: |
       Valor pago, em reais, referente a valor inscrito processado de folha de pagamento, total ou parcial.
-    constraints:
-      minimum: 0
     target: vlr_pago_folha
 
   - name: Valor Despesa Liquidada a Pagar - Folha

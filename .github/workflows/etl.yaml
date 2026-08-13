@@ -3,10 +3,20 @@ name: etl
 on:
   workflow_dispatch:
 
+permissions:
+  actions: read
+  contents: read
+  issues: write
+
 jobs:
   all:
     runs-on: ubuntu-latest
     steps:
+      - name: Set current date and time
+        id: date_step
+        run: |
+          echo "now=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_OUTPUT
+
       - name: Get job ID
         id: job_id
         env:
@@ -16,15 +26,33 @@ jobs:
             /repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs \
             --jq '.jobs[0].id')
           echo "job_id=$JOB_ID" >> "$GITHUB_OUTPUT"
-      - name: Check out repository
-        uses: actions/checkout@v4
+
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.GH_APP_ID }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+          owner: splor-mg
+          repositories: |
+            dados-orcamentarios
+            bo-cli
+
+      - name: Checkout
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
-      - name: Set up python
+
+      - name: Configure git to use App token for private repos
+        run: |
+          git config --global url."https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/".insteadOf "https://github.com/"
+
+      - name: Setup Python
         id: setup-python
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'
+
       - name: Install Poetry
         uses: snok/install-poetry@v1
         with:
@@ -32,26 +60,31 @@ jobs:
           virtualenvs-in-project: true
           virtualenvs-path: .venv
           installer-parallel: true
+
       - name: Load cached venv
         id: cached-poetry-dependencies
         uses: actions/cache@v4
         with:
           path: .venv
           key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
+
       - name: Install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: poetry install --no-interaction
+
       - name: Run etl process
         env:
-          EMAIL_USER: ${{ secrets.EMAIL_USER }}
-          EMAIL_PWD: ${{ secrets.EMAIL_PWD }}
-          EMAIL_IMAP: ${{ secrets.EMAIL_IMAP }}
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          BO_AUTH: ${{ secrets.BO_AUTH }}
+          BO_BASE_URL: ${{ secrets.BO_BASE_URL }}
+          BO_PASSWORD: ${{ secrets.BO_PASSWORD }}
+          BO_USER: ${{ secrets.BO_USER }}
+          BO_VERIFY_SSL: ${{ secrets.BO_VERIFY_SSL }}
+          GH_APP_ID: ${{ secrets.GH_APP_ID }}
+          GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
         run: |
           source .venv/bin/activate
-          task yaml
-          task extract
-          frictionless validate datapackages/dados_siafi/datapackage.yaml
+          task etl
+
       - name: Workflow failure notification
         uses: peter-evans/create-issue-from-file@v6
         if: failure()
@@ -59,5 +92,5 @@ jobs:
           RUNID: ${{ github.run_id }}
           JOBID: ${{ steps.job_id.outputs.job_id }}
         with:
-          title: Sync template workflow failed on ${{ steps.date_step.outputs.now }}
+          title: ETL workflow failed on ${{ steps.date_step.outputs.now }}
           content-filepath: .github/etl_failure.md

@@ -1,0 +1,212 @@
+name: dados_classificadores
+title: Tabelas Auxiliares de Classificadores
+owner_org: secretaria-de-estado-de-planejamento-e-gestao-seplag
+dpetl_load:
+  owner: splor-mg
+  repo: dados-classificadores
+  level: orgs
+  visibility: public
+resources:
+  - name: acao
+    type: table
+    path: ['data_raw/acao_previous.csv', 'data_raw/acao_current.csv']
+    scheme: multipart
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect: schemas/dialect.yaml
+    schema: schemas/acao.yaml
+    dpetl_extract:
+      mode: cli
+      arguments:
+        - bo export AID-SPLOR/dados_classificadores/current/acao -q --dp DP8 -o datapackages/dados_classificadores/data_raw/acao_current.csv
+        - bo export AID-SPLOR/dados_classificadores/previous/acao -q --dp DP3 -o datapackages/dados_classificadores/data_raw/acao_previous.csv
+    dpetl_transform:
+      format: csv
+
+  - name: elemento
+    type: table
+    path: ['data_raw/elemento_previous.csv', 'data_raw/elemento_current.csv']
+    scheme: multipart
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect: schemas/dialect.yaml
+    schema: schemas/elemento.yaml
+    dpetl_extract:
+      mode: cli
+      arguments:
+        - bo export AID-SPLOR/dados_classificadores/current/elemento -q --dp DP8 -o datapackages/dados_classificadores/data_raw/elemento_current.csv
+        - bo export AID-SPLOR/dados_classificadores/previous/elemento -q --dp DP5 -o datapackages/dados_classificadores/data_raw/elemento_previous.csv
+    dpetl_transform:
+      format: csv
+
+  - name: elemento_item
+    type: table
+    path: ['data_raw/elemento_item_previous.csv', 'data_raw/elemento_item_current.csv']
+    scheme: multipart
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect: schemas/dialect.yaml
+    schema: schemas/elemento_item.yaml
+    dpetl_extract:
+      mode: cli
+      arguments:
+        - bo export AID-SPLOR/dados_classificadores/current/elemento_item -q --dp DP8 -o datapackages/dados_classificadores/data_raw/elemento_item_current.csv
+        - bo export AID-SPLOR/dados_classificadores/previous/elemento_item -q --dp DP5 -o datapackages/dados_classificadores/data_raw/elemento_item_previous.csv
+    dpetl_transform:
+      format: csv
+
+  - name: fonte
+    type: table
+    path: ['data_raw/fonte_previous.csv', 'data_raw/fonte_current.csv']
+    scheme: multipart
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect: schemas/dialect.yaml
+    schema: schemas/fonte.yaml
+    dpetl_extract:
+      mode: cli
+      arguments:
+        - bo export AID-SPLOR/dados_classificadores/current/fonte -q --dp DPa -o datapackages/dados_classificadores/data_raw/fonte_current.csv
+        - bo export AID-SPLOR/dados_classificadores/previous/fonte -q --dp DP3 -o datapackages/dados_classificadores/data_raw/fonte_previous.csv
+    dpetl_transform:
+      format: csv
+
+  - name: funcao
+    type: table
+    path: ['data_raw/funcao_previous.csv', 'data_raw/funcao_current.csv']
+    scheme: multipart
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect: schemas/dialect.yaml
+    schema: schemas/funcao.yaml
+    dpetl_extract:
+      mode: cli
+      arguments:
+        - bo export AID-SPLOR/dados_classificadores/current/funcao -q --dp DP8 -o datapackages/dados_classificadores/data_raw/funcao_current.csv
+        - bo export AID-SPLOR/dados_classificadores/previous/funcao -q --dp DP3 -o datapackages/dados_classificadores/data_raw/funcao_previous.csv
+    dpetl_transform:
+      format: csv
+
+  - name: grupo_categoria
+    type: table
+    path: ['data_raw/grupo_categoria_previous.csv', 'data_raw/grupo_categoria_current.csv']
+    scheme: multipart
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect: schemas/dialect.yaml
+    schema: schemas/grupo_categoria.yaml
+    dpetl_extract:
+      mode: cli
+      arguments:
+        - bo export AID-SPLOR/dados_classificadores/current/grupo_categoria -q --dp DP4 -o datapackages/dados_classificadores/data_raw/grupo_categoria_current.csv
+        - bo export AID-SPLOR/dados_classificadores/previous/grupo_categoria -q --dp DP3 -o datapackages/dados_classificadores/data_raw/grupo_categoria_previous.csv
+    dpetl_transform:
+      format: csv
+
+  - name: ipu
+    type: table
+    path: ['data_raw/ipu_previous.csv', 'data_raw/ipu_current.csv']
+    scheme: multipart
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect: schemas/dialect.yaml
+    schema: schemas/ipu.yaml
+    dpetl_extract:
+      mode: cli
+      arguments:
+        - bo export AID-SPLOR/dados_classificadores/current/ipu -q --dp DPa -o datapackages/dados_classificadores/data_raw/ipu_current.csv
+        - bo export AID-SPLOR/dados_classificadores/previous/ipu -q --dp DP3 -o datapackages/dados_classificadores/data_raw/ipu_previous.csv
+    dpetl_transform:
+      format: csv
+
+  - name: modalidade
+    type: table
+    path: ['data_raw/modalidade_previous.csv', 'data_raw/modalidade_current.csv']
+    scheme: multipart
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect: schemas/dialect.yaml
+    schema: schemas/modalidade.yaml
+    dpetl_extract:
+      mode: cli
+      arguments:
+        - bo export AID-SPLOR/dados_classificadores/current/modalidade -q --dp DPa -o datapackages/dados_classificadores/data_raw/modalidade_current.csv
+        - bo export AID-SPLOR/dados_classificadores/previous/modalidade -q --dp DP3 -o datapackages/dados_classificadores/data_raw/modalidade_previous.csv
+    dpetl_transform:
+      format: csv
+
+  - name: programa
+    type: table
+    path: ['data_raw/programa_previous.csv', 'data_raw/programa_current.csv']
+    scheme: multipart
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect: schemas/dialect.yaml
+    schema: schemas/programa.yaml
+    dpetl_extract:
+      mode: cli
+      arguments:
+        - bo export AID-SPLOR/dados_classificadores/current/programa -q --dp DP8 -o datapackages/dados_classificadores/data_raw/programa_current.csv
+        - bo export AID-SPLOR/dados_classificadores/previous/programa -q --dp DP3 -o datapackages/dados_classificadores/data_raw/programa_previous.csv
+    dpetl_transform:
+      format: csv
+
+  - name: receita
+    type: table
+    path: ['data_raw/receita_previous.csv', 'data_raw/receita_current.csv']
+    scheme: multipart
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect: schemas/dialect.yaml
+    schema: schemas/receita.yaml
+    dpetl_extract:
+      mode: cli
+      arguments:
+        - bo export AID-SPLOR/dados_classificadores/current/receita -q --dp DP1 -o datapackages/dados_classificadores/data_raw/receita_current.csv
+        - bo export AID-SPLOR/dados_classificadores/previous/receita -q -o datapackages/dados_classificadores/data_raw/receita_previous.csv
+    dpetl_transform:
+      format: csv
+
+  - name: subfuncao
+    type: table
+    path: ['data_raw/subfuncao_previous.csv', 'data_raw/subfuncao_current.csv']
+    scheme: multipart
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect: schemas/dialect.yaml
+    schema: schemas/subfuncao.yaml
+    dpetl_extract:
+      mode: cli
+      arguments:
+        - bo export AID-SPLOR/dados_classificadores/current/subfuncao -q --dp DP8 -o datapackages/dados_classificadores/data_raw/subfuncao_current.csv
+        - bo export AID-SPLOR/dados_classificadores/previous/subfuncao -q --dp DP3 -o datapackages/dados_classificadores/data_raw/subfuncao_previous.csv
+    dpetl_transform:
+      format: csv
+
+  - name: uo
+    type: table
+    path: ['data_raw/uo_previous.csv', 'data_raw/uo_current.csv']
+    scheme: multipart
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect: schemas/dialect.yaml
+    schema: schemas/uo.yaml
+    dpetl_extract:
+      mode: cli
+      arguments:
+        - bo export AID-SPLOR/dados_classificadores/current/uo -q --dp DP1 -o datapackages/dados_classificadores/data_raw/uo_current.csv
+        - bo export AID-SPLOR/dados_classificadores/previous/uo -q -o datapackages/dados_classificadores/data_raw/uo_previous.csv
+    dpetl_transform:
+      format: csv
