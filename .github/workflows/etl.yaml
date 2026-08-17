@@ -88,11 +88,10 @@ jobs:
           task etl
 
       - name: Workflow failure notification
-        uses: peter-evans/create-issue-from-file@v6
+        uses: peter-evans/create-issue@v7
         if: failure()
-        env:
-          RUNID: ${{ github.run_id }}
-          JOBID: ${{ steps.job_id.outputs.job_id }}
         with:
           title: ETL workflow failed on ${{ steps.date_step.outputs.now }}
-          content-filepath: .github/etl_failure.md
+          labels: bug
+          body: |
+            Consultar o [log de erro da execução](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs/${{ steps.job_id.outputs.job_id }}).
