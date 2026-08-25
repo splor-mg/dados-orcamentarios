@@ -1,45 +1,39 @@
 fields:
+  - name: Ano
+    target: ano
+
   - name: Unidade Orçamentária Beneficiada
     target: uo_beneficiada_cod
 
-  - name: Unidade Orçamentária da Ação
-    target: uo_acao_cod
+  - name: Nome da Ação
+    target: acao_desc
 
-  - name: Função
-    target: funcao_cod
+  - name: Programa de Trabalho
+    target: programa_trabalho_fmt
 
-  - name: Subfunção
-    target: subfuncao_cod
+  - name: Natureza da Despesa
+    target: natureza_fmt
 
-  - name: Programa
-    target: programa_cod
-
-  - name: Ação
-    target: acao_cod
-
-  - name: Subprojeto / Subatividade
-    target: subprojeto_cod
-
-  - name: Categoria
-    target: categoria_cod
-
-  - name: GD
-    target: grupo_cod
-
-  - name: Mod.
-    target: modalidade_cod
-
-  - name: Elem.
-    target: elemento_cod
-
-  - name: Item.
+  - name: Código do Item
     target: item_cod
 
-  - name: IAG
-    target: iag_cod
+  - name: Nome do Elemento Item
+    target: item_desc
 
   - name: Valor Distribuído
     target: vlr_recebido
 
   - name: Data da Inclusão
     target: data_inclusao
+
+  - name: Unidade Orçamentária Repassadora
+    target: uo_repassadora_cod
+
+  - name: Sigla Repassadora
+    target: uo_repassadora_sigla
+
+  - name: Sigla Beneficiada
+    target: uo_beneficiada_sigla
+
+  - name: Valor Detalhado (R$)
+    target: vlr_detalhado

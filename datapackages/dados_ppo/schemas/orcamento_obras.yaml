@@ -11,6 +11,12 @@ fields:
   - name: Descrição da Obra
     target: obra_desc
 
+  - name: Situação
+    target: obra_status
+
+  - name: Alterar Unidade de Medida da Obra?
+    target: unidade_medida_alterar
+
   - name: Unidade de Medida da Obra
     target: unidade_medida_cod
 

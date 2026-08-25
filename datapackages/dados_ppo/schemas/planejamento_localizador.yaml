@@ -98,26 +98,26 @@ fields:
   - name: Município
     target: municipio_desc
 
-  - name: Previsão Física {{year0}}
+  - name: Previsão Física {{year1}}
     target: vlr_meta_fisica_ano0
 
-  - name: Previsão Física {{year1}}
+  - name: Previsão Física {{year2}}
     target: vlr_meta_fisica_ano1
 
-  - name: Previsão Física {{year2}}
+  - name: Previsão Física {{year3}}
     target: vlr_meta_fisica_ano2
 
-  - name: Previsão Física {{year3}}
+  - name: Previsão Física {{year4}}
     target: vlr_meta_fisica_ano3
 
-  - name: Previsão Orçamentária {{year0}}
+  - name: Previsão Orçamentária {{year1}}
     target: vlr_meta_orcamentaria_ano0
 
-  - name: Previsão Orçamentária {{year1}}
+  - name: Previsão Orçamentária {{year2}}
     target: vlr_meta_orcamentaria_ano1
 
-  - name: Previsão Orçamentária {{year2}}
+  - name: Previsão Orçamentária {{year3}}
     target: vlr_meta_orcamentaria_ano2
 
-  - name: Previsão Orçamentária {{year3}}
+  - name: Previsão Orçamentária {{year4}}
     target: vlr_meta_orcamentaria_ano3

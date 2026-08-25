@@ -3,24 +3,42 @@ fields:
     target: ano
 
   - name: U.O. Cedente
-    target: uo_financiadora
+    target: uo_financiadora_cod
+
+  - name: Nome da U.O. Cedente
+    target: uo_financiadora_nome
 
   - name: U.O. Beneficiada
-    target: uo_beneficiada
+    target: uo_beneficiada_cod
+
+  - name: Nome U.O. Beneficiada
+    target: uo_beneficiada_nome
 
   - name: Grupo Despesa
+    target: grupo_cod
+
+  - name: Nome do Grupo Despesa
     target: grupo_desc
 
   - name: IAG
+    target: iag_cod
+
+  - name: Nome IAG
     target: iag_desc
 
   - name: Grupo Fonte
     target: fonte_grupo_desc
 
   - name: Fonte
+    target: fonte_cod
+
+  - name: Nome da Fonte
     target: fonte_desc
 
   - name: IPU
+    target: ipu_cod
+
+  - name: Nome do IPU
     target: ipu_desc
 
   - name: Valor Repassado

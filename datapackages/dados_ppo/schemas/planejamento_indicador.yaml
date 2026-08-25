@@ -56,40 +56,40 @@ fields:
   - name: Justificativa do Status (Índice de Referência)
     target: indice_referencia_apuracao_justificativa
 
-  - name: Previsão para {{year0}}
+  - name: Previsão para {{year1}}
     target: previsao_ano0
 
-  - name: Em Apuração ({{year0}})
+  - name: Em Apuração ({{year1}})
     target: apuracao_ano0
 
-  - name: Justificativa do Status ({{year0}})
+  - name: Justificativa do Status ({{year1}})
     target: previsao_apuracao_justificativa_ano0
 
-  - name: Previsão para {{year1}}
+  - name: Previsão para {{year2}}
     target: previsao_ano1
 
-  - name: Em Apuração ({{year1}})
+  - name: Em Apuração ({{year2}})
     target: apuracao_ano1
 
-  - name: Justificativa do Status ({{year1}})
+  - name: Justificativa do Status ({{year2}})
     target: previsao_apuracao_justificativa_ano1
 
-  - name: Previsão para {{year2}}
+  - name: Previsão para {{year3}}
     target: previsao_ano2
 
-  - name: Em Apuração ({{year2}})
+  - name: Em Apuração ({{year3}})
     target: apuracao_ano2
 
-  - name: Justificativa do Status ({{year2}})
+  - name: Justificativa do Status ({{year3}})
     target: previsao_apuracao_justificativa_ano2
 
-  - name: Previsão para {{year3}}
+  - name: Previsão para {{year4}}
     target: previsao_ano3
 
-  - name: Em Apuração ({{year3}})
+  - name: Em Apuração ({{year4}})
     target: apuracao_ano3
 
-  - name: Justificativa do Status ({{year3}})
+  - name: Justificativa do Status ({{year4}})
     target: previsao_apuracao_justificativa_ano3
 
   - name: Fonte

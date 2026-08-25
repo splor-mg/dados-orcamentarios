@@ -1,33 +1,72 @@
 fields:
-  - name: Programa
-    target: programa_cod
-
-  - name: Ação
-    target: acao_cod
-
   - name: Ano
     target: ano
+
+  - name: Poder
+    target: poder_cod
+
+  - name: Órgão
+    target: orgao_cod
+
+  - name: Nome do Órgão
+    target: orgao_nome
 
   - name: Unidade Orçamentária
     target: uo_cod
 
+  - name: Nome da UO
+    target: uo_nome
+
   - name: Sigla da UO
     target: uo_sigla
 
-  - name: Nome da UO
-    target: uo_nome
+  - name: Função
+    target: funcao_cod
+
+  - name: Subfunção
+    target: subfuncao_cod
+
+  - name: Programa
+    target: programa_cod
+
+  - name: Nome do Programa
+    target: programa_desc
+
+  - name: Ação
+    target: acao_cod
+
+  - name: Identificador Projeto Atividade
+    target: identificador_cod
+
+  - name: Projeto Atividade
+    target: projeto_atividade_cod
+
+  - name: Nome da Ação
+    target: acao_desc
+
+  - name: Subprojeto / Subatividade
+    target: subprojeto_cod
+
+  - name: IAG
+    target: iag_cod
+
+  - name: Nome IAG
+    target: iag_desc
 
   - name: Categoria
     target: categoria_invest_cod
 
-  - name: Natureza de Investimento
+  - name: Natureza
     target: natureza_invest_cod
 
   - name: Fonte Investimento
     target: fonte_invest_cod
 
+  - name: Nível Origem
+    target: nivel_origem
+
   - name: Descrição da Fonte Investimento
     target: fonte_invest_desc
 
-  - name: Valor Limite
+  - name: Valor (R$)
     target: vlr_loa_desp

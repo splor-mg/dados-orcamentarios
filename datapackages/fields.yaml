@@ -63,6 +63,14 @@ fields:
     falseValues:
       - Não
 
+  - name: alinea_cod
+    type: string
+    title: Alínea da Receita - Código
+    description: |
+      .
+    constraints:
+      pattern: '^\d{1,2}$'
+
   - name: ano
     type: string
     title: Ano de Exercício
@@ -160,11 +168,11 @@ fields:
 
   - name: categoria_cod
     type: string
-    title: Categoria Econômica Despesa - Código
+    title: Categoria Econômica - Código
     description: |
-      Código da categoria econômica da despesa.
+      Código da categoria econômica.
     constraints:
-      pattern: '^(3|4|9)$'
+      pattern: '^(1|2|3|4|7|9)$'
 
   - name: categoria_desc
     type: string
@@ -306,13 +314,19 @@ fields:
     constraints:
       maxLength: 500
 
+  - name: especie_cod
+    type: string
+    title: Espécie da Receita - Código
+    description: |
+      .
+    constraints:
+      pattern: '^[1-9]$'
+
   - name: estrategia_implementacao
     type: string
     title: Estratégia de Implementação
     description: |
       .
-    constraints:
-      maxLength: 500
 
   - name: fonte_cod
     type: string
@@ -544,6 +558,14 @@ fields:
     constraints:
       pattern: '^(0|[1-9]\d{0,1})$'
 
+  - name: item_desc
+    type: string
+    title: Item Despesa - Descrição
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
   - name: lei_aprovacao
     type: string
     title: Lei Aprovação Orçamento
@@ -589,8 +611,6 @@ fields:
     title: Metodologia de Cálculo e Premissas Utilizadas
     description: |
       .
-    constraints:
-      maxLength: 500
 
   - name: modalidade_cod
     type: string
@@ -635,6 +655,14 @@ fields:
     constraints:
       pattern: '^[1-9]\d{0,2}$'
 
+  - name: natureza_fmt
+    type: string
+    title: Natureza da Despesa - Formatado
+    description: |
+      .
+    constraints:
+      pattern: '^\d{1}\.\d{1}\.\d{2}\.\d{2}$'
+
   - name: natureza_invest_cod
     type: string
     title: Natureza de Investimento - Código
@@ -642,6 +670,14 @@ fields:
       .
     constraints:
       pattern: '^[1-9]\d{3}$'
+
+  - name: nivel_origem
+    type: string
+    title: Nível Origem
+    description: |
+      .
+    constraints:
+      maxLength: 500
 
   - name: num_contrato_entrada
     type: string
@@ -732,8 +768,15 @@ fields:
     description: |
       .
     constraints:
-      pattern: '^[1-9]\d{4}$'
-    missingValues: ['0', '']
+      pattern: '^[1-9]\d{3,4}$'
+
+  - name: obra_status
+    type: string
+    title: Obra - Situação
+    description: |
+      .
+    constraints:
+      maxLength: 500
 
   - name: ods_cod
     type: string
@@ -798,6 +841,14 @@ fields:
       .
     constraints:
       maxLength: 500
+
+  - name: origem_cod
+    type: string
+    title: Origem da Receita - Código
+    description: |
+      .
+    constraints:
+      pattern: '^[1-9]$'
 
   - name: origem_credito_cod
     type: string
@@ -1007,6 +1058,14 @@ fields:
     constraints:
       maxLength: 500
 
+  - name: programa_trabalho_fmt
+    type: string
+    title: Programa de Trabalho - Formatado
+    description: |
+      .
+    constraints:
+      pattern: '^\d{1}\.\d{2}\.\d{1}\.\d{2}\.\d{3}\.\d{3}\.\d{1}\.\d{3}\.\d{4}$'
+
   - name: projeto_atividade_cod
     type: string
     title: Projeto Atividade - Código
@@ -1089,13 +1148,21 @@ fields:
     constraints:
       maxLength: 500
 
+  - name: receita_tipo_cod
+    type: string
+    title: Tipo de Receita - Código
+    description: |
+      .
+    constraints:
+      pattern: '^[1-9]$'
+
   - name: regiao_geografica_intermediaria_cod
     type: string
     title: Região Geográfica Intermediária - Código
     description: |
       .
     constraints:
-      pattern: '^[1-9]\d{3}$'
+      pattern: '^([1-9]\d{3}|\d{1,2})$'
 
   - name: regiao_geografica_intermediaria_desc
     type: string
@@ -1104,6 +1171,22 @@ fields:
       .
     constraints:
       maxLength: 500
+
+  - name: rubrica_cod
+    type: string
+    title: Espécie da Receita - Código
+    description: |
+      .
+    constraints:
+      pattern: '^[1-9]$'
+
+  - name: subalinea_cod
+    type: string
+    title: Subalínea da Receita - Código
+    description: |
+      .
+    constraints:
+      pattern: '^\d{1}$'
 
   - name: subfuncao_cod
     type: string
@@ -1120,6 +1203,14 @@ fields:
       Descrição do detalhamento das áreas de atuação do Governo.
     constraints:
       maxLength: 500
+
+  - name: subitem_cod
+    type: string
+    title: Subitem - Código
+    description: |
+      .
+    constraints:
+      pattern: '^\d{1,3}$'
 
   - name: subprojeto_cod
     type: string
@@ -1161,13 +1252,23 @@ fields:
     constraints:
       pattern: '^[1-9]\d{6}$'
 
+  - name: unidade_medida_alterar
+    type: boolean
+    title: Alterar Unidade de Medida da Obra?
+    description: |
+      .
+    trueValues:
+      - S
+    falseValues:
+      - N
+
   - name: unidade_medida_cod
     type: string
     title: Unidade de Medida - Código
     description: |
       .
     constraints:
-      pattern: '^[1-9]\d{0,2}$'
+      pattern: '^[1-9]\d{0,3}$'
 
   - name: unidade_medida_desc
     type: string
@@ -1193,21 +1294,29 @@ fields:
     constraints:
       maxLength: 500
 
-  - name: uo_beneficiada
+  - name: uo_beneficiada_cod
     type: string
-    title: Unidade Orçamentária Beneficiada - Código e Nome
+    title: Unidade Orçamentária Beneficiada - Código
+    description: |
+      .
+    constraints:
+      pattern: '^[1-9]\d{3}$'
+
+  - name: uo_beneficiada_nome
+    type: string
+    title: Unidade Orçamentária Beneficiada - Nome
     description: |
       .
     constraints:
       maxLength: 500
 
-  - name: uo_beneficiada_cod
+  - name: uo_beneficiada_sigla
     type: string
-    title: Unidade Orçamentária Beneficiada - Código e Nome
+    title: Unidade Orçamentária Beneficiada - Sigla
     description: |
       .
     constraints:
-      pattern: '^[1-9]\d{3}$'
+      maxLength: 500
 
   - name: uo_cod
     type: string
@@ -1226,9 +1335,17 @@ fields:
     constraints:
       pattern: '^(0|[1-9]\d{3})$'
 
-  - name: uo_financiadora
+  - name: uo_financiadora_cod
     type: string
-    title: Unidade Orçamentária Financiadora - Código e Nome
+    title: Unidade Orçamentária Financiadora - Código
+    description: |
+      .
+    constraints:
+      pattern: '^[1-9]\d{3}$'
+
+  - name: uo_financiadora_nome
+    type: string
+    title: Unidade Orçamentária Financiadora - Nome
     description: |
       .
     constraints:
@@ -1253,6 +1370,22 @@ fields:
   - name: uo_programa_nome
     type: string
     title: Unidade Orçamentária Responsável pelo Programa - Nome
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: uo_repassadora_cod
+    type: string
+    title: Unidade Orçamentária Repassadora - Código
+    description: |
+      .
+    constraints:
+      pattern: '^[1-9]\d{3}$'
+
+  - name: uo_repassadora_sigla
+    type: string
+    title: Unidade Orçamentária Repassadora - Sigla
     description: |
       .
     constraints:
@@ -1433,6 +1566,15 @@ fields:
     description: |
       Valor total, em reais, da despesa liquidada de resto a pagar não processado, registrada no exercício.
 
+  - name: vlr_detalhado
+    type: number
+    title: Valor Detalhado (R$)
+    description: |
+      .
+    decimalChar: ','
+    constraints:
+      minimum: 0
+
   - name: vlr_efetivado_ajustado
     type: number
     title: Valor Efetivado Ajustado
@@ -1474,8 +1616,6 @@ fields:
     title: Valor LDO Receita
     description: |
       .
-    constraints:
-      minimum: 0
 
   - name: vlr_limite
     type: number
@@ -1512,8 +1652,6 @@ fields:
     title: Valor LOA Receita
     description: |
       .
-    constraints:
-      minimum: 0
 
   - name: vlr_meta_fisica_ano0
     type: number
@@ -1638,9 +1776,10 @@ fields:
 
   - name: vlr_recebido
     type: number
-    title: Valor Recebido (R$)
+    title: Valor Distribuído (R$)
     description: |
       .
+    decimalChar: ','
     constraints:
       minimum: 0
 

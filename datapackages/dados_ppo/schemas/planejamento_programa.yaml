@@ -80,14 +80,14 @@ fields:
   - name: Estratégia de Implementação
     target: estrategia_implementacao
 
-  - name: Previsão Orçamentária {{year0}}
+  - name: Previsão Orçamentária {{year1}}
     target: vlr_meta_orcamentaria_ano0
 
-  - name: Previsão Orçamentária {{year1}}
+  - name: Previsão Orçamentária {{year2}}
     target: vlr_meta_orcamentaria_ano1
 
-  - name: Previsão Orçamentária {{year2}}
+  - name: Previsão Orçamentária {{year3}}
     target: vlr_meta_orcamentaria_ano2
 
-  - name: Previsão Orçamentária {{year3}}
+  - name: Previsão Orçamentária {{year4}}
     target: vlr_meta_orcamentaria_ano3

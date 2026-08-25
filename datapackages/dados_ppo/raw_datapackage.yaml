@@ -3,12 +3,14 @@ title: Portal de Planejamento e Orçamento - PPO-MG
 owner_org: secretaria-de-estado-de-planejamento-e-gestao-seplag
 dpetl_load:
   owner: splor-mg
-  repo: dados-ppo-{{year0}}
+  repo: dados-ppo-{{year1}}
+  level: orgs
+  visibility: public
 
 resources:
   - name: intra_orcamentaria
     type: table
-    path: data_raw/DespesaIntra_TodasUnidades_{{date}}.csv
+    path: data_raw/Despesa_Intraorcamentaria_{{year1}}.csv
     scheme: file
     format: csv
     mediatype: text/csv
@@ -17,11 +19,12 @@ resources:
       delimiter: ';'
     schema: schemas/intra_orcamentaria.yaml
     dpetl_transform:
+      path: data_pre
       format: csv
 
   - name: orcamento_despesa
     type: table
-    path: data_raw/Despesa_Orcamentaria_Fiscal_{{year0}}.csv
+    path: data_raw/Despesa_Orcamentaria_Fiscal_{{year1}}.csv
     scheme: file
     format: csv
     mediatype: text/csv
@@ -30,11 +33,12 @@ resources:
       delimiter: ';'
     schema: schemas/orcamento_despesa.yaml
     dpetl_transform:
+      path: data_pre
       format: csv
 
   - name: orcamento_despesa_investimento
     type: table
-    path: data_raw/Receita_Investimento_{{year0}}.csv
+    path: data_raw/Despesa_Investimento_{{year1}}.csv
     scheme: file
     format: csv
     mediatype: text/csv
@@ -43,6 +47,7 @@ resources:
       delimiter: ';'
     schema: schemas/orcamento_despesa_investimento.yaml
     dpetl_transform:
+      path: data_pre
       format: csv
 
   - name: orcamento_limite
@@ -56,11 +61,12 @@ resources:
       delimiter: ';'
     schema: schemas/orcamento_limite.yaml
     dpetl_transform:
+      path: data_pre
       format: csv
 
   - name: orcamento_obras
     type: table
-    path: data_raw/Obras_{{year0}}.csv
+    path: data_raw/Obras_{{year1}}.csv
     scheme: file
     format: csv
     mediatype: text/csv
@@ -69,6 +75,7 @@ resources:
       delimiter: ';'
     schema: schemas/orcamento_obras.yaml
     dpetl_transform:
+      path: data_pre
       format: csv
 
   - name: orcamento_pessoal
@@ -82,6 +89,7 @@ resources:
       delimiter: ';'
     schema: schemas/orcamento_pessoal.yaml
     dpetl_transform:
+      path: data_pre
       format: csv
 
   - name: orcamento_receita
@@ -95,11 +103,12 @@ resources:
       delimiter: ';'
     schema: schemas/orcamento_receita.yaml
     dpetl_transform:
+      path: data_pre
       format: csv
 
   - name: orcamento_receita_investimento
     type: table
-    path: data_raw/Orçamento de Investimento.csv
+    path: data_raw/Orçamento da Receita de Investimento.csv
     scheme: file
     format: csv
     mediatype: text/csv
@@ -108,6 +117,7 @@ resources:
       delimiter: ';'
     schema: schemas/orcamento_receita_investimento.yaml
     dpetl_transform:
+      path: data_pre
       format: csv
 
   - name: orcamento_repasse
@@ -121,6 +131,7 @@ resources:
       delimiter: ';'
     schema: schemas/orcamento_repasse.yaml
     dpetl_transform:
+      path: data_pre
       format: csv
 
   - name: planejamento_acao
@@ -134,6 +145,7 @@ resources:
       delimiter: ';'
     schema: schemas/planejamento_acao.yaml
     dpetl_transform:
+      path: data_pre
       format: csv
 
   - name: planejamento_indicador
@@ -147,6 +159,7 @@ resources:
       delimiter: ';'
     schema: schemas/planejamento_indicador.yaml
     dpetl_transform:
+      path: data_pre
       format: csv
 
   - name: planejamento_localizador
@@ -160,6 +173,7 @@ resources:
       delimiter: ';'
     schema: schemas/planejamento_localizador.yaml
     dpetl_transform:
+      path: data_pre
       format: csv
 
   - name: planejamento_programa
@@ -173,4 +187,5 @@ resources:
       delimiter: ';'
     schema: schemas/planejamento_programa.yaml
     dpetl_transform:
+      path: data_pre
       format: csv
