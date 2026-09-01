@@ -5,6 +5,7 @@ dpetl_load:
   owner: splor-mg
   repo: dados-siafi-{{year0}}
   level: orgs
+  visibility: public
 
 resources:
   - name: alteracoes_orcamentarias
