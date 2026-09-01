@@ -1,6 +1,7 @@
 name: dados_ppo
 title: Portal de Planejamento e Orçamento - PPO-MG
 owner_org: secretaria-de-estado-de-planejamento-e-gestao-seplag
+dpetl_extract: false
 dpetl_load:
   owner: splor-mg
   repo: dados-ppo-{{year1}}
