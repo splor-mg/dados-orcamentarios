@@ -206,6 +206,10 @@ fields:
     constraints:
       pattern: '^(\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}|\d{3}\.\d{3}\.\d{3}/\d{2})$'
     missingValues: ['99999999999999']
+    anonymize:
+      method: aes_siv
+      annotation: CPF:11
+      filter: 'len([c for c in cnpj_cpf_formatado if c.isdigit()]) == 11'
 
   - name: data_inclusao
     type: date
@@ -1113,6 +1117,11 @@ fields:
       Razão social do credor.
     constraints:
       maxLength: 500
+    anonymize:
+      method: '[INFORMACAO COM RESTRICAO DE ACESSO]'
+      filter: >
+        (int(ano) > 2021 and int(uo_cod) == 4291 and int(upg_cod) == 761) or
+        (int(uo_cod) == 2041 and int(elemento_cod) == 31 and int(item_cod) == 2)
 
   - name: receita_cod
     type: string
