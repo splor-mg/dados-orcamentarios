@@ -56,8 +56,14 @@ fields:
   - name: Categoria
     target: categoria_invest_cod
 
+  - name: Nome Categoria
+    target: categoria_invest_desc
+
   - name: Natureza
     target: natureza_invest_cod
+
+  - name: Nome Natureza
+    target: natureza_invest_desc
 
   - name: Fonte Investimento
     target: fonte_invest_cod

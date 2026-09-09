@@ -190,6 +190,14 @@ fields:
     constraints:
       pattern: '^\d{4}$'
 
+  - name: categoria_invest_desc
+    type: string
+    title: Categoria de Investimento - Descrição
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
   - name: causas
     type: string
     title: Causas
@@ -674,6 +682,14 @@ fields:
       .
     constraints:
       pattern: '^[1-9]\d{3}$'
+
+  - name: natureza_invest_desc
+    type: string
+    title: Natureza de Investimento - Descrição
+    description: |
+      .
+    constraints:
+      maxLength: 500
 
   - name: nivel_origem
     type: string
@@ -1661,6 +1677,14 @@ fields:
     title: Valor LOA Receita
     description: |
       .
+
+  - name: vlr_loa_rec_invest
+    type: number
+    title: Valor LOA Receita - Investimento
+    description: |
+      .
+    constraints:
+      minimum: 0
 
   - name: vlr_meta_fisica_ano0
     type: number

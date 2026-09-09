@@ -20,6 +20,9 @@ fields:
   - name: Unidade de Medida da Obra
     target: unidade_medida_cod
 
+  - name: Descrição da Unidade de Medida
+    target: unidade_medida_desc
+
   - name: Quantidade
     target: obra_quantidade
 

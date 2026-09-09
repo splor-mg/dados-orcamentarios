@@ -111,18 +111,6 @@ STATUS_OBRA_MAP = {
     'Cancelado': 'CANCELADO',
 }
 
-CATEGORIA_INVEST_MAP = {
-    '4510': 'PARTICIPAÇÃO SOCIETÁRIA',
-    '4610': 'IMOBILIZAÇÕES',
-    '4710': 'AMORTIZAÇÃO DE DÍVIDAS',
-    '4810': 'OUTRAS APLICAÇÕES',
-}
-
-UNIDADE_MEDIDA_MAP = {
-    '207': 'UNIDADE',
-    '130': 'METRO QUADRADO'
-}
-
 INVALID_CHAR_MAP = {
     '\x02': ' ',
     '\u200b': ' ',
@@ -173,12 +161,11 @@ def transform_detalhamento_obras():
     out['IAG'] = as_int(pre['iag_cod'])
     out['NUMERO DA OBRA SISOR'] = pd.Series(range(1, len(pre) + 1), dtype='Int64')
     out['NUMERO DA OBRA SIAD'] = as_int(pre['obra_siad_cod'])
-    out['DESCRICAO DA OBRA'] = pre['obra_desc']
+    out['DESCRICAO DA OBRA'] = pre['obra_desc'].str.replace("'", "`", regex=False)
     out['STATUS DA OBRA'] = pre['obra_status'].map(STATUS_OBRA_MAP).fillna(
         pre['obra_status'].str.upper()
     )
-    out['UNIDADE DE MEDIDA DA OBRA'] = pre['unidade_medida_cod'].astype(str).map(
-        UNIDADE_MEDIDA_MAP).fillna(pre['unidade_medida_cod'].astype(str))
+    out['UNIDADE DE MEDIDA DA OBRA'] = pre['unidade_medida_desc']
     out['QUANTIDADE'] = as_int(pre['obra_quantidade'])
     out['ALTERAR UNIDADE DE MEDIDA DA OBRA'] = pre['unidade_medida_alterar'].map(SIM_NAO_MAP).fillna('')
     out['REGIÃO GEOGRÁFICA INTERMEDIÁRIA'] = pre['regiao_geografica_intermediaria_desc']
@@ -295,11 +282,9 @@ def transform_qdd_investimento():
     out['VALOR (R$)'] = as_num(pre['vlr_loa_desp'])
     out['IAG'] = as_int(pre['iag_cod'])
     out['DESC_PROJETO_ATIV'] = pre['acao_desc']
-    out['CATEGORIA'] = pre['categoria_invest_cod'].map(
-        lambda x: f'{x} - {CATEGORIA_INVEST_MAP.get(x, '')}' if x else ''
-    )
+    out['CATEGORIA'] = [cod_nome(c, d) for c, d in zip(pre['categoria_invest_cod'], pre['categoria_invest_desc'])]
     out['COD_NATUREZA'] = as_int(pre['natureza_invest_cod'])
-    out['NATUREZA'] = ''
+    out['NATUREZA'] = pre['natureza_invest_desc']
     out['COD_FONTE'] = as_int(pre['fonte_invest_cod'])
     out['FONTE'] = pre['fonte_invest_desc']
     out['NOME_ACAO'] = pre['acao_desc']
