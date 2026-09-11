@@ -57,7 +57,8 @@ test = { cmd = 'pytest -s -x -vv', help = 'Runs unit tests.' }
 post_test = { cmd = 'coverage html', help = 'Generates a coverage report after the tests.' }
 yaml = { cmd = 'poetry run python src/build_datapackage.py raw_datapackage.yaml', help = 'Applies common fields to raw_datapackage.yaml.' }
 json = { cmd = 'poetry run python src/build_datapackage.py datapackage.json', help = 'Applies common fields to raw_datapackage.json.' }
+bocache = { cmd = 'poetry run bo cache update', help = 'Create cache for bocli.' }
 extract = { cmd = 'poetry run dpetl extract --delay 5', help = 'Runs the ETL extract command.' }
 transform = { cmd = 'poetry run dpetl --no-validate transform', help = 'Runs the ETL transform command.' }
 load = { cmd = 'poetry run dpetl --validate-before load', help = 'Runs the ETL load command.' }
-etl = { cmd = 'task yaml && task extract && task transform && task json && task load', help = 'Runs all ETL process.' }
+etl = { cmd = 'task yaml && task bocache && task extract && task transform && task json && task load', help = 'Runs all ETL process.' }

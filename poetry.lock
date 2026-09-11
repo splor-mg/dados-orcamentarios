@@ -72,7 +72,7 @@ typer = ">=0.15.0"
 type = "git"
 url = "https://github.com/splor-mg/bo-cli.git"
 reference = "HEAD"
-resolved_reference = "35f123b1feefffaedd43e2a5a246beb5dd06072e"
+resolved_reference = "ae248ac3b8534f31bc855f8c228d35d1bee051d4"
 
 [[package]]
 name = "certifi"
