@@ -76,11 +76,14 @@ jobs:
 
       - name: Run etl process
         env:
-          BO_AUTH: ${{ secrets.BO_AUTH }}
-          BO_BASE_URL: ${{ secrets.BO_BASE_URL }}
+          BO_AUTH: ${{ vars.BO_AUTH }}
+          BO_BASE_URL: ${{ vars.BO_BASE_URL }}
           BO_PASSWORD: ${{ secrets.BO_PASSWORD }}
           BO_USER: ${{ secrets.BO_USER }}
-          BO_VERIFY_SSL: ${{ secrets.BO_VERIFY_SSL }}
+          BO_VERIFY_SSL: ${{ vars.BO_VERIFY_SSL }}
+          BOCLI_MAX_REQUESTS_PER_MINUTE: ${{ vars.BOCLI_MAX_REQUESTS_PER_MINUTE }}
+          BOCLI_REQUEST_DELAY: ${{ vars.BOCLI_REQUEST_DELAY }}
+          ANONYMIZE_SECRET_KEY: ${{ secrets.ANONYMIZE_SECRET_KEY }}
           GH_APP_ID: ${{ secrets.GH_APP_ID }}
           GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
         run: |
