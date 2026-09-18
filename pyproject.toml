@@ -55,10 +55,12 @@ format = { cmd = 'ruff format', help = 'Formats code according to code style con
 pre_test = { cmd = 'task lint', help = 'Runs linters before running the tests.' }
 test = { cmd = 'pytest -s -x -vv', help = 'Runs unit tests.' }
 post_test = { cmd = 'coverage html', help = 'Generates a coverage report after the tests.' }
+workflow = { cmd = 'poetry run python src/update_etl_options.py', help = 'Updates the package options in etl.yaml.' }
 yaml = { cmd = 'poetry run python src/build_datapackage.py raw_datapackage.yaml', help = 'Applies common fields to raw_datapackage.yaml.' }
-json = { cmd = 'poetry run python src/build_datapackage.py datapackage.json', help = 'Applies common fields to datapackage.json.' }
 bocache = { cmd = 'poetry run bo cache update', help = 'Create cache for bocli.' }
+pre_extract = { cmd = 'task workflow && task yaml && task bocache', help = 'Necessary process before extract.' }
 extract = { cmd = 'poetry run dpetl $ETL_DESCRIPTOR extract --delay 5', help = 'Runs the ETL extract command.' }
 transform = { cmd = 'poetry run dpetl $ETL_DESCRIPTOR --no-validate transform', help = 'Runs the ETL transform command.' }
+pre_load = { cmd = 'poetry run python src/build_datapackage.py datapackage.json', help = 'Applies common fields to datapackage.json.' }
 load = { cmd = 'poetry run dpetl --validate-before load', help = 'Runs the ETL load command.' }
-etl = { cmd = 'task yaml && task bocache && task extract && task transform && task json && task load', help = 'Runs all ETL process.' }
+etl = { cmd = 'task extract && task transform && task load', help = 'Runs all ETL process.' }
