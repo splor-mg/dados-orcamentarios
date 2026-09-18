@@ -6,21 +6,9 @@ fields:
     target: mes_cod
 
   - name: Mês Regularização
-    type: string
-    title: Mês Regularização
-    description: |
-      Mês numérico de cancelamento de regularização.
-    constraints:
-      pattern: '^([1-9]|1[0-2])$'
     target: mes_regularizacao
 
   - name: Mês Registro Doc DespPend
-    type: string
-    title: Mês Registro Documento Despesa Pendente
-    description: |
-      Mês numérico de registro do documento de despesa de pessoal pendente de crédito.
-    constraints:
-      pattern: '^([1-9]|1[0-2])$'
     target: mes_registro
 
   - name: Unidade Orçamentária - Código
@@ -51,28 +39,10 @@ fields:
     target: elemento_item_cod
 
   - name: Valor Além Crédito
-    type: number
-    title: Valor Além Crédito
-    description: |
-      Valor, em reais, da despesa de pessoal pendente de regularização por falta de crédito orçamentário.
-    constraints:
-      minimum: 0
     target: vlr_alem_credito
 
   - name: Valor Regularizado
-    type: number
-    title: Valor Regularizado
-    description: |
-      Valor, em reais, da parte regularizada da despesa de pessoal pendente de regularização por falta de crédito orçamentário.
-    constraints:
-      minimum: 0
     target: vlr_regularizado
 
   - name: Valor Anulado
-    type: number
-    title: Valor Anulado
-    description: |
-      Valor, em reais, da parte anulada da despesa de pessoal pendente de regularização por falta de crédito orçamentário.
-    constraints:
-      minimum: 0
     target: vlr_anulado

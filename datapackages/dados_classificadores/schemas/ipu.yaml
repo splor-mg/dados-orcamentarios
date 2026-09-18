@@ -6,10 +6,4 @@ fields:
     target: ipu_cod
 
   - name: Procedência - Descrição
-    type: string
-    title: Procedência - Descrição
-    description: |
-      Descrição da procedência dos recursos financeiros.
-    constraints:
-      maxLength: 500
     target: ipu_desc

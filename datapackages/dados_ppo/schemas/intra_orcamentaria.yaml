@@ -1,0 +1,39 @@
+fields:
+  - name: Ano
+    target: ano
+
+  - name: Unidade Orçamentária Beneficiada
+    target: uo_beneficiada_cod
+
+  - name: Nome da Ação
+    target: acao_desc
+
+  - name: Programa de Trabalho
+    target: programa_trabalho_fmt
+
+  - name: Natureza da Despesa
+    target: natureza_fmt
+
+  - name: Código do Item
+    target: item_cod
+
+  - name: Nome do Elemento Item
+    target: item_desc
+
+  - name: Valor Distribuído
+    target: vlr_recebido
+
+  - name: Data da Inclusão
+    target: data_inclusao
+
+  - name: Unidade Orçamentária Repassadora
+    target: uo_repassadora_cod
+
+  - name: Sigla Repassadora
+    target: uo_repassadora_sigla
+
+  - name: Sigla Beneficiada
+    target: uo_beneficiada_sigla
+
+  - name: Valor Detalhado (R$)
+    target: vlr_detalhado

@@ -1,0 +1,24 @@
+fields:
+  - name: Ano
+    target: ano
+
+  - name: UO
+    target: uo_cod
+
+  - name: SIGLA
+    target: uo_sigla
+
+  - name: GRUPO
+    target: grupo_cod
+
+  - name: IAG
+    target: iag_cod
+
+  - name: FONTE
+    target: fonte_cod
+
+  - name: IPU
+    target: ipu_cod
+
+  - name: VALOR LIMITE
+    target: vlr_limite

@@ -1,0 +1,18 @@
+fields:
+  - name: Ano
+    target: ano
+
+  - name: Unidade Orçamentária
+    target: uo_cod
+
+  - name: Nome Unidade Orçamentária
+    target: uo_nome
+
+  - name: Sigla da UO
+    target: uo_sigla
+
+  - name: Fonte Investimento
+    target: fonte_invest_cod
+
+  - name: Valor 2027
+    target: vlr_loa_rec_invest

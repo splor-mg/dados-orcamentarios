@@ -1,0 +1,192 @@
+name: dados_ppo
+title: Portal de Planejamento e Orçamento - PPO-MG
+owner_org: secretaria-de-estado-de-planejamento-e-gestao-seplag
+dpetl_extract: false
+dpetl_load:
+  owner: splor-mg
+  repo: dados-ppo-{{year1}}
+  level: orgs
+  visibility: public
+
+resources:
+  - name: intra_orcamentaria
+    type: table
+    path: data_raw/Despesa_Intraorcamentaria_{{year1}}.csv
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect:
+      delimiter: ';'
+    schema: schemas/intra_orcamentaria.yaml
+    dpetl_transform:
+      path: data_pre
+      format: csv
+
+  - name: orcamento_despesa
+    type: table
+    path: data_raw/Despesa_Orcamentaria_Fiscal_{{year1}}.csv
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect:
+      delimiter: ';'
+    schema: schemas/orcamento_despesa.yaml
+    dpetl_transform:
+      path: data_pre
+      format: csv
+
+  - name: orcamento_despesa_investimento
+    type: table
+    path: data_raw/Despesa_Investimento_{{year1}}.csv
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect:
+      delimiter: ';'
+    schema: schemas/orcamento_despesa_investimento.yaml
+    dpetl_transform:
+      path: data_pre
+      format: csv
+
+  - name: orcamento_limite
+    type: table
+    path: data_raw/Limite Orçamentário.csv
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect:
+      delimiter: ';'
+    schema: schemas/orcamento_limite.yaml
+    dpetl_transform:
+      path: data_pre
+      format: csv
+
+  - name: orcamento_obras
+    type: table
+    path: data_raw/Obras_{{year1}}.csv
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect:
+      delimiter: ';'
+    schema: schemas/orcamento_obras.yaml
+    dpetl_transform:
+      path: data_pre
+      format: csv
+
+  - name: orcamento_pessoal
+    type: table
+    path: data_raw/Exportar Todos.csv
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect:
+      delimiter: ';'
+    schema: schemas/orcamento_pessoal.yaml
+    dpetl_transform:
+      path: data_pre
+      format: csv
+
+  - name: orcamento_receita
+    type: table
+    path: data_raw/Orcamento_Receita.csv
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect:
+      delimiter: ';'
+    schema: schemas/orcamento_receita.yaml
+    dpetl_transform:
+      path: data_pre
+      format: csv
+
+  - name: orcamento_receita_investimento
+    type: table
+    path: data_raw/Orçamento da Receita de Investimento.csv
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect:
+      delimiter: ';'
+    schema: schemas/orcamento_receita_investimento.yaml
+    dpetl_transform:
+      path: data_pre
+      format: csv
+
+  - name: orcamento_repasse
+    type: table
+    path: data_raw/repasse-recurso.csv
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect:
+      delimiter: ';'
+    schema: schemas/orcamento_repasse.yaml
+    dpetl_transform:
+      path: data_pre
+      format: csv
+
+  - name: planejamento_acao
+    type: table
+    path: data_raw/AcaoExportacaoCsv.csv
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect:
+      delimiter: ';'
+    schema: schemas/planejamento_acao.yaml
+    dpetl_transform:
+      path: data_pre
+      format: csv
+
+  - name: planejamento_indicador
+    type: table
+    path: data_raw/IndicadorExportacaoCsv.csv
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect:
+      delimiter: ';'
+    schema: schemas/planejamento_indicador.yaml
+    dpetl_transform:
+      path: data_pre
+      format: csv
+
+  - name: planejamento_localizador
+    type: table
+    path: data_raw/LocalizadorExportacaoCsv.csv
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect:
+      delimiter: ';'
+    schema: schemas/planejamento_localizador.yaml
+    dpetl_transform:
+      path: data_pre
+      format: csv
+
+  - name: planejamento_programa
+    type: table
+    path: data_raw/ProgramaExportacaoCsv.csv
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect:
+      delimiter: ';'
+    schema: schemas/planejamento_programa.yaml
+    dpetl_transform:
+      path: data_pre
+      format: csv

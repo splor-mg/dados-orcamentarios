@@ -1,0 +1,57 @@
+fields:
+  - name: Ano
+    target: ano
+
+  - name: Unidade Orçamentária
+    target: uo_cod
+
+  - name: Nome da UO
+    target: uo_nome
+
+  - name: Sigla UO
+    target: uo_sigla
+
+  - name: Classificação da Receita
+    target: receita_cod_fmt
+
+  - name: Descrição da Receita
+    target: receita_desc
+
+  - name: Categoria
+    target: categoria_cod
+
+  - name: Origem
+    target: origem_cod
+
+  - name: Espécie
+    target: especie_cod
+
+  - name: Rubrica
+    target: rubrica_cod
+
+  - name: Alínea
+    target: alinea_cod
+
+  - name: Subalínea
+    target: subalinea_cod
+
+  - name: Tipo de Receita
+    target: receita_tipo_cod
+
+  - name: Item
+    target: item_cod
+
+  - name: Subitem
+    target: subitem_cod
+
+  - name: Fonte
+    target: fonte_cod
+
+  - name: Valor LDO
+    target: vlr_ldo_rec
+
+  - name: Valor LOA
+    target: vlr_loa_rec
+
+  - name: Metodologia de cálculo e premissas utilizadas
+    target: metodologia

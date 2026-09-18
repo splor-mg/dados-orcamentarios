@@ -57,12 +57,6 @@ fields:
     target: num_processo_compra
 
   - name: Licitação - Descrição da Modalidade
-    type: string
-    title: Licitação - Descrição da Modalidade
-    description: |
-      Descrição da forma de licitação efetivada de acordo com o SIAFI-MG.
-    constraints:
-      maxLength: 500
     target: licitacao_modalidade
 
   - name: CNPJ_CPF Credor - Formatado
@@ -81,40 +75,16 @@ fields:
     target: num_empenho
 
   - name: Valor Despesa Empenhada
-    type: number
-    title: Valor Despesa Empenhada
-    description: |
-      Valor líquido, em reais, da despesa empenhada.
     target: vlr_empenhado
 
   - name: Valor Despesa Liquidada
-    type: number
-    title: Valor Despesa Liquidada
-    description: |
-      Valor total da despesa liquidada, em reais.
     target: vlr_liquidado
 
   - name: Valor Liquidado Retido
-    type: number
-    title: Valor Liquidado Retido
-    description: |
-      Valor, em reais, referente às retenções - parte da liquidação a favor de terceiros,
-      indicado apenas para análise de um documento de liquidação específico.
     target: vlr_liquidado_retido
 
   - name: Valor Pago Orçamentário
-    type: number
-    title: Valor Pago Orçamentário
-    description: |
-      Valor pago, por empenho.
-    constraints:
-      minimum: 0
     target: vlr_pago_orcamentario
 
   - name: Valor Pago Financeiro
-    type: number
-    title: Valor Pago Financeiro
-    description: |
-      Valor referente aos pagamentos efetuados através de movimentações bancárias, escriturais e apropriação contábil da despesa.
-      Esse cálculo não inclui valor de anulação de despesa paga.
     target: vlr_pago_financeiro
