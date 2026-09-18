@@ -2,8 +2,21 @@ name: etl
 
 on:
   workflow_dispatch:
+    inputs:
+      package:
+        description: "Package a executar"
+        type: choice
+        default: todos
+        options:
+          - todos
+          - dados_classificadores
+          - dados_siafi
   schedule:
     - cron: "0 10 * * 1-5"
+  push:
+    branches: [main]
+    paths:
+      - 'datapackages/*/raw_datapackage.yaml'
 
 permissions:
   actions: read
@@ -12,6 +25,7 @@ permissions:
 
 jobs:
   all:
+    if: github.event_name != 'push'
     runs-on: ubuntu-latest
     steps:
       - name: Set current date and time
@@ -76,6 +90,7 @@ jobs:
 
       - name: Run etl process
         env:
+          ETL_PACKAGE: ${{ inputs.package != 'todos' && inputs.package || '' }}
           BO_AUTH: ${{ vars.BO_AUTH }}
           BO_BASE_URL: ${{ vars.BO_BASE_URL }}
           BO_PASSWORD: ${{ secrets.BO_PASSWORD }}
@@ -88,6 +103,9 @@ jobs:
           GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
         run: |
           source .venv/bin/activate
+          if [ -n "$ETL_PACKAGE" ]; then
+            export ETL_DESCRIPTOR="-d datapackages/$ETL_PACKAGE/datapackage.yaml"
+          fi
           task etl
 
       - name: Render failure issue body
@@ -105,3 +123,29 @@ jobs:
           title: ETL workflow failed on ${{ steps.date_step.outputs.now }}
           labels: bug
           content-filepath: .github/etl_failure.rendered.md
+
+  update-options:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.GH_APP_ID }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+
+      - name: Update package options
+        run: python3 src/update_etl_options.py
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/workflows/etl.yaml
+          git diff --cached --quiet || (git commit -m "chore: update etl package options" && git push)
