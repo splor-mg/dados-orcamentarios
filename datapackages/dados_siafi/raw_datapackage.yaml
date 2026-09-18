@@ -19,7 +19,7 @@ resources:
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export dados_siafi/current/alteracoes_orcamentarias -q -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/alteracoes_orcamentarias.csv
+        - bo export dados_siafi/current/alteracoes_orcamentarias -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/alteracoes_orcamentarias.csv
 
   - name: cota
     type: table
@@ -32,7 +32,7 @@ resources:
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export dados_siafi/current/cota -q -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/cota.csv
+        - bo export dados_siafi/current/cota -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/cota.csv
 
   - name: credito
     type: table
@@ -45,7 +45,7 @@ resources:
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export dados_siafi/current/credito -q -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/credito.csv
+        - bo export dados_siafi/current/credito -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/credito.csv
 
   - name: execucao
     type: table
@@ -58,7 +58,7 @@ resources:
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export dados_siafi/current/execucao -q -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/execucao.csv
+        - bo export dados_siafi/current/execucao -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/execucao.csv
 
   - name: execucao_alem_credito
     type: table
@@ -71,7 +71,7 @@ resources:
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export dados_siafi/current/execucao_alem_credito -q -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/execucao_alem_credito.csv
+        - bo export dados_siafi/current/execucao_alem_credito -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/execucao_alem_credito.csv
 
   - name: receita
     type: table
@@ -84,7 +84,7 @@ resources:
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export dados_siafi/current/receita -q -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/receita.csv
+        - bo export dados_siafi/current/receita -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/receita.csv
 
   - name: restos_pagar
     type: table
@@ -97,7 +97,7 @@ resources:
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export dados_siafi/current/restos_pagar -q -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/restos_pagar.csv
+        - bo export dados_siafi/current/restos_pagar -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/restos_pagar.csv
 
   - name: restos_pagar_folha
     type: table
@@ -110,4 +110,4 @@ resources:
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export dados_siafi/current/restos_pagar_folha -q -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/restos_pagar_folha.csv
+        - bo export dados_siafi/current/restos_pagar_folha -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/restos_pagar_folha.csv

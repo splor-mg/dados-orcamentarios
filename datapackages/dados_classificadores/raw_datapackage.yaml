@@ -19,8 +19,8 @@ resources:
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export dados_classificadores/current/acao -q -o datapackages/dados_classificadores/data_raw/acao_current.csv
-        - bo export dados_classificadores/previous/acao -q -o datapackages/dados_classificadores/data_raw/acao_previous.csv
+        - bo export dados_classificadores/current/acao -q --dp DP0 -o datapackages/dados_classificadores/data_raw/acao_current.csv
+        - bo export dados_classificadores/previous/acao -q --dp DP0 -o datapackages/dados_classificadores/data_raw/acao_previous.csv
     dpetl_transform:
       format: csv
 
@@ -35,8 +35,8 @@ resources:
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export dados_classificadores/current/elemento -q -o datapackages/dados_classificadores/data_raw/elemento_current.csv
-        - bo export dados_classificadores/previous/elemento -q -o datapackages/dados_classificadores/data_raw/elemento_previous.csv
+        - bo export dados_classificadores/current/elemento -q --dp DP0 -o datapackages/dados_classificadores/data_raw/elemento_current.csv
+        - bo export dados_classificadores/previous/elemento -q --dp DP0 -o datapackages/dados_classificadores/data_raw/elemento_previous.csv
     dpetl_transform:
       format: csv
 
@@ -51,8 +51,8 @@ resources:
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export dados_classificadores/current/elemento_item -q -o datapackages/dados_classificadores/data_raw/elemento_item_current.csv
-        - bo export dados_classificadores/previous/elemento_item -q -o datapackages/dados_classificadores/data_raw/elemento_item_previous.csv
+        - bo export dados_classificadores/current/elemento_item -q --dp DP0 -o datapackages/dados_classificadores/data_raw/elemento_item_current.csv
+        - bo export dados_classificadores/previous/elemento_item -q --dp DP0 -o datapackages/dados_classificadores/data_raw/elemento_item_previous.csv
     dpetl_transform:
       format: csv
 
@@ -67,8 +67,8 @@ resources:
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export dados_classificadores/current/fonte -q -o datapackages/dados_classificadores/data_raw/fonte_current.csv
-        - bo export dados_classificadores/previous/fonte -q -o datapackages/dados_classificadores/data_raw/fonte_previous.csv
+        - bo export dados_classificadores/current/fonte -q --dp DP0 -o datapackages/dados_classificadores/data_raw/fonte_current.csv
+        - bo export dados_classificadores/previous/fonte -q --dp DP0 -o datapackages/dados_classificadores/data_raw/fonte_previous.csv
     dpetl_transform:
       format: csv
 
@@ -83,8 +83,8 @@ resources:
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export dados_classificadores/current/funcao -q -o datapackages/dados_classificadores/data_raw/funcao_current.csv
-        - bo export dados_classificadores/previous/funcao -q -o datapackages/dados_classificadores/data_raw/funcao_previous.csv
+        - bo export dados_classificadores/current/funcao -q --dp DP0 -o datapackages/dados_classificadores/data_raw/funcao_current.csv
+        - bo export dados_classificadores/previous/funcao -q --dp DP0 -o datapackages/dados_classificadores/data_raw/funcao_previous.csv
     dpetl_transform:
       format: csv
 
@@ -99,8 +99,8 @@ resources:
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export dados_classificadores/current/grupo_categoria -q -o datapackages/dados_classificadores/data_raw/grupo_categoria_current.csv
-        - bo export dados_classificadores/previous/grupo_categoria -q -o datapackages/dados_classificadores/data_raw/grupo_categoria_previous.csv
+        - bo export dados_classificadores/current/grupo_categoria -q --dp DP0 -o datapackages/dados_classificadores/data_raw/grupo_categoria_current.csv
+        - bo export dados_classificadores/previous/grupo_categoria -q --dp DP0 -o datapackages/dados_classificadores/data_raw/grupo_categoria_previous.csv
     dpetl_transform:
       format: csv
 
@@ -115,8 +115,8 @@ resources:
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export dados_classificadores/current/ipu -q -o datapackages/dados_classificadores/data_raw/ipu_current.csv
-        - bo export dados_classificadores/previous/ipu -q -o datapackages/dados_classificadores/data_raw/ipu_previous.csv
+        - bo export dados_classificadores/current/ipu -q --dp DP0 -o datapackages/dados_classificadores/data_raw/ipu_current.csv
+        - bo export dados_classificadores/previous/ipu -q --dp DP0 -o datapackages/dados_classificadores/data_raw/ipu_previous.csv
     dpetl_transform:
       format: csv
 
@@ -131,8 +131,8 @@ resources:
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export dados_classificadores/current/modalidade -q -o datapackages/dados_classificadores/data_raw/modalidade_current.csv
-        - bo export dados_classificadores/previous/modalidade -q -o datapackages/dados_classificadores/data_raw/modalidade_previous.csv
+        - bo export dados_classificadores/current/modalidade -q --dp DP0 -o datapackages/dados_classificadores/data_raw/modalidade_current.csv
+        - bo export dados_classificadores/previous/modalidade -q --dp DP0 -o datapackages/dados_classificadores/data_raw/modalidade_previous.csv
     dpetl_transform:
       format: csv
 
@@ -147,8 +147,8 @@ resources:
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export dados_classificadores/current/programa -q -o datapackages/dados_classificadores/data_raw/programa_current.csv
-        - bo export dados_classificadores/previous/programa -q -o datapackages/dados_classificadores/data_raw/programa_previous.csv
+        - bo export dados_classificadores/current/programa -q --dp DP0 -o datapackages/dados_classificadores/data_raw/programa_current.csv
+        - bo export dados_classificadores/previous/programa -q --dp DP0 -o datapackages/dados_classificadores/data_raw/programa_previous.csv
     dpetl_transform:
       format: csv
 
@@ -163,8 +163,8 @@ resources:
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export dados_classificadores/current/receita -q -o datapackages/dados_classificadores/data_raw/receita_current.csv
-        - bo export dados_classificadores/previous/receita -q -o datapackages/dados_classificadores/data_raw/receita_previous.csv
+        - bo export dados_classificadores/current/receita -q --dp DP0 -o datapackages/dados_classificadores/data_raw/receita_current.csv
+        - bo export dados_classificadores/previous/receita -q --dp DP0 -o datapackages/dados_classificadores/data_raw/receita_previous.csv
     dpetl_transform:
       format: csv
 
@@ -179,8 +179,8 @@ resources:
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export dados_classificadores/current/subfuncao -q -o datapackages/dados_classificadores/data_raw/subfuncao_current.csv
-        - bo export dados_classificadores/previous/subfuncao -q -o datapackages/dados_classificadores/data_raw/subfuncao_previous.csv
+        - bo export dados_classificadores/current/subfuncao -q --dp DP0 -o datapackages/dados_classificadores/data_raw/subfuncao_current.csv
+        - bo export dados_classificadores/previous/subfuncao -q --dp DP0 -o datapackages/dados_classificadores/data_raw/subfuncao_previous.csv
     dpetl_transform:
       format: csv
 
@@ -195,7 +195,7 @@ resources:
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export dados_classificadores/current/uo -q -o datapackages/dados_classificadores/data_raw/uo_current.csv
-        - bo export dados_classificadores/previous/uo -q -o datapackages/dados_classificadores/data_raw/uo_previous.csv
+        - bo export dados_classificadores/current/uo -q --dp DP0 -o datapackages/dados_classificadores/data_raw/uo_current.csv
+        - bo export dados_classificadores/previous/uo -q --dp DP0 -o datapackages/dados_classificadores/data_raw/uo_previous.csv
     dpetl_transform:
       format: csv
