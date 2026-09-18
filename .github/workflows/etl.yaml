@@ -90,13 +90,18 @@ jobs:
           source .venv/bin/activate
           task etl
 
+      - name: Render failure issue body
+        if: failure()
+        env:
+          JOB_ID: ${{ steps.job_id.outputs.job_id }}
+        run: |
+          envsubst '${GITHUB_REPOSITORY} ${GITHUB_RUN_ID} ${JOB_ID}' \
+            < .github/etl_failure.md > .github/etl_failure.rendered.md
+
       - name: Workflow failure notification
         uses: peter-evans/create-issue-from-file@v6
         if: failure()
-        env:
-          RUNID: ${{ github.run_id }}
-          JOBID: ${{ steps.job_id.outputs.job_id }}
         with:
           title: ETL workflow failed on ${{ steps.date_step.outputs.now }}
           labels: bug
-          content-filepath: .github/etl_failure.md
+          content-filepath: .github/etl_failure.rendered.md
