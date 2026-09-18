@@ -212,7 +212,7 @@ fields:
     description: |
       Código formatado do CNPJ ou CPF do credor.
     constraints:
-      pattern: '^(\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}|\d{3}\.\d{3}\.\d{3}/\d{2})$'
+      pattern: '^(\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}|\d{3}\.\d{3}\.\d{3}/\d{2}|CPF:[0-9a-f]{32})$'
     missingValues: ['99999999999999']
     anonymize:
       method: aes_siv
