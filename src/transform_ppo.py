@@ -132,6 +132,9 @@ SIM_NAO_MAP = {'S': 'Sim', 'N': 'Não'}
 
 def transform_categoria_pessoal():
     pre = read_pre('orcamento_pessoal')
+
+    pre = pre[pd.to_numeric(pre['uo_cod'], errors='coerce') != 1941].copy()
+
     out = pd.DataFrame()
     out['Ano de Exercício'] = as_int(pre['ano'])
     out['UO'] = [cod_nome(c, s) for c, s in zip(pre['uo_cod'], pre['uo_sigla'])]
