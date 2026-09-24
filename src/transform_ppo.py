@@ -86,6 +86,68 @@ def parse_trim(value):
     return format_trim(parse_br_number(value))
 
 
+def format_2dp(value):
+    n = parse_br_number(value)
+    if n is None:
+        return ''
+    return f'{n:.2f}'
+
+
+def sim_nao_to_bool(value):
+    s = '' if value is None else str(value).strip()
+    if s.lower() == 'sim':
+        return 'True'
+    if s.lower() in ('não', 'nao'):
+        return 'False'
+    return s
+
+
+def sim_nao_to_em_apuracao(value):
+    s = '' if value is None else str(value).strip()
+    if s.lower() == 'sim':
+        return 'Em Apuração'
+    return ''
+
+
+def first_nonempty(*values):
+    for v in values:
+        s = '' if v is None else str(v).strip()
+        if s:
+            return s
+    return ''
+
+
+def int_or_marker(series: pd.Series, marker: str):
+    def conv(v):
+        s = '' if v is None else str(v).strip()
+        if s == '':
+            return marker
+        try:
+            return int(float(s))
+        except ValueError:
+            return s
+    return series.apply(conv)
+
+
+def str_or_marker(series: pd.Series, marker: str):
+    return series.apply(lambda v: marker if (v is None or str(v).strip() == '') else v)
+
+
+def pivot_by_ano(pre: pd.DataFrame, key_cols, value_col, base_year=2027, n_years=4):
+    """Agrupa por key_cols e espalha value_col em <n_years> colunas (0..n_years-1),
+    posicionadas conforme o deslocamento (ano - base_year). Anos fora da faixa são
+    descartados; combinações sem valor para um ano ficam com NaN. Os valores voltam
+    como número (float), não como texto — quem chama decide o formato final."""
+    df = pre.copy()
+    df['_val'] = df[value_col].apply(parse_br_number)
+    df['_idx'] = pd.to_numeric(df['ano'], errors='coerce') - base_year
+    df = df[df['_idx'].between(0, n_years - 1)]
+    pivot = df.pivot_table(index=key_cols, columns='_idx', values='_val', aggfunc='sum')
+    pivot = pivot.reindex(columns=range(n_years))
+    pivot = pivot.reset_index()
+    return pivot
+
+
 def sanitize_text(df: pd.DataFrame) -> pd.DataFrame:
     def clean(value):
         if not isinstance(value, str):
@@ -127,58 +189,43 @@ SIM_NAO_MAP = {'S': 'Sim', 'N': 'Não'}
 
 
 # --------------------------------------------------------------------------
-# 1) BASE_CATEGORIA_PESSOAL  <-  orcamento_pessoal
+# 1) BASE_INTRA_ORCAMENTARIA_DETALHAMENTO  <-  intra_orcamentaria
+#    (agregado por UO beneficiada: soma vlr_recebido e vlr_detalhado)
 # --------------------------------------------------------------------------
 
-def transform_categoria_pessoal():
-    pre = read_pre('orcamento_pessoal')
-
-    pre = pre[pd.to_numeric(pre['uo_cod'], errors='coerce') != 1941].copy()
+def transform_base_intra_orcamentaria_detalhamento():
+    pre = read_pre('intra_orcamentaria')
+    df = pre.copy()
+    df['vlr_recebido_num'] = df['vlr_recebido'].apply(parse_br_number).fillna(0.0)
+    df['vlr_detalhado_num'] = df['vlr_detalhado'].apply(parse_br_number).fillna(0.0)
+    grouped = df.groupby(
+        ['uo_beneficiada_cod', 'uo_beneficiada_sigla'], as_index=False
+    )[['vlr_recebido_num', 'vlr_detalhado_num']].sum()
 
     out = pd.DataFrame()
-    out['Ano de Exercício'] = as_int(pre['ano'])
-    out['UO'] = [cod_nome(c, s) for c, s in zip(pre['uo_cod'], pre['uo_sigla'])]
-    out['Classificação'] = (
-        pre['pessoal_classificacao']
-        .str.replace('PESSOAL ', '', regex=False)
-        .str.title()
-    )
-    out['Categoria'] = pre['pessoal_categoria']
-    out['Quantidade'] = as_int(pre['pessoal_quantidade'])
+    out['Cód. UO Beneficiada'] = as_int(grouped['uo_beneficiada_cod'])
+    out['UO Beneficiada'] = grouped['uo_beneficiada_sigla']
+    out['Valor Recebido (R$)'] = grouped['vlr_recebido_num']
+    out['Valor Detalhado (R$)'] = grouped['vlr_detalhado_num']
     return out
 
 
 # --------------------------------------------------------------------------
-# 2) BASE_DETALHAMENTO_OBRAS  <-  orcamento_obras
+# 2) BASE_INTRA_ORCAMENTARIA_REPASSE  <-  intra_orcamentaria (nível item, 1:1)
 # --------------------------------------------------------------------------
 
-def transform_detalhamento_obras():
-    pre = read_pre('orcamento_obras')
+def transform_base_intra_orcamentaria_repasse():
+    pre = read_pre('intra_orcamentaria')
     out = pd.DataFrame()
-    out['UO'] = as_int(pre['uo_cod'])
-    out['FUNCAO'] = as_int(pre['funcao_cod'])
-    out['SUBFUNCAO'] = as_int(pre['subfuncao_cod'])
-    out['PROGRAMA'] = as_int(pre['programa_cod'])
-    out['ACAO'] = as_int(pre['acao_cod'])
-    out['SUBPROJETO'] = as_int(pre['subprojeto_cod'])
-    out['IAG'] = as_int(pre['iag_cod'])
-    out['NUMERO DA OBRA SISOR'] = pd.Series(range(1, len(pre) + 1), dtype='Int64')
-    out['NUMERO DA OBRA SIAD'] = as_int(pre['obra_siad_cod'])
-    out['DESCRICAO DA OBRA'] = pre['obra_desc'].str.replace("'", "`", regex=False)
-    out['STATUS DA OBRA'] = pre['obra_status'].map(STATUS_OBRA_MAP).fillna(
-        pre['obra_status'].str.upper()
-    )
-    out['UNIDADE DE MEDIDA DA OBRA'] = pre['unidade_medida_desc']
-    out['QUANTIDADE'] = as_int(pre['obra_quantidade'])
-    out['ALTERAR UNIDADE DE MEDIDA DA OBRA'] = pre['unidade_medida_alterar'].map(SIM_NAO_MAP).fillna('')
-    out['REGIÃO GEOGRÁFICA INTERMEDIÁRIA'] = pre['regiao_geografica_intermediaria_desc']
-    out['MUNICÍPIO'] = pre['municipio_desc']
-    out['VALOR TESOURO 2027 (R$)'] = as_num(pre['vlr_tesouro'])
-    out['VALOR OUTROS 2027 (R$)'] = as_num(pre['vlr_outros'])
-    for col in ['VALOR TESOURO 2028 (R$)', 'VALOR OUTROS 2028 (R$)',
-                'VALOR TESOURO 2029 (R$)', 'VALOR OUTROS 2029 (R$)',
-                'VALOR TESOURO 2030 (R$)', 'VALOR OUTROS 2030 (R$)']:
-        out[col] = pd.array([pd.NA] * len(pre), dtype='Float64')
+    out['Cód. UO Repassadora'] = as_int(pre['uo_repassadora_cod'])
+    out['UO Repassadora'] = pre['uo_repassadora_sigla']
+    out['Cód. Programa de Trabalho'] = pre['programa_trabalho_fmt'].apply(dot_to_space)
+    out['Ação'] = pre['acao_desc']
+    out['Cód. Natureza de Despesa'] = pre['natureza_fmt'].apply(dot_to_space)
+    out['Elemento Item'] = pre['item_desc']
+    out['Valor Repassado (R$)'] = as_num(pre['vlr_recebido'])
+    out['Cód. UO Beneficiada'] = int_or_marker(pre['uo_beneficiada_cod'], 'Não Repassado')
+    out['UO Beneficiada'] = str_or_marker(pre['uo_beneficiada_sigla'], 'Não Repassado')
     return out
 
 
@@ -263,7 +310,50 @@ def transform_qdd_fiscal():
 
 
 # --------------------------------------------------------------------------
-# 5) BASE_QDD_INVESTIMENTO  <-  orcamento_despesa_investimento
+# 5) BASE_ORCAM_DESPESA_INVESTIMENTO  <-  orcamento_despesa_investimento
+#    (vlr_loa_desp pivotado por ano)
+# --------------------------------------------------------------------------
+
+def transform_base_orcam_despesa_investimento():
+    pre = read_pre('orcamento_despesa_investimento')
+    key_cols = [
+        'orgao_cod', 'orgao_nome', 'uo_cod', 'uo_nome', 'uo_sigla',
+        'funcao_cod', 'subfuncao_cod', 'programa_cod', 'identificador_cod',
+        'projeto_atividade_cod', 'acao_cod', 'subprojeto_cod', 'fonte_invest_cod',
+        'iag_cod', 'acao_desc', 'categoria_invest_cod', 'categoria_invest_desc',
+        'natureza_invest_cod', 'natureza_invest_desc',
+    ]
+    pivot = pivot_by_ano(pre, key_cols, 'vlr_loa_desp', base_year=2027)
+
+    out = pd.DataFrame()
+    out['Código do Órgão'] = as_int(pivot['orgao_cod'])
+    out['Órgão'] = [cod_nome(o, u) for o, u in zip(pivot['orgao_nome'], pivot['uo_sigla'])]
+    out['Código da UO'] = as_int(pivot['uo_cod'])
+    out['Unidade Orçamentária'] = [cod_nome(n, s) for n, s in zip(pivot['uo_nome'], pivot['uo_sigla'])]
+    out['Função'] = as_int(pivot['funcao_cod'])
+    out['Subfunção'] = as_int(pivot['subfuncao_cod'])
+    out['Programa'] = as_int(pivot['programa_cod'])
+    out['Identificador'] = as_int(pivot['identificador_cod'])
+    out['Projeto_Atividade'] = as_int(pivot['projeto_atividade_cod'])
+    out['Ação'] = as_int(pivot['acao_cod'])
+    out['Subprojeto'] = as_int(pivot['subprojeto_cod'])
+    out['Fonte'] = as_int(pivot['fonte_invest_cod'])
+    out['IAG'] = as_int(pivot['iag_cod'])
+    out['Descrição'] = pivot['acao_desc']
+    out['Categoria'] = [
+        cod_nome(c, d) for c, d in zip(pivot['categoria_invest_cod'], pivot['categoria_invest_desc'])
+    ]
+    out['Código da Natureza'] = as_int(pivot['natureza_invest_cod'])
+    out['Natureza'] = pivot['natureza_invest_desc']
+    out['Valor (R$) 2027'] = pivot[0]
+    out['Valor (R$) 2028'] = pivot[1]
+    out['Valor (R$) 2029'] = pivot[2]
+    out['Valor (R$) 2030'] = pivot[3]
+    return out
+
+
+# --------------------------------------------------------------------------
+# 6) BASE_QDD_INVESTIMENTO  <-  orcamento_despesa_investimento
 # --------------------------------------------------------------------------
 
 def transform_qdd_investimento():
@@ -296,7 +386,91 @@ def transform_qdd_investimento():
 
 
 # --------------------------------------------------------------------------
-# 6) BASE_ORCAM_RECEITA_FISCAL  <-  orcamento_receita
+# 7) BASE_LIMITE_COTA  <-  orcamento_limite (vlr_limite pivotado por ano)
+# --------------------------------------------------------------------------
+
+def transform_base_limite_cota():
+    pre = read_pre('orcamento_limite')
+    key_cols = ['uo_cod', 'uo_sigla', 'grupo_cod', 'fonte_cod', 'ipu_cod', 'iag_cod']
+    pivot = pivot_by_ano(pre, key_cols, 'vlr_limite', base_year=2027)
+
+    out = pd.DataFrame()
+    out['Cód. UO'] = as_int(pivot['uo_cod'])
+    out['UO'] = pivot['uo_sigla']
+    out['Grupo de Despesa'] = as_int(pivot['grupo_cod'])
+    out['Fonte'] = as_int(pivot['fonte_cod'])
+    out['IPU'] = as_int(pivot['ipu_cod'])
+    out['IAG'] = as_int(pivot['iag_cod'])
+    out['Valor Limite 2027'] = pivot[0]
+    out['Valor Utilizado 2027'] = pd.array([pd.NA] * len(pivot), dtype='Float64')
+    out['Valor Transferido'] = pd.array([pd.NA] * len(pivot), dtype='Float64')
+    out['Valor Limite 2028'] = pivot[1]
+    out['Valor Utilizado 2028'] = pd.array([pd.NA] * len(pivot), dtype='Float64')
+    out['Valor Limite 2029'] = pivot[2]
+    out['Valor Utilizado 2029'] = pd.array([pd.NA] * len(pivot), dtype='Float64')
+    out['Valor Limite 2030'] = pivot[3]
+    out['Valor Utilizado 2030'] = pd.array([pd.NA] * len(pivot), dtype='Float64')
+    return out
+
+
+# --------------------------------------------------------------------------
+# 8) BASE_DETALHAMENTO_OBRAS  <-  orcamento_obras
+# --------------------------------------------------------------------------
+
+def transform_detalhamento_obras():
+    pre = read_pre('orcamento_obras')
+    out = pd.DataFrame()
+    out['UO'] = as_int(pre['uo_cod'])
+    out['FUNCAO'] = as_int(pre['funcao_cod'])
+    out['SUBFUNCAO'] = as_int(pre['subfuncao_cod'])
+    out['PROGRAMA'] = as_int(pre['programa_cod'])
+    out['ACAO'] = as_int(pre['acao_cod'])
+    out['SUBPROJETO'] = as_int(pre['subprojeto_cod'])
+    out['IAG'] = as_int(pre['iag_cod'])
+    out['NUMERO DA OBRA SISOR'] = pd.Series(range(1, len(pre) + 1), dtype='Int64')
+    out['NUMERO DA OBRA SIAD'] = as_int(pre['obra_siad_cod'])
+    out['DESCRICAO DA OBRA'] = pre['obra_desc'].str.replace("'", "`", regex=False)
+    out['STATUS DA OBRA'] = pre['obra_status'].map(STATUS_OBRA_MAP).fillna(
+        pre['obra_status'].str.upper()
+    )
+    out['UNIDADE DE MEDIDA DA OBRA'] = pre['unidade_medida_desc']
+    out['QUANTIDADE'] = as_int(pre['obra_quantidade'])
+    out['ALTERAR UNIDADE DE MEDIDA DA OBRA'] = pre['unidade_medida_alterar'].map(SIM_NAO_MAP).fillna('')
+    out['REGIÃO GEOGRÁFICA INTERMEDIÁRIA'] = pre['regiao_geografica_intermediaria_desc']
+    out['MUNICÍPIO'] = pre['municipio_desc']
+    out['VALOR TESOURO 2027 (R$)'] = as_num(pre['vlr_tesouro'])
+    out['VALOR OUTROS 2027 (R$)'] = as_num(pre['vlr_outros'])
+    for col in ['VALOR TESOURO 2028 (R$)', 'VALOR OUTROS 2028 (R$)',
+                'VALOR TESOURO 2029 (R$)', 'VALOR OUTROS 2029 (R$)',
+                'VALOR TESOURO 2030 (R$)', 'VALOR OUTROS 2030 (R$)']:
+        out[col] = pd.array([pd.NA] * len(pre), dtype='Float64')
+    return out
+
+
+# --------------------------------------------------------------------------
+# 9) BASE_CATEGORIA_PESSOAL  <-  orcamento_pessoal
+# --------------------------------------------------------------------------
+
+def transform_categoria_pessoal():
+    pre = read_pre('orcamento_pessoal')
+
+    pre = pre[pd.to_numeric(pre['uo_cod'], errors='coerce') != 1941].copy()
+
+    out = pd.DataFrame()
+    out['Ano de Exercício'] = as_int(pre['ano'])
+    out['UO'] = [cod_nome(c, s) for c, s in zip(pre['uo_cod'], pre['uo_sigla'])]
+    out['Classificação'] = (
+        pre['pessoal_classificacao']
+        .str.replace('PESSOAL ', '', regex=False)
+        .str.title()
+    )
+    out['Categoria'] = pre['pessoal_categoria']
+    out['Quantidade'] = as_int(pre['pessoal_quantidade'])
+    return out
+
+
+# --------------------------------------------------------------------------
+# 10) BASE_ORCAM_RECEITA_FISCAL  <-  orcamento_receita
 # --------------------------------------------------------------------------
 
 def transform_orcam_receita_fiscal():
@@ -330,7 +504,31 @@ def transform_orcam_receita_fiscal():
 
 
 # --------------------------------------------------------------------------
-# 7) BASE_REPASSE_RECURSOS  <-  orcamento_repasse
+# 11) BASE_ORCAM_RECEITA_INVESTIMENTO  <-  orcamento_receita_investimento (1:1)
+# --------------------------------------------------------------------------
+
+def transform_base_orcam_receita_investimento():
+    pre = read_pre('orcamento_receita_investimento')
+    out = pd.DataFrame()
+    out['COD_UO'] = as_int(pre['uo_cod'])
+    out['NOME_UO'] = pre['uo_nome']
+    out['SIGLA_UO'] = pre['uo_sigla']
+    out['CATEGORIA'] = pd.array([pd.NA] * len(pre), dtype='Int64')
+    out['SUBCATEGORIA'] = pd.array([pd.NA] * len(pre), dtype='Int64')
+    out['ALINEA'] = pd.array([pd.NA] * len(pre), dtype='Int64')
+    out['SUBALINEA'] = pd.array([pd.NA] * len(pre), dtype='Int64')
+    out['COD_RECEITA'] = ''
+    out['NIVEL_ORIGEM'] = ''
+    out['RECEITA'] = ''
+    out['VALOR UO (R$)'] = pd.array([pd.NA] * len(pre), dtype='Float64')
+    out['VALOR SCPPO (R$)'] = pd.array([pd.NA] * len(pre), dtype='Float64')
+    out['VALOR FINAL (R$)'] = as_num(pre['vlr_loa_rec_invest'])
+    out['ANO'] = as_int(pre['ano'])
+    return out
+
+
+# --------------------------------------------------------------------------
+# 12) BASE_REPASSE_RECURSOS  <-  orcamento_repasse
 # --------------------------------------------------------------------------
 
 def transform_repasse_recursos():
@@ -349,7 +547,7 @@ def transform_repasse_recursos():
 
 
 # --------------------------------------------------------------------------
-# 8) acoes_planejamento  <-  planejamento_acao
+# 13) acoes_planejamento  <-  planejamento_acao
 # --------------------------------------------------------------------------
 
 def transform_acoes_planejamento():
@@ -404,22 +602,148 @@ def transform_acoes_planejamento():
 
 
 # --------------------------------------------------------------------------
+# 14) indicadores_planejamento  <-  planejamento_indicador
+# --------------------------------------------------------------------------
+
+def transform_indicadores_planejamento():
+    pre = read_pre('planejamento_indicador')
+    out = pd.DataFrame()
+    out['Código do Programa'] = pre['programa_cod'].str.zfill(4)
+    out['Nome do Programa'] = pre['programa_desc']
+    out['Exclusão Lógica do Programa'] = pre['programa_exclusao'].apply(sim_nao_to_bool)
+    out['Indicador'] = pre['indicador_desc']
+    out['Exclusão Lógica do Indicador'] = pre['indicador_exclusao'].apply(sim_nao_to_bool)
+    out['Unidade de Medida'] = pre['unidade_medida_desc']
+    out['Índice de Referência'] = pre['indice_referencia'].apply(format_2dp)
+    out['Em apuração? (Índice de Referência)'] = pre['indice_referencia_apuracao'].apply(sim_nao_to_em_apuracao)
+    out['Data de Apuração'] = pre['indice_referencia_data_apuracao']
+    for ano_label, i in zip(['2027', '2028', '2029', '2030'], range(4)):
+        out[f'Previsão para {ano_label}'] = pre[f'previsao_ano{i}'].apply(format_2dp)
+        out[f'Em apuração? ({ano_label})'] = pre[f'apuracao_ano{i}'].apply(sim_nao_to_em_apuracao)
+    out['Fonte'] = pre['fonte_desc']
+    out['Periodicidade'] = pre['periodicidade']
+    out['Base Geográfica'] = pre['base_geografica']
+    out['Fórmula de Cálculo'] = pre['formula_calculo']
+    out['Justificativa do Status em apuração da(s) Previsão(es) do(s) Índice(s)'] = [
+        first_nonempty(a, b, c, d) for a, b, c, d in zip(
+            pre['previsao_apuracao_justificativa_ano0'],
+            pre['previsao_apuracao_justificativa_ano1'],
+            pre['previsao_apuracao_justificativa_ano2'],
+            pre['previsao_apuracao_justificativa_ano3'],
+        )
+    ]
+    out['Justificativa do Status em apuração do Índice de Referência'] = pre['indice_referencia_apuracao_justificativa']
+    out['Data Alteração'] = ''
+    out['Indicador Novo?'] = pre['indicador_novo'].apply(sim_nao_to_bool)
+    out['Polaridade'] = pre['polaridade']
+    return out
+
+
+# --------------------------------------------------------------------------
+# 15) localizadores_todos_planejamento  <-  planejamento_localizador
+# --------------------------------------------------------------------------
+
+def transform_localizadores_planejamento():
+    pre = read_pre('planejamento_localizador')
+    out = pd.DataFrame()
+    out['Código do Programa'] = pre['programa_cod'].str.zfill(4)
+    out['Nome do Programa'] = pre['programa_desc']
+    out['Código da Área Temática'] = pre['area_tematica_cod']
+    out['Área Temática'] = pre['area_tematica_desc']
+    out['Exclusão Lógica do Programa'] = pre['programa_exclusao'].apply(sim_nao_to_bool)
+    out['Código da Ação'] = pre['acao_cod']
+    out['Título da Ação'] = pre['acao_desc']
+    out['Código do Identificador de Ação Governamental (IAG)'] = pre['iag_cod']
+    out['Identificador de Ação Governamental (IAG)'] = pre['iag_desc']
+    out['Código do Projeto Estratégico'] = pre['projeto_estrategico_cod']
+    out['Projeto Estratégico'] = pre['projeto_estrategico_desc']
+    out['Código da Função'] = pre['funcao_cod']
+    out['Função'] = pre['funcao_desc']
+    out['Código da Subfunção'] = pre['subfuncao_cod']
+    out['SubFunção'] = pre['subfuncao_desc']
+    out['Código da Unidade Orçamentária Responsável pela Ação'] = pre['uo_acao_cod'].str.zfill(5)
+    out['Unidade Orçamentária Responsável pela Ação'] = pre['uo_acao_nome']
+    out['Exclusão Lógica da Ação'] = pre['acao_exclusao'].apply(sim_nao_to_bool)
+    out['Código do Localizador'] = ''
+    out['Exclusão Lógica do Localizador'] = ''
+    out['Código da Região Geográfica Intermediária'] = pre['regiao_geografica_intermediaria_cod']
+    out['Região Geográfica Intermediária'] = pre['regiao_geografica_intermediaria_desc']
+    out['Código do Município IBGE'] = pre['municipio_ibge_cod']
+    out['Código do Município Sigplan'] = pre['municipio_sigplan_cod']
+    out['Município'] = pre['municipio_desc']
+    for ano_label, i in zip(['2027', '2028', '2029', '2030'], range(4)):
+        out[f'Previsão Orçamentária {ano_label}'] = pre[f'vlr_meta_orcamentaria_ano{i}'].apply(parse_trim)
+        out[f'Previsão Física {ano_label}'] = pre[f'vlr_meta_fisica_ano{i}'].apply(parse_trim)
+    return out
+
+
+# --------------------------------------------------------------------------
+# 16) programas_planejamento  <-  planejamento_programa
+# --------------------------------------------------------------------------
+
+def transform_programas_planejamento():
+    pre = read_pre('planejamento_programa')
+    out = pd.DataFrame()
+    out['Código do Programa'] = pre['programa_cod'].str.zfill(4)
+    out['Nome do Programa'] = pre['programa_desc']
+    out['Exclusão Lógica do Programa'] = pre['programa_exclusao']
+    out['Programa Novo'] = pre['programa_novo']
+    out['Código da Área Temática'] = pre['area_tematica_cod']
+    out['Área Temática'] = pre['area_tematica_desc']
+    out['Código do Objetivo Estratégico'] = pre['objetivo_estrategico_cod']
+    out['Objetivo Estratégico'] = pre['objetivo_estrategico_desc']
+    out['Código da Diretriz Estratégica'] = pre['diretriz_estrategica_cod']
+    out['Diretriz Estratégica'] = pre['diretriz_estrategica_desc']
+    out['Justificativa de Inclusão ou Exclusão do Programa'] = pre['programa_justificativa_inclusao']
+    out['Código do Órgão Responsável pelo Programa'] = pre['orgao_programa_cod'].str.zfill(5)
+    out['Órgão Responsável pelo Programa'] = pre['orgao_programa_nome']
+    out['Código da Unidade Orçamentária Responsável pelo Programa'] = pre['uo_programa_cod']
+    out['Unidade Orçamentária Responsável pelo Programa'] = pre['uo_programa_nome']
+    out['Objetivo'] = pre['programa_objetivo']
+    out['Justificativa'] = pre['programa_justificativa']
+    out['Tipo de Programa'] = pre['tipo_de_programa']
+    out['Horizonte Temporal'] = pre['horizonte_temporal'].replace({'CONTINUO': 'Contínuo'})
+    out['Estratégia de Implementação'] = pre['estrategia_implementacao']
+    out['Unidade Administrativa Responsável pelo Programa'] = pre['ua_programa_nome']
+    for ano_label, i in zip(['2027', '2028', '2029', '2030'], range(4)):
+        out[f'Previsão Orçamentária {ano_label}'] = pre[f'vlr_meta_orcamentaria_ano{i}'].apply(parse_trim)
+    out['Programa Transposto'] = ''
+    out['Causas'] = pre['causas']
+    out['Título do Objetivo de Desenvolvimento Sustentável'] = [
+        cod_nome(c, t) for c, t in zip(pre['ods_cod'], pre['ods_titulo'])
+    ]
+    out['Subtítulo do Objetivo de Desenvolvimento Sustentável'] = ''
+    return out
+
+
+# --------------------------------------------------------------------------
 # Execução
 # --------------------------------------------------------------------------
 
 TRANSFORMS = {
-    'BASE_CATEGORIA_PESSOAL': transform_categoria_pessoal,
-    'BASE_DETALHAMENTO_OBRAS': transform_detalhamento_obras,
+    'BASE_INTRA_ORCAMENTARIA_DETALHAMENTO': transform_base_intra_orcamentaria_detalhamento,
+    'BASE_INTRA_ORCAMENTARIA_REPASSE': transform_base_intra_orcamentaria_repasse,
     'BASE_ORCAM_DESPESA_ITEM_FISCAL': transform_orcam_despesa_item_fiscal,
-    'BASE_ORCAM_RECEITA_FISCAL': transform_orcam_receita_fiscal,
     'BASE_QDD_FISCAL': transform_qdd_fiscal,
+    'BASE_ORCAM_DESPESA_INVESTIMENTO': transform_base_orcam_despesa_investimento,
     'BASE_QDD_INVESTIMENTO': transform_qdd_investimento,
+    'BASE_LIMITE_COTA': transform_base_limite_cota,
+    'BASE_DETALHAMENTO_OBRAS': transform_detalhamento_obras,
+    'BASE_CATEGORIA_PESSOAL': transform_categoria_pessoal,
+    'BASE_ORCAM_RECEITA_FISCAL': transform_orcam_receita_fiscal,
+    'BASE_ORCAM_RECEITA_INVESTIMENTO': transform_base_orcam_receita_investimento,
     'BASE_REPASSE_RECURSOS': transform_repasse_recursos,
     'acoes_planejamento': transform_acoes_planejamento,
+    'indicadores_planejamento': transform_indicadores_planejamento,
+    'localizadores_todos_planejamento': transform_localizadores_planejamento,
+    'programas_planejamento': transform_programas_planejamento,
 }
 
 OUTPUT_OVERRIDES = {
     'acoes_planejamento': {'filename': 'acoes_planejamento.txt', 'sep': '|', 'format': 'txt'},
+    'programas_planejamento': {'filename': 'programas_planejamento.txt', 'sep': '|', 'format': 'txt'},
+    'localizadores_todos_planejamento': {'filename': 'localizadores_todos_planejamento.txt', 'sep': '|', 'format': 'txt'},
+    'indicadores_planejamento': {'filename': 'indicadores_planejamento.txt', 'sep': '|', 'format': 'txt'},
 }
 
 
