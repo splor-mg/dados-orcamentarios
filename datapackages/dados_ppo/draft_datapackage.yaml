@@ -95,7 +95,7 @@ resources:
 
   - name: orcamento_receita
     type: table
-    path: data_raw/Orcamento_Receita.csv
+    path: data_raw/Relatorio_Receita_{{year1}}.csv
     scheme: file
     format: csv
     mediatype: text/csv

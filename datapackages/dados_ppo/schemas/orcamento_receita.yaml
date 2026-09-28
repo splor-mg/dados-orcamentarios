@@ -55,3 +55,6 @@ fields:
 
   - name: Metodologia de cálculo e premissas utilizadas
     target: metodologia
+
+  - name: Excluído?
+    target: classificacao_excluido
