@@ -221,7 +221,11 @@ def transform_base_intra_orcamentaria_repasse():
     out['UO Repassadora'] = pre['uo_repassadora_sigla']
     out['Cód. Programa de Trabalho'] = pre['programa_trabalho_fmt'].apply(dot_to_space)
     out['Ação'] = pre['acao_desc']
-    out['Cód. Natureza de Despesa'] = pre['natureza_fmt'].apply(dot_to_space)
+    # no SISOR a natureza vinha com o item ('3 1 91 13 5') e sem zeros à esquerda;
+    # no data_pre o item fica em item_cod ('05') e a natureza só vai até o elemento ('3.1.91.13')
+    out['Cód. Natureza de Despesa'] = (pre['natureza_fmt'] + '.' + pre['item_cod']).apply(
+        lambda cod: ' '.join(strip_leading_zero_int(parte) for parte in cod.split('.'))
+    )
     out['Elemento Item'] = pre['item_desc']
     out['Valor Repassado (R$)'] = as_num(pre['vlr_recebido'])
     out['Cód. UO Beneficiada'] = int_or_marker(pre['uo_beneficiada_cod'], 'Não Repassado')
