@@ -1,0 +1,47 @@
+import sys
+from datetime import date
+from io import StringIO
+from pathlib import Path
+
+import pandas as pd
+import requests
+
+RAW_URL = "https://raw.githubusercontent.com/splor-mg/dados-check-siafi/main/data/{resource}.csv"
+
+
+def load_previous_version(resource):
+    response = requests.get(RAW_URL.format(resource=resource), timeout=60)
+    if response.status_code != 200:
+        return None
+    return pd.read_csv(StringIO(response.text))
+
+
+def divergent_years(old, new):
+    numeric_columns = new.select_dtypes(include="number").columns.drop("ano")
+    old_sums = old.groupby("ano")[numeric_columns].sum()
+    new_sums = new.groupby("ano")[numeric_columns].sum()
+    combined = new_sums.subtract(old_sums, fill_value=0).abs()
+    return combined[(combined > 0.01).any(axis=1)].index.tolist()
+
+
+def main():
+    data_dir = Path(sys.argv[1])
+    current_year = date.today().year
+    years = set()
+
+    for csv_path in sorted(data_dir.glob("*.csv")):
+        resource = csv_path.stem
+        new = pd.read_csv(csv_path)
+        old = load_previous_version(resource)
+
+        if old is None:
+            continue
+
+        years.update(divergent_years(old, new))
+
+    years.discard(current_year)
+    print(" ".join(str(year) for year in sorted(years)))
+
+
+if __name__ == "__main__":
+    main()
