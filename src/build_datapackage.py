@@ -1,10 +1,16 @@
 import argparse
+import os
 import re
 from frictionless import Package, Schema
 from datetime import date
 from pathlib import Path
 
 today = date.today()
+year_override = os.environ.get('YEAR_OVERRIDE')
+year_base = int(year_override) if year_override else today.year
+
+CURRENT_DB_YEARS = 5
+is_previous_db = year_base <= today.year - CURRENT_DB_YEARS
 
 MATCH_BY = {'.yaml': 'target',
             '.json': 'name'}
@@ -12,7 +18,9 @@ MATCH_BY = {'.yaml': 'target',
 
 def replace_placeholders(text):
     text = text.replace('{{date}}', today.strftime('%Y-%m-%d'))
-    text = re.sub(r'\{\{year(\d+)\}\}', lambda m: str(today.year + int(m.group(1))), text)
+    text = re.sub(r'\{\{year(\d+)\}\}', lambda m: str(year_base + int(m.group(1))), text)
+    if is_previous_db:
+        text = text.replace('/current/', '/previous/')
     return text
 
 
@@ -28,7 +36,12 @@ def build(source_name, fields_dic):
         for resource in package.resources:
             schema = resource.schema.fields
 
+            if is_previous_db:
+                schema[:] = [field for field in schema if field.custom.get('previous', True)]
+
             for index, field in enumerate(schema):
+                original_custom = dict(field.custom)
+
                 if match_by == 'target':
                     name = field.custom.get('target')
                 else:
@@ -40,12 +53,12 @@ def build(source_name, fields_dic):
                 if name in fields_dic:
                     common_field = fields_dic[name]
                     schema[index] = common_field.to_copy(name=field.name)
-
-                    if match_by == 'target':
-                        schema[index].custom['target'] = name
-
+                    schema[index].custom.update(original_custom)
                 elif name not in missing:
                     missing.append(name)
+
+            for field in schema:
+                field.custom.pop('previous', None)
 
         if missing:
             example = ', '.join(missing[:5])
