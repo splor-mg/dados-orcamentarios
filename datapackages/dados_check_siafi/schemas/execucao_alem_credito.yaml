@@ -1,0 +1,12 @@
+fields:
+  - name: Ano de Exercício
+    target: ano
+
+  - name: Valor Além Crédito
+    target: vlr_alem_credito
+
+  - name: Valor Regularizado
+    target: vlr_regularizado
+
+  - name: Valor Anulado
+    target: vlr_anulado
