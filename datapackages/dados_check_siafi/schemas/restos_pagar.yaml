@@ -1,0 +1,60 @@
+fields:
+  - name: Ano de Exercício
+    target: ano
+
+  - name: Valor Inscrito Não Processado
+    target: vlr_inscrito_rpnp
+
+  - name: Valor Cancelado Não Processado
+    target: vlr_cancelado_rpnp
+
+  - name: Valor Restabelecido Não Processado
+    target: vlr_restabelecido_rpnp
+
+  - name: Valor Despesa Liquidada
+    target: vlr_despesa_liquidada_rpnp
+
+  - name: Valor Despesa Liquidada a Pagar
+    target: vlr_despesa_liquidada_pagar
+
+  - name: Saldo Restos a Pagar Processado
+    target: vlr_saldo_rpp
+
+  - name: Saldo Restos a Pagar Não Processado
+    target: vlr_saldo_rpnp
+
+  - name: Valor Inscrito Processado
+    target: vlr_inscrito_rpp
+
+  - name: Valor Cancelado Processado
+    target: vlr_cancelado_rpp
+
+  - name: Valor Desconto Processado
+    target: vlr_desconto_rpp
+
+  - name: Valor Restabelecido Processado
+    target: vlr_restabelecido_rpp
+
+  - name: Valor Pago Processado
+    target: vlr_pago_rpp
+
+  - name: Valor Anulação Pagamento Processado
+    target: vlr_anulacao_pagamento_rpp
+
+  - name: Valor Retenção Processado
+    target: vlr_retencao_rpp
+
+  - name: Valor Anulação Retenção Processado
+    target: vlr_anulacao_retencao_rpp
+
+  - name: Valor Anulação Pago Antecipado
+    target: vlr_anulacao_pago_antecipado
+
+  - name: Valor Pago Antecipado Exercício
+    target: vlr_pago_antecipado_exercicio
+
+  - name: Valor Pago Não Processado
+    target: vlr_pago_rpnp
+
+  - name: Valor Retenção Não Processado
+    target: vlr_retencao_rpnp

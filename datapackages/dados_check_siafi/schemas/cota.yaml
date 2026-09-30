@@ -1,0 +1,12 @@
+fields:
+  - name: Ano de Exercício
+    target: ano
+
+  - name: Valor Cota Aprovada
+    target: vlr_cota_aprovada
+
+  - name: Valor Anulação Cota Aprovada
+    target: vlr_cota_anulada
+
+  - name: Valor Cota Aprovada Líquida
+    target: vlr_cota_aprovada_liquida

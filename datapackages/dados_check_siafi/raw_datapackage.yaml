@@ -1,0 +1,128 @@
+name: dados_check_siafi
+title: Validador do datapackage dados_siafi
+dpetl_load:
+  owner: splor-mg
+  repo: dados-check-siafi
+  level: orgs
+  visibility: public
+
+resources:
+  - name: alteracoes_orcamentarias
+    type: table
+    path: data_raw/alteracoes_orcamentarias.csv
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    schema: schemas/alteracoes_orcamentarias.yaml
+    dpetl_extract:
+      mode: cli
+      arguments:
+        - bo export dados_check_siafi/current/alteracoes_orcamentarias -q --dp DP0 -o datapackages/dados_check_siafi/data_raw/alteracoes_orcamentarias.csv
+    dpetl_transform:
+      format: csv
+
+  - name: cota
+    type: table
+    path: data_raw/cota.csv
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    schema: schemas/cota.yaml
+    dpetl_extract:
+      mode: cli
+      arguments:
+        - bo export dados_check_siafi/current/cota -q --dp DP0 -o datapackages/dados_check_siafi/data_raw/cota.csv
+    dpetl_transform:
+      format: csv
+
+  - name: credito
+    type: table
+    path: data_raw/credito.csv
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    schema: schemas/credito.yaml
+    dpetl_extract:
+      mode: cli
+      arguments:
+        - bo export dados_check_siafi/current/credito -q --dp DP0 -o datapackages/dados_check_siafi/data_raw/credito.csv
+    dpetl_transform:
+      format: csv
+
+  - name: execucao
+    type: table
+    path: data_raw/execucao.csv
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    schema: schemas/execucao.yaml
+    dpetl_extract:
+      mode: cli
+      arguments:
+        - bo export dados_check_siafi/current/execucao -q --dp DP0 -o datapackages/dados_check_siafi/data_raw/execucao.csv
+    dpetl_transform:
+      format: csv
+
+  - name: execucao_alem_credito
+    type: table
+    path: data_raw/execucao_alem_credito.csv
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    schema: schemas/execucao_alem_credito.yaml
+    dpetl_extract:
+      mode: cli
+      arguments:
+        - bo export dados_check_siafi/current/execucao_alem_credito -q --dp DP0 -o datapackages/dados_check_siafi/data_raw/execucao_alem_credito.csv
+    dpetl_transform:
+      format: csv
+
+  - name: receita
+    type: table
+    path: data_raw/receita.csv
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    schema: schemas/receita.yaml
+    dpetl_extract:
+      mode: cli
+      arguments:
+        - bo export dados_check_siafi/current/receita -q --dp DP0 -o datapackages/dados_check_siafi/data_raw/receita.csv
+    dpetl_transform:
+      format: csv
+
+  - name: restos_pagar
+    type: table
+    path: data_raw/restos_pagar.csv
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    schema: schemas/restos_pagar.yaml
+    dpetl_extract:
+      mode: cli
+      arguments:
+        - bo export dados_check_siafi/current/restos_pagar -q --dp DP0 -o datapackages/dados_check_siafi/data_raw/restos_pagar.csv
+    dpetl_transform:
+      format: csv
+
+  - name: restos_pagar_folha
+    type: table
+    path: data_raw/restos_pagar_folha.csv
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    schema: schemas/restos_pagar_folha.yaml
+    dpetl_extract:
+      mode: cli
+      arguments:
+        - bo export dados_check_siafi/current/restos_pagar_folha -q --dp DP0 -o datapackages/dados_check_siafi/data_raw/restos_pagar_folha.csv
+    dpetl_transform:
+      format: csv

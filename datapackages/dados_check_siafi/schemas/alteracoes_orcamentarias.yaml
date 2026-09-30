@@ -1,0 +1,15 @@
+fields:
+  - name: Ano de Exercício
+    target: ano
+
+  - name: Valor Suplementação
+    target: vlr_suplementacao
+
+  - name: Valor Anulação Crédito
+    target: vlr_anulacao
+
+  - name: Valor Crédito Inicial
+    target: vlr_credito_inicial
+
+  - name: Valor Crédito Autorizado
+    target: vlr_credito_autorizado

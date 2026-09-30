@@ -1,0 +1,15 @@
+fields:
+  - name: Ano de Exercício
+    target: ano
+
+  - name: Valor Inscrito Folha
+    target: vlr_inscrito_folha
+
+  - name: Valor Anulado Folha
+    target: vlr_anulado_folha
+
+  - name: Valor Pago Folha
+    target: vlr_pago_folha
+
+  - name: Valor Despesa Liquidada a Pagar - Folha
+    target: vlr_despesa_liquidada_pagar_folha

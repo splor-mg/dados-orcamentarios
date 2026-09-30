@@ -1,0 +1,18 @@
+fields:
+  - name: Ano de Exercício
+    target: ano
+
+  - name: Valor Previsto Inicial
+    target: vlr_previsto_inicial
+
+  - name: Valor Previsto Adicional
+    target: vlr_previsto_adicional
+
+  - name: Valor Previsto Atualizado
+    target: vlr_previsto_atualizado
+
+  - name: Valor Contabilizado
+    target: vlr_contabilizado
+
+  - name: Valor Efetivado Ajustado
+    target: vlr_efetivado_ajustado

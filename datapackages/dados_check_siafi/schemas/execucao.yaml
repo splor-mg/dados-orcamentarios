@@ -1,0 +1,18 @@
+fields:
+  - name: Ano de Exercício
+    target: ano
+
+  - name: Valor Despesa Empenhada
+    target: vlr_empenhado
+
+  - name: Valor Despesa Liquidada
+    target: vlr_liquidado
+
+  - name: Valor Liquidado Retido
+    target: vlr_liquidado_retido
+
+  - name: Valor Pago Orçamentário
+    target: vlr_pago_orcamentario
+
+  - name: Valor Pago Financeiro
+    target: vlr_pago_financeiro

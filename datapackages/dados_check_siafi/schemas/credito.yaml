@@ -1,0 +1,12 @@
+fields:
+  - name: Ano de Exercício
+    target: ano
+
+  - name: Valor Crédito Inicial
+    target: vlr_credito_inicial
+
+  - name: Valor Crédito Autorizado
+    target: vlr_credito_autorizado
+
+  - name: Valor Cota Descentralizada
+    target: vlr_cota_descentralizada
