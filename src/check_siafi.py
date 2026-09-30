@@ -20,7 +20,8 @@ def divergent_years(old, new):
     numeric_columns = new.select_dtypes(include="number").columns.drop("ano")
     old_sums = old.groupby("ano")[numeric_columns].sum()
     new_sums = new.groupby("ano")[numeric_columns].sum()
-    combined = new_sums.subtract(old_sums, fill_value=0).abs()
+    common_years = old_sums.index.intersection(new_sums.index)
+    combined = (new_sums.loc[common_years] - old_sums.loc[common_years]).abs()
     return combined[(combined > 0.01).any(axis=1)].index.tolist()
 
 
