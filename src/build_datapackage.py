@@ -6,20 +6,17 @@ from datetime import date
 from pathlib import Path
 
 today = date.today()
-year_override = os.environ.get('YEAR_OVERRIDE')
-year_base = int(year_override) if year_override else today.year
-
-CURRENT_DB_YEARS = 5
-is_previous_db = year_base <= today.year - CURRENT_DB_YEARS
+year_input = os.environ.get('YEAR')
+year = int(year_input) if year_input else today.year
 
 MATCH_BY = {'.yaml': 'target',
             '.json': 'name'}
 
 
-def replace_placeholders(text):
+def replace_placeholders(text, previous):
     text = text.replace('{{date}}', today.strftime('%Y-%m-%d'))
-    text = re.sub(r'\{\{year(\d+)\}\}', lambda m: str(year_base + int(m.group(1))), text)
-    if is_previous_db:
+    text = re.sub(r'\{\{year(\d+)\}\}', lambda m: str(year + int(m.group(1))), text)
+    if previous:
         text = text.replace('/current/', '/previous/')
     return text
 
@@ -30,13 +27,14 @@ def build(source_name, fields_dic):
     output_name = f'datapackage{extension}'
 
     for datapackage in Path('datapackages').glob(f'*/{source_name}'):
+        previous_siafi = (year <= today.year - 5) and datapackage.parent.name == 'dados_siafi'
         package = Package(datapackage)
         missing = []
 
         for resource in package.resources:
             schema = resource.schema.fields
 
-            if is_previous_db:
+            if previous_siafi:
                 schema[:] = [field for field in schema if field.custom.get('previous', True)]
 
             for index, field in enumerate(schema):
@@ -74,7 +72,7 @@ def build(source_name, fields_dic):
             package.to_json(output)
 
         text = output.read_text(encoding='utf-8')
-        output.write_text(replace_placeholders(text), encoding='utf-8')
+        output.write_text(replace_placeholders(text, previous_siafi), encoding='utf-8')
 
 
 def main():
