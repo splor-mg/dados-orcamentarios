@@ -49,9 +49,11 @@ fields:
 
   - name: Elemento origem DEA
     target: elemento_dea_cod
+    previous: false
 
   - name: Item origem DEA
     target: item_dea_cod
+    previous: false
 
   - name: Elemento Item Despesa - Código
     target: elemento_item_cod

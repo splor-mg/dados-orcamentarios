@@ -7,6 +7,7 @@ fields:
 
   - name: Mês Regularização
     target: mes_regularizacao
+    previous: false
 
   - name: Mês Registro Doc DespPend
     target: mes_registro
@@ -37,6 +38,7 @@ fields:
 
   - name: Elemento Item Despesa - Código
     target: elemento_item_cod
+    previous: false
 
   - name: Valor Além Crédito
     target: vlr_alem_credito
