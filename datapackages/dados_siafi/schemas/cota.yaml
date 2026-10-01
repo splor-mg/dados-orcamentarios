@@ -37,9 +37,11 @@ fields:
 
   - name: Operador - Registro
     target: operador_registro
+    previous: false
 
   - name: Operador - Cancelamento
     target: operador_cancelamento
+    previous: false
 
   - name: Documento Aprovação Cota
     target: documento_aprovacao_cota
@@ -49,6 +51,7 @@ fields:
 
   - name: Valor Cota Cancelada
     target: vlr_cota_cancelada
+    previous: false
 
   - name: Valor Anulação Cota Aprovada
     target: vlr_cota_anulada
