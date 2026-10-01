@@ -6,6 +6,7 @@ from pathlib import Path
 import pandas as pd
 import requests
 
+DATA_DIR = Path('datapackages/dados_check_siafi/data')
 RAW_URL = "https://raw.githubusercontent.com/splor-mg/dados-check-siafi/main/data/{resource}.csv"
 
 
@@ -26,11 +27,10 @@ def divergent_years(old, new):
 
 
 def main():
-    data_dir = Path(sys.argv[1])
     current_year = date.today().year
     years = set()
 
-    for csv_path in sorted(data_dir.glob("*.csv")):
+    for csv_path in sorted(DATA_DIR.glob("*.csv")):
         resource = csv_path.stem
         new = pd.read_csv(csv_path)
         old = load_previous_version(resource)
@@ -41,6 +41,12 @@ def main():
         years.update(divergent_years(old, new))
 
     years.discard(current_year)
+
+    if years:
+        print(f"Anos divergentes: {', '.join(str(year) for year in sorted(years))}", file=sys.stderr)
+    else:
+        print("Nenhum ano divergente.", file=sys.stderr)
+
     print(" ".join(str(year) for year in sorted(years)))
 
 

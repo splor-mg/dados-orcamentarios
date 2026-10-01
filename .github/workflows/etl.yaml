@@ -119,8 +119,7 @@ jobs:
           task etl
 
           if [ -z "$ETL_PACKAGE" ] || [ "$ETL_PACKAGE" = "dados_check_siafi" ]; then
-            divergent_years=$(python3 src/check_siafi.py datapackages/dados_check_siafi/data)
-            echo "Anos divergentes: $divergent_years"
+            divergent_years=$(python3 src/check_siafi.py)
             for year in $divergent_years; do
               export ETL_DESCRIPTOR="-d datapackages/dados_siafi/datapackage.yaml"
               export YEAR="$year"
