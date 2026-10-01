@@ -4,13 +4,25 @@ on:
   workflow_dispatch:
     inputs:
       package:
-        description: "Package a executar"
+        description: "Package a executar:"
         type: choice
         default: todos
         options:
           - todos
+          - dados_check_siafi
           - dados_classificadores
           - dados_siafi
+      year:
+        description: "[opcional] Ano de exercício:"
+        required: false
+        type: choice
+        options:
+          - "2026"
+          - "2025"
+          - "2024"
+          - "2023"
+          - "2022"
+
   schedule:
     - cron: "0 10 * * 1-5"
 
@@ -87,6 +99,7 @@ jobs:
       - name: Run etl process
         env:
           ETL_PACKAGE: ${{ inputs.package != 'todos' && inputs.package || '' }}
+          YEAR: ${{ inputs.year }}
           BO_AUTH: ${{ vars.BO_AUTH }}
           BO_BASE_URL: ${{ vars.BO_BASE_URL }}
           BO_PASSWORD: ${{ secrets.BO_PASSWORD }}
@@ -104,6 +117,16 @@ jobs:
             export ETL_DESCRIPTOR="-d datapackages/$ETL_PACKAGE/datapackage.yaml"
           fi
           task etl
+
+          if [ -z "$ETL_PACKAGE" ] || [ "$ETL_PACKAGE" = "dados_check_siafi" ]; then
+            divergent_years=$(python3 src/check_siafi.py datapackages/dados_check_siafi/data)
+            echo "Anos divergentes: $divergent_years"
+            for year in $divergent_years; do
+              export ETL_DESCRIPTOR="-d datapackages/dados_siafi/datapackage.yaml"
+              export YEAR="$year"
+              task etl
+            done
+          fi
 
       - name: Commit updated package options
         run: |
