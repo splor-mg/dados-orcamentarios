@@ -1314,7 +1314,7 @@ fields:
     constraints:
       pattern: '^\d{1,4}$'
 
-  - name: tipo_Contrato_desc
+  - name: tipo_contrato_desc
     type: string
     title: Descrição Tipo de Contrato
     description: |
