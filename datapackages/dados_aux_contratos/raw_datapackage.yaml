@@ -3,7 +3,7 @@ title: Portal de Compras - SIAD
 owner_org: secretaria-de-estado-de-planejamento-e-gestao-seplag
 dpetl_load:
   owner: splor-mg
-  repo: dados-contratos
+  repo: dados-aux-contratos
   level: orgs
   visibility: public
 

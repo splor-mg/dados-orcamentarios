@@ -15,7 +15,7 @@ fields:
     target: situcao_contrato
 
   - name: Descrição Tipo de Contrato
-    target: tipo_Contrato_desc
+    target: tipo_contrato_desc
 
   - name: Data Início Vigência Contrato
     target: data_inicio_vigencia
