@@ -80,6 +80,15 @@ fields:
       required: true
       pattern: '^[1-9]\d{3}$'
 
+  - name: ano_processo
+    type: string
+    title: Ano do Processo
+    description: |
+      Ano do processo de compra.
+    constraints:
+      required: true
+      pattern: '^[1-9]\d{3}$'
+
   - name: ano_rp
     type: string
     title: Ano Origem Restos a Pagar
@@ -226,6 +235,14 @@ fields:
       .
     format: '%d/%m/%Y'
 
+  - name: data_inicio_vigencia
+    type: string
+    title: Data Início Vigência Contrato
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
   - name: data_publicacao
     type: datetime
     title: Publicação Decreto Alteração Orçamentária
@@ -252,6 +269,14 @@ fields:
     constraints:
       minimum: '2002/01/01 00:00:00'
     format: '%Y/%m/%d %H:%M:%S'
+
+  - name: data_termino_vigencia
+    type: string
+    title: Data Término Vigência Contrato
+    description: |
+      .
+    constraints:
+      maxLength: 500
 
   - name: decreto_num
     type: string
@@ -764,6 +789,22 @@ fields:
     constraints:
       maxLength: 500
 
+  - name: objeto_contrato
+    type: string
+    title: Objeto Contrato
+    description: |
+      .
+    constraints:
+      maxLength: 5000
+
+  - name: objeto_processo_compra
+    type: string
+    title: Objeto Processo
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
   - name: obra_desc
     type: string
     title: Obra - Descrição
@@ -1221,6 +1262,14 @@ fields:
     constraints:
       pattern: '^[1-9]$'
 
+  - name: situcao_contrato
+    type: string
+    title: Situação Contrato
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
   - name: subalinea_cod
     type: string
     title: Subalínea da Receita - Código
@@ -1264,6 +1313,14 @@ fields:
       .
     constraints:
       pattern: '^\d{1,4}$'
+
+  - name: tipo_Contrato_desc
+    type: string
+    title: Descrição Tipo de Contrato
+    description: |
+      .
+    constraints:
+      maxLength: 500
 
   - name: tipo_de_programa
     type: string
@@ -1904,6 +1961,22 @@ fields:
   - name: vlr_tesouro
     type: number
     title: Valor Tesouro Ano de Referência (R$)
+    description: |
+      .
+    constraints:
+      minimum: 0
+
+  - name: vlr_total_atualizado
+    type: number
+    title: Valor Total Atualizado
+    description: |
+      .
+    constraints:
+      minimum: 0
+
+  - name: vlr_total_homologado
+    type: number
+    title: Valor Total Homologado
     description: |
       .
     constraints:

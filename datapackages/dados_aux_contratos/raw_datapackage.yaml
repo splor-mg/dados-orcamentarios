@@ -1,0 +1,24 @@
+name: dados_aux_contratos
+title: Portal de Compras - SIAD
+owner_org: secretaria-de-estado-de-planejamento-e-gestao-seplag
+dpetl_load:
+  owner: splor-mg
+  repo: dados-contratos
+  level: orgs
+  visibility: public
+
+resources:
+  - name: aux_contratos
+    type: table
+    path: data_raw/aux_contratos.csv
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    schema: schemas/aux_contratos.yaml
+    dpetl_extract:
+      mode: cli
+      arguments:
+        - bo export dados_aux_contratos/aux_contratos -q --dp DP0 -o datapackages/dados_aux_contratos/data_raw/aux_contratos.csv
+    dpetl_transform:
+      format: csv
