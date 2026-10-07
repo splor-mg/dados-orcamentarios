@@ -1,0 +1,36 @@
+fields:
+  - name: Ano Processo
+    target: ano_processo
+
+  - name: Código Unidade Orçamentária
+    target: uo_cod
+
+  - name: Número Contrato
+    target: num_contrato_saida
+
+  - name: Objeto Contrato
+    target: objeto_contrato
+
+  - name: Situação Contrato
+    target: situcao_contrato
+
+  - name: Descrição Tipo de Contrato
+    target: tipo_Contrato_desc
+
+  - name: Data Início Vigência Contrato
+    target: data_inicio_vigencia
+
+  - name: Data Término Vigência Contrato
+    target: data_termino_vigencia
+
+  - name: Número Processo -  Formatado
+    target: num_processo_compra
+
+  - name: Objeto Processo
+    target: objeto_processo_compra
+
+  - name: Valor Total Homologado
+    target: vlr_total_homologado
+
+  - name: Valor Total Atualizado
+    target: vlr_total_atualizado
