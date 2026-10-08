@@ -7,6 +7,21 @@ dpetl_load:
   level: orgs
   visibility: public
 
+custom:
+  - sources:
+    - id: relatorios
+      source: https://github.com/splor-mg/regras-orcamentarias-mg/tree/main/rules
+  - flows:
+    - id: receita
+      description: "regras para aplicação nos recursos: receita"
+      rules:
+        - is_asps_rec
+        - is_impostos
+    - id: despesa
+      description: "regras para aplicação nos recursos: execucao, cota, credito"
+      rules:
+        - is_asps_desp
+
 resources:
   - name: alteracoes_orcamentarias
     type: table
@@ -20,6 +35,11 @@ resources:
       mode: cli
       arguments:
         - bo export dados_siafi/current/alteracoes_orcamentarias -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/alteracoes_orcamentarias.csv
+    dpetl_transform:
+      cli:
+        stdin: true
+        arguments:
+          - zendt flow despesa -o datapackages/dados_siafi/data/alteracoes_orcamentarias.csv
 
   - name: cota
     type: table
@@ -33,6 +53,11 @@ resources:
       mode: cli
       arguments:
         - bo export dados_siafi/current/cota -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/cota.csv
+    dpetl_transform:
+      cli:
+        stdin: true
+        arguments:
+          - zendt flow despesa -o datapackages/dados_siafi/data/cota.csv
 
   - name: credito
     type: table
@@ -46,6 +71,11 @@ resources:
       mode: cli
       arguments:
         - bo export dados_siafi/current/credito -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/credito.csv
+    dpetl_transform:
+      cli:
+        stdin: true
+        arguments:
+          - zendt flow despesa -o datapackages/dados_siafi/data/credito.csv
 
   - name: execucao
     type: table
@@ -59,6 +89,11 @@ resources:
       mode: cli
       arguments:
         - bo export dados_siafi/current/execucao -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/execucao.csv
+    dpetl_transform:
+      cli:
+        stdin: true
+        arguments:
+          - zendt flow despesa -o datapackages/dados_siafi/data/execucao.csv
 
   - name: execucao_alem_credito
     type: table
@@ -72,6 +107,11 @@ resources:
       mode: cli
       arguments:
         - bo export dados_siafi/current/execucao_alem_credito -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/execucao_alem_credito.csv
+    dpetl_transform:
+      cli:
+        stdin: true
+        arguments:
+          - zendt flow despesa -o datapackages/dados_siafi/data/execucao_alem_credito.csv
 
   - name: receita
     type: table
@@ -85,6 +125,11 @@ resources:
       mode: cli
       arguments:
         - bo export dados_siafi/current/receita -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/receita.csv
+    dpetl_transform:
+      cli:
+        stdin: true
+        arguments:
+          - zendt flow receita -o datapackages/dados_siafi/data/receita.csv
 
   - name: restos_pagar
     type: table
@@ -98,6 +143,11 @@ resources:
       mode: cli
       arguments:
         - bo export dados_siafi/current/restos_pagar -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/restos_pagar.csv
+    dpetl_transform:
+      cli:
+        stdin: true
+        arguments:
+          - zendt flow despesa -o datapackages/dados_siafi/data/restos_pagar.csv
 
   - name: restos_pagar_folha
     type: table
@@ -111,3 +161,8 @@ resources:
       mode: cli
       arguments:
         - bo export dados_siafi/current/restos_pagar_folha -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/restos_pagar_folha.csv
+    dpetl_transform:
+      cli:
+        stdin: true
+        arguments:
+          - zendt flow despesa -o datapackages/dados_siafi/data/restos_pagar_folha.csv
