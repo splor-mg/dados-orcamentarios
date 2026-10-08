@@ -39,7 +39,7 @@ resources:
       cli:
         stdin: true
         arguments:
-          - zendt flow despesa -o datapackages/dados_siafi/data/alteracoes_orcamentarias.csv
+          - zendt flow despesa -o datapackages/dados_siafi/data/alteracoes_orcamentarias.csv.gz
 
   - name: cota
     type: table
@@ -57,7 +57,7 @@ resources:
       cli:
         stdin: true
         arguments:
-          - zendt flow despesa -o datapackages/dados_siafi/data/cota.csv
+          - zendt flow despesa -o datapackages/dados_siafi/data/cota.csv.gz
 
   - name: credito
     type: table
@@ -75,7 +75,7 @@ resources:
       cli:
         stdin: true
         arguments:
-          - zendt flow despesa -o datapackages/dados_siafi/data/credito.csv
+          - zendt flow despesa -o datapackages/dados_siafi/data/credito.csv.gz
 
   - name: execucao
     type: table
@@ -93,7 +93,7 @@ resources:
       cli:
         stdin: true
         arguments:
-          - zendt flow despesa -o datapackages/dados_siafi/data/execucao.csv
+          - zendt flow despesa -o datapackages/dados_siafi/data/execucao.csv.gz
 
   - name: execucao_alem_credito
     type: table
@@ -111,7 +111,7 @@ resources:
       cli:
         stdin: true
         arguments:
-          - zendt flow despesa -o datapackages/dados_siafi/data/execucao_alem_credito.csv
+          - zendt flow despesa -o datapackages/dados_siafi/data/execucao_alem_credito.csv.gz
 
   - name: receita
     type: table
@@ -129,7 +129,7 @@ resources:
       cli:
         stdin: true
         arguments:
-          - zendt flow receita -o datapackages/dados_siafi/data/receita.csv
+          - zendt flow receita -o datapackages/dados_siafi/data/receita.csv.gz
 
   - name: restos_pagar
     type: table
@@ -147,7 +147,7 @@ resources:
       cli:
         stdin: true
         arguments:
-          - zendt flow despesa -o datapackages/dados_siafi/data/restos_pagar.csv
+          - zendt flow despesa -o datapackages/dados_siafi/data/restos_pagar.csv.gz
 
   - name: restos_pagar_folha
     type: table
@@ -165,4 +165,4 @@ resources:
       cli:
         stdin: true
         arguments:
-          - zendt flow despesa -o datapackages/dados_siafi/data/restos_pagar_folha.csv
+          - zendt flow despesa -o datapackages/dados_siafi/data/restos_pagar_folha.csv.gz
