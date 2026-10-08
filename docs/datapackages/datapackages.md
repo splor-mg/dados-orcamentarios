@@ -7,6 +7,7 @@ Datapackages atuais em `datapackages/`.
 | [dados_classificadores](classificadores.md) | Tabelas auxiliares de classificadores. | `dados-classificadores` |
 | [dados_siafi](siafi.md) | Dados anuais do SIAFI. | `dados-siafi-{{year0}}` |
 | [dados_check_siafi](siafi.md#auditoria-do-siafi) | Validador do dados_siafi. | `dados-check-siafi` |
+| [dados_siad](siad.md) | Dados anuais do SIAD. | `dados-siad-{{year0}}` |
 | [dados_aux_contratos](siad.md) | Tabelas auxiliares de contratos do SIAD. | `dados-aux-contratos` |
 | [dados_ppo](ppo.md) | Dados do PPO (atualizado manualmente). | `dados-ppo-{{year1}}` |
 
@@ -21,7 +22,7 @@ Datapackages atuais em `datapackages/`.
     touch datapackages/$NAME/raw_datapackage.yaml
     ```
 
-    > Nota: troque `datapackage_name` pelo nome do novo datapackage
+    > **Nota**: troque `datapackage_name` pelo nome do novo datapackage
 
 2. Para a construção do `raw_datapackage.yaml`, siga o seguinte esqueleto:
 
@@ -36,21 +37,23 @@ Datapackages atuais em `datapackages/`.
       visibility: public
 
     resources:
-      - name: minha_tabela
+      - name: table_name
         type: table
-        path: data_raw/minha_tabela.csv
+        path: data_raw/table_name.csv
         scheme: file
         format: csv
         mediatype: text/csv
         encoding: utf-8
-        schema: schemas/minha_tabela.yaml
+        schema: schemas/table_name.yaml
         dpetl_extract:
-          mode: cli
-          arguments:
-            - bo export <consulta> -o datapackages/meu_datapackage/data_raw/minha_tabela.csv
+          mode:
+        dpetl_transform:
+          format:
       - ...
     ```
 
 3. Se algum campo ainda não existir, inclua-o no `datapackages/fields.yaml`.
 
-Na próxima execução da `task workflow`, o novo datapackage aparece nas opções do ETL.
+    - Rode [`task yaml`](../tasks/pre_extract/yaml.md) para conferir se está tudo ok.
+
+Na próxima execução da [`task workflow`](../tasks/pre_extract/workflow.md), o novo datapackage aparece nas opções do ETL.
