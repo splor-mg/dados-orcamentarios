@@ -161,6 +161,19 @@ fields:
     constraints:
       maxLength: 500
 
+  - name: asps
+    title: Ações e Serviços Públicos de Saúde (ASPS)
+    type: boolean
+    description: |
+      Indica se o registro compõe o cálculo do cumprimento do percentual mínimo de aplicação em Ações e Serviços Públicos de Saúde (ASPS). Para receitas, identifica as que integram a base de cálculo do mínimo. Para despesas, identifica as que podem ser computadas para fins do mínimo constitucional.
+      A CF/88 determina que os Estados apliquem anualmente em ASPS recursos mínimos derivados da aplicação de percentuais sobre o produto da arrecadação dos impostos a que se refere o art. 155 e dos recursos de que tratam os arts. 157 e 159, inciso I, alínea a, e inciso II, deduzidas as parcelas transferidas aos Municípios.
+      A LC 141/2012 regulamentou a CF/88 e estabeleceu as normas de cálculo do montante mínimo a ser aplicado, bem como o percentual mínimo de 12% ao ano.
+      De 2008 a 2011, as despesas da COPASA foram consideradas no atendimento constitucional. Como essas despesas não constam no orçamento fiscal, não podem ser obtidas nas bases de execução da despesa.
+      A partir de 2023, considera-se que toda a despesa para o cumprimento do mínimo deve ser realizada na Fonte 10. Eventuais despesas realizadas na Fonte 15 não são computadas.
+      Assume `True` quando o registro se enquadra nessa situação e `False` caso contrário.
+    constraints:
+      required: true
+
   - name: base_geografica
     type: string
     title: Base Geográfica
@@ -482,6 +495,72 @@ fields:
     constraints:
       maxLength: 500
 
+  - name: ibs
+    title: Imposto sobre Bens e Serviços (IBS)
+    type: boolean
+    description: |
+      Indica se a receita corresponde à arrecadação do Imposto sobre Bens e Serviços (IBS), instituído pela EC 132/2023 (Reforma Tributária) e regulamentado pela LC 214/2025.
+      Considera a arrecadação bruta, que inclui principal, multas e juros de mora, dívida ativa e multas e juros de mora da dívida ativa (naturezas de receita 11165001 a 11165004).
+      Aplica-se a partir do exercício de 2026.
+      Assume `True` quando a receita se enquadra nessa situação e `False` caso contrário.
+    constraints:
+      required: true
+
+  - name: ibs_acessorias
+    title: IBS - Receitas acessórias
+    type: boolean
+    description: |
+      Indica se a receita corresponde às receitas acessórias do Imposto sobre Bens e Serviços (IBS), instituído pela EC 132/2023 (Reforma Tributária) e regulamentado pela LC 214/2025.
+      Inclui multas e juros de mora, dívida ativa e multas e juros de mora da dívida ativa. Não inclui a arrecadação principal (naturezas de receita 11165002 a 11165004).
+      Aplica-se a partir do exercício de 2026.
+      Assume `True` quando a receita se enquadra nessa situação e `False` caso contrário.
+    constraints:
+      required: true
+
+  - name: ibs_principal
+    title: IBS - Principal
+    type: boolean
+    description: |
+      Indica se a receita corresponde à arrecadação principal do Imposto sobre Bens e Serviços (IBS), instituído pela EC 132/2023 (Reforma Tributária) e regulamentado pela LC 214/2025.
+      Não inclui multas e juros de mora, dívida ativa nem multas e juros de mora da dívida ativa (natureza de receita 11165001).
+      Aplica-se a partir do exercício de 2026.
+      Assume `True` quando a receita se enquadra nessa situação e `False` caso contrário.
+    constraints:
+      required: true
+
+  - name: icms
+    title: ICMS - Bruto
+    type: boolean
+    description: |
+      Indica se a receita corresponde à arrecadação bruta do Imposto sobre Operações Relativas à Circulação de Mercadorias e sobre Prestações de Serviços de Transporte Interestadual e Intermunicipal e de Comunicação (ICMS).
+      Inclui principal, multas e juros de mora, dívida ativa e multas e juros de mora da dívida ativa, além da parcela destinada ao Fundo de Erradicação da Miséria (FEM).
+      A identificação considera as mudanças na codificação das naturezas de receita ocorridas em 2018 e 2023.
+      Assume `True` quando a receita se enquadra nessa situação e `False` caso contrário.
+    constraints:
+      required: true
+
+  - name: icms_acessorias
+    title: ICMS - Receitas acessórias
+    type: boolean
+    description: |
+      Indica se a receita corresponde às receitas acessórias do Imposto sobre Operações Relativas à Circulação de Mercadorias e sobre Prestações de Serviços de Transporte Interestadual e Intermunicipal e de Comunicação (ICMS), incluindo a parcela destinada ao Fundo de Erradicação da Miséria (FEM).
+      Inclui multas e juros de mora, dívida ativa e multas e juros de mora da dívida ativa. Não inclui a arrecadação principal.
+      A identificação considera as mudanças na codificação das naturezas de receita ocorridas em 2018 e 2023.
+      Assume `True` quando a receita se enquadra nessa situação e `False` caso contrário.
+    constraints:
+      required: true
+
+  - name: icms_principal
+    title: ICMS - Principal
+    type: boolean
+    description: |
+      Indica se a receita corresponde à arrecadação principal do Imposto sobre Operações Relativas à Circulação de Mercadorias e sobre Prestações de Serviços de Transporte Interestadual e Intermunicipal e de Comunicação (ICMS), incluindo a parcela destinada ao Fundo de Erradicação da Miséria (FEM).
+      Não inclui multas e juros de mora, dívida ativa nem multas e juros de mora da dívida ativa.
+      A identificação considera as mudanças na codificação das naturezas de receita ocorridas em 2018 e 2023.
+      Assume `True` quando a receita se enquadra nessa situação e `False` caso contrário.
+    constraints:
+      required: true
+
   - name: identificador_cod
     type: string
     title: Identificador - Código
@@ -497,6 +576,23 @@ fields:
       .
     constraints:
       maxLength: 500
+
+  - name: impostos
+    title: Impostos - Bruto
+    type: boolean
+    description: |
+      Indica se a receita corresponde à arrecadação bruta de impostos do Estado.
+      Considera os seguintes impostos:
+      - Imposto sobre Operações Relativas à Circulação de Mercadorias e sobre Prestações de Serviços de Transporte Interestadual e Intermunicipal e de Comunicação (ICMS);
+      - Imposto sobre a Propriedade de Veículos Automotores (IPVA);
+      - Imposto sobre Transmissão Causa Mortis e Doação de Quaisquer Bens ou Direitos (ITCD);
+      - Imposto de Renda Retido na Fonte (IRRF) pertencente ao Estado;
+      - Imposto sobre Bens e Serviços (IBS), a partir de 2026.
+      Inclui principal, multas e juros de mora, dívida ativa e multas e juros de mora da dívida ativa.
+      O cálculo é igual ao publicado nos Relatórios Resumidos da Execução Orçamentária (RREO) de 2014 a 2018. Os RREO de 2014 a 2017 discriminam apenas a arrecadação principal de cada imposto. A partir de 2018, consideram a arrecadação bruta.
+      Assume `True` quando a receita se enquadra nessa situação e `False` caso contrário.
+    constraints:
+      required: true
 
   - name: indicador_cod
     type: string
@@ -569,6 +665,17 @@ fields:
       .
     format: '%d/%m/%Y'
 
+  - name: intra_saude
+    type: boolean
+    title: Intraorçamentária de saúde
+    description: |
+      Indica se a despesa corresponde a uma operação intraorçamentária de Ações e Serviços Públicos de Saúde (ASPS).
+      A LC 141/2012, que regulamenta o art. 198, § 2º da CF/88, determina que as despesas com ASPS sejam financiadas com recursos movimentados por meio dos fundos de saúde.
+      Desde 2014, o Estado de Minas Gerais operacionaliza esse processo por meio de operações intraorçamentárias, com transação via Fundo Estadual de Saúde de toda a despesa executada pelas entidades da Administração Indireta.
+      Assume `True` quando a despesa se enquadra nessa situação e `False` caso contrário.
+    constraints:
+      required: true
+
   - name: ipu_cod
     type: string
     title: Procedência - Código
@@ -586,6 +693,105 @@ fields:
       Descrição da procedência dos recursos financeiros.
     constraints:
       maxLength: 500
+
+  - name: ipva
+    title: IPVA - Bruto
+    type: boolean
+    description: |
+      Indica se a receita corresponde à arrecadação bruta do Imposto sobre a Propriedade de Veículos Automotores (IPVA).
+      Inclui principal, multas e juros de mora, dívida ativa e multas e juros de mora da dívida ativa.
+      A identificação considera as mudanças na codificação das naturezas de receita ocorridas em 2018 e 2023.
+      Assume `True` quando a receita se enquadra nessa situação e `False` caso contrário.
+    constraints:
+      required: true
+
+  - name: ipva_acessorias
+    title: IPVA - Receitas acessórias
+    type: boolean
+    description: |
+      Indica se a receita corresponde às receitas acessórias do Imposto sobre a Propriedade de Veículos Automotores (IPVA).
+      Inclui multas e juros de mora, dívida ativa e multas e juros de mora da dívida ativa. Não inclui a arrecadação principal.
+      A identificação considera as mudanças na codificação das naturezas de receita ocorridas em 2018 e 2023.
+      Assume `True` quando a receita se enquadra nessa situação e `False` caso contrário.
+    constraints:
+      required: true
+
+  - name: ipva_principal
+    title: IPVA - Principal
+    type: boolean
+    description: |
+      Indica se a receita corresponde à arrecadação principal do Imposto sobre a Propriedade de Veículos Automotores (IPVA).
+      Não inclui multas e juros de mora, dívida ativa nem multas e juros de mora da dívida ativa.
+      A identificação considera as mudanças na codificação das naturezas de receita ocorridas em 2018 e 2023.
+      Assume `True` quando a receita se enquadra nessa situação e `False` caso contrário.
+    constraints:
+      required: true
+
+  - name: irrf
+    title: IRRF - Bruto
+    type: boolean
+    description: |
+      Indica se a receita corresponde à arrecadação bruta do Imposto de Renda Retido na Fonte (IRRF) pertencente ao Estado.
+      Inclui principal, multas e juros de mora, dívida ativa e multas e juros de mora da dívida ativa.
+      A identificação considera a mudança na codificação das naturezas de receita ocorrida em 2018. Até 2017, apenas a arrecadação principal é identificada.
+      Assume `True` quando a receita se enquadra nessa situação e `False` caso contrário.
+    constraints:
+      required: true
+
+  - name: irrf_acessorias
+    title: IRRF - Receitas acessórias
+    type: boolean
+    description: |
+      Indica se a receita corresponde às receitas acessórias do Imposto de Renda Retido na Fonte (IRRF) pertencente ao Estado.
+      Inclui multas e juros de mora, dívida ativa e multas e juros de mora da dívida ativa. Não inclui a arrecadação principal.
+      Aplica-se a partir do exercício de 2018.
+      Assume `True` quando a receita se enquadra nessa situação e `False` caso contrário.
+    constraints:
+      required: true
+
+  - name: irrf_principal
+    title: IRRF - Principal
+    type: boolean
+    description: |
+      Indica se a receita corresponde à arrecadação principal do Imposto de Renda Retido na Fonte (IRRF) pertencente ao Estado.
+      Não inclui multas e juros de mora, dívida ativa nem multas e juros de mora da dívida ativa.
+      A identificação considera a mudança na codificação das naturezas de receita ocorrida em 2018.
+      Assume `True` quando a receita se enquadra nessa situação e `False` caso contrário.
+    constraints:
+      required: true
+
+  - name: itcd
+    title: ITCD - Bruto
+    type: boolean
+    description: |
+      Indica se a receita corresponde à arrecadação bruta do Imposto sobre Transmissão Causa Mortis e Doação de Quaisquer Bens ou Direitos (ITCD).
+      Inclui principal, multas e juros de mora, dívida ativa e multas e juros de mora da dívida ativa.
+      A identificação considera as mudanças na codificação das naturezas de receita ocorridas em 2018 e 2023. Em 2007, inclui também as naturezas usadas para registrar a cota-parte do FUNDEB, que passou a incluir o ITCD na base de cálculo.
+      Assume `True` quando a receita se enquadra nessa situação e `False` caso contrário.
+    constraints:
+      required: true
+
+  - name: itcd_acessorias
+    title: ITCD - Receitas acessórias
+    type: boolean
+    description: |
+      Indica se a receita corresponde às receitas acessórias do Imposto sobre Transmissão Causa Mortis e Doação de Quaisquer Bens ou Direitos (ITCD).
+      Inclui multas e juros de mora, dívida ativa e multas e juros de mora da dívida ativa. Não inclui a arrecadação principal. Multas e juros de mora da dívida ativa são identificados apenas a partir de 2018.
+      A identificação considera as mudanças na codificação das naturezas de receita ocorridas em 2018 e 2023. Em 2007, inclui também as naturezas usadas para registrar a cota-parte do FUNDEB.
+      Assume `True` quando a receita se enquadra nessa situação e `False` caso contrário.
+    constraints:
+      required: true
+
+  - name: itcd_principal
+    title: ITCD - Principal
+    type: boolean
+    description: |
+      Indica se a receita corresponde à arrecadação principal do Imposto sobre Transmissão Causa Mortis e Doação de Quaisquer Bens ou Direitos (ITCD).
+      Não inclui multas e juros de mora, dívida ativa nem multas e juros de mora da dívida ativa.
+      A identificação considera as mudanças na codificação das naturezas de receita ocorridas em 2018 e 2023. Em 2007, inclui também a natureza usada para registrar a cota-parte do FUNDEB.
+      Assume `True` quando a receita se enquadra nessa situação e `False` caso contrário.
+    constraints:
+      required: true
 
   - name: item_cod
     type: string
