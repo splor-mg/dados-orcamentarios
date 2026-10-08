@@ -1,0 +1,111 @@
+name: Documentação
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  issues: write
+  actions: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get job ID
+        id: job_id
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          JOB_ID=$(gh api \
+            /repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs \
+            --jq '[.jobs[] | select(.status=="in_progress")][0].id')
+          echo "job_id=$JOB_ID" >> "$GITHUB_OUTPUT"
+
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.GH_APP_ID }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+          owner: splor-mg
+          repositories: |
+            dados-orcamentarios
+            bo-cli
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure git to use App token for private repos
+        run: |
+          git config --global url."https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/".insteadOf "https://github.com/"
+
+      - name: Set up python
+        id: setup-python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          installer-parallel: true
+
+      - name: Load cached venv
+        id: cached-poetry-dependencies
+        uses: actions/cache@v4
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}-docs
+
+      - name: Install docs dependencies
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+        run: poetry install --no-interaction --with docs --no-root
+
+      - name: Build site
+        run: poetry run task build
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Render failure issue body
+        if: failure()
+        env:
+          JOB_ID: ${{ steps.job_id.outputs.job_id }}
+        run: |
+          envsubst '${GITHUB_REPOSITORY} ${GITHUB_RUN_ID} ${JOB_ID}' \
+            < .github/etl_failure.md > .github/etl_failure.rendered.md
+
+      - name: Workflow failure notification
+        if: failure()
+        uses: peter-evans/create-issue-from-file@v6
+        with:
+          title: Documentation workflow failed
+          labels: bug
+          content-filepath: .github/etl_failure.rendered.md
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,62 @@
+# --8<-- [start:raw_datapackage]
+# --8<-- [start:dpetl_load]
+name: dados_siafi
+title: Sistema Integrado de Administração Financeira – SIAFI {{year0}}
+owner_org: secretaria-de-estado-de-planejamento-e-gestao-seplag
+dpetl_load:
+  owner: splor-mg
+  repo: dados-siafi-{{year0}}
+  level: orgs
+  visibility: public
+# --8<-- [end:dpetl_load]
+
+resources:
+  - name: alteracoes_orcamentarias
+    type: table
+    path: data_raw/alteracoes_orcamentarias.csv
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    schema:
+      fields:
+        - name: Ano de Exercício
+          target: ano
+        - name: Valor Cota Cancelada
+          target: vlr_cota_cancelada
+          previous: false
+    dpetl_extract:
+      mode: cli
+      arguments:
+        - bo export dados_siafi/current/alteracoes_orcamentarias -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/alteracoes_orcamentarias.csv
+# --8<-- [end:raw_datapackage]
+
+# --8<-- [start:datapackage]
+name: dados_siafi
+title: Sistema Integrado de Administração Financeira – SIAFI 2002
+resources:
+  - name: alteracoes_orcamentarias
+    type: table
+    path: data_raw/alteracoes_orcamentarias.csv
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    schema:
+      fields:
+        - name: Ano de Exercício
+          type: string
+          title: Ano de Exercício
+          description: 'Ano de exercício do orçamento fiscal.
+
+            '
+          constraints:
+            required: true
+            pattern: ^[1-9]\d{3}$
+          target: ano
+    dpetl_extract:
+      mode: cli
+      arguments:
+        - bo export dados_siafi/previous/alteracoes_orcamentarias -q --dp DP0 -p "Ano
+          de Exercício=2002" -o datapackages/dados_siafi/data_raw/alteracoes_orcamentarias.csv
+# --8<-- [end:datapackage]

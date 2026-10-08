@@ -1,0 +1,15 @@
+  - name: acao
+    type: table
+    path: [data_raw/acao_previous.csv, data_raw/acao_current.csv]
+    scheme: multipart
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    schema: schemas/acao.yaml
+    dpetl_extract:
+      mode: cli
+      arguments:
+        - bo export dados_classificadores/current/acao -q --dp DP0 -o datapackages/dados_classificadores/data_raw/acao_current.csv
+        - bo export dados_classificadores/previous/acao -q --dp DP0 -o datapackages/dados_classificadores/data_raw/acao_previous.csv
+    dpetl_transform:
+      format: csv

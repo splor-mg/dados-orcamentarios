@@ -1,63 +1,58 @@
-# README
+<!-- --8<-- [start:site] -->
+# Dados Orçamentários
 
-Short sentence describing what this project does and who it is for.
+O **dados-orcamentarios** tem como objetivo centralizar o processo de ETL (_Extract_, _Transform_, _Load_) dos pacotes de dados orçamentários da SPLOR-MG.
 
-## Context & Problem
+Para isso, utiliza os padrões espeficiados de [Data Package](https://datapackage.org/), além da ferramenta [frictionless](https://framework.frictionlessdata.io/) e do pacote [DPETL](https://github.com/splor-mg/dpetl).
 
-Explain *why* this exists.
 
-* What problem does it solve?
-* Who uses it?
-* What process does it automate or improve?
+## Instalação
 
-Example:
+1. Clone o repositório:
 
-> This project automates the extraction and normalization data from an API, generating a clean CSV for analysis and dashboards.
+    ```bash
+    git clone git@github.com:splor-mg/dados-orcamentarios.git
+    cd dados-orcamentarios
+    ```
 
-## Features
+2. Instale as dependências do projeto com Poetry:
 
-Bullet list of what the project does.
+    ```bash
+    poetry install
+    ```
 
-* Fetches data from source X.
-* Validates and cleans records.
-* Generates CSV / JSON output.
-* Logs failures.
+3. Execute manualmente todo o processo de ETL:
 
-This is for *non-technical readers*.
+    ```bash
+    task etl
+    ```
 
-## Prerequisites
 
-These should be **identical in almost all repos**:
+## Como funciona
 
-- [Python 3.10+](https://www.python.org/).
-- [Poetry](https://python-poetry.org/docs/#installation).
+O **dados-orcamentarios** gerencia os metadados dos pacotes de dados da SPLOR-MG na pasta `datapackages/`. Os dados processados não ficam aqui, e sim no repositório de cada pacote.
 
-## Setup
+Cada pacote tem a sua própria pasta, com:
 
-Clone the repo and install dependencies:
+  - `raw_datapackage.yaml`: a lista de todos os seus recursos.
 
-```bash
-# clone the repo
-git clone <repo-url>
-cd <project>
+  - `schemas/`: a lista de todos os campos, para cada recurso.
 
-# create env file
-cp .env.example .env
+Há ainda o arquivo `datapackages/fields.yaml`, que adiciona descrição e restrições a esses campos e é compartilhado por todos os pacotes.
 
-# install dependencies
-poetry install
+Dentro dos descritores, há parâmetros como `dpetl_extract`, `dpetl_transform` e `dpetl_load`, que definem como o pacote `DPETL` deve executar os seus comandos.
 
-# activate virtual env
-eval $(poetry env activate)
-```
+Para além do `DPETL`, alguns _scripts_ auxiliares, que constam na pasta `src/`, preparam os descritores. A ordem de execução está na task `etl`:
 
-## Task
+  1. `extract`: gera o `datapackage.yaml` a partir do `raw_datapackage.yaml` e baixa os dados brutos.
 
-To see all project's tasks.
+  2. `transform`: escreve os dados processados.
 
-```bash
-# Need virtual environment activated
-# otherwise run 'poetry run task list'
-task list
-```
+  3. `load`: atualiza o `datapackage.json` e publica os dados no repositório do pacote.
 
+O processo roda automaticamente de segunda a sexta, pelo workflow `etl.yaml` do GitHub Actions, e também pode ser disparado manualmente.
+<!-- --8<-- [end:site] -->
+
+## Documentação
+
+Consulte a documentação completa, que explica as fases do ETL, os _scripts_ auxiliares e as configurações de cada pacote, em https://splor-mg.github.io/dados-orcamentarios/.

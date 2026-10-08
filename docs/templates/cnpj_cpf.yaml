@@ -1,0 +1,40 @@
+# --8<-- [start:schema]
+fields:
+  - name: CNPJ_CPF Credor - Formatado
+    target: cnpj_cpf_formatado
+# --8<-- [end:schema]
+
+# --8<-- [start:fields]
+fields:
+  - name: cnpj_cpf_formatado
+    type: string
+    title: CNPJ/CPF Credor - Formatado
+    description: |
+      Código formatado do CNPJ ou CPF do credor.
+    constraints:
+      pattern: '^(\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}|\d{3}\.\d{3}\.\d{3}/\d{2}|CPF:[0-9a-f]{32})$'
+    missingValues: ['99999999999999']
+    anonymize:
+      method: aes_siv
+      annotation: CPF:11
+      filter: 'len([c for c in cnpj_cpf_formatado if c.isdigit()]) == 11'
+# --8<-- [end:fields]
+
+# --8<-- [start:datapackage]
+fields:
+  - name: CNPJ_CPF Credor - Formatado
+    type: string
+    title: CNPJ/CPF Credor - Formatado
+    description: 'Código formatado do CNPJ ou CPF do credor.
+
+      '
+    missingValues:
+      - '99999999999999'
+    constraints:
+      pattern: ^(\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}|\d{3}\.\d{3}\.\d{3}/\d{2}|CPF:[0-9a-f]{32})$
+    anonymize:
+      method: aes_siv
+      annotation: CPF:11
+      filter: len([c for c in cnpj_cpf_formatado if c.isdigit()]) == 11
+    target: cnpj_cpf_formatado
+# --8<-- [end:datapackage]

@@ -68,11 +68,10 @@ def build(source_name, fields_dic):
 
         if extension == '.yaml':
             package.to_yaml(output)
+            text = output.read_text(encoding='utf-8')
+            output.write_text(replace_placeholders(text, previous_siafi), encoding='utf-8')
         elif extension == '.json':
             package.to_json(output)
-
-        text = output.read_text(encoding='utf-8')
-        output.write_text(replace_placeholders(text, previous_siafi), encoding='utf-8')
 
 
 def main():
