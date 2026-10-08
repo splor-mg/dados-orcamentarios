@@ -1,5 +1,12 @@
 name: dados_siad
 title: Execução Portal de Compras - SIAD
+owner_org: secretaria-de-estado-de-planejamento-e-gestao-seplag
+dpetl_load:
+  owner: splor-mg
+  repo: dados-siad
+  level: orgs
+  visibility: public
+
 resources:
   - name: execucao_siad
     type: table
