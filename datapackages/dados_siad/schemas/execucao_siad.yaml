@@ -1,1 +1,66 @@
+fields:
+  - name: Ano Empenho
+    target: ano_empenho
 
+  - name: Código Unidade Orçamentária
+    target: uo_cod
+
+  - name: Projeto_Atividade - Código
+    target: acao_cod
+
+  - name: Grupo Despesa - Código
+    target: grupo_cod
+
+  - name: Identificador Orçamento - Código
+    target: iag_cod
+
+  - name: Fonte Recurso - Código
+    target: fonte_cod
+
+  - name: Procedência - Código
+    target: ipu_cod
+
+  - name: Código Elemento Item Despesa
+    target: elemento_item_cod
+
+  - name: Tipo Material/Serviço
+    target: tipo_material_servico
+
+  - name: Código Item Material/Serviço - Numérico
+    target: item_material_servico_cod
+
+  - name: Item Material/Serviço
+    target: item_material_servico_desc
+
+  - name: Qtde Despesa Empenhada
+    target: quantidade_empenhada
+
+  - name: Valor Despesa Empenhada
+    target: vlr_empenhado
+
+  - name: Qtde Despesa Liquidada
+    target: quantidade_liquidada
+
+  - name: Valor Despesa Liquidada
+    target: vlr_liquidado
+
+  - name: Número Contrato
+    target: num_contrato
+
+  - name: Descrição Tipo Contrato
+    target: tipo_contrato_desc
+
+  - name: Indicador Execução Continuada
+    target: indicador_execucao_continuada
+
+  - name: Código Item Material/Serviço - Formatado
+    target: cod_item_formatado
+
+  - name: CNPJ/CPF Fornecedor - Formatado
+    target: cnpj_cpf_formatado
+
+  - name: Material/Serviço
+    target: material_servico_desc
+
+  - name: Código Material/Serviço - Formatado
+    target: material_servico_cod

@@ -78,7 +78,16 @@ fields:
       Ano de exercício do orçamento fiscal.
     constraints:
       required: true
-      pattern: '^[1-9]\d{3}$'
+      pattern: '^[1-2]\d{3}$'
+
+  - name: ano_empenho
+    type: string
+    title: Ano Empenho
+    description: |
+      Ano de registro do documento de empenho, registrado no sistema estruturado SIAFI.
+    constraints:
+      required: true
+      pattern: '^[1-2]\d{3}$'
 
   - name: ano_processo
     type: string
@@ -87,7 +96,7 @@ fields:
       Ano do processo de compra.
     constraints:
       required: true
-      pattern: '^[1-9]\d{3}$'
+      pattern: '^[1-2]\d{3}$'
 
   - name: ano_rp
     type: string
@@ -95,7 +104,7 @@ fields:
     description: |
       Ano de origem do documento de Restos a Pagar.
     constraints:
-      pattern: '^[1-9]\d{3}$'
+      pattern: '^[1-2]\d{3}$'
 
   - name: ano_rp_folha
     type: string
@@ -103,7 +112,7 @@ fields:
     description: |
       Ano de origem do documento de folha de pagamento inscrita em Restos a Pagar.
     constraints:
-      pattern: '^[1-9]\d{3}$'
+      pattern: '^[1-2]\d{3}$'
 
   - name: apuracao_ano0
     type: boolean
@@ -234,12 +243,20 @@ fields:
     description: |
       Código formatado do CNPJ ou CPF do credor.
     constraints:
-      pattern: '^(\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}|\d{3}\.\d{3}\.\d{3}/\d{2}|CPF:[0-9a-f]{32})$'
+      pattern: '^(\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}|\d{3}\.\d{3}\.\d{3}[/-]\d{2}|CPF:[0-9a-f]{32})$'
     missingValues: ['99999999999999']
     anonymize:
       method: aes_siv
       annotation: CPF:11
       filter: 'len([c for c in cnpj_cpf_formatado if c.isdigit()]) == 11'
+
+  - name: cod_item_formatado
+    type: string
+    title: Código Item Material/Serviço - Formatado
+    description: |
+      .
+    constraints:
+      pattern: ^\d{8}-\d$
 
   - name: data_inclusao
     type: date
@@ -618,6 +635,14 @@ fields:
     constraints:
       maxLength: 10
 
+  - name: indicador_execucao_continuada
+    type: string
+    title: Indicador Execução Continuada
+    description: |
+      Indica se a execução é continuada:SIM.
+    constraints:
+      maxLength: 10
+
   - name: indicador_justificativa_exclusao
     type: string
     title: Justificativa de Exclusão do Indicador
@@ -817,6 +842,22 @@ fields:
     constraints:
       maxLength: 500
 
+  - name: item_material_servico_cod
+    type: string
+    title: Código Item Material/Serviço - Numérico
+    description: |
+      Código numérico do item de material/serviço no Catálogo de Materiais e Serviçoes do Siad.
+    constraints:
+      maxLength: 10
+
+  - name: item_material_servico_desc
+    type: string
+    title: Item Material/Serviço
+    description: |
+      Especificação do item de material/serviço.
+    constraints:
+      maxLength: 500
+
   - name: lei_aprovacao
     type: string
     title: Lei Aprovação Orçamento
@@ -830,6 +871,22 @@ fields:
     title: Licitação - Descrição da Modalidade
     description: |
       Descrição da forma de licitação efetivada de acordo com o SIAFI-MG.
+    constraints:
+      maxLength: 500
+
+  - name: material_servico_cod
+    type: string
+    title: Código Material/Serviço - Formatado
+    description: |
+      .
+    constraints:
+      pattern: '^\d{4}\.\d{3}-\d$'
+
+  - name: material_servico_desc
+    type: string
+    title: Material/Serviço
+    description: |
+      Descrição do material ou serviço.
     constraints:
       maxLength: 500
 
@@ -937,6 +994,14 @@ fields:
       .
     constraints:
       maxLength: 500
+
+  - name: num_contrato
+    type: string
+    title: Número Contrato
+    description: |
+      Número de registro do contrato.
+    constraints:
+      pattern: '^\d+$'
 
   - name: num_contrato_entrada
     type: string
@@ -1389,6 +1454,24 @@ fields:
     constraints:
       maxLength: 1000
 
+  - name: quantidade_empenhada
+    type: number
+    title: Qtde Despesa Empenhada
+    description: |
+      Quantidade despesa empenhada do item de materail/serviço, calculada a partir de:
+      Qtde empenho + Qtde reforço empenho - Qtde anulação empenho - Qtde anulação despesa orçamentária - Qtde cancelamento restos a pagar + Qtde reestabelecimento restos a pagar.
+      Atenção: Valores igua a zero no caso de serviço com controle por valor.
+      Valores negativos poderão ser exibidos dependendo do detalhamento da consulta.
+
+  - name: quantidade_liquidada
+    type: number
+    title: Qtde Despesa Liquidada
+    description: |
+      Quantidade despesa empenhada do item de materail/serviço, calculada a partir de:
+      Qtde conformidade orçamentaria + Qtde conformidade restos a pagar - Qtde anulação conformidade orçamentária - Qtde anulação conformidade restos a pagar - Qtde anulação despesa orçamentária - Qtde anulação despesa restos a pagar.
+      Atenção: Valores igua a zero no caso de serviço com controle por valor.
+      Valores negativos poderão ser exibidos dependendo do detalhamento da consulta.
+
   - name: razao_social_credor
     type: string
     title: Razão Social Credor
@@ -1522,9 +1605,9 @@ fields:
 
   - name: tipo_contrato_desc
     type: string
-    title: Descrição Tipo de Contrato
+    title: Descrição Tipo Contrato
     description: |
-      .
+      Descrição do tipo de contrato.
     constraints:
       maxLength: 500
 
@@ -1533,6 +1616,14 @@ fields:
     title: Tipo de Programa
     description: |
       .
+    constraints:
+      maxLength: 500
+
+  - name: tipo_material_servico
+    type: string
+    title: Tipo Material/Serviço
+    description: |
+      Especificação se um item se refera a um material ou a um serviço.
     constraints:
       maxLength: 500
 

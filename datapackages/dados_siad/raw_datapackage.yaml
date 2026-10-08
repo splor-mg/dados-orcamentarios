@@ -1,0 +1,17 @@
+name: dados_siad
+title: Execução Portal de Compras - SIAD
+resources:
+  - name: execucao_siad
+    type: table
+    path: data_raw/execucao_siad.csv
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    schema: schemas/execucao_siad.yaml
+    dpetl_extract:
+      mode: cli
+      arguments:
+        - bo export dados_siad/current/execucao_siad -q --dp DP0 -p "Ano Empenho={{year0}}" -o datapackages/dados_siad/data_raw/execucao_siad.csv
+    dpetl_transform:
+      format: csv
