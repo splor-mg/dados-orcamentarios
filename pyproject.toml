@@ -10,6 +10,7 @@ dependencies = [
     'python-dotenv (>=1.2.1,<2.0.0)',
     'dpetl[github-app] (>=0.18.3)',
     'bocli @ git+https://github.com/splor-mg/bo-cli.git',
+    'zendt (>=0.1.1,<0.2.0)',
 ]
 requires-python = '>=3.13,<4.0'
 authors = [
