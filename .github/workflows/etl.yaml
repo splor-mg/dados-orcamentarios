@@ -9,8 +9,10 @@ on:
         default: todos
         options:
           - todos
+          - dados_aux_contratos
           - dados_check_siafi
           - dados_classificadores
+          - dados_siad
           - dados_siafi
       year:
         description: "[opcional] Ano de exercício:"
