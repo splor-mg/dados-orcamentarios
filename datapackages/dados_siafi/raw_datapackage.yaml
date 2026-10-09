@@ -10,7 +10,7 @@ dpetl_load:
 custom:
   - sources:
     - id: relatorios
-      source: https://github.com/splor-mg/regras-orcamentarias-mg/tree/main/rules
+      source: https://github.com/splor-mg/regras-orcamentarias-mg/tree/main/rules/DCAF/relatorios
   - flows:
     - id: receita
       description: "regras para aplicação nos recursos: receita"
