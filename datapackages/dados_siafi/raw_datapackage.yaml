@@ -6,6 +6,14 @@ dpetl_load:
   repo: dados-siafi-{{year0}}
   level: orgs
   visibility: public
+dpetl_linktable:
+  resource_list:
+    - alteracoes_orcamentarias
+    - cota
+    - credito
+    - execucao
+    - receita
+    - restos_pagar
 
 custom:
   - sources:
