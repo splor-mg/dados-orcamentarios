@@ -4,6 +4,8 @@ datapackages/*/data_raw/*
 datapackages/*/data/*
 !datapackages/*/data/.gitkeep
 
+datapackages/*/data_snapshot/
+
 datapackages/*/datapackage.yaml
 datapackages/*/datapackage.json
 

@@ -36,6 +36,8 @@ permissions:
 jobs:
   all:
     runs-on: ubuntu-latest
+    outputs:
+      divergent_years: ${{ steps.etl.outputs.divergent_years }}
     steps:
       - name: Set current date and time
         id: date_step
@@ -99,6 +101,7 @@ jobs:
         run: poetry install --no-interaction
 
       - name: Run etl process
+        id: etl
         env:
           ETL_PACKAGE: ${{ inputs.package != 'todos' && inputs.package || '' }}
           YEAR: ${{ inputs.year }}
@@ -118,16 +121,11 @@ jobs:
           if [ -n "$ETL_PACKAGE" ]; then
             export ETL_DESCRIPTOR="-d datapackages/$ETL_PACKAGE/datapackage.yaml"
           fi
-          task etl
 
-          if [ -z "$ETL_PACKAGE" ] || [ "$ETL_PACKAGE" = "dados_check_siafi" ]; then
-            divergent_years=$(python3 src/check_siafi.py)
-            for year in $divergent_years; do
-              export ETL_DESCRIPTOR="-d datapackages/dados_siafi/datapackage.yaml"
-              export YEAR="$year"
-              task etl
-            done
-          fi
+          python3 src/check_siafi.py --save-snapshot
+          task etl
+          divergent_years=$(python3 src/check_siafi.py)
+          echo "divergent_years=$(echo "$divergent_years" | jq -cR 'split(" ")')" >> "$GITHUB_OUTPUT"
 
       - name: Commit updated package options
         run: |
@@ -149,5 +147,112 @@ jobs:
         if: failure()
         with:
           title: ETL workflow failed on ${{ steps.date_step.outputs.now }}
+          labels: bug
+          content-filepath: .github/etl_failure.rendered.md
+
+  siafi:
+    name: dados_siafi ${{ matrix.year }}
+    needs: all
+    if: needs.all.outputs.divergent_years != '[]'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        year: ${{ fromJSON(needs.all.outputs.divergent_years) }}
+    steps:
+      - name: Set current date and time
+        id: date_step
+        run: |
+          echo "now=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_OUTPUT
+
+      - name: Get job ID
+        id: job_id
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          JOB_ID=$(gh api \
+            /repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs \
+            --jq '.jobs[] | select(.name == "dados_siafi ${{ matrix.year }}") | .id')
+          echo "job_id=$JOB_ID" >> "$GITHUB_OUTPUT"
+
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.GH_APP_ID }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+          owner: splor-mg
+          repositories: |
+            dados-orcamentarios
+            bo-cli
+
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
+
+      - name: Configure git to use App token for private repos
+        run: |
+          git config --global url."https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/".insteadOf "https://github.com/"
+
+      - name: Setup Python
+        id: setup-python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          virtualenvs-path: .venv
+          installer-parallel: true
+
+      - name: Load cached venv
+        id: cached-poetry-dependencies
+        uses: actions/cache@v4
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
+
+      - name: Install dependencies
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+        run: poetry install --no-interaction
+
+      - name: Run etl process
+        env:
+          ETL_DESCRIPTOR: -d datapackages/dados_siafi/datapackage.yaml
+          YEAR: ${{ matrix.year }}
+          BO_AUTH: ${{ vars.BO_AUTH }}
+          BO_BASE_URL: ${{ vars.BO_BASE_URL }}
+          BO_PASSWORD: ${{ secrets.BO_PASSWORD }}
+          BO_USER: ${{ secrets.BO_USER }}
+          BO_VERIFY_SSL: ${{ vars.BO_VERIFY_SSL }}
+          BOCLI_MAX_REQUESTS_PER_MINUTE: ${{ vars.BOCLI_MAX_REQUESTS_PER_MINUTE }}
+          BOCLI_REQUEST_DELAY: ${{ vars.BOCLI_REQUEST_DELAY }}
+          BOCLI_NETWORK_RETRIES: ${{ vars.BOCLI_NETWORK_RETRIES }}
+          ANONYMIZE_SECRET_KEY: ${{ secrets.ANONYMIZE_SECRET_KEY }}
+          GH_APP_ID: ${{ secrets.GH_APP_ID }}
+          GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
+        run: |
+          source .venv/bin/activate
+          task etl
+
+      - name: Render failure issue body
+        if: failure()
+        env:
+          JOB_ID: ${{ steps.job_id.outputs.job_id }}
+        run: |
+          envsubst '${GITHUB_REPOSITORY} ${GITHUB_RUN_ID} ${JOB_ID}' \
+            < .github/etl_failure.md > .github/etl_failure.rendered.md
+
+      - name: Workflow failure notification
+        uses: peter-evans/create-issue-from-file@v6
+        if: failure()
+        with:
+          title: ETL dados_siafi ${{ matrix.year }} failed on ${{ steps.date_step.outputs.now }}
           labels: bug
           content-filepath: .github/etl_failure.rendered.md
