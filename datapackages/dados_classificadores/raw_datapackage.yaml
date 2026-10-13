@@ -6,7 +6,13 @@ dpetl_load:
   repo: dados-classificadores
   level: orgs
   visibility: public
-
+dpetl_linktable:
+  resource_list:
+    - acao
+    - elemento_item
+    - fonte
+    - uo
+    
 resources:
   - name: acao
     type: table
