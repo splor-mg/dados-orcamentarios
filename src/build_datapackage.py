@@ -16,9 +16,7 @@ MATCH_BY = {'.yaml': 'target',
 def replace_placeholders(text, previous):
     text = text.replace('{{date}}', today.strftime('%Y-%m-%d'))
     text = re.sub(r'\{\{year(\d+)\}\}', lambda m: str(year + int(m.group(1))), text)
-    if previous:
-        text = text.replace('/current/', '/previous/')
-    return text
+    return text.replace('{{current}}', 'previous' if previous else 'current')
 
 
 def build(source_name, fields_dic):
@@ -28,6 +26,7 @@ def build(source_name, fields_dic):
 
     for datapackage in Path('datapackages').glob(f'*/{source_name}'):
         previous_siafi = (year <= today.year - 5) and datapackage.parent.name == 'dados_siafi'
+        classificadores = datapackage.parent.name == 'dados_classificadores'
         package = Package(datapackage)
         missing = []
 
@@ -52,11 +51,21 @@ def build(source_name, fields_dic):
                     common_field = fields_dic[name]
                     schema[index] = common_field.to_copy(name=field.name)
                     schema[index].custom.update(original_custom)
+
+                    if 'join' in original_custom:
+                        schema[index].custom['join'] = {**common_field.custom.get('join', {}), **original_custom['join']}
+
+                    if match_by == 'name':
+                        schema[index].custom.pop('anonymize', None)
+                        schema[index].custom.pop('join', None)
+
                 elif name not in missing:
                     missing.append(name)
 
             for field in schema:
                 field.custom.pop('previous', None)
+                if classificadores:
+                    field.custom.pop('join', None)
 
         if missing:
             example = ', '.join(missing[:5])
