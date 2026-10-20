@@ -22,24 +22,36 @@ fields:
 
   - name: Função - Código
     target: funcao_cod
+    join:
+      by: {ano_rp: ano}
 
   - name: Projeto_Atividade - Código
     target: acao_cod
+    join:
+      by: {ano_rp: ano}
 
   - name: Grupo Despesa - Código
     target: grupo_cod
+    join:
+      by: {ano_rp: ano}
 
   - name: Modalidade Aplicação - Código
     target: modalidade_cod
+    join:
+      by: {ano_rp: ano}
 
   - name: Identificador Orçamento - Código
     target: iag_cod
 
   - name: Fonte Recurso - Código
     target: fonte_cod
+    join:
+      by: {ano_rp: ano}
 
   - name: Procedência - Código
     target: ipu_cod
+    join:
+      by: {ano_rp: ano}
 
   - name: Elemento origem DEA
     target: elemento_dea_cod
@@ -49,6 +61,8 @@ fields:
 
   - name: Elemento Item Despesa - Código
     target: elemento_item_cod
+    join:
+      by: {ano_rp: ano}
 
   - name: Número Empenho
     target: num_empenho
