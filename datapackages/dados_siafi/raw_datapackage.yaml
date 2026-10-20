@@ -6,6 +6,7 @@ dpetl_load:
   repo: dados-siafi-{{year0}}
   level: orgs
   visibility: public
+  mode: git
 
 custom:
   - sources:
@@ -34,7 +35,7 @@ resources:
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export dados_siafi/current/alteracoes_orcamentarias -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/alteracoes_orcamentarias.csv
+        - bo export dados_siafi/{{current}}/alteracoes_orcamentarias -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/alteracoes_orcamentarias.csv
     dpetl_transform:
       cli:
         stdin: true
@@ -52,7 +53,7 @@ resources:
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export dados_siafi/current/cota -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/cota.csv
+        - bo export dados_siafi/{{current}}/cota -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/cota.csv
     dpetl_transform:
       cli:
         stdin: true
@@ -70,7 +71,7 @@ resources:
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export dados_siafi/current/credito -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/credito.csv
+        - bo export dados_siafi/{{current}}/credito -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/credito.csv
     dpetl_transform:
       cli:
         stdin: true
@@ -88,7 +89,7 @@ resources:
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export dados_siafi/current/execucao -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/execucao.csv
+        - bo export dados_siafi/{{current}}/execucao -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/execucao.csv
     dpetl_transform:
       cli:
         stdin: true
@@ -106,7 +107,7 @@ resources:
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export dados_siafi/current/execucao_alem_credito -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/execucao_alem_credito.csv
+        - bo export dados_siafi/{{current}}/execucao_alem_credito -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/execucao_alem_credito.csv
     dpetl_transform:
       cli:
         stdin: true
@@ -124,7 +125,7 @@ resources:
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export dados_siafi/current/receita -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/receita.csv
+        - bo export dados_siafi/{{current}}/receita -q --dp DP0 -p "Ano de Exercício={{year0}}" -o datapackages/dados_siafi/data_raw/receita.csv
     dpetl_transform:
       cli:
         stdin: true
