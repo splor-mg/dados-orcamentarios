@@ -9,6 +9,10 @@ fields:
     constraints:
       pattern: '^[1-9]\d{3}$'
     missingValues: ['0', '']
+    join:
+      path: datapackages/dados_classificadores/data/acao.csv
+      columns: [acao_desc]
+      by: {ano: ano}
 
   - name: acao_desc
     type: string
@@ -244,7 +248,7 @@ fields:
       Código formatado do CNPJ ou CPF do credor.
     constraints:
       pattern: '^(\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}|\d{3}\.\d{3}\.\d{3}[/-]\d{2}|CPF:[0-9a-f]{32})$'
-    missingValues: ['99999999999999']
+    missingValues: ['0', '99999999999999']
     anonymize:
       method: aes_siv
       annotation: CPF:11
@@ -314,7 +318,8 @@ fields:
     description: |
       Número do decreto de autorização da alteração orçamentária, gerado pelo SIAFI-MG.
     constraints:
-      pattern: '^(0|[1-9]\d{0,2})$'
+      pattern: '^([1-9]\d{0,5})$'
+    missingValues: ['0', '9999999']
 
   - name: diretriz_estrategica_cod
     type: string
@@ -338,7 +343,7 @@ fields:
     description: |
       Número do documento de aprovação da cota orçamentária.
     constraints:
-      pattern: '^[1-9]\d{0,4}$'
+      pattern: '^[1-9]\d{0,6}$'
 
   - name: elemento_cod
     type: string
@@ -372,6 +377,10 @@ fields:
     constraints:
       pattern: '^[1-9]\d{0,3}$'
     missingValues: ['0', '']
+    join:
+      path: datapackages/dados_classificadores/data/elemento_item.csv
+      columns: [elemento_item_desc]
+      by: {ano: ano}
 
   - name: elemento_item_desc
     type: string
@@ -404,6 +413,10 @@ fields:
     constraints:
       required: true
       pattern: '^(0|[1-9]\d{0,1})$'
+    join:
+      path: datapackages/dados_classificadores/data/fonte.csv
+      columns: [fonte_desc]
+      by: {ano: ano}
 
   - name: fonte_desc
     type: string
@@ -453,6 +466,10 @@ fields:
       Um programa pode ter ações atreladas a distintas funções, assim como uma unidade orçamentária, mas cada ação só pode ter uma única função.
     constraints:
       pattern: '^\d{1,2}$'
+    join:
+      path: datapackages/dados_classificadores/data/funcao.csv
+      columns: [funcao_desc]
+      by: {ano: ano}
 
   - name: funcao_desc
     type: string
@@ -478,7 +495,11 @@ fields:
       Consiste na agregação de elementos de despesa que apresentam as mesmas características quanto ao objeto do gasto.
       A Portaria Interministerial STN/SOF n.o 163/01 definiu como grupos de despesa: (1) pessoal e encargos sociais, (2) juros e encargos da dívida, (3) outras despesas correntes, (4) investimentos, (5) inversões financeiras e (6) amortização da dívida.
     constraints:
-      pattern: '^([1-6]|9)$'
+      pattern: '^([0-6]|9)$'
+    join:
+      path: datapackages/dados_classificadores/data/grupo_categoria.csv
+      columns: [grupo_desc]
+      by: {ano: ano}
 
   - name: grupo_desc
     type: string
@@ -502,7 +523,7 @@ fields:
     description: |
       Código do identificador do orçamento conforme o SIAFI-MG.
     constraints:
-      pattern: '^[0-6]$'
+      pattern: '^[0-7]$'
 
   - name: iag_desc
     type: string
@@ -710,6 +731,10 @@ fields:
       O identificador de procedência e uso (IPU) informa, dentre outros, se os recursos serão para livre utilização, se foram transferidos de outra unidade orçamentária, se objetivam oferecer contrapartida a convênios, acordos e ajustes, se voltam para o financiamento de inativos do FFP ou ainda se referem-se aos investimentos do Propag.
     constraints:
       pattern: '^\d{1}$'
+    join:
+      path: datapackages/dados_classificadores/data/ipu.csv
+      columns: [ipu_desc]
+      by: {ano: ano}
 
   - name: ipu_desc
     type: string
@@ -864,7 +889,7 @@ fields:
     description: |
       Número da lei de aprovação do Orçamento do Estado.
     constraints:
-      pattern: '^(0|[1-9]\d{0,4})$'
+      pattern: '^(0|[1-9]\d{0,5})$'
 
   - name: licitacao_modalidade
     type: string
@@ -929,6 +954,10 @@ fields:
     constraints:
       pattern: '^\d{2}$'
     missingValues: ['0', '']
+    join:
+      path: datapackages/dados_classificadores/data/modalidade.csv
+      columns: [modalidade_desc]
+      by: {ano: ano}
 
   - name: modalidade_desc
     type: string
@@ -1355,6 +1384,10 @@ fields:
       O programa representa uma política pública que visa o enfrentamento de um problema ou oportunidade, sendo mensurado por indicadores.
     constraints:
       pattern: '^\d{1,3}$'
+    join:
+      path: datapackages/dados_classificadores/data/programa.csv
+      columns: [programa_desc]
+      by: {ano: ano}
 
   - name: programa_desc
     type: string
@@ -1493,6 +1526,10 @@ fields:
     constraints:
       required: true
       pattern: '^(0|[1-9]\d{9,12})$'
+    join:
+      path: datapackages/dados_classificadores/data/receita.csv
+      columns: [receita_desc]
+      by: {ano: ano}
 
   - name: receita_cod_fmt
     type: string
@@ -1509,7 +1546,7 @@ fields:
     description: |
       Código da Classificação Receita Formatado.
     constraints:
-      pattern: '^\d{4}\.\d{2}\.\d{1}\.\d{1}\.\d{2}\.\d{3}$'
+      pattern: '^(\d{4}\.\d{2}\.\d{1}\.\d{1}\.\d{2}\.\d{3}|\d{1}\.\d{1}\.\d{1}\.\d{1}\.\d{2}\.\d{2}\.\d{2})$'
 
   - name: receita_desc
     type: string
@@ -1578,6 +1615,10 @@ fields:
       Tal como ocorre com a função, o critério que preside a definição da subfunção é a natureza do objeto da ação.
     constraints:
       pattern: '^\d{1,3}$'
+    join:
+      path: datapackages/dados_classificadores/data/subfuncao.csv
+      columns: [subfuncao_desc]
+      by: {ano: ano}
 
   - name: subfuncao_desc
     type: string
@@ -1725,6 +1766,10 @@ fields:
     constraints:
       required: true
       pattern: '^[1-9]\d{3}$'
+    join:
+      path: datapackages/dados_classificadores/data/uo.csv
+      columns: [uo_sigla, uo_nome]
+      by: {ano: ano}
 
   - name: uo_fin_cod
     type: string
@@ -1821,16 +1866,12 @@ fields:
     title: Valor Anulação Crédito
     description: |
       Valor, em reais, da anulação de crédito na dotação orçamentária.
-    constraints:
-      minimum: 0
 
   - name: vlr_anulacao_pagamento_rpp
     type: number
     title: Valor Anulação Pagamento Processado
     description: |
       Valor, em reais, da anulação da despesa através da devolução, do Pagamento de restos a pagar processado.
-    constraints:
-      minimum: 0
 
   - name: vlr_anulacao_pago_antecipado
     type: number
@@ -1900,8 +1941,6 @@ fields:
     title: Valor Cota Aprovada
     description: |
       Valor, em reais, da cota aprovada.
-    constraints:
-      minimum: 0
 
   - name: vlr_cota_aprovada_liquida
     type: number
@@ -1936,8 +1975,6 @@ fields:
     title: Valor Crédito Inicial
     description: |
       Valor, em reais, do crédito orçamentário aprovado pela Lei Orçamentária.
-    constraints:
-      minimum: 0
 
   - name: vlr_desconto_rpp
     type: number
@@ -2137,16 +2174,12 @@ fields:
     title: Valor Pago Folha
     description: |
       Valor pago, em reais, referente a valor inscrito processado de folha de pagamento, total ou parcial.
-    constraints:
-      minimum: 0
 
   - name: vlr_pago_orcamentario
     type: number
     title: Valor Pago Orçamentário
     description: |
       Valor pago, por empenho.
-    constraints:
-      minimum: 0
 
   - name: vlr_pago_rpnp
     type: number
@@ -2167,8 +2200,6 @@ fields:
     title: Valor Previsto Adicional
     description: |
       Valor, em reais, da previsão adicional da receita.
-    constraints:
-      minimum: 0
 
   - name: vlr_previsto_atualizado
     type: number
@@ -2252,8 +2283,6 @@ fields:
     title: Valor Suplementação
     description: |
       Valor, em reais, destinado a reforço de dotação orçamentária.
-    constraints:
-      minimum: 0
 
   - name: vlr_tesouro
     type: number
