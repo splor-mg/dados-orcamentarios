@@ -13,18 +13,26 @@ fields:
 
   - name: Grupo Despesa - Código
     target: grupo_cod
+    join:
+      by: {ano_rp_folha: ano}
 
   - name: Modalidade Aplicação - Código
     target: modalidade_cod
+    join:
+      by: {ano_rp_folha: ano}
 
   - name: Identificador Orçamento - Código
     target: iag_cod
 
   - name: Fonte Recurso - Código
     target: fonte_cod
+    join:
+      by: {ano_rp_folha: ano}
 
   - name: Procedência - Código
     target: ipu_cod
+    join:
+      by: {ano_rp_folha: ano}
 
   - name: Valor Inscrito Folha
     target: vlr_inscrito_folha
