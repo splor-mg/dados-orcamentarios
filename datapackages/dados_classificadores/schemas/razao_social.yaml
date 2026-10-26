@@ -1,0 +1,6 @@
+fields:
+  - name: CNPJ_CPF Credor - Formatado
+    target: cnpj_cpf_formatado
+
+  - name: Razão Social Credor
+    target: razao_social_credor

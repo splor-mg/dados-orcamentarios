@@ -104,6 +104,22 @@ resources:
     dpetl_transform:
       format: csv
 
+  - name: iag
+    type: table
+    path: [data_raw/iag_previous.csv, data_raw/iag_current.csv]
+    scheme: multipart
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    schema: schemas/iag.yaml
+    dpetl_extract:
+      mode: cli
+      arguments:
+        - bo export dados_classificadores/current/iag -q --dp DP0 -o datapackages/dados_classificadores/data_raw/iag_current.csv
+        - bo export dados_classificadores/previous/iag -q --dp DP0 -o datapackages/dados_classificadores/data_raw/iag_previous.csv
+    dpetl_transform:
+      format: csv
+
   - name: ipu
     type: table
     path: [data_raw/ipu_previous.csv, data_raw/ipu_current.csv]
@@ -151,6 +167,21 @@ resources:
         - bo export dados_classificadores/previous/programa -q --dp DP0 -o datapackages/dados_classificadores/data_raw/programa_previous.csv
     dpetl_transform:
       format: csv
+
+  - name: razao_social
+    type: table
+    path: data_raw/razao_social.csv
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    schema: schemas/razao_social.yaml
+    dpetl_extract:
+      mode: cli
+      arguments:
+        - bo export dados_classificadores/current/razao_social --report -q -o datapackages/dados_classificadores/data_raw/razao_social.csv
+    dpetl_transform: false
+    dpetl_load: false
 
   - name: receita
     type: table
