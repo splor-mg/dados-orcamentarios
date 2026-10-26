@@ -1,0 +1,9 @@
+fields:
+  - name: Ano de Exercício
+    target: ano
+
+  - name: Identificador Orçamento - Código
+    target: iag_cod
+
+  - name: Identificador Orçamento - Descrição
+    target: iag_desc
