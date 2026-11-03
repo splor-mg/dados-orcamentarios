@@ -1,5 +1,5 @@
 fields:
-  - name: Ano de Exercício
+  - name: Ano Exercício Unidade Orçamentária
     target: ano
 
   - name: Unidade Orçamentária - Código
@@ -10,3 +10,9 @@ fields:
 
   - name: Unidade Orçamentária - Nome
     target: uo_nome
+
+  - name: Poder Unid Orçamentária - Código
+    target: poder_cod
+
+  - name: Poder Unid Orçamentária - Desc
+    target: poder_desc

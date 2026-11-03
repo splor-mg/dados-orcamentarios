@@ -186,8 +186,8 @@ resources:
 
   - name: uo
     type: table
-    path: [data_raw/uo_previous.csv, data_raw/uo_current.csv]
-    scheme: multipart
+    path: data_raw/uo.csv
+    scheme: file
     format: csv
     mediatype: text/csv
     encoding: utf-8
@@ -195,7 +195,6 @@ resources:
     dpetl_extract:
       mode: cli
       arguments:
-        - bo export dados_classificadores/current/uo -q --dp DP0 -o datapackages/dados_classificadores/data_raw/uo_current.csv
-        - bo export dados_classificadores/previous/uo -q --dp DP0 -o datapackages/dados_classificadores/data_raw/uo_previous.csv
+        - bo export dados_classificadores/current/uo -q --dp DP0 -o datapackages/dados_classificadores/data_raw/uo.csv
     dpetl_transform:
       format: csv
