@@ -41,19 +41,11 @@ fields:
   - name: Procedência - Código
     target: ipu_cod
 
-  - name: Elemento Despesa - Código
-    target: elemento_cod
-
-  - name: Item Despesa - Código
-    target: item_cod
-
   - name: Elemento origem DEA
     target: elemento_dea_cod
-    previous: false
 
   - name: Item origem DEA
     target: item_dea_cod
-    previous: false
 
   - name: Elemento Item Despesa - Código
     target: elemento_item_cod
@@ -63,9 +55,6 @@ fields:
 
   - name: CNPJ_CPF Credor - Formatado
     target: cnpj_cpf_formatado
-
-  - name: Razão Social Credor
-    target: razao_social_credor
 
   - name: ContratoConvênio Entrada
     target: num_contrato_entrada
