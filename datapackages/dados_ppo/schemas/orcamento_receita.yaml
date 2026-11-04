@@ -12,7 +12,7 @@ fields:
     target: uo_sigla
 
   - name: Classificação da Receita
-    target: receita_cod_fmt
+    target: receita_cod
 
   - name: Descrição da Receita
     target: receita_desc
