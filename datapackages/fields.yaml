@@ -1546,20 +1546,12 @@ fields:
       Código da classificação da receita.
     constraints:
       required: true
-      pattern: '^(0|[1-9]\d{9,12})$'
+      pattern: '^(0|[1-9]\d{9,12}|[1-9]\.[1-9]\.[1-9]\.[1-9]\.\d{2}\.\d\.[1-9]\.\d{2}\.\d{3})$'
+    replace: {'[.]': ''}
     join:
       path: datapackages/dados_classificadores/data/receita.csv
       columns: {receita_desc: receita_desc}
       by: {ano: ano}
-
-  - name: receita_cod_fmt
-    type: string
-    title: Classificação Receita - Código Formatado
-    description: |
-      Código formatado da classificação da receita.
-    constraints:
-      required: true
-      pattern: '^[1-9]\.[1-9]\.[1-9]\.[1-9]\.\d{2}\.\d\.[1-9]\.\d{2}\.\d{3}$'
 
   - name: receita_cod_formatado
     type: string
