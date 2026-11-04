@@ -61,6 +61,8 @@ fields:
 
   - name: Item de Despesa
     target: item_cod
+    compute:
+      elemento_item_cod: 'elemento_cod + item_cod.zfill(2)'
 
   - name: IAG
     target: iag_cod
