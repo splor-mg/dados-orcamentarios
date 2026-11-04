@@ -8,6 +8,26 @@ dpetl_load:
   level: orgs
   visibility: public
 
+custom:
+  - sources:
+    - id: relatorios
+      source: https://github.com/splor-mg/regras-orcamentarias-mg/tree/main/rules/DCAF/relatorios
+  - flows:
+    - id: receita
+      rules:
+        - is_asps_rec
+        - is_ibs
+        - is_icms
+        - is_ipva
+        - is_irrf
+        - is_itcd
+        - is_fpe_principal
+        - is_ipi_principal
+        - is_lei_kandir_principal
+    - id: despesa
+      rules:
+        - is_asps_desp
+
 resources:
   - name: intra_orcamentaria
     type: table
@@ -34,8 +54,10 @@ resources:
       delimiter: ';'
     schema: schemas/orcamento_despesa.yaml
     dpetl_transform:
-      path: data_pre
-      format: csv
+      cli:
+        stdin: true
+        arguments:
+          - zendt flow despesa -o datapackages/dados_ppo/data_pre/orcamento_despesa.csv
 
   - name: orcamento_despesa_investimento
     type: table
@@ -104,8 +126,10 @@ resources:
       delimiter: ';'
     schema: schemas/orcamento_receita.yaml
     dpetl_transform:
-      path: data_pre
-      format: csv
+      cli:
+        stdin: true
+        arguments:
+          - zendt flow receita -o datapackages/dados_ppo/data_pre/orcamento_receita.csv
 
   - name: orcamento_receita_investimento
     type: table
