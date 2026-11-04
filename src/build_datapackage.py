@@ -26,7 +26,7 @@ def build(source_name, fields_dic):
 
     for datapackage in Path('datapackages').glob(f'*/{source_name}'):
         previous_siafi = (year <= today.year - 5) and datapackage.parent.name == 'dados_siafi'
-        classificadores = datapackage.parent.name == 'dados_classificadores'
+        remove_join = datapackage.parent.name in ('dados_classificadores', 'dados_ppo')
         package = Package(datapackage)
         missing = []
 
@@ -64,7 +64,7 @@ def build(source_name, fields_dic):
 
             for field in schema:
                 field.custom.pop('previous', None)
-                if classificadores:
+                if remove_join:
                     field.custom.pop('join', None)
 
         if missing:
