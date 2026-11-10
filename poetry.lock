@@ -573,14 +573,14 @@ files = [
 
 [[package]]
 name = "dpetl"
-version = "0.18.3"
+version = "0.19.0"
 description = ""
 optional = false
 python-versions = "<4.0,>=3.13"
 groups = ["main"]
 files = [
-    {file = "dpetl-0.18.3-py3-none-any.whl", hash = "sha256:a44d82351a25c8bdd6d9cc5dc9474a45ca19b51ffda0cd76cf07f62ed83b8321"},
-    {file = "dpetl-0.18.3.tar.gz", hash = "sha256:adee3aa5a5b9d0e400736371483e2e147bfb79121001570d9b54ea98233f8348"},
+    {file = "dpetl-0.19.0-py3-none-any.whl", hash = "sha256:97c7865715c4dc58b36e686b734acc123ab80c54c23051b6857a53df443f95a9"},
+    {file = "dpetl-0.19.0.tar.gz", hash = "sha256:173ac21d4303155ed0d07b78d1f2e4e995505e4ac20725cbaa0f5fa07f2f0780"},
 ]
 
 [package.dependencies]
@@ -588,6 +588,7 @@ chardet = ">=5.2.0,<6.0.0"
 cryptography = {version = ">=3.4.0", optional = true, markers = "extra == \"github-app\""}
 frictionless = {version = ">=5.18.1,<6.0.0", extras = ["pandas"]}
 imap-tools = ">=1.11.1,<2.0.0"
+petl = ">=1.7.22"
 PyJWT = {version = ">=2.0.0", optional = true, markers = "extra == \"github-app\""}
 pysocks = ">=1.7.1,<2.0.0"
 python-dotenv = ">=1.2.1,<2.0.0"
@@ -2484,4 +2485,4 @@ zen-engine = ">=2.0.2,<3.0.0"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13,<4.0"
-content-hash = "ee4dce77d2a5ddb582e1955c41298c5f4039d8e4d8f731d1378a41abfb7ac61a"
+content-hash = "d982b9219670426bf18dd926eddeb103d3e58d99da34c30a93fc9a4d04e0c184"
