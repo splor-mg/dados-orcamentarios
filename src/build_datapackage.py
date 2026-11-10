@@ -26,7 +26,7 @@ def build(source_name, fields_dic):
 
     for datapackage in Path('datapackages').glob(f'*/{source_name}'):
         previous_siafi = (year <= today.year - 5) and datapackage.parent.name == 'dados_siafi'
-        remove_join = datapackage.parent.name in ('dados_classificadores', 'dados_ppo')
+        remove_join = datapackage.parent.name in ('dados_aux_contratos', 'dados_classificadores', 'dados_ppo', 'dados_siad')
         package = Package(datapackage)
         missing = []
 
@@ -56,8 +56,8 @@ def build(source_name, fields_dic):
                         schema[index].custom['join'] = {**common_field.custom.get('join', {}), **original_custom['join']}
 
                     if match_by == 'name':
-                        schema[index].custom.pop('anonymize', None)
-                        schema[index].custom.pop('join', None)
+                        for prop in ('anonymize', 'join', 'replace', 'compute'):
+                            schema[index].custom.pop(prop, None)
 
                 elif name not in missing:
                     missing.append(name)
