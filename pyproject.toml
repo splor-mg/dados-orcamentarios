@@ -8,7 +8,8 @@ version = '0.1.0'
 dependencies = [
     'taskipy (>=1.14.1,<2.0.0)',
     'python-dotenv (>=1.2.1,<2.0.0)',
-    'dpetl[github-app] (>=0.19.0)',
+    'dpetl[github-app,sql] (>=0.20.0)',
+    'impyla (>=0.24.0,<0.25.0)',
     'bocli @ git+https://github.com/splor-mg/bo-cli.git',
     'zendt (>=0.1.1,<0.2.0)',
 ]
@@ -57,11 +58,11 @@ pre_test = { cmd = 'task lint', help = 'Runs linters before running the tests.' 
 test = { cmd = 'pytest -s -x -vv', help = 'Runs unit tests.' }
 post_test = { cmd = 'coverage html', help = 'Generates a coverage report after the tests.' }
 workflow = { cmd = 'poetry run python src/update_etl_options.py', help = 'Updates the package options in etl.yaml.' }
-yaml = { cmd = 'poetry run python src/build_datapackage.py raw_datapackage.yaml', help = 'Applies common fields to raw_datapackage.yaml.' }
+build = { cmd = 'poetry run python src/prepare_datapackages.py extract', help = 'Builds datapackage.yaml and replaces the placeholders of sql/*.sql.' }
 bocache = { cmd = 'poetry run bo cache update', help = 'Create cache for bocli.' }
-pre_extract = { cmd = 'task workflow && task yaml && task bocache', help = 'Necessary process before extract.' }
+pre_extract = { cmd = 'task workflow && task build && task bocache', help = 'Necessary process before extract.' }
 extract = { cmd = 'poetry run dpetl $ETL_DESCRIPTOR extract --delay 5', help = 'Runs the ETL extract command.' }
 transform = { cmd = 'poetry run dpetl $ETL_DESCRIPTOR --no-validate transform', help = 'Runs the ETL transform command.' }
-pre_load = { cmd = 'poetry run python src/build_datapackage.py datapackage.json', help = 'Applies common fields to datapackage.json.' }
+pre_load = { cmd = 'poetry run python src/prepare_datapackages.py load', help = 'Applies common fields to datapackage.json.' }
 load = { cmd = 'poetry run dpetl --validate-before load', help = 'Runs the ETL load command.' }
 etl = { cmd = 'task extract && task transform && task load', help = 'Runs all ETL process.' }
