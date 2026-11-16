@@ -12,6 +12,7 @@ on:
           - dados_aux_contratos
           - dados_check_siafi
           - dados_classificadores
+          - dados_ppo
           - dados_siad
           - dados_siafi
       year:
@@ -104,7 +105,9 @@ jobs:
         id: etl
         env:
           ETL_PACKAGE: ${{ inputs.package != 'todos' && inputs.package || '' }}
+          EVENT_NAME: ${{ github.event_name }}
           YEAR: ${{ inputs.year }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
           BO_AUTH: ${{ vars.BO_AUTH }}
           BO_BASE_URL: ${{ vars.BO_BASE_URL }}
           BO_PASSWORD: ${{ secrets.BO_PASSWORD }}
@@ -120,6 +123,15 @@ jobs:
           source .venv/bin/activate
           if [ -n "$ETL_PACKAGE" ]; then
             export ETL_DESCRIPTOR="-d datapackages/$ETL_PACKAGE/datapackage.yaml"
+
+          elif [ "$EVENT_NAME" = "schedule" ] && [ "$(date +%m)" != "09" ]; then
+            for raw in datapackages/*/raw_datapackage.yaml; do
+              package=$(dirname "$raw")
+              if [ "$(basename "$package")" != "dados_ppo" ]; then
+                ETL_DESCRIPTOR="$ETL_DESCRIPTOR -d $package/datapackage.yaml"
+              fi
+            done
+            export ETL_DESCRIPTOR
           fi
 
           python3 src/check_siafi.py --save-snapshot
