@@ -34,10 +34,8 @@ fields:
     title: Exclusão Lógica da Ação
     description: |
       .
-    trueValues:
-      - Sim
-    falseValues:
-      - Não
+    trueValues: ['S']
+    falseValues: ['N']
 
   - name: acao_finalidade
     type: string
@@ -62,18 +60,8 @@ fields:
     title: Nova Ação
     description: |
       .
-    trueValues:
-      - Sim
-    falseValues:
-      - Não
-
-  - name: alinea_cod
-    type: string
-    title: Alínea da Receita - Código
-    description: |
-      .
-    constraints:
-      pattern: '^\d{1,2}$'
+    trueValues: ['S']
+    falseValues: ['N']
 
   - name: ano
     type: string
@@ -123,40 +111,32 @@ fields:
     title: Em apuração? (Ano de Referência)
     description: |
       .
-    trueValues:
-      - Sim
-    falseValues:
-      - Não
+    trueValues: ['S']
+    falseValues: ['N']
 
   - name: apuracao_ano1
     type: boolean
     title: Em apuração? (Ano de Referência + 1)
     description: |
       .
-    trueValues:
-      - Sim
-    falseValues:
-      - Não
+    trueValues: ['S']
+    falseValues: ['N']
 
   - name: apuracao_ano2
     type: boolean
     title: Em apuração? (Ano de Referência + 2)
     description: |
       .
-    trueValues:
-      - Sim
-    falseValues:
-      - Não
+    trueValues: ['S']
+    falseValues: ['N']
 
   - name: apuracao_ano3
     type: boolean
     title: Em apuração? (Ano de Referência + 3)
     description: |
       .
-    trueValues:
-      - Sim
-    falseValues:
-      - Não
+    trueValues: ['S']
+    falseValues: ['N']
 
   - name: area_tematica_cod
     type: string
@@ -269,12 +249,12 @@ fields:
     constraints:
       pattern: ^\d{8}-\d$
 
-  - name: data_inclusao
-    type: date
-    title: Data da Inclusão
+  - name: data_cadastro
+    type: datetime
+    title: Data de Cadastro
     description: |
       .
-    format: '%d/%m/%Y'
+    format: '%Y-%m-%d %H:%M:%S'
 
   - name: data_inicio_vigencia
     type: string
@@ -328,15 +308,15 @@ fields:
       pattern: '^([1-9]\d{0,5})$'
     missingValues: ['0', '9999999']
 
-  - name: diretriz_estrategica_cod
+  - name: despesa_desc
     type: string
-    title: Diretriz Estratégica - Código
+    title: Classificação da Despesa - Descrição
     description: |
       .
     constraints:
-      pattern: '^\d+$'
+      maxLength: 500
 
-  - name: diretriz_estrategica_desc
+  - name: diretriz_estrategica
     type: string
     title: Diretriz Estratégica - Descrição
     description: |
@@ -397,14 +377,6 @@ fields:
     constraints:
       maxLength: 500
 
-  - name: especie_cod
-    type: string
-    title: Espécie da Receita - Código
-    description: |
-      .
-    constraints:
-      pattern: '^[1-9]$'
-
   - name: estrategia_implementacao
     type: string
     title: Estratégia de Implementação
@@ -430,14 +402,6 @@ fields:
     title: Fonte Recurso - Descrição
     description: |
       Descrição da fonte dos recursos financeiros.
-    constraints:
-      maxLength: 500
-
-  - name: fonte_grupo_desc
-    type: string
-    title: Grupo Fonte - Descrição
-    description: |
-      .
     constraints:
       maxLength: 500
 
@@ -513,6 +477,22 @@ fields:
     title: Grupo Despesa - Descrição
     description: |
       Descrição do grupo de natureza econômica da despesa.
+    constraints:
+      maxLength: 500
+
+  - name: grupo_fonte_cod
+    type: string
+    title: Grupo de Fonte - Código
+    description: |
+      .
+    constraints:
+      pattern: '^\d{1,2}$'
+
+  - name: grupo_fonte_desc
+    type: string
+    title: Grupo de Fonte - Descrição
+    description: |
+      .
     constraints:
       maxLength: 500
 
@@ -716,11 +696,17 @@ fields:
       .
 
   - name: indice_referencia_data_apuracao
-    type: date
+    type: datetime
     title: Data de Apuração
     description: |
       .
-    format: '%d/%m/%Y'
+    format: '%Y-%m-%d %H:%M:%S'
+
+  - name: interpretacao
+    type: string
+    title: Interpretação
+    description: |
+      .
 
   - name: intra_saude
     type: boolean
@@ -854,14 +840,6 @@ fields:
     constraints:
       required: true
 
-  - name: item_cod
-    type: string
-    title: Item Despesa - Código
-    description: |
-      Código identificador do item de despesa.
-    constraints:
-      pattern: '^\d{1,2}$'
-
   - name: item_dea_cod
     type: string
     title: Item Origem DEA
@@ -869,14 +847,6 @@ fields:
       Identifica o item de despesa origem de Despesa de Exercício Anterior.
     constraints:
       pattern: '^(0|[1-9]\d{0,1})$'
-
-  - name: item_desc
-    type: string
-    title: Item Despesa - Descrição
-    description: |
-      .
-    constraints:
-      maxLength: 500
 
   - name: item_material_servico_cod
     type: string
@@ -979,37 +949,21 @@ fields:
     constraints:
       maxLength: 500
 
-  - name: municipio_desc
+  - name: municipio_cod
     type: string
-    title: Município
-    description: |
-      .
-    constraints:
-      maxLength: 500
-
-  - name: municipio_ibge_cod
-    type: string
-    title: Município - Código IBGE
-    description: |
-      .
-    constraints:
-      pattern: '^\d{7}$'
-
-  - name: municipio_sigplan_cod
-    type: string
-    title: Município - Código Sigplan
+    title: Município - Código
     description: |
       .
     constraints:
       pattern: '^[1-9]\d{0,2}$'
 
-  - name: natureza_fmt
+  - name: municipio_desc
     type: string
-    title: Natureza da Despesa - Formatado
+    title: Município - Descrição
     description: |
       .
     constraints:
-      pattern: '^\d{1}\.\d{1}\.\d{2}\.\d{2}$'
+      maxLength: 500
 
   - name: natureza_invest_cod
     type: string
@@ -1022,14 +976,6 @@ fields:
   - name: natureza_invest_desc
     type: string
     title: Natureza de Investimento - Descrição
-    description: |
-      .
-    constraints:
-      maxLength: 500
-
-  - name: nivel_origem
-    type: string
-    title: Nível Origem
     description: |
       .
     constraints:
@@ -1084,15 +1030,7 @@ fields:
       pattern: '^\d{7}\s\d{6}/\d{4}$'
     missingValues: [' /']
 
-  - name: objetivo_estrategico_cod
-    type: string
-    title: Objetivo Estratégico - Código
-    description: |
-      .
-    constraints:
-      pattern: '^\d+$'
-
-  - name: objetivo_estrategico_desc
+  - name: objetivo_estrategico
     type: string
     title: Objetivo Estratégico - Descrição
     description: |
@@ -1116,6 +1054,14 @@ fields:
     constraints:
       maxLength: 500
 
+  - name: obra_cod
+    type: string
+    title: Obra - Código
+    description: |
+      .
+    constraints:
+      pattern: '^[1-9]\d{3,4}$'
+
   - name: obra_desc
     type: string
     title: Obra - Descrição
@@ -1123,6 +1069,15 @@ fields:
       .
     constraints:
       maxLength: 500
+
+  - name: obra_num
+    type: integer
+    title: Obra - Número
+    description: |
+      .
+    constraints:
+      unique: true
+      minimum: 1
 
   - name: obra_quantidade
     type: integer
@@ -1137,10 +1092,8 @@ fields:
     title: Obra no SIAD?
     description: |
       .
-    trueValues:
-      - S
-    falseValues:
-      - N
+    trueValues: ['S']
+    falseValues: ['N']
 
   - name: obra_siad_cod
     type: string
@@ -1165,6 +1118,14 @@ fields:
       .
     constraints:
       pattern: '^[1-9]\d{0,1}$'
+
+  - name: ods_subtitulo
+    type: string
+    title: Objetivo de Desenvolvimento Sustentável - Subtítulo
+    description: |
+      .
+    constraints:
+      maxLength: 500
 
   - name: ods_titulo
     type: string
@@ -1205,30 +1166,6 @@ fields:
       .
     constraints:
       maxLength: 500
-
-  - name: orgao_programa_cod
-    type: string
-    title: Órgão Responsável pelo Programa - Código
-    description: |
-      .
-    constraints:
-      pattern: '^[1-9]\d{3}$'
-
-  - name: orgao_programa_nome
-    type: string
-    title: Órgão Responsável pelo Programa - Nome
-    description: |
-      .
-    constraints:
-      maxLength: 500
-
-  - name: origem_cod
-    type: string
-    title: Origem da Receita - Código
-    description: |
-      .
-    constraints:
-      pattern: '^[1-9]$'
 
   - name: origem_credito_cod
     type: string
@@ -1374,15 +1311,7 @@ fields:
     description: |
       .
 
-  - name: produto_cod
-    type: string
-    title: Produto - Código
-    description: |
-      .
-    constraints:
-      pattern: '^\d+$'
-
-  - name: produto_desc
+  - name: produto
     type: string
     title: Produto - Descrição
     description: |
@@ -1459,31 +1388,15 @@ fields:
     constraints:
       maxLength: 500
 
-  - name: programa_trabalho_fmt
-    type: string
-    title: Programa de Trabalho - Formatado
-    description: |
-      .
-    constraints:
-      pattern: '^\d{1}\.\d{2}\.\d{1}\.\d{2}\.\d{3}\.\d{3}\.\d{1}\.\d{3}\.\d{4}$'
-
   - name: projeto_atividade_cod
     type: string
     title: Projeto Atividade - Código
     description: |
       .
     constraints:
-      pattern: '^\d{3}$'
+      pattern: '^\d{1,3}$'
 
-  - name: projeto_estrategico_cod
-    type: string
-    title: Projeto Estratégico - Código
-    description: |
-      .
-    constraints:
-      pattern: '^\d+$'
-
-  - name: projeto_estrategico_desc
+  - name: projeto_estrategico
     type: string
     title: Projeto Estratégico - Descrição
     description: |
@@ -1491,15 +1404,7 @@ fields:
     constraints:
       maxLength: 500
 
-  - name: publico_alvo_cod
-    type: string
-    title: Público-Alvo - Código
-    description: |
-      .
-    constraints:
-      pattern: '^\d+$'
-
-  - name: publico_alvo_desc
+  - name: publico_alvo
     type: string
     title: Público-Alvo - Descrição
     description: |
@@ -1569,21 +1474,13 @@ fields:
     constraints:
       maxLength: 500
 
-  - name: receita_tipo_cod
-    type: string
-    title: Tipo de Receita - Código
-    description: |
-      .
-    constraints:
-      pattern: '^[1-9]$'
-
   - name: regiao_geografica_intermediaria_cod
     type: string
     title: Região Geográfica Intermediária - Código
     description: |
       .
     constraints:
-      pattern: '^([1-9]\d{3}|\d{1,2})$'
+      pattern: '^31\d{2}$'
 
   - name: regiao_geografica_intermediaria_desc
     type: string
@@ -1593,14 +1490,6 @@ fields:
     constraints:
       maxLength: 500
 
-  - name: rubrica_cod
-    type: string
-    title: Espécie da Receita - Código
-    description: |
-      .
-    constraints:
-      pattern: '^[1-9]$'
-
   - name: situcao_contrato
     type: string
     title: Situação Contrato
@@ -1608,14 +1497,6 @@ fields:
       .
     constraints:
       maxLength: 500
-
-  - name: subalinea_cod
-    type: string
-    title: Subalínea da Receita - Código
-    description: |
-      .
-    constraints:
-      pattern: '^\d{1}$'
 
   - name: subfuncao_cod
     type: string
@@ -1640,14 +1521,6 @@ fields:
       Descrição do detalhamento das áreas de atuação do Governo.
     constraints:
       maxLength: 500
-
-  - name: subitem_cod
-    type: string
-    title: Subitem - Código
-    description: |
-      .
-    constraints:
-      pattern: '^\d{1,3}$'
 
   - name: subprojeto_cod
     type: string
@@ -1705,31 +1578,21 @@ fields:
     constraints:
       pattern: '^[1-9]\d{6}$'
 
+  - name: unidade_medida
+    type: string
+    title: Unidade de Medida
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
   - name: unidade_medida_alterar
     type: boolean
     title: Alterar Unidade de Medida da Obra?
     description: |
       .
-    trueValues:
-      - S
-    falseValues:
-      - N
-
-  - name: unidade_medida_cod
-    type: string
-    title: Unidade de Medida - Código
-    description: |
-      .
-    constraints:
-      pattern: '^[1-9]\d{0,3}$'
-
-  - name: unidade_medida_desc
-    type: string
-    title: Unidade de Medida - Descrição
-    description: |
-      .
-    constraints:
-      maxLength: 500
+    trueValues: ['S']
+    falseValues: ['N']
 
   - name: uo_acao_cod
     type: string
@@ -1742,6 +1605,14 @@ fields:
   - name: uo_acao_nome
     type: string
     title: Unidade Orçamentária Responsável pela Ação - Nome
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: uo_acao_sigla
+    type: string
+    title: Unidade Orçamentária Responsável pela Ação - Sigla
     description: |
       .
     constraints:
@@ -1813,6 +1684,14 @@ fields:
     constraints:
       maxLength: 500
 
+  - name: uo_financiadora_sigla
+    type: string
+    title: Unidade Orçamentária Financiadora - Sigla
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
   - name: uo_nome
     type: string
     title: Unidade Orçamentária - Nome
@@ -1837,6 +1716,14 @@ fields:
     constraints:
       maxLength: 500
 
+  - name: uo_programa_sigla
+    type: string
+    title: Unidade Orçamentária Responsável pelo Programa - Sigla
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
   - name: uo_repassadora_cod
     type: string
     title: Unidade Orçamentária Repassadora - Código
@@ -1844,6 +1731,14 @@ fields:
       .
     constraints:
       pattern: '^[1-9]\d{3}$'
+
+  - name: uo_repassadora_nome
+    type: string
+    title: Unidade Orçamentária Repassadora - Nome
+    description: |
+      .
+    constraints:
+      maxLength: 500
 
   - name: uo_repassadora_sigla
     type: string
@@ -2026,7 +1921,6 @@ fields:
     title: Valor Detalhado (R$)
     description: |
       .
-    decimalChar: ','
     constraints:
       minimum: 0
 
@@ -2098,7 +1992,6 @@ fields:
     title: Valor Proposto Ano
     description: |
       .
-    decimalChar: ','
     constraints:
       minimum: 0
 
@@ -2236,7 +2129,6 @@ fields:
     title: Valor Distribuído (R$)
     description: |
       .
-    decimalChar: ','
     constraints:
       minimum: 0
 
@@ -2325,3 +2217,19 @@ fields:
       .
     constraints:
       minimum: 0
+
+  - name: receita_nivel
+    type: string
+    title: Classificação Receita - Nível
+    description: |
+      .
+    constraints:
+      enum: ['MATRIZ', 'DETALHE']
+
+  - name: receita_vigencia
+    type: string
+    title: Classificação Receita - Vigência
+    description: |
+      .
+    constraints:
+      pattern: '^(A|F)$'
