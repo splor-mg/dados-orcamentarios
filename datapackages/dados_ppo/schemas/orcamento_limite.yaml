@@ -1,24 +1,42 @@
 fields:
-  - name: Ano
-    target: ano
+  - name: ano
+    type: number
 
-  - name: UO
-    target: uo_cod
+  - name: uo_cod
+    type: number
 
-  - name: SIGLA
-    target: uo_sigla
+  - name: uo_sigla
+    type: string
 
-  - name: GRUPO
-    target: grupo_cod
+  - name: uo_nome
+    type: string
 
-  - name: IAG
-    target: iag_cod
+  - name: grupo_cod
+    type: number
 
-  - name: FONTE
-    target: fonte_cod
+  - name: grupo_desc
+    type: string
 
-  - name: IPU
-    target: ipu_cod
+  - name: iag_cod
+    type: number
 
-  - name: VALOR LIMITE
-    target: vlr_limite
+  - name: iag_desc
+    type: string
+
+  - name: fonte_cod
+    type: number
+
+  - name: fonte_desc
+    type: string
+
+  - name: ipu_cod
+    type: number
+
+  - name: ipu_desc
+    type: string
+
+  - name: vlr_limite
+    type: number
+
+  - name: data_cadastro
+    type: string

@@ -1,108 +1,117 @@
 fields:
-  - name: PPAG
-    target: ppag
+  - name: ano
+    type: number
 
-  - name: Exercício
-    target: ano
+  - name: ppag
+    type: number
 
-  - name: Código do Programa
-    target: programa_cod
+  - name: uo_programa_cod
+    type: number
 
-  - name: Nome do Programa
-    target: programa_desc
+  - name: uo_programa_sigla
+    type: string
 
-  - name: Código da Unidade Orçamentária Responsável pelo Programa
-    target: uo_programa_cod
+  - name: uo_programa_nome
+    type: string
 
-  - name: Unidade Orçamentária Responsável pelo Programa
-    target: uo_programa_nome
+  - name: ua_programa_nome
+    type: string
 
-  - name: Unidade Administrativa Responsável pelo Programa
-    target: ua_programa_nome
+  - name: programa_cod
+    type: number
 
-  - name: Exclusão Lógica do Programa
-    target: programa_exclusao
+  - name: programa_desc
+    type: string
 
-  - name: Código do Indicador
-    target: indicador_cod
+  - name: indicador_cod
+    type: number
 
-  - name: Indicador
-    target: indicador_desc
+  - name: indicador_desc
+    type: string
 
-  - name: Indicador Novo
-    target: indicador_novo
+  - name: fonte_desc
+    type: string
 
-  - name: Exclusão Lógica do Indicador
-    target: indicador_exclusao
+  - name: formula_calculo
+    type: string
 
-  - name: Justificativa de Inclusão  do Indicador
-    target: indicador_justificativa_inclusao
+  - name: programa_exclusao
+    type: string
 
-  - name: Justificativa de Exclusão do Indicador
-    target: indicador_justificativa_exclusao
+  - name: programa_novo
+    type: string
 
-  - name: Unidade de Medida
-    target: unidade_medida_desc
+  - name: indicador_exclusao
+    type: string
 
-  - name: Índice de Referência
-    target: indice_referencia
+  - name: indicador_justificativa_exclusao
+    type: string
 
-  - name: Data de Apuração do Índice de Referência
-    target: indice_referencia_data_apuracao
+  - name: indicador_novo
+    type: string
 
-  - name: Em Apuração (Índice de Referência)
-    target: indice_referencia_apuracao
+  - name: indicador_justificativa_inclusao
+    type: string
 
-  - name: Justificativa do Status (Índice de Referência)
-    target: indice_referencia_apuracao_justificativa
+  - name: polaridade
+    type: string
 
-  - name: Previsão para {{year1}}
-    target: previsao_ano0
+  - name: periodicidade
+    type: string
 
-  - name: Em Apuração ({{year1}})
-    target: apuracao_ano0
+  - name: base_geografica
+    type: string
 
-  - name: Justificativa do Status ({{year1}})
-    target: previsao_apuracao_justificativa_ano0
+  - name: unidade_medida
+    type: string
 
-  - name: Previsão para {{year2}}
-    target: previsao_ano1
+  - name: indice_referencia
+    type: number
 
-  - name: Em Apuração ({{year2}})
-    target: apuracao_ano1
+  - name: indice_referencia_apuracao
+    type: string
 
-  - name: Justificativa do Status ({{year2}})
-    target: previsao_apuracao_justificativa_ano1
+  - name: indice_referencia_apuracao_justificativa
+    type: string
 
-  - name: Previsão para {{year3}}
-    target: previsao_ano2
+  - name: indice_referencia_data_apuracao
+    type: string
 
-  - name: Em Apuração ({{year3}})
-    target: apuracao_ano2
+  - name: previsao_ano0
+    type: number
 
-  - name: Justificativa do Status ({{year3}})
-    target: previsao_apuracao_justificativa_ano2
+  - name: apuracao_ano0
+    type: string
 
-  - name: Previsão para {{year4}}
-    target: previsao_ano3
+  - name: previsao_apuracao_justificativa_ano0
+    type: string
 
-  - name: Em Apuração ({{year4}})
-    target: apuracao_ano3
+  - name: previsao_ano1
+    type: number
 
-  - name: Justificativa do Status ({{year4}})
-    target: previsao_apuracao_justificativa_ano3
+  - name: apuracao_ano1
+    type: string
 
-  - name: Fonte
-    target: fonte_desc
+  - name: previsao_apuracao_justificativa_ano1
+    type: string
 
-  - name: Polaridade
-    target: polaridade
+  - name: previsao_ano2
+    type: number
 
-  - name: Periodicidade
-    target: periodicidade
+  - name: apuracao_ano2
+    type: string
 
-  - name: Base Geográfica
-    target: base_geografica
+  - name: previsao_apuracao_justificativa_ano2
+    type: string
 
-  - name: Fórmula de Cálculo
-    target: formula_calculo
+  - name: previsao_ano3
+    type: number
+
+  - name: apuracao_ano3
+    type: string
+
+  - name: previsao_apuracao_justificativa_ano3
+    type: string
+
+  - name: data_cadastro
+    type: string

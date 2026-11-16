@@ -1,153 +1,162 @@
 fields:
-  - name: PPAG
-    target: ppag
+  - name: ano
+    type: number
 
-  - name: Exercício
-    target: ano
+  - name: ppag
+    type: number
 
-  - name: Setor de Governo
-    target: governo_setor
+  - name: uo_programa_cod
+    type: number
 
-  - name: Código do Programa
-    target: programa_cod
+  - name: uo_programa_sigla
+    type: string
 
-  - name: Nome do Programa
-    target: programa_desc
+  - name: uo_programa_nome
+    type: string
 
-  - name: Exclusão Lógica do Programa
-    target: programa_exclusao
+  - name: poder_cod
+    type: number
 
-  - name: Programa Novo
-    target: programa_novo
+  - name: poder_desc
+    type: string
 
-  - name: Justificativa de Inclusão do Programa
-    target: programa_justificativa_inclusao
+  - name: governo_setor
+    type: string
 
-  - name: Exclusão do Programa
-    target: programa_justificativa_exclusao
+  - name: orgao_cod
+    type: number
 
-  - name: Código da Área Temática
-    target: area_tematica_cod
+  - name: orgao_nome
+    type: string
 
-  - name: Área Temática
-    target: area_tematica_desc
+  - name: uo_acao_cod
+    type: number
 
-  - name: Código da Unidade Orçamentária Responsável pelo Programa
-    target: uo_programa_cod
+  - name: uo_acao_sigla
+    type: string
 
-  - name: Unidade Orçamentária Responsável pelo Programa
-    target: uo_programa_nome
+  - name: uo_acao_nome
+    type: string
 
-  - name: Código da Unidade Orçamentária Responsável pela Ação
-    target: uo_acao_cod
+  - name: ua_acao_nome
+    type: string
 
-  - name: Unidade Orçamentária Responsável pela Ação
-    target: uo_acao_nome
+  - name: area_tematica_cod
+    type: number
 
-  - name: Unidade Administrativa Responsável pela Ação
-    target: ua_acao_nome
+  - name: area_tematica_desc
+    type: string
 
-  - name: Código da Função
-    target: funcao_cod
+  - name: funcao_cod
+    type: number
 
-  - name: Função
-    target: funcao_desc
+  - name: funcao_desc
+    type: string
 
-  - name: Código da Subfunção
-    target: subfuncao_cod
+  - name: subfuncao_cod
+    type: number
 
-  - name: Subfunção
-    target: subfuncao_desc
+  - name: subfuncao_desc
+    type: string
 
-  - name: Código do Tipo de Ação
-    target: identificador_cod
+  - name: programa_cod
+    type: number
 
-  - name: Tipo de Ação
-    target: identificador_desc
+  - name: programa_desc
+    type: string
 
-  - name: Código do Identificador de Ação Governamental (IAG)
-    target: iag_cod
+  - name: identificador_cod
+    type: number
 
-  - name: Identificador de Ação Governamental (IAG)
-    target: iag_desc
+  - name: identificador_desc
+    type: string
 
-  - name: Código do Projeto Estratégico
-    target: projeto_estrategico_cod
+  - name: acao_cod
+    type: number
 
-  - name: Projeto Estratégico
-    target: projeto_estrategico_desc
+  - name: acao_desc
+    type: string
 
-  - name: Exclusão Lógica da Ação
-    target: acao_exclusao
+  - name: iag_cod
+    type: number
 
-  - name: Nova Ação
-    target: acao_novo
+  - name: iag_desc
+    type: string
 
-  - name: Justificativa de Inclusão da Ação
-    target: acao_justificativa_inclusao
+  - name: programa_exclusao
+    type: string
 
-  - name: Justificativa  Exclusão da Ação
-    target: acao_justificativa_exclusao
+  - name: programa_justificativa_exclusao
+    type: string
 
-  - name: Base Legal
-    target: base_legal
+  - name: programa_novo
+    type: string
 
-  - name: Finalidade da Ação
-    target: acao_finalidade
+  - name: programa_justificativa_inclusao
+    type: string
 
-  - name: Código da Ação
-    target: acao_cod
+  - name: acao_exclusao
+    type: string
 
-  - name: Título da Ação
-    target: acao_desc
+  - name: acao_justificativa_exclusao
+    type: string
 
-  - name: Descrição da Ação
-    target: acao_descricao
+  - name: acao_novo
+    type: string
 
-  - name: Código do Público-Alvo
-    target: publico_alvo_cod
+  - name: acao_justificativa_inclusao
+    type: string
 
-  - name: Público-Alvo
-    target: publico_alvo_desc
+  - name: projeto_estrategico
+    type: string
 
-  - name: Relação com Política de Atendimento à Mulher
-    target: politica_mulheres
+  - name: publico_alvo
+    type: string
 
-  - name: Código do Produto
-    target: produto_cod
+  - name: produto
+    type: string
 
-  - name: Produto
-    target: produto_desc
+  - name: produto_especificacao
+    type: string
 
-  - name: Especificação do Produto
-    target: produto_especificacao
+  - name: unidade_medida
+    type: string
 
-  - name: Código da Unidade de Medida do Produto
-    target: unidade_medida_cod
+  - name: politica_mulheres
+    type: string
 
-  - name: Unidade de Medida do Produto
-    target: unidade_medida_desc
+  - name: acao_finalidade
+    type: string
 
-  - name: Previsão Física {{year1}}
-    target: vlr_meta_fisica_ano0
+  - name: acao_descricao
+    type: string
 
-  - name: Previsão Física {{year2}}
-    target: vlr_meta_fisica_ano1
+  - name: base_legal
+    type: string
 
-  - name: Previsão Física {{year3}}
-    target: vlr_meta_fisica_ano2
+  - name: vlr_meta_fisica_ano0
+    type: number
 
-  - name: Previsão Física {{year4}}
-    target: vlr_meta_fisica_ano3
+  - name: vlr_meta_fisica_ano1
+    type: number
 
-  - name: Previsão Orçamentária {{year1}}
-    target: vlr_meta_orcamentaria_ano0
+  - name: vlr_meta_fisica_ano2
+    type: number
 
-  - name: Previsão Orçamentária {{year2}}
-    target: vlr_meta_orcamentaria_ano1
+  - name: vlr_meta_fisica_ano3
+    type: number
 
-  - name: Previsão Orçamentária {{year3}}
-    target: vlr_meta_orcamentaria_ano2
+  - name: vlr_meta_orcamentaria_ano0
+    type: number
 
-  - name: Previsão Orçamentária {{year4}}
-    target: vlr_meta_orcamentaria_ano3
+  - name: vlr_meta_orcamentaria_ano1
+    type: number
+
+  - name: vlr_meta_orcamentaria_ano2
+    type: number
+
+  - name: vlr_meta_orcamentaria_ano3
+    type: number
+
+  - name: data_cadastro
+    type: string

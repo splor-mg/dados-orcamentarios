@@ -1,0 +1,21 @@
+fields:
+  - name: ano
+    type: number
+
+  - name: categoria_cod
+    type: number
+
+  - name: grupo_cod
+    type: number
+
+  - name: modalidade_cod
+    type: number
+
+  - name: elemento_cod
+    type: number
+
+  - name: despesa_desc
+    type: string
+
+  - name: data_cadastro
+    type: string

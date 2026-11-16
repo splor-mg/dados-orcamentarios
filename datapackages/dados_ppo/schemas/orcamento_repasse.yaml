@@ -1,45 +1,57 @@
 fields:
-  - name: Ano
-    target: ano
+  - name: ano
+    type: number
 
-  - name: U.O. Cedente
-    target: uo_financiadora_cod
+  - name: uo_financiadora_cod
+    type: number
 
-  - name: Nome da U.O. Cedente
-    target: uo_financiadora_nome
+  - name: uo_financiadora_sigla
+    type: string
 
-  - name: U.O. Beneficiada
-    target: uo_beneficiada_cod
+  - name: uo_financiadora_nome
+    type: string
 
-  - name: Nome U.O. Beneficiada
-    target: uo_beneficiada_nome
+  - name: uo_beneficiada_cod
+    type: number
 
-  - name: Grupo Despesa
-    target: grupo_cod
+  - name: uo_beneficiada_sigla
+    type: string
 
-  - name: Nome do Grupo Despesa
-    target: grupo_desc
+  - name: uo_beneficiada_nome
+    type: string
 
-  - name: IAG
-    target: iag_cod
+  - name: grupo_cod
+    type: number
 
-  - name: Nome IAG
-    target: iag_desc
+  - name: grupo_desc
+    type: string
 
-  - name: Grupo Fonte
-    target: fonte_grupo_desc
+  - name: iag_cod
+    type: number
 
-  - name: Fonte
-    target: fonte_cod
+  - name: iag_desc
+    type: string
 
-  - name: Nome da Fonte
-    target: fonte_desc
+  - name: grupo_fonte_cod
+    type: number
 
-  - name: IPU
-    target: ipu_cod
+  - name: grupo_fonte_desc
+    type: string
 
-  - name: Nome do IPU
-    target: ipu_desc
+  - name: fonte_cod
+    type: number
 
-  - name: Valor Repassado
-    target: vlr_repasse
+  - name: fonte_desc
+    type: string
+
+  - name: ipu_cod
+    type: number
+
+  - name: ipu_desc
+    type: string
+
+  - name: vlr_repasse
+    type: number
+
+  - name: data_cadastro
+    type: string

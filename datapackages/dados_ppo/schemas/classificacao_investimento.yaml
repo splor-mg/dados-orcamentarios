@@ -1,0 +1,18 @@
+fields:
+  - name: ano
+    type: number
+
+  - name: categoria_invest_cod
+    type: number
+
+  - name: categoria_invest_desc
+    type: string
+
+  - name: natureza_invest_cod
+    type: number
+
+  - name: natureza_invest_desc
+    type: string
+
+  - name: data_cadastro
+    type: string

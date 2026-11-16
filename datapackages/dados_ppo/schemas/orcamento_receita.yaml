@@ -1,60 +1,42 @@
 fields:
-  - name: Ano
-    target: ano
+  - name: ano
+    type: number
 
-  - name: Unidade Orçamentária
-    target: uo_cod
+  - name: uo_cod
+    type: number
 
-  - name: Nome da UO
-    target: uo_nome
+  - name: uo_sigla
+    type: string
 
-  - name: Sigla UO
-    target: uo_sigla
+  - name: uo_nome
+    type: string
 
-  - name: Classificação da Receita
-    target: receita_cod
+  - name: receita_cod
+    type: string
 
-  - name: Descrição da Receita
-    target: receita_desc
+  - name: receita_desc
+    type: string
 
-  - name: Categoria
-    target: categoria_cod
+  - name: fonte_cod
+    type: number
 
-  - name: Origem
-    target: origem_cod
+  - name: fonte_desc
+    type: string
 
-  - name: Espécie
-    target: especie_cod
+  - name: base_legal
+    type: string
 
-  - name: Rubrica
-    target: rubrica_cod
+  - name: interpretacao
+    type: string
 
-  - name: Alínea
-    target: alinea_cod
+  - name: metodologia
+    type: string
 
-  - name: Subalínea
-    target: subalinea_cod
+  - name: vlr_ldo_rec
+    type: number
 
-  - name: Tipo de Receita
-    target: receita_tipo_cod
+  - name: vlr_loa_rec
+    type: number
 
-  - name: Item
-    target: item_cod
-
-  - name: Subitem
-    target: subitem_cod
-
-  - name: Fonte
-    target: fonte_cod
-
-  - name: Valor LDO
-    target: vlr_ldo_rec
-
-  - name: Valor LOA
-    target: vlr_loa_rec
-
-  - name: Metodologia de cálculo e premissas utilizadas
-    target: metodologia
-
-  - name: Excluído?
-    target: classificacao_excluido
+  - name: data_cadastro
+    type: string

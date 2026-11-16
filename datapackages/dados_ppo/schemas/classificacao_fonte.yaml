@@ -1,0 +1,12 @@
+fields:
+  - name: ano
+    type: number
+
+  - name: fonte_cod
+    type: number
+
+  - name: fonte_desc
+    type: string
+
+  - name: data_cadastro
+    type: string

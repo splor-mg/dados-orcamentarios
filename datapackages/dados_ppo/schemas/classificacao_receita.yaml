@@ -1,0 +1,18 @@
+fields:
+  - name: ano
+    type: number
+
+  - name: receita_cod
+    type: string
+
+  - name: receita_desc
+    type: string
+
+  - name: receita_nivel
+    type: string
+
+  - name: receita_vigencia
+    type: string
+
+  - name: data_cadastro
+    type: string

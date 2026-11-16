@@ -1,0 +1,12 @@
+fields:
+  - name: ano
+    type: number
+
+  - name: ipu_cod
+    type: number
+
+  - name: ipu_desc
+    type: string
+
+  - name: data_cadastro
+    type: string

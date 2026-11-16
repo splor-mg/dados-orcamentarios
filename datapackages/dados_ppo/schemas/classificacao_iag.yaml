@@ -1,0 +1,12 @@
+fields:
+  - name: ano
+    type: number
+
+  - name: iag_cod
+    type: number
+
+  - name: iag_desc
+    type: string
+
+  - name: data_cadastro
+    type: string

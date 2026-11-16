@@ -1,78 +1,90 @@
 fields:
-  - name: Ano
-    target: ano
+  - name: ano
+    type: number
 
-  - name: Poder
-    target: poder_cod
+  - name: poder_cod
+    type: number
 
-  - name: Órgão
-    target: orgao_cod
+  - name: poder_desc
+    type: string
 
-  - name: Nome do Órgão
-    target: orgao_nome
+  - name: orgao_cod
+    type: number
 
-  - name: Unidade Orçamentária
-    target: uo_cod
+  - name: orgao_nome
+    type: string
 
-  - name: Nome da UO
-    target: uo_nome
+  - name: uo_cod
+    type: number
 
-  - name: Sigla da UO
-    target: uo_sigla
+  - name: uo_sigla
+    type: string
 
-  - name: Função
-    target: funcao_cod
+  - name: uo_nome
+    type: string
 
-  - name: Subfunção
-    target: subfuncao_cod
+  - name: funcao_cod
+    type: number
 
-  - name: Programa
-    target: programa_cod
+  - name: funcao_desc
+    type: string
 
-  - name: Nome do Programa
-    target: programa_desc
+  - name: subfuncao_cod
+    type: number
 
-  - name: Ação
-    target: acao_cod
+  - name: subfuncao_desc
+    type: string
 
-  - name: Identificador Projeto Atividade
-    target: identificador_cod
+  - name: programa_cod
+    type: number
 
-  - name: Projeto Atividade
-    target: projeto_atividade_cod
+  - name: programa_desc
+    type: string
 
-  - name: Nome da Ação
-    target: acao_desc
+  - name: identificador_cod
+    type: number
 
-  - name: Subprojeto / Subatividade
-    target: subprojeto_cod
+  - name: identificador_desc
+    type: string
 
-  - name: IAG
-    target: iag_cod
+  - name: projeto_atividade_cod
+    type: number
 
-  - name: Nome IAG
-    target: iag_desc
+  - name: subprojeto_cod
+    type: number
 
-  - name: Categoria
-    target: categoria_invest_cod
+  - name: acao_cod
+    type: string
 
-  - name: Nome Categoria
-    target: categoria_invest_desc
+  - name: acao_desc
+    type: string
 
-  - name: Natureza
-    target: natureza_invest_cod
+  - name: iag_cod
+    type: number
 
-  - name: Nome Natureza
-    target: natureza_invest_desc
+  - name: iag_desc
+    type: string
 
-  - name: Fonte Investimento
-    target: fonte_invest_cod
+  - name: categoria_invest_cod
+    type: number
 
-  - name: Nível Origem
-    target: nivel_origem
+  - name: categoria_invest_desc
+    type: string
 
-  - name: Descrição da Fonte Investimento
-    target: fonte_invest_desc
+  - name: natureza_invest_cod
+    type: number
 
-  - name: Valor (R$)
-    target: vlr_loa_desp
+  - name: natureza_invest_desc
+    type: string
+
+  - name: fonte_invest_cod
+    type: number
+
+  - name: fonte_invest_desc
+    type: string
+
+  - name: vlr_loa_desp
+    type: number
+
+  - name: data_cadastro
+    type: string

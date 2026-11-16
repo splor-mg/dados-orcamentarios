@@ -1,0 +1,18 @@
+fields:
+  - name: ano
+    type: number
+
+  - name: municipio_cod
+    type: number
+
+  - name: municipio_desc
+    type: string
+
+  - name: regiao_geografica_intermediaria_cod
+    type: number
+
+  - name: regiao_geografica_intermediaria_desc
+    type: string
+
+  - name: data_cadastro
+    type: string

@@ -1,93 +1,102 @@
 fields:
-  - name: PPAG
-    target: ppag
+  - name: ano
+    type: number
 
-  - name: Exercício
-    target: ano
+  - name: ppag
+    type: number
 
-  - name: Código do Programa
-    target: programa_cod
+  - name: poder_cod
+    type: number
 
-  - name: Nome do Programa
-    target: programa_desc
+  - name: poder_desc
+    type: string
 
-  - name: Exclusão Lógica do Programa
-    target: programa_exclusao
+  - name: orgao_cod
+    type: number
 
-  - name: Programa Novo
-    target: programa_novo
+  - name: orgao_nome
+    type: string
 
-  - name: Justificativa de Inclusão
-    target: programa_justificativa_inclusao
+  - name: uo_cod
+    type: number
 
-  - name: Exclusão do Programa
-    target: programa_justificativa_exclusao
+  - name: uo_sigla
+    type: string
 
-  - name: Código do Órgão Responsável pelo Programa
-    target: orgao_programa_cod
+  - name: uo_nome
+    type: string
 
-  - name: Órgão Responsável pelo Programa
-    target: orgao_programa_nome
+  - name: ua_programa_nome
+    type: string
 
-  - name: Código da Unidade Orçamentária Responsável pelo Programa
-    target: uo_programa_cod
+  - name: programa_cod
+    type: number
 
-  - name: Unidade Orçamentária Responsável pelo Programa
-    target: uo_programa_nome
+  - name: programa_desc
+    type: string
 
-  - name: Unidade Administrativa Responsável pelo Programa
-    target: ua_programa_nome
+  - name: area_tematica_cod
+    type: number
 
-  - name: Código do Objetivo de Desenvolvimento Sustentável
-    target: ods_cod
+  - name: area_tematica_desc
+    type: string
 
-  - name: Objetivo de Desenvolvimento Sustentável
-    target: ods_titulo
+  - name: programa_exclusao
+    type: string
 
-  - name: Código da Área Temática
-    target: area_tematica_cod
+  - name: programa_justificativa_exclusao
+    type: string
 
-  - name: Área Temática
-    target: area_tematica_desc
+  - name: programa_novo
+    type: string
 
-  - name: Código do Objetivo Estratégico
-    target: objetivo_estrategico_cod
+  - name: programa_justificativa_inclusao
+    type: string
 
-  - name: Objetivo Estratégico
-    target: objetivo_estrategico_desc
+  - name: tipo_de_programa
+    type: string
 
-  - name: Código da Diretriz Estratégica
-    target: diretriz_estrategica_cod
+  - name: horizonte_temporal
+    type: string
 
-  - name: Diretriz Estratégica
-    target: diretriz_estrategica_desc
+  - name: ods_cod
+    type: number
 
-  - name: Objetivo do Programa
-    target: programa_objetivo
+  - name: ods_titulo
+    type: string
 
-  - name: Justificativa do Programa
-    target: programa_justificativa
+  - name: ods_subtitulo
+    type: string
 
-  - name: Causas
-    target: causas
+  - name: objetivo_estrategico
+    type: string
 
-  - name: Tipo de Programa
-    target: tipo_de_programa
+  - name: diretriz_estrategica
+    type: string
 
-  - name: Horizonte Temporal
-    target: horizonte_temporal
+  - name: estrategia_implementacao
+    type: string
 
-  - name: Estratégia de Implementação
-    target: estrategia_implementacao
+  - name: programa_objetivo
+    type: string
 
-  - name: Previsão Orçamentária {{year1}}
-    target: vlr_meta_orcamentaria_ano0
+  - name: programa_justificativa
+    type: string
 
-  - name: Previsão Orçamentária {{year2}}
-    target: vlr_meta_orcamentaria_ano1
+  - name: causas
+    type: string
 
-  - name: Previsão Orçamentária {{year3}}
-    target: vlr_meta_orcamentaria_ano2
+  - name: vlr_meta_orcamentaria_ano0
+    type: number
 
-  - name: Previsão Orçamentária {{year4}}
-    target: vlr_meta_orcamentaria_ano3
+  - name: vlr_meta_orcamentaria_ano1
+    type: number
+
+  - name: vlr_meta_orcamentaria_ano2
+    type: number
+
+  - name: vlr_meta_orcamentaria_ano3
+    type: number
+
+  - name: data_cadastro
+    type: string

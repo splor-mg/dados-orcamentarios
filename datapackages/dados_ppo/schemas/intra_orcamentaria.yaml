@@ -1,39 +1,84 @@
 fields:
-  - name: Ano
-    target: ano
+  - name: ano
+    type: number
 
-  - name: Unidade Orçamentária Beneficiada
-    target: uo_beneficiada_cod
+  - name: uo_beneficiada_cod
+    type: number
 
-  - name: Nome da Ação
-    target: acao_desc
+  - name: uo_beneficiada_sigla
+    type: string
 
-  - name: Programa de Trabalho
-    target: programa_trabalho_fmt
+  - name: uo_beneficiada_nome
+    type: string
 
-  - name: Natureza da Despesa
-    target: natureza_fmt
+  - name: uo_repassadora_cod
+    type: number
 
-  - name: Código do Item
-    target: item_cod
+  - name: uo_repassadora_sigla
+    type: string
 
-  - name: Nome do Elemento Item
-    target: item_desc
+  - name: uo_repassadora_nome
+    type: string
 
-  - name: Valor Distribuído
-    target: vlr_recebido
+  - name: funcao_cod
+    type: number
 
-  - name: Data da Inclusão
-    target: data_inclusao
+  - name: funcao_desc
+    type: string
 
-  - name: Unidade Orçamentária Repassadora
-    target: uo_repassadora_cod
+  - name: subfuncao_cod
+    type: number
 
-  - name: Sigla Repassadora
-    target: uo_repassadora_sigla
+  - name: subfuncao_desc
+    type: string
 
-  - name: Sigla Beneficiada
-    target: uo_beneficiada_sigla
+  - name: programa_cod
+    type: number
 
-  - name: Valor Detalhado (R$)
-    target: vlr_detalhado
+  - name: programa_desc
+    type: string
+
+  - name: acao_cod
+    type: number
+
+  - name: acao_desc
+    type: string
+
+  - name: categoria_cod
+    type: number
+
+  - name: categoria_desc
+    type: string
+
+  - name: grupo_cod
+    type: number
+
+  - name: grupo_desc
+    type: string
+
+  - name: modalidade_cod
+    type: number
+
+  - name: modalidade_desc
+    type: string
+
+  - name: elemento_cod
+    type: number
+
+  - name: elemento_desc
+    type: string
+
+  - name: elemento_item_cod
+    type: number
+
+  - name: elemento_item_desc
+    type: string
+
+  - name: vlr_recebido
+    type: number
+
+  - name: vlr_detalhado
+    type: number
+
+  - name: data_cadastro
+    type: string
