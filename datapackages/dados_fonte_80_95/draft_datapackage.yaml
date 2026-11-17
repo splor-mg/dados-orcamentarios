@@ -1,0 +1,20 @@
+name: orcamento_despesa_fonte_80_95
+title: Portal de Planejamento e Orçamento - PPO-MG
+owner_org: secretaria-de-estado-de-planejamento-e-gestao-seplag
+dpetl_load:
+  owner: splor-mg
+  repo: dados-fonte-80-95-{{year1}}
+  level: orgs
+  visibility: public
+
+resources:
+  - name: orcamento_despesa_fonte_80_95
+    type: table
+    path: data/orcamento_despesa_fonte_80_95.csv
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    schema: schemas/orcamento_despesa_fonte_80_95.yaml
+    dpetl_extract: false
+    dpetl_transform: false
