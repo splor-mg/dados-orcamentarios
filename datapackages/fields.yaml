@@ -63,6 +63,22 @@ fields:
     trueValues: ['S']
     falseValues: ['N']
 
+  - name: acordo_decisao
+    type: string
+    title: Acordo ou Decisão
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: anexo
+    type: string
+    title: Anexo
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
   - name: ano
     type: string
     title: Ano de Exercício
@@ -701,6 +717,22 @@ fields:
     description: |
       .
     format: '%Y-%m-%d %H:%M:%S'
+
+  - name: iniciativa
+    type: string
+    title: Iniciativa
+    description: |
+      .
+    constraints:
+      maxLength: 500
+
+  - name: instrumento_entrada
+    type: string
+    title: Instrumento de entrada
+    description: |
+      .
+    constraints:
+      pattern: '^[1-9]\d{0,6}$'
 
   - name: interpretacao
     type: string
@@ -1474,6 +1506,22 @@ fields:
     constraints:
       maxLength: 500
 
+  - name: receita_nivel
+    type: string
+    title: Classificação Receita - Nível
+    description: |
+      .
+    constraints:
+      enum: ['MATRIZ', 'DETALHE']
+
+  - name: receita_vigencia
+    type: string
+    title: Classificação Receita - Vigência
+    description: |
+      .
+    constraints:
+      pattern: '^(A|F)$'
+
   - name: regiao_geografica_intermediaria_cod
     type: string
     title: Região Geográfica Intermediária - Código
@@ -2217,19 +2265,3 @@ fields:
       .
     constraints:
       minimum: 0
-
-  - name: receita_nivel
-    type: string
-    title: Classificação Receita - Nível
-    description: |
-      .
-    constraints:
-      enum: ['MATRIZ', 'DETALHE']
-
-  - name: receita_vigencia
-    type: string
-    title: Classificação Receita - Vigência
-    description: |
-      .
-    constraints:
-      pattern: '^(A|F)$'
