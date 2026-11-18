@@ -20,6 +20,6 @@ LEFT JOIN db_dlseplag_prod_ppo_staging.tb_tab_categoria_pessoal
 LEFT JOIN db_dlseplag_prod_ppo_staging.tb_tab_tipo_categoria_pessoal
     ON tb_tab_tipo_categoria_pessoal.cod_tipo_categoria_pessoal = tb_tab_categoria_pessoal.cod_tipo_categoria_pessoal
 CROSS JOIN db_dlseplag_prod_ppo_staging.tb_tx_ppag
-WHERE tb_tx_ppag.ano = '2027'
+WHERE tb_tx_ppag.vigente = 'SIM'
     AND tb_tab_uo_categoria_pessoal.status = 'N'
     AND tb_tab_uo_categoria_pessoal.valor > 0

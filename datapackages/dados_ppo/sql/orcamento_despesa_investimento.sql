@@ -63,5 +63,5 @@ LEFT JOIN db_dlseplag_prod_ppo_staging.tb_tab_natureza_invest
 LEFT JOIN db_dlseplag_prod_ppo_staging.tb_tab_fonte_investimento
     ON tb_tab_fonte_investimento.cod_fonte_investimento = tb_tab_orcamento_investimento.cod_fonte_investimento
 CROSS JOIN db_dlseplag_prod_ppo_staging.tb_tx_ppag
-WHERE tb_tx_ppag.ano = '2027'
+WHERE tb_tx_ppag.vigente = 'SIM'
     AND tb_tab_orcamento_investimento.status = 'N'

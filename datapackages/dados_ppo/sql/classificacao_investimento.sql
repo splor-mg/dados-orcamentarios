@@ -9,6 +9,6 @@ FROM db_dlseplag_prod_ppo_staging.tb_tab_natureza_invest
 JOIN db_dlseplag_prod_ppo_staging.tb_tab_categoria_invest
     ON tb_tab_categoria_invest.cod_categoria_invest = tb_tab_natureza_invest.cod_categoria
 CROSS JOIN db_dlseplag_prod_ppo_staging.tb_tx_ppag
-WHERE tb_tx_ppag.ano = '2027'
+WHERE tb_tx_ppag.vigente = 'SIM'
     AND tb_tab_categoria_invest.status = 'N'
     AND tb_tab_natureza_invest.status = 'N'

@@ -80,5 +80,5 @@ LEFT JOIN db_dlseplag_prod_ppo_staging.tb_tab_fonte
 LEFT JOIN db_dlseplag_prod_ppo_staging.tb_tab_ipu
     ON tb_tab_ipu.cod_ipu = tb_tab_orcamento_despesa.cod_ipu
 CROSS JOIN db_dlseplag_prod_ppo_staging.tb_tx_ppag
-WHERE tb_tx_ppag.ano = '2027'
+WHERE tb_tx_ppag.vigente = 'SIM'
     AND tb_tab_orcamento_despesa.status = 'N'

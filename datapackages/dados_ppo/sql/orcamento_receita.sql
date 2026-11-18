@@ -47,5 +47,5 @@ LEFT JOIN db_dlseplag_prod_ppo_staging.tb_tab_classificacao_receita classificaca
     AND classificacao_matriz.cod_item = 0
     AND classificacao_matriz.cod_sub_item = 0
 CROSS JOIN db_dlseplag_prod_ppo_staging.tb_tx_ppag
-WHERE tb_tx_ppag.ano = '2027'
+WHERE tb_tx_ppag.vigente = 'SIM'
     AND tb_tab_orcamento_receita.status = 'N'

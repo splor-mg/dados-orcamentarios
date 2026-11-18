@@ -72,4 +72,4 @@ LEFT JOIN db_dlseplag_prod_ppo_staging.tb_tab_diretriz
 LEFT JOIN db_dlseplag_prod_ppo_staging.tb_tab_causa
     ON tb_tab_causa.cod_prg = tb_tab_programa_nova.id_programa
 CROSS JOIN db_dlseplag_prod_ppo_staging.tb_tx_ppag
-WHERE tb_tx_ppag.ano = '2027'
+WHERE tb_tx_ppag.vigente = 'SIM'

@@ -64,6 +64,6 @@ LEFT JOIN db_dlseplag_prod_ppo_staging.tb_tab_unidade_orcamentaria uo_beneficiad
     AND uo_beneficiada.cod_orgao_uo = tb_tab_despesa_intraorcamentaria.cod_orgao_uo
     AND uo_beneficiada.cod_orcamentario_uo = tb_tab_despesa_intraorcamentaria.cod_orcamentario_uo
 CROSS JOIN db_dlseplag_prod_ppo_staging.tb_tx_ppag
-WHERE tb_tx_ppag.ano = '2027'
+WHERE tb_tx_ppag.vigente = 'SIM'
     AND tb_tab_despesa_intraorcamentaria.status = 'N'
     AND tb_tab_orcamento_despesa.status = 'N'

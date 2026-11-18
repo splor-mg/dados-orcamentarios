@@ -91,5 +91,5 @@ LEFT JOIN db_dlseplag_prod_ppo_staging.tb_tab_municipio
 LEFT JOIN db_dlseplag_prod_ppo_staging.tb_tab_regiao
     ON tb_tab_regiao.cod_regiao = tb_tab_municipio.cod_regiao
 CROSS JOIN db_dlseplag_prod_ppo_staging.tb_tx_ppag
-WHERE tb_tx_ppag.ano = '2027'
+WHERE tb_tx_ppag.vigente = 'SIM'
     AND NOT (tb_tab_acao_nova.status = 'S' AND tb_tab_acao_nova.acasnnova = 'S' AND tb_tab_acao_nova.validado = 'N')

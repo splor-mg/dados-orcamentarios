@@ -103,5 +103,5 @@ LEFT JOIN db_dlseplag_prod_ppo_staging.tb_tab_unidade_medidas
 LEFT JOIN db_dlseplag_prod_ppo_staging.vw_vw_valores_acao
     ON vw_vw_valores_acao.cod_acao_ppag = tb_tab_acao_nova.cod_acao_ppag
 CROSS JOIN db_dlseplag_prod_ppo_staging.tb_tx_ppag
-WHERE tb_tx_ppag.ano = '2027'
+WHERE tb_tx_ppag.vigente = 'SIM'
     AND NOT (tb_tab_acao_nova.status = 'S' AND tb_tab_acao_nova.acasnnova = 'S' AND tb_tab_acao_nova.validado = 'N')

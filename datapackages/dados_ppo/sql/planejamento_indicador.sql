@@ -67,5 +67,5 @@ LEFT JOIN db_dlseplag_prod_ppo_staging.tb_tab_apu_ind_jus justificativa_ano2
 LEFT JOIN db_dlseplag_prod_ppo_staging.tb_tab_apu_ind_jus justificativa_ano3
     ON justificativa_ano3.cod_indicador = tb_tab_indicador_nova.cod_ind
     AND CAST(justificativa_ano3.indice AS BIGINT) = CAST(tb_tx_ppag.ano AS BIGINT) + 3
-WHERE tb_tx_ppag.ano = '2027'
+WHERE tb_tx_ppag.vigente = 'SIM'
     AND NOT (tb_tab_indicador_nova.status = 'S' AND tb_tab_indicador_nova.ind_novo = 'S' AND tb_tab_indicador_nova.validado = 'N')
