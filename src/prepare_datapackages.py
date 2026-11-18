@@ -83,16 +83,8 @@ def build_descriptors(source, output_name, match_by, fields):
         output.write_text(replace_placeholders(text, previous), encoding='utf-8')
 
 
-def build_sql():
-    """Replace the placeholders of datapackages/*/sql/*.sql."""
-    for path in Path('datapackages').glob('*/sql/*.sql'):
-        text = path.read_text(encoding='utf-8')
-        path.write_text(replace_placeholders(text, previous=False), encoding='utf-8')
-
-
 def pre_extract(fields):
     build_descriptors('raw_datapackage.yaml', 'datapackage.yaml', 'target', fields)
-    build_sql()
 
 
 def pre_load(fields):
