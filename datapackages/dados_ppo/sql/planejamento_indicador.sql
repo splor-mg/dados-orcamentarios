@@ -1,3 +1,18 @@
+WITH justificativa AS (
+    SELECT cod_indicador, indice, justificativa
+    FROM (
+        SELECT
+            cod_indicador,
+            CAST(indice AS BIGINT) AS indice,
+            justificativa,
+            ROW_NUMBER() OVER (
+                PARTITION BY cod_indicador, CAST(indice AS BIGINT)
+                ORDER BY data__cadastro DESC, cod_apu_ind DESC
+            ) AS ordem
+        FROM db_dlseplag_prod_ppo_staging.tb_tab_apu_ind_jus
+    ) justificativas
+    WHERE ordem = 1
+)
 SELECT
     CAST(tb_tx_ppag.ano AS BIGINT) AS ano,
     CAST(tb_tx_ppag.cod_ppag AS BIGINT) AS ppag,
@@ -55,17 +70,17 @@ LEFT JOIN db_dlseplag_prod_ppo_staging.tb_tab_periodicidade
 LEFT JOIN db_dlseplag_prod_ppo_staging.tb_tab_base_geografica
     ON tb_tab_base_geografica.cod_base_geo = tb_tab_indicador_nova.cod_bas_geo
 CROSS JOIN db_dlseplag_prod_ppo_staging.tb_tx_ppag
-LEFT JOIN db_dlseplag_prod_ppo_staging.tb_tab_apu_ind_jus justificativa_ano0
+LEFT JOIN justificativa justificativa_ano0
     ON justificativa_ano0.cod_indicador = tb_tab_indicador_nova.cod_ind
-    AND CAST(justificativa_ano0.indice AS BIGINT) = CAST(tb_tx_ppag.ano AS BIGINT) + 0
-LEFT JOIN db_dlseplag_prod_ppo_staging.tb_tab_apu_ind_jus justificativa_ano1
+    AND justificativa_ano0.indice = CAST(tb_tx_ppag.ano AS BIGINT) + 0
+LEFT JOIN justificativa justificativa_ano1
     ON justificativa_ano1.cod_indicador = tb_tab_indicador_nova.cod_ind
-    AND CAST(justificativa_ano1.indice AS BIGINT) = CAST(tb_tx_ppag.ano AS BIGINT) + 1
-LEFT JOIN db_dlseplag_prod_ppo_staging.tb_tab_apu_ind_jus justificativa_ano2
+    AND justificativa_ano1.indice = CAST(tb_tx_ppag.ano AS BIGINT) + 1
+LEFT JOIN justificativa justificativa_ano2
     ON justificativa_ano2.cod_indicador = tb_tab_indicador_nova.cod_ind
-    AND CAST(justificativa_ano2.indice AS BIGINT) = CAST(tb_tx_ppag.ano AS BIGINT) + 2
-LEFT JOIN db_dlseplag_prod_ppo_staging.tb_tab_apu_ind_jus justificativa_ano3
+    AND justificativa_ano2.indice = CAST(tb_tx_ppag.ano AS BIGINT) + 2
+LEFT JOIN justificativa justificativa_ano3
     ON justificativa_ano3.cod_indicador = tb_tab_indicador_nova.cod_ind
-    AND CAST(justificativa_ano3.indice AS BIGINT) = CAST(tb_tx_ppag.ano AS BIGINT) + 3
+    AND justificativa_ano3.indice = CAST(tb_tx_ppag.ano AS BIGINT) + 3
 WHERE tb_tx_ppag.vigente = 'SIM'
     AND NOT (tb_tab_indicador_nova.status = 'S' AND tb_tab_indicador_nova.ind_novo = 'S' AND tb_tab_indicador_nova.validado = 'N')
