@@ -6,7 +6,7 @@ SELECT
         + CAST(tb_tab_programa_nova.cod_orcamentario_uo AS BIGINT)
         AS uo_programa_cod,
     uo_programa.sigla AS uo_programa_sigla,
-    uo_programa.descricao AS uo_programa_nome,
+    replace(regexp_replace(uo_programa.descricao, '[\\x00-\\x1f]', ' '), unhex('C2A0'), ' ') AS uo_programa_nome,
     CAST(tb_tab_orgao.cod_poder AS BIGINT) AS poder_cod,
     tb_tab_poder.descricao AS poder_desc,
     tb_tab_setor.descricao AS governo_setor,
@@ -17,8 +17,8 @@ SELECT
         + CAST(tb_tab_acao_nova.cod_orcamentario_uo AS BIGINT)
         AS uo_acao_cod,
     tb_tab_unidade_orcamentaria.sigla AS uo_acao_sigla,
-    tb_tab_unidade_orcamentaria.descricao AS uo_acao_nome,
-    tb_tab_acao_nova.acaobs AS ua_acao_nome,
+    replace(regexp_replace(tb_tab_unidade_orcamentaria.descricao, '[\\x00-\\x1f]', ' '), unhex('C2A0'), ' ') AS uo_acao_nome,
+    replace(regexp_replace(tb_tab_acao_nova.acaobs, '[\\x00-\\x1f]', ' '), unhex('C2A0'), ' ') AS ua_acao_nome,
     CAST(tb_tab_area_tematica_programa.cod_area_tematica AS BIGINT) AS area_tematica_cod,
     tb_tab_area_tematica.descricao AS area_tematica_desc,
     CAST(tb_tab_acao_nova.cod_func AS BIGINT) AS funcao_cod,
@@ -26,20 +26,24 @@ SELECT
     CAST(tb_tab_acao_nova.cod_subfuncao AS BIGINT) AS subfuncao_cod,
     tb_tab_subfuncao.descricao AS subfuncao_desc,
     CAST(tb_tab_programa_nova.cod_programa AS BIGINT) AS programa_cod,
-    tb_tab_programa_nova.descricao AS programa_desc,
+    replace(regexp_replace(tb_tab_programa_nova.descricao, '[\\x00-\\x1f]', ' '), unhex('C2A0'), ' ') AS programa_desc,
     CAST(tb_tab_acao_nova.cod_tipo_acao AS BIGINT) AS identificador_cod,
     tb_tab_tipo_acao.descricao AS identificador_desc,
     CAST(tb_tab_acao_nova.cod_acao AS BIGINT) AS acao_cod,
-    tb_tab_acao_nova.desc_aca AS acao_desc,
+    replace(regexp_replace(tb_tab_acao_nova.desc_aca, '[\\x00-\\x1f]', ' '), unhex('C2A0'), ' ') AS acao_desc,
     CAST(tb_tab_acao_nova.acaiagcod AS BIGINT) AS iag_cod,
     tb_tab_iag.descricao AS iag_desc,
     tb_tab_programa_nova.status AS programa_exclusao,
-    tb_tab_programa_nova.justificativa_exclusao AS programa_justificativa_exclusao,
-    tb_tab_programa_nova.prgsnovo AS programa_novo,
-    tb_tab_programa_nova.justificativa_inclusao AS programa_justificativa_inclusao,
+    COALESCE(tb_tab_programa_nova.prgsnovo, 'N') AS programa_novo,
+    replace(regexp_replace(
+        CASE
+            WHEN tb_tab_programa_nova.status = 'S' THEN tb_tab_programa_nova.justificativa_exclusao
+            ELSE tb_tab_programa_nova.justificativa_inclusao
+        END,
+        '[\\x00-\\x1f]', ' '), unhex('C2A0'), ' ') AS programa_justificativa_inclusao_exclusao,
     tb_tab_acao_nova.status AS acao_exclusao,
     tb_tab_acao_nova.acasnnova AS acao_novo,
-    tb_tab_projeto_estrategico.descricao AS projeto_estrategico,
+    replace(regexp_replace(tb_tab_projeto_estrategico.descricao, '[\\x00-\\x1f]', ' '), unhex('C2A0'), ' ') AS projeto_estrategico,
     tb_tab_regiao.descricao AS regiao_geografica_intermediaria_desc,
     tb_tab_municipio.descricao AS municipio_desc,
     tb_tab_localizador_nova.locqtdano1 AS vlr_meta_fisica_ano0,
@@ -92,4 +96,6 @@ LEFT JOIN db_dlseplag_prod_ppo_staging.tb_tab_regiao
     ON tb_tab_regiao.cod_regiao = tb_tab_municipio.cod_regiao
 CROSS JOIN db_dlseplag_prod_ppo_staging.tb_tx_ppag
 WHERE tb_tx_ppag.vigente = 'SIM'
-    AND NOT (tb_tab_acao_nova.status = 'S' AND tb_tab_acao_nova.acasnnova = 'S' AND tb_tab_acao_nova.validado = 'N')
+    AND tb_tab_programa_nova.status = 'N'
+    AND tb_tab_acao_nova.status = 'N'
+ORDER BY programa_cod, uo_acao_cod, acao_cod, regiao_geografica_intermediaria_desc, municipio_desc

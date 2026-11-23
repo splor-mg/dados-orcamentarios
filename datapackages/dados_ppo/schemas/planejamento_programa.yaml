@@ -41,16 +41,16 @@ fields:
   - name: area_tematica_desc
     type: string
 
-  - name: programa_exclusao
+  - name: setor
     type: string
 
-  - name: programa_justificativa_exclusao
+  - name: programa_exclusao
     type: string
 
   - name: programa_novo
     type: string
 
-  - name: programa_justificativa_inclusao
+  - name: programa_justificativa_inclusao_exclusao
     type: string
 
   - name: tipo_de_programa

@@ -44,13 +44,10 @@ fields:
   - name: indicador_exclusao
     type: string
 
-  - name: indicador_justificativa_exclusao
-    type: string
-
   - name: indicador_novo
     type: string
 
-  - name: indicador_justificativa_inclusao
+  - name: indicador_justificativa_inclusao_exclusao
     type: string
 
   - name: polaridade

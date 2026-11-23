@@ -86,13 +86,10 @@ fields:
   - name: programa_exclusao
     type: string
 
-  - name: programa_justificativa_exclusao
-    type: string
-
   - name: programa_novo
     type: string
 
-  - name: programa_justificativa_inclusao
+  - name: programa_justificativa_inclusao_exclusao
     type: string
 
   - name: acao_exclusao

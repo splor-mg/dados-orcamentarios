@@ -43,15 +43,9 @@ fields:
     description: |
       .
 
-  - name: acao_justificativa_exclusao
+  - name: acao_justificativa_inclusao_exclusao
     type: string
-    title: Justificativa de Exclusão da Ação
-    description: |
-      .
-
-  - name: acao_justificativa_inclusao
-    type: string
-    title: Justificativa de Inclusão da Ação
+    title: Justificativa de Inclusão ou Exclusão da Ação
     description: |
       .
 
@@ -656,12 +650,12 @@ fields:
       maxLength: 500
 
   - name: indicador_exclusao
-    type: string
+    type: boolean
     title: Exclusão Lógica do Indicador
     description: |
       .
-    constraints:
-      maxLength: 10
+    trueValues: ['S']
+    falseValues: ['N']
 
   - name: indicador_execucao_continuada
     type: string
@@ -671,25 +665,19 @@ fields:
     constraints:
       maxLength: 10
 
-  - name: indicador_justificativa_exclusao
+  - name: indicador_justificativa_inclusao_exclusao
     type: string
-    title: Justificativa de Exclusão do Indicador
-    description: |
-      .
-
-  - name: indicador_justificativa_inclusao
-    type: string
-    title: Justificativa de Inclusão do Indicador
+    title: Justificativa de Inclusão ou Exclusão do Indicador
     description: |
       .
 
   - name: indicador_novo
-    type: string
+    type: boolean
     title: Indicador Novo?
     description: |
       .
-    constraints:
-      maxLength: 10
+    trueValues: ['S']
+    falseValues: ['N']
 
   - name: indice_referencia
     type: number
@@ -698,12 +686,12 @@ fields:
       .
 
   - name: indice_referencia_apuracao
-    type: string
+    type: boolean
     title: Em apuração? (Índice de Referência)
     description: |
       .
-    constraints:
-      maxLength: 10
+    trueValues: ['S']
+    falseValues: ['N']
 
   - name: indice_referencia_apuracao_justificativa
     type: string
@@ -1379,12 +1367,12 @@ fields:
       maxLength: 500
 
   - name: programa_exclusao
-    type: string
+    type: boolean
     title: Exclusão Lógica do Programa
     description: |
       .
-    constraints:
-      maxLength: 10
+    trueValues: ['S']
+    falseValues: ['N']
 
   - name: programa_justificativa
     type: string
@@ -1392,25 +1380,19 @@ fields:
     description: |
       .
 
-  - name: programa_justificativa_exclusao
+  - name: programa_justificativa_inclusao_exclusao
     type: string
-    title: Justificativa de Exclusão do Programa
-    description: |
-      .
-
-  - name: programa_justificativa_inclusao
-    type: string
-    title: Justificativa de Inclusão do Programa
+    title: Justificativa de Inclusão ou Exclusão do Programa
     description: |
       .
 
   - name: programa_novo
-    type: string
+    type: boolean
     title: Programa Novo
     description: |
       .
-    constraints:
-      maxLength: 10
+    trueValues: ['S']
+    falseValues: ['N']
 
   - name: programa_objetivo
     type: string
@@ -1537,6 +1519,14 @@ fields:
       .
     constraints:
       maxLength: 500
+
+  - name: setor
+    type: string
+    title: Programa - Setor
+    description: |
+      Indica se o programa é unissetorial (todas as ações são da UO responsável pelo programa) ou multissetorial (tem ação de outra UO).
+    constraints:
+      enum: ['UNISSETORIAL', 'MULTISSETORIAL']
 
   - name: situcao_contrato
     type: string
